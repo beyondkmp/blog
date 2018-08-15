@@ -14,7 +14,7 @@ googleAnalytics = ""      # UA-XXXXXXXX-X
 copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
 
 [author]                  # essential                     # 必需
-  name = "olOwOlo"
+  name = "beyondkmp"
 
 [sitemap]                 # essential                     # 必需
   changefreq = "weekly"
@@ -30,7 +30,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   name = "Archives"
   weight = 20
   identifier = "archives"
-  url = "/posts/"
+  url = "/post/"
 [[menu.main]]
   name = "Tags"
   weight = 30
@@ -44,7 +44,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
 [params]
   version = "3.x"           # Used to give a friendly message when you have an incompatible update
-  debug = true             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
+  debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
 
   since = "2018"            # Site creation time          # 站点建立时间
 
@@ -60,7 +60,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   showArchiveCount = false
 
   # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
-  dateFormatToUse = "2018-08-15"
+  dateFormatToUse = "2006-01-02"
 
   # show word count and read time ?                       # 是否显示字数统计与阅读时间
   moreMeta = false
