@@ -6,9 +6,37 @@
     <description>Recent content in Tags on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Thu, 31 Aug 2017 15:43:48 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>English</title>
+      <link>https://beyondkmp.com/tags/english/</link>
+      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/english/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Preview</title>
+      <link>https://beyondkmp.com/tags/preview/</link>
+      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/preview/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tag-2</title>
+      <link>https://beyondkmp.com/tags/tag-2/</link>
+      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/tag-2/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
