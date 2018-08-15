@@ -9,12 +9,12 @@ draft: false
 ## 安装 ocserv (OpenConnect server)
 
 ocserv 是一个 OpenConnect SSL VPN 协议服务端，0.3.0 版后兼容使用 AnyConnect SSL VPN 协议的终端。官方主页<http://www.infradead.org/ocserv/>。ocserv 已经在 epel 仓库中提供了，所以可以直接通过 yum 安装
-    
+
 ```bash
 $ yum install epel-release
 $ yum install ocserv
 ```
-    
+
 ## 生成证书
 
 [官方文档](http://ocserv.gitlab.io/www/manual.html),具体步骤如下
@@ -285,6 +285,7 @@ EOF
 
     acct = "radius [config=/etc/radcli/radiusclient.conf,groupconfig=true]"
     ```
+
 ## 常用命令
 
 ### 简单用户操作
