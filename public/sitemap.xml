@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<?xml-stylesheet type="text/xsl" href="http://172.18.15.57:1313/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://beyondkmp.com/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://172.18.15.57:1313/categories/</loc>
+    <loc>https://beyondkmp.com/about/</loc>
+    <lastmod>2018-08-15T16:27:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/posts/my-first-post/</loc>
+    <lastmod>2018-08-15T15:45:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://172.18.15.57:1313/</loc>
+    <loc>https://beyondkmp.com/</loc>
+    <lastmod>2018-08-15T16:27:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://172.18.15.57:1313/tags/</loc>
+    <loc>https://beyondkmp.com/posts/</loc>
+    <lastmod>2018-08-15T15:45:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

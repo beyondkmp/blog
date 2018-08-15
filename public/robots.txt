@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://172.18.15.57:1313/sitemap.xml
+Sitemap: https://beyondkmp.com/sitemap.xml
