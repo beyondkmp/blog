@@ -4,7 +4,14 @@
   
   <url>
     <loc>https://beyondkmp.com/post/centos7-ocser-config/</loc>
-    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
+    <lastmod>2018-08-16T19:25:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/about/</loc>
+    <lastmod>2018-08-15T20:53:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18,6 +25,13 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/centos/</loc>
+    <lastmod>2018-08-16T19:25:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -38,14 +52,14 @@
   
   <url>
     <loc>https://beyondkmp.com/</loc>
-    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
+    <lastmod>2018-08-16T19:25:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
+    <lastmod>2018-08-16T19:25:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -66,7 +80,21 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/</loc>
-    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
+    <lastmod>2018-08-16T19:25:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/%E8%BF%90%E7%BB%B4/</loc>
+    <lastmod>2018-08-16T19:25:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/</loc>
+    <lastmod>2018-08-16T19:25:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
