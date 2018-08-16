@@ -17,13 +17,13 @@ ocserv 是一个 OpenConnect SSL VPN 协议服务端，0.3.0 版后兼容使用 
 
 <!--more-->
 
-## 安装 ocserv (OpenConnect server)
+## 安装 ocserv
 
 ```bash
 $ yum install epel-release
 $ yum install ocserv
 ```
-    
+
 ## 生成证书
 
 [官方文档](http://ocserv.gitlab.io/www/manual.html),具体步骤如下
@@ -76,17 +76,14 @@ $ yum install ocserv
 
 4. 生成本地服务器证书(如果不用证书登录，此步骤可以不做）
 
-   创建 gen-client-cert.sh，并将下面内容复制进去
-   
-   ```bash
-   #!/bin/bash
-    
+    创建 gen-client-cert.sh，并将下面内容复制进去
+
+    ```bash
+    #!/bin/bash
     USER=$1
     CA_DIR=$2
     SERIAL=`date +%s`
-    
     certtool --generate-privkey --outfile $USER-key.pem
-    
     cat << _EOF_ >user.tmpl
     cn = "$USER"
     unit = "users"
@@ -95,14 +92,13 @@ $ yum install ocserv
     signing_key
     tls_www_client
     _EOF_
-    
     certtool --generate-certificate --load-privkey $USER-key.pem --load-ca-certificate $CA_DIR/ca-cert.pem --load-ca-privkey $CA_DIR/ca-key.pem --template user.tmpl --outfile $USER-cert.pem
-    
+
     openssl pkcs12 -export -inkey $USER-key.pem -in $USER-cert.pem -name "$USER VPN Client Cert" -certfile $CA_DIR/ca-cert.pem -out $USER.p12
-EOF
-   ```
-   
-   创建用户文件夹并调用 gen-client-cert.sh 生成证书
+EOF 
+    ```
+
+    创建用户文件夹并调用 gen-client-cert.sh 生成证书
 
     ```bash
     $ mkdir user
@@ -111,7 +107,7 @@ EOF
     $ ../gen-client-cert.sh user ..
     # 按提示设置证书使用密码，或直接回车不设密码
     ```
-    
+
     最后，通过 http 服务器或其他方式将 user.p12 传输给客户端导入即可
 
 ## ocserv配置
