@@ -113,22 +113,18 @@ EOF
 ## ocserv配置
 
 1. 配置 ocserv, 配置文件`/etc/ocserv/ocserv.conf`**
-    
+
     ```bash
     #ocserv支持多种认证方式，这是自带的密码认证，使用ocpasswd创建密码文件
     #ocserv还支持证书认证，可以通过Pluggable Authentication Modules (PAM)使用radius等认证方式
     auth = "plain[passwd=/etc/ocserv/ocpasswd]"
-        
     #指定替代的登录方式，这里使用证书登录作为第二种登录方式
     enable-auth = "certificate"
-        
     #证书路径
     server-cert = /etc/ocserv/server-cert.pem
     server-key = /etc/ocserv/server-key.pem
-        
     #ca路径
     ca-cert = /etc/ocserv/ca-cert.pem
-        
     #从证书中提取用户名的方式，这里提取的是证书中的 CN 字段作为用户名
     cert-user-oid = 2.5.4.3
         
@@ -292,30 +288,30 @@ EOF
     ```
 
 ## 常用命令
-
 ### 简单用户操作
-1. 添加用
 
-    ```bash
+1. 添加用户
+
+    ```
     ocpasswd -c /etc/ocserv/ocpasswd 【用户名】
     ```
-    
+
 1. 添加用户至某个分组
 
-    ```bash
+    ```
     ocpasswd -c /etc/ocserv/ocpasswd -g 【分组名称】 【用户名】
     ```
 1. 锁定用户
 
-    ```bash
+    ```
     ocpasswd -c /etc/ocserv/ocpasswd -l 【用户名】
     ```
 1. 解锁用户
 
-    ```bash
+    ```
     ocpasswd -c /etc/ocserv/ocpasswd -u 【用户名】
     ```
-    
+
 1. 删除用户
 
     ```
@@ -328,27 +324,25 @@ EOF
     ```
     occtl -n show status
     ```
-    
+
 1. 查看当前在线用户详情:
 
     ```bash
     occtl -n show users
     ```
-    
+
 1. 踢掉当前在线用户:
     1. 通过用户名:
 
         ```bash
         occtl disconnect user 【用户名】
         ```
-        
+
     1. 通过id
 
         ```bash
         occtl disconnect id 【id号】
         ```
-
-        
 
 ## 参考
 1. [在 CentOS 7 上搭建 Cisco AnyConnect VPN](https://ifreedom.one/2015/04/20/Setup-Cisco-AnyConnect-VPN-on-CentOS7/)

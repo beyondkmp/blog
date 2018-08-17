@@ -75,7 +75,7 @@
 
 <meta itemprop="datePublished" content="2018-08-16T19:25:21&#43;08:00" />
 <meta itemprop="dateModified" content="2018-08-16T19:25:21&#43;08:00" />
-<meta itemprop="wordCount" content="1601">
+<meta itemprop="wordCount" content="1602">
 
 
 
@@ -298,17 +298,13 @@ $ ../gen-client-cert.sh user ..
 <pre><code class="language-bash">#ocserv支持多种认证方式，这是自带的密码认证，使用ocpasswd创建密码文件
 #ocserv还支持证书认证，可以通过Pluggable Authentication Modules (PAM)使用radius等认证方式
 auth = &quot;plain[passwd=/etc/ocserv/ocpasswd]&quot;
-        
 #指定替代的登录方式，这里使用证书登录作为第二种登录方式
 enable-auth = &quot;certificate&quot;
-        
 #证书路径
 server-cert = /etc/ocserv/server-cert.pem
 server-key = /etc/ocserv/server-key.pem
-        
 #ca路径
 ca-cert = /etc/ocserv/ca-cert.pem
-        
 #从证书中提取用户名的方式，这里提取的是证书中的 CN 字段作为用户名
 cert-user-oid = 2.5.4.3
         
@@ -475,24 +471,24 @@ acct = &quot;radius [config=/etc/radcli/radiusclient.conf,groupconfig=true]&quot
 <h3 id="简单用户操作">简单用户操作</h3>
 
 <ol>
-<li><p>添加用</p>
+<li><p>添加用户</p>
 
-<pre><code class="language-bash">ocpasswd -c /etc/ocserv/ocpasswd 【用户名】
+<pre><code>ocpasswd -c /etc/ocserv/ocpasswd 【用户名】
 </code></pre></li>
 
 <li><p>添加用户至某个分组</p>
 
-<pre><code class="language-bash">ocpasswd -c /etc/ocserv/ocpasswd -g 【分组名称】 【用户名】
+<pre><code>ocpasswd -c /etc/ocserv/ocpasswd -g 【分组名称】 【用户名】
 </code></pre></li>
 
 <li><p>锁定用户</p>
 
-<pre><code class="language-bash">ocpasswd -c /etc/ocserv/ocpasswd -l 【用户名】
+<pre><code>ocpasswd -c /etc/ocserv/ocpasswd -l 【用户名】
 </code></pre></li>
 
 <li><p>解锁用户</p>
 
-<pre><code class="language-bash">ocpasswd -c /etc/ocserv/ocpasswd -u 【用户名】
+<pre><code>ocpasswd -c /etc/ocserv/ocpasswd -u 【用户名】
 </code></pre></li>
 
 <li><p>删除用户</p>
