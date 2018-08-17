@@ -229,7 +229,7 @@ signing_key
 cert_signing_key
 crl_signing_key
 EOF
-    
+
 $ certtool --generate-self-signed --load-privkey ca-key.pem \
 --template ca.tmpl --outfile ca-cert.pem
 $ cp ca-cert.pem /etc/pki/ocserv/cacerts
@@ -551,6 +551,23 @@ acct = &quot;radius [config=/etc/radcli/radiusclient.conf,groupconfig=true]&quot
 
     
     
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>wechat</span>
+      </label>
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay-qr-code.png">
+        <span>alipay</span>
+      </label>
+  </div>
+</div>
 
     <footer class="post-footer">
       <div class="post-tags">

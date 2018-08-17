@@ -48,7 +48,7 @@ $ yum install ocserv
     cert_signing_key
     crl_signing_key
     EOF
-    
+
     $ certtool --generate-self-signed --load-privkey ca-key.pem \
     --template ca.tmpl --outfile ca-cert.pem
     $ cp ca-cert.pem /etc/pki/ocserv/cacerts
