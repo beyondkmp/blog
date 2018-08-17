@@ -58,8 +58,8 @@ $ yum install ocserv
     ```
     $ certtool --generate-privkey --outfile server-key.pem
     $ cat >server.tmpl <<EOF
-    cn = "www.baishancloud.com"
-    organization = "Baishan"
+    cn = "www.beyondkmp.com"
+    organization = "Beyondkmp"
     serial = 2
     expiration_days = 3650
     encryption_key
