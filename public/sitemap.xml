@@ -17,13 +17,6 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/post/english-preview/</loc>
-    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://beyondkmp.com/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -32,20 +25,6 @@
   <url>
     <loc>https://beyondkmp.com/tags/centos/</loc>
     <lastmod>2018-08-16T19:25:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/tags/english/</loc>
-    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/categories/english/</loc>
-    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -60,20 +39,6 @@
   <url>
     <loc>https://beyondkmp.com/post/</loc>
     <lastmod>2018-08-16T19:25:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/tags/preview/</loc>
-    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/tags/tag-2/</loc>
-    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
