@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Kmp - beyondkmp&#39;s new hugo blog</title>
-    <link>https://beyondkmp.com/post/</link>
-    <description>Recent content in Posts on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <title>反向代理 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
+    <description>Recent content in 反向代理 on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 17 Aug 2018 21:52:53 +0800</lastBuildDate>
     
-	<atom:link href="https://beyondkmp.com/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://beyondkmp.com/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,17 +20,6 @@
       <description>&lt;h2 id=&#34;反向ssh代理&#34;&gt;反向ssh代理&lt;/h2&gt;
 
 &lt;p&gt;反向ssh代理主要用来访问nat或者防火墙内的主机，也就是用来穿透nat。比如公司内网的机器，你想在家访问，但是内网的机器没有公网ip。接下来的内容就教你怎么实现在家访问公司内网的机器。&lt;strong&gt;不过这个对公司的内部安全的危害非常大，一般不要乱用，如果使用不当，会把整个公司的内网都暴露给外面。&lt;/strong&gt;说白了，这就是一个反弹shell。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>在CentOS 7 上搭建ocserv</title>
-      <link>https://beyondkmp.com/post/centos7-ocser-config/</link>
-      <pubDate>Thu, 16 Aug 2018 19:25:21 +0800</pubDate>
-      
-      <guid>https://beyondkmp.com/post/centos7-ocser-config/</guid>
-      <description>&lt;p&gt;ocserv 是一个 OpenConnect SSL VPN 协议服务端，0.3.0 版后兼容使用 AnyConnect SSL VPN 协议的终端。官方主页&lt;a href=&#34;http://www.infradead.org/ocserv/&#34;&gt;http://www.infradead.org/ocserv/&lt;/a&gt;。ocserv 已经在 epel 仓库中提供了，所以可以直接通过 yum 安装&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

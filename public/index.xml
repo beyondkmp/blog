@@ -23,6 +23,19 @@ It makes use of a variety of open source projects including:
     </item>
     
     <item>
+      <title>反向ssh代理隧道</title>
+      <link>https://beyondkmp.com/post/reverse-ssh-tunneling/</link>
+      <pubDate>Fri, 17 Aug 2018 21:52:53 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/reverse-ssh-tunneling/</guid>
+      <description>&lt;h2 id=&#34;反向ssh代理&#34;&gt;反向ssh代理&lt;/h2&gt;
+
+&lt;p&gt;反向ssh代理主要用来访问nat或者防火墙内的主机，也就是用来穿透nat。比如公司内网的机器，你想在家访问，但是内网的机器没有公网ip。接下来的内容就教你怎么实现在家访问公司内网的机器。&lt;strong&gt;不过这个对公司的内部安全的危害非常大，一般不要乱用，如果使用不当，会把整个公司的内网都暴露给外面。&lt;/strong&gt;说白了，这就是一个反弹shell。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>在CentOS 7 上搭建ocserv</title>
       <link>https://beyondkmp.com/post/centos7-ocser-config/</link>
       <pubDate>Thu, 16 Aug 2018 19:25:21 +0800</pubDate>
