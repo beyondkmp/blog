@@ -75,7 +75,7 @@
 
 <meta itemprop="datePublished" content="2018-08-17T21:52:53&#43;08:00" />
 <meta itemprop="dateModified" content="2018-08-17T21:52:53&#43;08:00" />
-<meta itemprop="wordCount" content="641">
+<meta itemprop="wordCount" content="665">
 
 
 
@@ -208,9 +208,9 @@
 
 <p><img src="/imgs/ssh-reverse.png" alt="ssh反向代理隧道" /></p></li>
 
-<li><p>现在你可以从公网机器连接到内网机器了，使用以下命令</p>
+<li><p>现在你可以从公网机器连接到内网机器了，使用以下命令,输入内网机器root用户的密码就可以远程操作了</p>
 
-<pre><code class="language-bash">ssh localhost -p 19008
+<pre><code class="language-bash">ssh root@localhost -p 19008
 </code></pre></li>
 
 <li><p>你还可以在其它内网，先连接到公网机器，再运行步骤2命令，这样就相当于架了一个桥，一个内网的机器可以访问另外一个内网机器。</p></li>
