@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/post/scala-resources/</loc>
+    <lastmod>2018-09-18T16:37:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/post/reverse-ssh-tunneling/</loc>
     <lastmod>2018-08-17T21:52:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -45,7 +52,21 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2018-08-17T21:52:53+08:00</lastmod>
+    <lastmod>2018-09-18T16:37:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/scala/</loc>
+    <lastmod>2018-09-18T16:37:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/categories/scala/</loc>
+    <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

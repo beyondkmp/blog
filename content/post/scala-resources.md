@@ -2,7 +2,7 @@
 title: "Scala Resources"
 date: 2018-09-18T16:37:36+08:00
 lastmod: 2018-09-18T16:37:36+08:00
-draft: true
+draft: false
 keywords: ["scala"]
 description: "scala's resources"
 tags: ["scala"]
