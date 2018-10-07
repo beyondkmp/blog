@@ -19,12 +19,12 @@ author: "beyondkmp"
 
 ## 步骤
 
-我们要有一台拥有公网ip的机器(现在很方便了，各种云主机就行了)。假设我们这台机器的公网ip是:120.22.23.41,内网机器的ip是192.168.1.28.
+我们要有一台拥有公网ip的机器(现在很方便了，各种云主机就行了)。假设我们这台机器的公网ip是:1.1.1.1,内网机器的ip是192.168.1.28.
 
 1. 使用下面命令，从内网机器连通到公网机器，从而建立一条ssh隧道。19008是内网机器端口，要保证其它程序没在使用。22端口是公网机器的ssh端口，public-username是公网机器的用户名。
 
     ```bash
-    ssh -f -N -T -R 19008:localhost:22 public-username@120.22.23.41
+    ssh -f -N -T -R 19008:localhost:22 public-username@1.1.1.1
     # -f: tells the SSH to background itself after it authenticates, saving you time by not having to run something on the remote server for the tunnel to remain alive.
     # -N: if all you need is to create a tunnel without running any remote commands then include this option to save resources.
     # -T: useful to disable pseudo-tty allocation, which is fitting if you are not trying to create an interactive shell.
@@ -43,9 +43,9 @@ author: "beyondkmp"
 4. 为了不了第一条命令断开，你可以连接上运行htop或者watch命令，这样就不会断开了。或者你可以直接写一个crontab判断是否断开，如果断开就重新连接
 
     ```bash
-    ps -ef|grep "ssh -f -N -T -R 19008:localhost:22 public-username@120.22.23.41" | grep -v grep -q
+    ps -ef|grep "ssh -f -N -T -R 19008:localhost:22 public-username@1.1.1.1" | grep -v grep -q
     if [[ $? -ne 0  ]];then
-        ssh -f -N -T -R 19008:localhost:22 public-username@120.22.23.41
+        ssh -f -N -T -R 19008:localhost:22 public-username@1.1.1.1
     fi
     # crontab
     #* * * * * /usr/local/bin/ssh-reverse.sh &
