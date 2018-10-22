@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vagrant on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/vagrant/</link>
+    <description>Recent content in vagrant on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 22 Oct 2018 10:50:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用vagrant搭建k8s集群</title>
+      <link>https://beyondkmp.com/post/k8s-vagrant-build-cluster/</link>
+      <pubDate>Mon, 22 Oct 2018 10:50:46 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/k8s-vagrant-build-cluster/</guid>
+      <description>&lt;h2 id=&#34;vagrant配置文件&#34;&gt;vagrant配置文件&lt;/h2&gt;
+
+&lt;p&gt;vagrant目前只是简单配置，启动三台机器，系统为ubuntu16.04.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;k8s-01&lt;/strong&gt;: 目前作为master,内存为2GB, ip为192.168.1.4&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;k8s-02&lt;/strong&gt;: 目前作为worker,内存为1GB, ip为192.168.1.5&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;k8s-03&lt;/strong&gt;: 目前作为worker,内存为2GB, ip为192.168.1.6&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

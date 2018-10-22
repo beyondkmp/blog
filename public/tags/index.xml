@@ -21,7 +21,25 @@
     </item>
     
     <item>
-      <title>Scala</title>
+      <title>k8s</title>
+      <link>https://beyondkmp.com/tags/k8s/</link>
+      <pubDate>Mon, 22 Oct 2018 10:50:46 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/k8s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernets集群</title>
+      <link>https://beyondkmp.com/tags/kubernets%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Mon, 22 Oct 2018 10:50:46 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/kubernets%E9%9B%86%E7%BE%A4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scala</title>
       <link>https://beyondkmp.com/tags/scala/</link>
       <pubDate>Tue, 18 Sep 2018 16:37:36 +0800</pubDate>
       
@@ -30,11 +48,20 @@
     </item>
     
     <item>
-      <title>Ssh</title>
+      <title>ssh</title>
       <link>https://beyondkmp.com/tags/ssh/</link>
       <pubDate>Fri, 17 Aug 2018 21:52:53 +0800</pubDate>
       
       <guid>https://beyondkmp.com/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vagrant</title>
+      <link>https://beyondkmp.com/tags/vagrant/</link>
+      <pubDate>Mon, 22 Oct 2018 10:50:46 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/vagrant/</guid>
       <description></description>
     </item>
     

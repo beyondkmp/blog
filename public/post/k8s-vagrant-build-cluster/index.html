@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>反向ssh代理隧道 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <title>使用vagrant搭建k8s集群 - Kmp - beyondkmp&#39;s new hugo blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,8 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="beyondkmp" /><meta name="description" content="在没有外网的情况下，实现远程登录内网机器" />
-<meta name="keywords" content="ssh, 反向, 隧道" />
+<meta name="author" content="beyondkmp" /><meta name="description" content="使用vagrant搭建k8s集群" />
+<meta name="keywords" content="vagrant, k8s, kubernets集群" />
 
 
 
@@ -28,7 +28,7 @@
 <meta name="generator" content="Hugo 0.49.2" />
 
 
-<link rel="canonical" href="https://beyondkmp.com/post/reverse-ssh-tunneling/" />
+<link rel="canonical" href="https://beyondkmp.com/post/k8s-vagrant-build-cluster/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -48,26 +48,26 @@
 
 
 
-<meta property="og:title" content="反向ssh代理隧道" />
-<meta property="og:description" content="在没有外网的情况下，实现远程登录内网机器" />
+<meta property="og:title" content="使用vagrant搭建k8s集群" />
+<meta property="og:description" content="使用vagrant搭建k8s集群" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://beyondkmp.com/post/reverse-ssh-tunneling/" /><meta property="article:published_time" content="2018-08-17T21:52:53&#43;08:00"/>
-<meta property="article:modified_time" content="2018-08-17T21:52:53&#43;08:00"/>
+<meta property="og:url" content="https://beyondkmp.com/post/k8s-vagrant-build-cluster/" /><meta property="article:published_time" content="2018-10-22T10:50:46&#43;08:00"/>
+<meta property="article:modified_time" content="2018-10-22T10:50:46&#43;08:00"/>
 
-<meta itemprop="name" content="反向ssh代理隧道">
-<meta itemprop="description" content="在没有外网的情况下，实现远程登录内网机器">
-
-
-<meta itemprop="datePublished" content="2018-08-17T21:52:53&#43;08:00" />
-<meta itemprop="dateModified" content="2018-08-17T21:52:53&#43;08:00" />
-<meta itemprop="wordCount" content="660">
+<meta itemprop="name" content="使用vagrant搭建k8s集群">
+<meta itemprop="description" content="使用vagrant搭建k8s集群">
 
 
+<meta itemprop="datePublished" content="2018-10-22T10:50:46&#43;08:00" />
+<meta itemprop="dateModified" content="2018-10-22T10:50:46&#43;08:00" />
+<meta itemprop="wordCount" content="739">
 
-<meta itemprop="keywords" content="ssh,反向代理," />
+
+
+<meta itemprop="keywords" content="vagrant,k8s,kubernets集群," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="反向ssh代理隧道"/>
-<meta name="twitter:description" content="在没有外网的情况下，实现远程登录内网机器"/>
+<meta name="twitter:title" content="使用vagrant搭建k8s集群"/>
+<meta name="twitter:description" content="使用vagrant搭建k8s集群"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -134,10 +134,10 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">反向ssh代理隧道</h1>
+      <h1 class="post-title">使用vagrant搭建k8s集群</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-08-17 </span>
+        <span class="post-time"> 2018-10-22 </span>
         <div class="post-category">
             
               <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
@@ -158,9 +158,18 @@
 <ul>
 <li>
 <ul>
-<li><a href="#反向ssh代理">反向ssh代理</a></li>
-<li><a href="#步骤">步骤</a></li>
-<li><a href="#参考">参考</a></li>
+<li><a href="#vagrant配置文件">vagrant配置文件</a>
+<ul>
+<li><a href="#vagrant的配置文件">vagrant的配置文件</a></li>
+</ul></li>
+<li><a href="#kubernets集群搭建">kubernets集群搭建</a>
+<ul>
+<li><a href="#master搭建">master搭建</a>
+<ul>
+<li><a href="#安装软件">安装软件</a></li>
+<li><a href="#初始化">初始化</a></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -172,51 +181,128 @@
 
     
     <div class="post-content">
-      <h2 id="反向ssh代理">反向ssh代理</h2>
+      <h2 id="vagrant配置文件">vagrant配置文件</h2>
 
-<p>反向ssh代理主要用来访问nat或者防火墙内的主机，也就是用来穿透nat。比如公司内网的机器，你想在家访问，但是内网的机器没有公网ip。接下来的内容就教你怎么实现在家访问公司内网的机器。<strong>不过这个对公司的内部安全的危害非常大，一般不要乱用，如果使用不当，会把整个公司的内网都暴露给外面。</strong>说白了，这就是一个反弹shell。</p>
+<p>vagrant目前只是简单配置，启动三台机器，系统为ubuntu16.04.</p>
+
+<ol>
+<li><strong>k8s-01</strong>: 目前作为master,内存为2GB, ip为192.168.1.4</li>
+<li><strong>k8s-02</strong>: 目前作为worker,内存为1GB, ip为192.168.1.5</li>
+<li><strong>k8s-03</strong>: 目前作为worker,内存为2GB, ip为192.168.1.6</li>
+</ol>
 
 <p></p>
 
-<h2 id="步骤">步骤</h2>
+<h3 id="vagrant的配置文件">vagrant的配置文件</h3>
 
-<p>我们要有一台拥有公网ip的机器(现在很方便了，各种云主机就行了)。假设我们这台机器的公网ip是:1.1.1.1,内网机器的ip是192.168.1.28.</p>
+<pre><code class="language-ruby"># -*- mode: ruby -*-
+# vi: set ft=ruby :
 
-<ol>
-<li><p>使用下面命令，从内网机器连通到公网机器，从而建立一条ssh隧道。19008是内网机器端口，要保证其它程序没在使用。22端口是公网机器的ssh端口，public-username是公网机器的用户名。</p>
+Vagrant.configure(&quot;2&quot;) do |config|
 
-<pre><code class="language-bash">ssh -f -N -T -R 19008:localhost:22 public-username@1.1.1.1
-# -f: tells the SSH to background itself after it authenticates, saving you time by not having to run something on the remote server for the tunnel to remain alive.
-# -N: if all you need is to create a tunnel without running any remote commands then include this option to save resources.
-# -T: useful to disable pseudo-tty allocation, which is fitting if you are not trying to create an interactive shell.
+  config.vm.define &quot;k8s-01&quot; do |edge|
+    edge.vm.box =  &quot;bento/ubuntu-16.04&quot;
+    edge.vm.network &quot;private_network&quot;, ip: &quot;192.168.1.4&quot;
+    edge.ssh.insert_key = false
+    edge.vm.hostname = &quot;k8s-01&quot;
+    edge.memory = 2048
+  end
+
+  config.vm.define &quot;k8s-02&quot; do |parent|
+    parent.vm.box =  &quot;bento/ubuntu-16.04&quot;
+    parent.vm.network &quot;private_network&quot;, ip: &quot;192.168.1.5&quot;
+    parent.ssh.insert_key = false
+    parent.vm.hostname = &quot;k8s-02&quot;
+    parent.memory = 1024
+  end
+
+  config.vm.define &quot;k8s-03&quot; do |tertium|
+    tertium.vm.box =  &quot;bento/ubuntu-16.04&quot;
+    tertium.vm.network &quot;private_network&quot;, ip: &quot;192.168.1.6&quot;
+    tertium.ssh.insert_key = false
+    tertium.vm.hostname = &quot;k8s-03&quot;
+    tertium.memory = 1024
+  end
+
+end
 </code></pre>
 
-<p><img src="/imgs/ssh-reverse.png" alt="ssh反向代理隧道" /></p></li>
+<h2 id="kubernets集群搭建">kubernets集群搭建</h2>
 
-<li><p>现在你可以从公网机器连接到内网机器了，使用以下命令,输入内网机器root用户的密码就可以远程操作了</p>
+<h3 id="master搭建">master搭建</h3>
 
-<pre><code class="language-bash">ssh root@localhost -p 19008
-</code></pre></li>
+<h4 id="安装软件">安装软件</h4>
 
-<li><p>你还可以在其它内网，先连接到公网机器，再运行步骤2命令，这样就相当于架了一个桥，一个内网的机器可以访问另外一个内网机器。</p></li>
+<p>本教程主要使用kubeadm来搭建。先使用下面命令安装kubeadm,docker(前提是可以科学上网，要不能下面的命令可能会超时)</p>
 
-<li><p>为了不了第一条命令断开，你可以连接上运行htop或者watch命令，这样就不会断开了。或者你可以直接写一个crontab判断是否断开，如果断开就重新连接</p>
+<pre><code class="language-bash">curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+cat &lt;&lt;EOF &gt; /etc/apt/sources.list.d/kubernetes.list
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+apt-get update
+apt-get install -y docker.io kubeadm
+</code></pre>
 
-<pre><code class="language-bash">ps -ef|grep &quot;ssh -f -N -T -R 19008:localhost:22 public-username@1.1.1.1&quot; | grep -v grep -q
-if [[ $? -ne 0  ]];then
-    ssh -f -N -T -R 19008:localhost:22 public-username@1.1.1.1
-fi
-# crontab
-#* * * * * /usr/local/bin/ssh-reverse.sh &amp;
-</code></pre></li>
-</ol>
+<h4 id="初始化">初始化</h4>
 
-<h2 id="参考">参考</h2>
+<p>使用下面的yml直接搭建起master,目前主要参考极客时间上kubernets专栏来搭建的。下面的v1alpaa1已经过时，如果直接运行会报下面的错误: <code>Please use kubeadm v1.11 instead and run 'kubeadm config migrate --old-config old.yaml --new-config new.yaml', which will write the new, similar spec using a newer API version</code>。</p>
 
-<ol>
-<li><a href="https://blog.devolutions.net/2017/03/what-is-reverse-ssh-port-forwarding">What is Reverse SSH Port Forwarding</a></li>
-<li><a href="https://www.howtoforge.com/reverse-ssh-tunneling">Reverse SSH Tunneling</a></li>
-</ol>
+<p><strong>原始的yml</strong></p>
+
+<pre><code class="language-bash">apiVersion: kubeadm.k8s.io/v1alpha1
+kind: MasterConfiguration
+controllerManagerExtraArgs:
+  horizontal-pod-autoscaler-use-rest-clients: &quot;true&quot;
+  horizontal-pod-autoscaler-sync-period: &quot;10s&quot;
+  node-monitor-grace-period: &quot;10s&quot;
+apiServerExtraArgs:
+  runtime-config: &quot;api/all=true&quot;
+kubernetesVersion: &quot;stable-1.11&quot;
+</code></pre>
+
+<p><strong>修改后的yml</strong></p>
+
+<pre><code class="language-bash">apiVersion: kubeadm.k8s.io/v1alpha2
+kind: MasterConfiguration
+  advertiseAddress: 192.168.1.4
+controllerManagerExtraArgs:
+  horizontal-pod-autoscaler-use-rest-clients: &quot;true&quot;
+  horizontal-pod-autoscaler-sync-period: &quot;10s&quot;
+  node-monitor-grace-period: &quot;10s&quot;
+apiServerExtraArgs:
+  runtime-config: &quot;api/all=true&quot;
+kubernetesVersion: &quot;v1.12.1&quot;
+</code></pre>
+
+<p>上面的配置还添加了对应的ip，这样就不会使用默认的eth0的ip。修改完yml后面，直接运行下面命令.这样master的初始化就完成了。</p>
+
+<pre><code class="language-bash"> kubeadm init --config kubeadm.yaml
+</code></pre>
+
+<p>初始化完成后，会有一些提示,如下</p>
+
+<pre><code>To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+You should now deploy a pod network to the cluster.
+Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+You can now join any number of machines by running the following on each node
+as root:
+
+  kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2
+</code></pre>
+
+<p>要将kubernets的配置放到这个用户的目录，才不会每次使用都报授权错误</p>
+
+<pre><code>Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of &quot;crypto/rsa: verification error&quot; while trying to verify candidate authority certificate &quot;kubernetes&quot;)
+</code></pre>
+
+<p>####</p>
     </div>
 
     
@@ -227,7 +313,7 @@ fi
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
-    <span class="item-content">2018-08-17</span>
+    <span class="item-content">2018-10-22</span>
   </p>
   
   
@@ -256,23 +342,20 @@ fi
     <footer class="post-footer">
       <div class="post-tags">
           
-          <a href="/tags/ssh/">ssh</a>
+          <a href="/tags/vagrant/">vagrant</a>
           
-          <a href="/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">反向代理</a>
+          <a href="/tags/k8s/">k8s</a>
+          
+          <a href="/tags/kubernets%E9%9B%86%E7%BE%A4/">kubernets集群</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/scala-resources/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Scala Resources</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
-          <a class="next" href="/post/centos7-ocser-config/">
-            <span class="next-text nav-default">在CentOS 7 上搭建ocserv</span>
+          <a class="next" href="/post/scala-resources/">
+            <span class="next-text nav-default">Scala Resources</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
