@@ -78,7 +78,7 @@ apt-get install -y docker.io kubeadm
 使用下面的yml直接搭建起master,目前主要参考极客时间上kubernets专栏来搭建的。下面的v1alpaa1已经过时，如果直接运行会报下面的错误: `Please use kubeadm v1.11 instead and run 'kubeadm config migrate --old-config old.yaml --new-config new.yaml', which will write the new, similar spec using a newer API version`。
 
 
-**原始的yml**
+原始的yml
 
 ```bash
 apiVersion: kubeadm.k8s.io/v1alpha1
@@ -92,7 +92,7 @@ apiServerExtraArgs:
 kubernetesVersion: "stable-1.11"
 ```
 
-**修改后的yml**
+修改后的yml
 
 ```bash
 apiVersion: kubeadm.k8s.io/v1alpha2
@@ -198,25 +198,21 @@ kubernets的worker配置就简单多，主要是下面三步
 1. 在所有的worker节点执行上面master软件安装的步骤。目前master和woker的软件安装都是一样，主要区别是master上面还会启动kube-apiserver、kube-scheduler、kube-controller-manager这三个系统pod。
 2. 执行部署Master节点时最后的join命令
 
-```
-kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2
-```
+    ```
+    kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2
+    ```
 
 3. 在专栏里面上运行上面两个就可以通了，但是就是通不了。有一个网络插件weave一直CrashLoopBackOff，后面谷歌下，发现是路由找不到。
 
-在master运行下面的命令
+    ```
+    #在master运行下面的命令
+    root@k8s-01:~# kubectl get svc
+    NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+    kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   6h37m
 
-```
-root@k8s-01:~# kubectl get svc
-NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
-kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   6h37m
-```
-
-然后在worker机器运行下面命令添加路由
-
-```
-route add 100.96.0.1 gw <your real master IP>
-```
+    # 然后在worker机器运行下面命令添加路由
+    route add 100.96.0.1 gw <your real master IP>
+    ```
 
 最后查看下worker的状态，没有问题就全部完成了。
 
@@ -226,3 +222,9 @@ NAME     STATUS   ROLES    AGE     VERSION
 k8s-01   Ready    master   6h39m   v1.12.1
 k8s-03   Ready    <none>   15m     v1.12.1
 ```
+
+## 参考
+
+1. [11 | 从0到1：搭建一个完整的Kubernetes集群](https://time.geekbang.org/column/article/39724)
+2. [How to fix weave-net CrashLoopBackOff for the second node?
+](https://stackoverflow.com/questions/39872332/how-to-fix-weave-net-crashloopbackoff-for-the-second-node)
