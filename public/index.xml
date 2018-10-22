@@ -28,7 +28,7 @@ It makes use of a variety of open source projects including:
       <pubDate>Mon, 22 Oct 2018 10:50:46 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/k8s-vagrant-build-cluster/</guid>
-      <description>&lt;h2 id=&#34;vagrant配置文件&#34;&gt;vagrant配置文件&lt;/h2&gt;
+      <description>&lt;h1 id=&#34;vagrant配置文件&#34;&gt;vagrant配置文件&lt;/h1&gt;
 
 &lt;p&gt;vagrant目前只是简单配置，启动三台机器，系统为ubuntu16.04.&lt;/p&gt;
 

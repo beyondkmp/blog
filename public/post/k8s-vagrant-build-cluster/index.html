@@ -60,7 +60,7 @@
 
 <meta itemprop="datePublished" content="2018-10-22T10:50:46&#43;08:00" />
 <meta itemprop="dateModified" content="2018-10-22T10:50:46&#43;08:00" />
-<meta itemprop="wordCount" content="1002">
+<meta itemprop="wordCount" content="1379">
 
 
 
@@ -156,8 +156,6 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#vagrant配置文件">vagrant配置文件</a>
 <ul>
 <li><a href="#vagrant的配置文件">vagrant的配置文件</a></li>
@@ -171,7 +169,7 @@
 <li><a href="#配置网络插件">配置网络插件</a></li>
 </ul></li>
 </ul></li>
-</ul></li>
+<li><a href="#kubernets-worker配置">kubernets worker配置</a></li>
 </ul>
 </nav>
   </div>
@@ -182,7 +180,7 @@
 
     
     <div class="post-content">
-      <h2 id="vagrant配置文件">vagrant配置文件</h2>
+      <h1 id="vagrant配置文件">vagrant配置文件</h1>
 
 <p>vagrant目前只是简单配置，启动三台机器，系统为ubuntu16.04.</p>
 
@@ -194,7 +192,7 @@
 
 <p></p>
 
-<h3 id="vagrant的配置文件">vagrant的配置文件</h3>
+<h2 id="vagrant的配置文件">vagrant的配置文件</h2>
 
 <pre><code class="language-ruby"># -*- mode: ruby -*-
 # vi: set ft=ruby :
@@ -228,11 +226,11 @@ Vagrant.configure(&quot;2&quot;) do |config|
 end
 </code></pre>
 
-<h2 id="kubernets集群搭建">kubernets集群搭建</h2>
+<h1 id="kubernets集群搭建">kubernets集群搭建</h1>
 
-<h3 id="master搭建">master搭建</h3>
+<h2 id="master搭建">master搭建</h2>
 
-<h4 id="安装软件">安装软件</h4>
+<h3 id="安装软件">安装软件</h3>
 
 <p>本教程主要使用kubeadm来搭建。先使用下面命令安装kubeadm,docker(前提是可以科学上网，要不能下面的命令可能会超时)</p>
 
@@ -244,7 +242,7 @@ apt-get update
 apt-get install -y docker.io kubeadm
 </code></pre>
 
-<h4 id="初始化">初始化</h4>
+<h3 id="初始化">初始化</h3>
 
 <p>使用下面的yml直接搭建起master,目前主要参考极客时间上kubernets专栏来搭建的。下面的v1alpaa1已经过时，如果直接运行会报下面的错误: <code>Please use kubeadm v1.11 instead and run 'kubeadm config migrate --old-config old.yaml --new-config new.yaml', which will write the new, similar spec using a newer API version</code>。</p>
 
@@ -303,7 +301,7 @@ as root:
 <pre><code>Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of &quot;crypto/rsa: verification error&quot; while trying to verify candidate authority certificate &quot;kubernetes&quot;)
 </code></pre>
 
-<h4 id="配置网络插件">配置网络插件</h4>
+<h3 id="配置网络插件">配置网络插件</h3>
 
 <p>目前插件都容器化了，基本上也就是一条命令安装下就可以了。没有安装之前，需要网络的插件是pending状态,get node状态也是NotReady状态</p>
 
@@ -352,6 +350,42 @@ k8s-01   Ready    master   5h47m   v1.12.1
 </code></pre>
 
 <p>到目前为止，master基本就配置完成了。</p>
+
+<h1 id="kubernets-worker配置">kubernets worker配置</h1>
+
+<p>kubernets的worker配置就简单多，主要是下面三步</p>
+
+<ol>
+<li>在所有的worker节点执行上面master软件安装的步骤。目前master和woker的软件安装都是一样，主要区别是master上面还会启动kube-apiserver、kube-scheduler、kube-controller-manager这三个系统pod。</li>
+<li>执行部署Master节点时最后的join命令</li>
+</ol>
+
+<pre><code>kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2
+</code></pre>
+
+<ol>
+<li>在专栏里面上运行上面两个就可以通了，但是就是通不了。有一个网络插件weave一直CrashLoopBackOff，后面谷歌下，发现是路由找不到。</li>
+</ol>
+
+<p>在master运行下面的命令</p>
+
+<pre><code>root@k8s-01:~# kubectl get svc
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   6h37m
+</code></pre>
+
+<p>然后在worker机器运行下面命令添加路由</p>
+
+<pre><code>route add 100.96.0.1 gw &lt;your real master IP&gt;
+</code></pre>
+
+<p>最后查看下worker的状态，没有问题就全部完成了。</p>
+
+<pre><code>root@k8s-01:~# kubectl get nodes
+NAME     STATUS   ROLES    AGE     VERSION
+k8s-01   Ready    master   6h39m   v1.12.1
+k8s-03   Ready    &lt;none&gt;   15m     v1.12.1
+</code></pre>
     </div>
 
     

@@ -11,7 +11,7 @@ author: "beyondkmp"
 
 ---
 
-## vagrant配置文件
+# vagrant配置文件
 
 vagrant目前只是简单配置，启动三台机器，系统为ubuntu16.04.
 
@@ -21,7 +21,7 @@ vagrant目前只是简单配置，启动三台机器，系统为ubuntu16.04.
 
 <!--more-->
 
-### vagrant的配置文件
+## vagrant的配置文件
 
 ```ruby
 # -*- mode: ruby -*-
@@ -56,11 +56,11 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-## kubernets集群搭建
+# kubernets集群搭建
 
-### master搭建
+## master搭建
 
-#### 安装软件
+### 安装软件
 
 本教程主要使用kubeadm来搭建。先使用下面命令安装kubeadm,docker(前提是可以科学上网，要不能下面的命令可能会超时)
 
@@ -73,7 +73,7 @@ apt-get update
 apt-get install -y docker.io kubeadm
 ```
 
-#### 初始化
+### 初始化
 
 使用下面的yml直接搭建起master,目前主要参考极客时间上kubernets专栏来搭建的。下面的v1alpaa1已经过时，如果直接运行会报下面的错误: `Please use kubeadm v1.11 instead and run 'kubeadm config migrate --old-config old.yaml --new-config new.yaml', which will write the new, similar spec using a newer API version`。
 
@@ -138,7 +138,7 @@ as root:
 Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "kubernetes")
 ```
 
-#### 配置网络插件
+### 配置网络插件
 
 目前插件都容器化了，基本上也就是一条命令安装下就可以了。没有安装之前，需要网络的插件是pending状态,get node状态也是NotReady状态
 
@@ -190,3 +190,39 @@ k8s-01   Ready    master   5h47m   v1.12.1
 ```
 
 到目前为止，master基本就配置完成了。
+
+# kubernets worker配置
+
+kubernets的worker配置就简单多，主要是下面三步
+
+1. 在所有的worker节点执行上面master软件安装的步骤。目前master和woker的软件安装都是一样，主要区别是master上面还会启动kube-apiserver、kube-scheduler、kube-controller-manager这三个系统pod。
+2. 执行部署Master节点时最后的join命令
+
+```
+kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2
+```
+
+3. 在专栏里面上运行上面两个就可以通了，但是就是通不了。有一个网络插件weave一直CrashLoopBackOff，后面谷歌下，发现是路由找不到。
+
+在master运行下面的命令
+
+```
+root@k8s-01:~# kubectl get svc
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   6h37m
+```
+
+然后在worker机器运行下面命令添加路由
+
+```
+route add 100.96.0.1 gw <your real master IP>
+```
+
+最后查看下worker的状态，没有问题就全部完成了。
+
+```
+root@k8s-01:~# kubectl get nodes
+NAME     STATUS   ROLES    AGE     VERSION
+k8s-01   Ready    master   6h39m   v1.12.1
+k8s-03   Ready    <none>   15m     v1.12.1
+```
