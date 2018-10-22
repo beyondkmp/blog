@@ -138,6 +138,55 @@ as root:
 Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "kubernetes")
 ```
 
-####
+#### 配置网络插件
 
+目前插件都容器化了，基本上也就是一条命令安装下就可以了。没有安装之前，需要网络的插件是pending状态,get node状态也是NotReady状态
 
+```
+root@k8s-01:~# kubectl get pods -n kube-system
+NAME                             READY   STATUS    RESTARTS   AGE
+coredns-576cbf47c7-8s8nh         0/1     Pending   0          3m20s
+coredns-576cbf47c7-pwctq         0/1     Pending   0          3m20s
+etcd-k8s-01                      1/1     Running   1          2m36s
+kube-apiserver-k8s-01            1/1     Running   1          2m22s
+kube-controller-manager-k8s-01   1/1     Running   1          2m36s
+kube-proxy-7fm5v                 1/1     Running   1          3m20s
+kube-scheduler-k8s-01            1/1     Running   1          2m35s
+
+root@k8s-01:~# kubectl get nodes
+NAME     STATUS     ROLES    AGE     VERSION
+k8s-01   NotReady   master   5h47m   v1.12.1
+```
+
+运行下面的命令安装网络插件
+
+```
+root@k8s-01:~#  kubectl apply -f https://git.io/weave-kube-1.6
+serviceaccount/weave-net created
+clusterrole.rbac.authorization.k8s.io/weave-net created
+clusterrolebinding.rbac.authorization.k8s.io/weave-net created
+role.rbac.authorization.k8s.io/weave-net created
+rolebinding.rbac.authorization.k8s.io/weave-net created
+daemonset.extensions/weave-net created
+```
+
+再查看相应的状态
+
+```
+root@k8s-01:~# kubectl get pods -n kube-system
+NAME                             READY   STATUS    RESTARTS   AGE
+coredns-576cbf47c7-8s8nh         1/1     Running   0          5h47m
+coredns-576cbf47c7-pwctq         1/1     Running   0          5h47m
+etcd-k8s-01                      1/1     Running   1          5h46m
+kube-apiserver-k8s-01            1/1     Running   1          5h46m
+kube-controller-manager-k8s-01   1/1     Running   1          5h46m
+kube-proxy-7fm5v                 1/1     Running   1          5h47m
+kube-scheduler-k8s-01            1/1     Running   1          5h46m
+weave-net-2b8q8                  2/2     Running   0          21s
+
+root@k8s-01:~# kubectl get nodes
+NAME     STATUS   ROLES    AGE     VERSION
+k8s-01   Ready    master   5h47m   v1.12.1
+```
+
+到目前为止，master基本就配置完成了。
