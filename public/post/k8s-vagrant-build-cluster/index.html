@@ -60,7 +60,7 @@
 
 <meta itemprop="datePublished" content="2018-10-22T10:50:46&#43;08:00" />
 <meta itemprop="dateModified" content="2018-10-22T10:50:46&#43;08:00" />
-<meta itemprop="wordCount" content="1379">
+<meta itemprop="wordCount" content="1418">
 
 
 
@@ -169,7 +169,10 @@
 <li><a href="#配置网络插件">配置网络插件</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#kubernets-worker配置">kubernets worker配置</a></li>
+<li><a href="#kubernets-worker配置">kubernets worker配置</a>
+<ul>
+<li><a href="#参考">参考</a></li>
+</ul></li>
 </ul>
 </nav>
   </div>
@@ -246,7 +249,7 @@ apt-get install -y docker.io kubeadm
 
 <p>使用下面的yml直接搭建起master,目前主要参考极客时间上kubernets专栏来搭建的。下面的v1alpaa1已经过时，如果直接运行会报下面的错误: <code>Please use kubeadm v1.11 instead and run 'kubeadm config migrate --old-config old.yaml --new-config new.yaml', which will write the new, similar spec using a newer API version</code>。</p>
 
-<p><strong>原始的yml</strong></p>
+<p>原始的yml</p>
 
 <pre><code class="language-bash">apiVersion: kubeadm.k8s.io/v1alpha1
 kind: MasterConfiguration
@@ -259,7 +262,7 @@ apiServerExtraArgs:
 kubernetesVersion: &quot;stable-1.11&quot;
 </code></pre>
 
-<p><strong>修改后的yml</strong></p>
+<p>修改后的yml</p>
 
 <pre><code class="language-bash">apiVersion: kubeadm.k8s.io/v1alpha2
 kind: MasterConfiguration
@@ -357,27 +360,23 @@ k8s-01   Ready    master   5h47m   v1.12.1
 
 <ol>
 <li>在所有的worker节点执行上面master软件安装的步骤。目前master和woker的软件安装都是一样，主要区别是master上面还会启动kube-apiserver、kube-scheduler、kube-controller-manager这三个系统pod。</li>
-<li>执行部署Master节点时最后的join命令</li>
-</ol>
+
+<li><p>执行部署Master节点时最后的join命令</p>
 
 <pre><code>kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>在专栏里面上运行上面两个就可以通了，但是就是通不了。有一个网络插件weave一直CrashLoopBackOff，后面谷歌下，发现是路由找不到。</li>
-</ol>
+<li><p>在专栏里面上运行上面两个就可以通了，但是就是通不了。有一个网络插件weave一直CrashLoopBackOff，后面谷歌下，发现是路由找不到。</p>
 
-<p>在master运行下面的命令</p>
-
-<pre><code>root@k8s-01:~# kubectl get svc
+<pre><code>#在master运行下面的命令
+root@k8s-01:~# kubectl get svc
 NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   6h37m
-</code></pre>
 
-<p>然后在worker机器运行下面命令添加路由</p>
-
-<pre><code>route add 100.96.0.1 gw &lt;your real master IP&gt;
-</code></pre>
+# 然后在worker机器运行下面命令添加路由
+route add 100.96.0.1 gw &lt;your real master IP&gt;
+</code></pre></li>
+</ol>
 
 <p>最后查看下worker的状态，没有问题就全部完成了。</p>
 
@@ -386,6 +385,14 @@ NAME     STATUS   ROLES    AGE     VERSION
 k8s-01   Ready    master   6h39m   v1.12.1
 k8s-03   Ready    &lt;none&gt;   15m     v1.12.1
 </code></pre>
+
+<h2 id="参考">参考</h2>
+
+<ol>
+<li><a href="https://time.geekbang.org/column/article/39724">11 | 从0到1：搭建一个完整的Kubernetes集群</a></li>
+<li><a href="https://stackoverflow.com/questions/39872332/how-to-fix-weave-net-crashloopbackoff-for-the-second-node">How to fix weave-net CrashLoopBackOff for the second node?
+</a></li>
+</ol>
     </div>
 
     
