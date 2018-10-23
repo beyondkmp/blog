@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>小米路由器 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8/</link>
+    <description>Recent content in 小米路由器 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 23 Oct 2018 20:27:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>小米路由器3G安装padavan固件</title>
+      <link>https://beyondkmp.com/post/xiaomi3g_padavan/</link>
+      <pubDate>Tue, 23 Oct 2018 20:27:39 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/xiaomi3g_padavan/</guid>
+      <description>&lt;h1 id=&#34;获取路由器ssh权限&#34;&gt;获取路由器ssh权限&lt;/h1&gt;
+
+&lt;p&gt;从京东下一台小米3G路由器，很快就送到了。接下来就要搞事情了&amp;hellip;&lt;/p&gt;
+
+&lt;h2 id=&#34;工具准备&#34;&gt;工具准备&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;mac电脑一台&lt;/li&gt;
+&lt;li&gt;u盘一个，格式为FAT或者FAT32&lt;/li&gt;
+&lt;li&gt;mac的usb网络转接口一个&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
