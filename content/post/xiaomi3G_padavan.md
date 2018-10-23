@@ -58,10 +58,14 @@ author: "beyondkmp"
 ## 使用BREED刷入padavan
 
 1. 拔下电源,按住路由器的reset键,再插上电源开机，等到路由的灯狂闪的时候，松开reset键
-2. 在电脑上在浏览器中输入192.168.1.1，进入不死breed的控制台 (若之前没有备份就刷了BREED的，也可以在该不死breed的控制台下先备份EEPROM和编程器固件，以防止丢失了SN以后又想刷回官方版本的麻烦)
+2. 用网线将路由器和电脑连接，在电脑上在浏览器中输入192.168.1.1，进入不死breed的控制台
 3. 此选择固件更新，如下图，再选择下载好的[老毛子Padavan固件MI-R3G_3.4.3.9-099.trx](http://opt.cn2qq.com/padavan/MI-R3G_3.4.3.9-099.trx), 最好等待刷机完成，就会出现一个pdcn的wifi,默认密码是1234567890，网页的账号密码：admin/admin
 
 ![breed固件更新](/imgs/breed.png)
+
+在刷机过程中遇到一个小插曲，两台路由器，第一台按上面的步骤一点问题都没有，同事的一台就是进不了padavan系统，一直在breed系统中，后来在[小米3G刷了不死breed 后再刷任何固件没有反应怎么办？？？](http://www.miui.com/thread-12895070-3-1.html),得到解决方法：在不死控制台里有个参数是效验ROM的MD5值的，把它删掉然后开刷就就正常了。
+
+在breed界面有个环境变量设置，里面个ROM md5值验证，删除掉后，再重新刷入padavan就ok了。
 
 # 参考
 1. [小米路由器3G刷机教程——不死Breed后台+Padavan固件](https://www.bilibili.com/read/cv802996/)
