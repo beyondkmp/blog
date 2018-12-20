@@ -25,9 +25,7 @@
 &lt;li&gt;&lt;strong&gt;k8s-01&lt;/strong&gt;: 目前作为master,内存为2GB, ip为192.168.1.4&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;k8s-02&lt;/strong&gt;: 目前作为worker,内存为1GB, ip为192.168.1.5&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;k8s-03&lt;/strong&gt;: 目前作为worker,内存为2GB, ip为192.168.1.6&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ol&gt;</description>
     </item>
     
   </channel>

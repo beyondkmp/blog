@@ -17,9 +17,7 @@
       <pubDate>Thu, 16 Aug 2018 19:25:21 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/centos7-ocser-config/</guid>
-      <description>&lt;p&gt;ocserv 是一个 OpenConnect SSL VPN 协议服务端，0.3.0 版后兼容使用 AnyConnect SSL VPN 协议的终端。官方主页&lt;a href=&#34;http://www.infradead.org/ocserv/&#34;&gt;http://www.infradead.org/ocserv/&lt;/a&gt;。ocserv 已经在 epel 仓库中提供了，所以可以直接通过 yum 安装&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;ocserv 是一个 OpenConnect SSL VPN 协议服务端，0.3.0 版后兼容使用 AnyConnect SSL VPN 协议的终端。官方主页&lt;a href=&#34;http://www.infradead.org/ocserv/&#34;&gt;http://www.infradead.org/ocserv/&lt;/a&gt;。ocserv 已经在 epel 仓库中提供了，所以可以直接通过 yum 安装&lt;/p&gt;</description>
     </item>
     
   </channel>
