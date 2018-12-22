@@ -60,7 +60,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2018-12-22T17:10:35&#43;08:00" />
-<meta itemprop="wordCount" content="278">
+<meta itemprop="wordCount" content="332">
 
 
 
@@ -186,49 +186,36 @@
 
 <p>目前如果要安装squirrel最新版本是要自己编译安装。具体的编译过程如下:</p>
 
-<ol>
-<li><p>安装编译工具</p>
+<pre><code class="language-sh">#安装Xcode的工具,运行下面的命令
+xcode-select --install
 
-<p>安装Xcode的工具,运行下面的命令</p>
-
-<pre><code class="language-sh">xcode-select --install
-</code></pre>
-
-<p>使用 <a href="http://brew.sh/">Homebrew</a>安装相差依赖库:</p>
-
-<pre><code class="language-sh"># dev tools:
+# 使用 [Homebrew](http://brew.sh/)安装相差依赖库:
+# dev tools:
 brew install cmake
 brew install git
-
 # libraries:
 brew install boost
-</code></pre></li>
 
-<li><p>下载源代码</p>
+#下载源代码
+git clone --recursive https://github.com/rime/squirrel.git
 
-<pre><code class="language-sh">git clone --recursive https://github.com/rime/squirrel.git
-</code></pre></li>
+#编译依赖库
+make deps
 
-<li><p>编译依赖库</p>
+#编译squirrel
+make
 
-<pre><code class="language-sh">make deps
-</code></pre></li>
-
-<li><p>编译squirrel</p>
-
-<pre><code class="language-sh">make
-</code></pre></li>
-
-<li><p>安装squirrel</p>
-
-<pre><code class="language-sh">sudo make install
-</code></pre></li>
-</ol>
+#安装squirrel
+sudo make install
+</code></pre>
 
 <h2 id="参考">参考</h2>
 
 <ol>
 <li><a href="https://github.com/rime/squirrel/blob/master/INSTALL.md">How to Rime with Squirrel</a></li>
+<li><a href="https://scomper.me/gtd/-shu-xu-guan-de-diao-jiao-bi-ji">「鼠须管」的调教笔记</a></li>
+<li><a href="https://placeless.net/blog/my-rime-squirrel-config">我的鼠须管配置</a></li>
+<li><a href="https://placeless.net/blog/my-rime-squirrel-config">安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel)</a></li>
 </ol>
     </div>
 

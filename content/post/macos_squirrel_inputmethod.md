@@ -25,50 +25,33 @@ squirrel目前的优势：
 
 目前如果要安装squirrel最新版本是要自己编译安装。具体的编译过程如下:
 
-1. 安装编译工具
+``` sh
+#安装Xcode的工具,运行下面的命令
+xcode-select --install
 
-    安装Xcode的工具,运行下面的命令
+# 使用 [Homebrew](http://brew.sh/)安装相差依赖库:
+# dev tools:
+brew install cmake
+brew install git
+# libraries:
+brew install boost
 
-    ``` sh
-    xcode-select --install
-    ```
+#下载源代码
+git clone --recursive https://github.com/rime/squirrel.git
 
-    使用 [Homebrew](http://brew.sh/)安装相差依赖库:
+#编译依赖库
+make deps
 
-    ``` sh
-    # dev tools:
-    brew install cmake
-    brew install git
+#编译squirrel
+make
 
-    # libraries:
-    brew install boost
-    ```
-
-2. 下载源代码
-
-    ``` sh
-    git clone --recursive https://github.com/rime/squirrel.git
-    ```
-
-3. 编译依赖库
-
-
-    ``` sh
-    make deps
-    ```
-
-4. 编译squirrel
-
-    ``` sh
-    make
-    ```
-
-5. 安装squirrel
-
-    ``` sh
-    sudo make install
-    ```
+#安装squirrel
+sudo make install
+```
 
 ## 参考
 
 1. [How to Rime with Squirrel](https://github.com/rime/squirrel/blob/master/INSTALL.md)
+2. [「鼠须管」的调教笔记](https://scomper.me/gtd/-shu-xu-guan-de-diao-jiao-bi-ji)
+3. [我的鼠须管配置](https://placeless.net/blog/my-rime-squirrel-config)
+4. [安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel)](https://placeless.net/blog/my-rime-squirrel-config)
