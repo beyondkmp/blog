@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>小米路由器3G安装padavan固件 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <title>macos上的神级输入法squirrel - Kmp - beyondkmp&#39;s new hugo blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,8 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="beyondkmp" /><meta name="description" content="在小米路由器3G上面安装padavan固件" />
-<meta name="keywords" content="小米路由器3G, padavan固件" />
+<meta name="author" content="beyondkmp" /><meta name="description" content="macos上的神级输入法" />
+<meta name="keywords" content="macos输入法, 五笔, squirrel" />
 
 
 
@@ -28,7 +28,7 @@
 <meta name="generator" content="Hugo 0.52" />
 
 
-<link rel="canonical" href="https://beyondkmp.com/post/xiaomi3g_padavan/" />
+<link rel="canonical" href="https://beyondkmp.com/post/macos_squirrel_inputmethod/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -48,26 +48,26 @@
 
 
 
-<meta property="og:title" content="小米路由器3G安装padavan固件" />
-<meta property="og:description" content="在小米路由器3G上面安装padavan固件" />
+<meta property="og:title" content="macos上的神级输入法squirrel" />
+<meta property="og:description" content="macos上的神级输入法" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://beyondkmp.com/post/xiaomi3g_padavan/" /><meta property="article:published_time" content="2018-10-23T20:27:39&#43;08:00"/>
-<meta property="article:modified_time" content="2018-10-23T20:27:39&#43;08:00"/>
+<meta property="og:url" content="https://beyondkmp.com/post/macos_squirrel_inputmethod/" /><meta property="article:published_time" content="2018-12-22T17:10:35&#43;08:00"/>
+<meta property="article:modified_time" content="2018-12-22T17:10:35&#43;08:00"/>
 
-<meta itemprop="name" content="小米路由器3G安装padavan固件">
-<meta itemprop="description" content="在小米路由器3G上面安装padavan固件">
-
-
-<meta itemprop="datePublished" content="2018-10-23T20:27:39&#43;08:00" />
-<meta itemprop="dateModified" content="2018-10-23T20:27:39&#43;08:00" />
-<meta itemprop="wordCount" content="1340">
+<meta itemprop="name" content="macos上的神级输入法squirrel">
+<meta itemprop="description" content="macos上的神级输入法">
 
 
+<meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
+<meta itemprop="dateModified" content="2018-12-22T17:10:35&#43;08:00" />
+<meta itemprop="wordCount" content="278">
 
-<meta itemprop="keywords" content="小米路由器,padavan固件," />
+
+
+<meta itemprop="keywords" content="macos输入法,五笔,squirrel," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="小米路由器3G安装padavan固件"/>
-<meta name="twitter:description" content="在小米路由器3G上面安装padavan固件"/>
+<meta name="twitter:title" content="macos上的神级输入法squirrel"/>
+<meta name="twitter:description" content="macos上的神级输入法"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -134,13 +134,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">小米路由器3G安装padavan固件</h1>
+      <h1 class="post-title">macos上的神级输入法squirrel</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-10-23 </span>
+        <span class="post-time"> 2018-12-22 </span>
         <div class="post-category">
             
-              <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
+              <a href="/categories/mac/"> mac </a>
             
           </div>
         
@@ -156,15 +156,18 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#获取路由器ssh权限">获取路由器ssh权限</a>
+<li>
 <ul>
-<li><a href="#工具准备">工具准备</a></li>
-<li><a href="#升级开发版本系统">升级开发版本系统</a></li>
-<li><a href="#获取ssh权限">获取ssh权限</a></li>
-<li><a href="#刷入不死breed">刷入不死BREED</a></li>
-<li><a href="#使用breed刷入padavan">使用BREED刷入padavan</a></li>
+<li><a href="#编译安装">编译安装</a>
+<ul>
+<li><a href="#安装编译工具">安装编译工具</a></li>
+<li><a href="#下载源代码">下载源代码</a></li>
+<li><a href="#编译依赖库">编译依赖库</a></li>
+<li><a href="#编译squirrel">编译squirrel</a></li>
 </ul></li>
+<li><a href="#安装squirrel">安装squirrel</a></li>
 <li><a href="#参考">参考</a></li>
+</ul></li>
 </ul>
 </nav>
   </div>
@@ -175,76 +178,62 @@
 
     
     <div class="post-content">
-      <h1 id="获取路由器ssh权限">获取路由器ssh权限</h1>
+      <p>squirrel输入法真是极客最想要的输入法，比起所谓的国产输入法，都在忙着收集用户的输入数据，却没有把精力投入到输入法的核心功能。</p>
 
-<p>从京东下一台小米3G路由器，很快就送到了。接下来就要搞事情了&hellip;</p>
-
-<h2 id="工具准备">工具准备</h2>
+<p>squirrel目前的优势：</p>
 
 <ol>
-<li>mac电脑一台</li>
-<li>u盘一个，格式为FAT或者FAT32</li>
-<li>mac的usb网络转接口一个</li>
+<li>配置相当丰富，可定制性，可玩性都非常高</li>
+<li>输入速度是非常快</li>
+<li>五笔支持的非常好</li>
+<li>不收集用户数据，这是我最看重的。</li>
 </ol>
 
-<h2 id="升级开发版本系统">升级开发版本系统</h2>
+<h2 id="编译安装">编译安装</h2>
 
-<p>下载地址：<a href="http://miwifi.com/miwifi_download.html">http://miwifi.com/miwifi_download.html</a>, 具体如下图:</p>
+<p>目前如果要安装squirrel最新版本是要自己编译安装。具体的编译过程如下:</p>
 
-<p><img src="/imgs/rom_r3g_dev.png" alt="小米rom R3G开发版本" /></p>
+<h3 id="安装编译工具">安装编译工具</h3>
 
-<p>下载完成，进入路由器后台，点击用户下面系统升级，然后再点击手动升级。上传刚才下载的开发版本固件，等待5-10分钟就升级完成了。</p>
+<p>安装Xcode的工具,运行下面的命令</p>
 
-<h2 id="获取ssh权限">获取ssh权限</h2>
+<pre><code class="language-sh">xcode-select --install
+</code></pre>
 
-<ol>
-<li>先要将路由器绑定小米账号，手机连接小米路由器，下载一个*小米WIFI*软件，然后登录小米账号进行对路由器绑定。</li>
-<li>绑定完成后，登录以下网站<a href="http://miwifi.com/miwifi_open.html">http://miwifi.com/miwifi_open.html</a>,获取ssh工具包
-<img src="/imgs/ssh_xiaomi.png" alt="ssh工具包下载地址" />
-<img src="/imgs/ssh_pass_xiaomi.png" alt="ssh工具包的密码" /></li>
-<li>将下载的miwifi_ssh.bin文件拷贝到u盘的根目录下面，名字一定要是miwifi_ssh.bin, 最好再验证下md5。</li>
-<li>断开小米路由器的电源，将U盘插入USB接口； 按住reset按钮之后重新接入电源，指示灯变为黄色闪烁状态即可松开reset键; 等待3-5秒后安装完成之后，小米路由器会自动重启</li>
-<li>重启完成后，<code>ssh root@192.168.31.1</code>,输入ssh密码，当你看到<code>a you ok</code>时，说明已经获取ssh权限了。</li>
-</ol>
+<p>使用 <a href="http://brew.sh/">Homebrew</a>安装相差依赖库:</p>
 
-<h2 id="刷入不死breed">刷入不死BREED</h2>
+<pre><code class="language-sh"># dev tools:
+brew install cmake
+brew install git
 
-<ol>
-<li>下载breed-mt7621-xiaomi-r3g.bin系统,<a href="https://breed.hackpascal.net/">官网下载</a></li>
-<li>在终端下面运行<code>scp /path/breed-mt7621-xiaomi-r3g.bin root@192.168.31.1:/tmp</code>，将bin文件传送到路由器中</li>
-<li>在ssh连接上路由器, 运行下面命令进行md5验证下<code>md5sum breed-mt7621-xiaomi-r3g.bin</code>, 原文件的md5为<code>1231233</code></li>
+# libraries:
+brew install boost
+</code></pre>
 
-<li><p>如果不需要备份，则可以直接干了。先给breed的文件取个简短的名字,<code>cp /tmp;cp breed-mt7621-xiaomi-r3g.bin breed.bin</code>, 然后运行下面的命令<code>mtd -r write /tmp/breed.bin Bootloader</code>,一定不要打错了这条命令。等待路由器重启&hellip;</p>
+<h3 id="下载源代码">下载源代码</h3>
 
-<pre><code>root@XiaoQiang:~# mtd -r write /tmp/breed.bin Bootloader
-Unlocking Bootloader ...
+<pre><code class="language-sh">git clone --recursive https://github.com/rime/squirrel.git
+</code></pre>
 
-Writing from /tmp/breed.bin to Bootloader ...
-Rebooting ...
-</code></pre></li>
-</ol>
+<h3 id="编译依赖库">编译依赖库</h3>
 
-<h2 id="使用breed刷入padavan">使用BREED刷入padavan</h2>
+<pre><code class="language-sh">make deps
+</code></pre>
 
-<ol>
-<li>拔下电源,按住路由器的reset键,再插上电源开机，等到路由的灯狂闪的时候，松开reset键</li>
-<li>用网线将路由器和电脑连接，在电脑上在浏览器中输入192.168.1.1，进入不死breed的控制台</li>
-<li>此选择固件更新，如下图，再选择下载好的<a href="http://opt.cn2qq.com/padavan/MI-R3G_3.4.3.9-099.trx">老毛子Padavan固件MI-R3G_3.4.3.9-099.trx</a>, 最好等待刷机完成，就会出现一个pdcn的wifi,默认密码是1234567890，网页的账号密码：admin/admin</li>
-</ol>
+<h3 id="编译squirrel">编译squirrel</h3>
 
-<p><img src="/imgs/breed.png" alt="breed固件更新" /></p>
+<pre><code class="language-sh">make
+</code></pre>
 
-<p>在刷机过程中遇到一个小插曲，两台路由器，第一台按上面的步骤一点问题都没有，同事的一台就是进不了padavan系统，一直在breed系统中，后来在<a href="http://www.miui.com/thread-12895070-3-1.html">小米3G刷了不死breed 后再刷任何固件没有反应怎么办？？？</a>,得到解决方法：在不死控制台里有个参数是效验ROM的MD5值的，把它删掉然后开刷就就正常了。</p>
+<h2 id="安装squirrel">安装squirrel</h2>
 
-<p>在breed界面有个环境变量设置，里面个ROM md5值验证，删除掉后，再重新刷入padavan就ok了。</p>
+<pre><code class="language-sh">sudo make install
+</code></pre>
 
-<h1 id="参考">参考</h1>
+<h2 id="参考">参考</h2>
 
 <ol>
-<li><a href="https://www.bilibili.com/read/cv802996/">小米路由器3G刷机教程——不死Breed后台+Padavan固件</a></li>
-<li><a href="http://www.right.com.cn/forum/thread-257423-1-1.html">小米路由器3G刷breed及老毛子Padavan固件教程</a></li>
-<li><a href="/files/MI-R3G_3.4.3.9-099.trx">老毛子Padavan固件MI-R3G_3.4.3.9-099.trx本站备份</a></li>
-<li><a href="/files/breed-mt7621-xiaomi-r3g.bin">breed-mt7621-xiaomi-r3g.bin本站备份</a></li>
+<li><a href="https://github.com/rime/squirrel/blob/master/INSTALL.md">How to Rime with Squirrel</a></li>
 </ol>
     </div>
 
@@ -256,7 +245,7 @@ Rebooting ...
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
-    <span class="item-content">2018-10-23</span>
+    <span class="item-content">2018-12-22</span>
   </p>
   
   
@@ -285,23 +274,20 @@ Rebooting ...
     <footer class="post-footer">
       <div class="post-tags">
           
-          <a href="/tags/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8/">小米路由器</a>
+          <a href="/tags/macos%E8%BE%93%E5%85%A5%E6%B3%95/">macos输入法</a>
           
-          <a href="/tags/padavan%E5%9B%BA%E4%BB%B6/">padavan固件</a>
+          <a href="/tags/%E4%BA%94%E7%AC%94/">五笔</a>
+          
+          <a href="/tags/squirrel/">squirrel</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/macos_squirrel_inputmethod/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">macos上的神级输入法squirrel</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
-          <a class="next" href="/post/k8s-vagrant-build-cluster/">
-            <span class="next-text nav-default">使用vagrant搭建k8s集群</span>
+          <a class="next" href="/post/xiaomi3g_padavan/">
+            <span class="next-text nav-default">小米路由器3G安装padavan固件</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

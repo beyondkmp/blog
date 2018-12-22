@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>五笔 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/%E4%BA%94%E7%AC%94/</link>
+    <description>Recent content in 五笔 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 22 Dec 2018 17:10:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/%E4%BA%94%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>macos上的神级输入法squirrel</title>
+      <link>https://beyondkmp.com/post/macos_squirrel_inputmethod/</link>
+      <pubDate>Sat, 22 Dec 2018 17:10:35 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/macos_squirrel_inputmethod/</guid>
+      <description>&lt;p&gt;squirrel输入法真是极客最想要的输入法，比起所谓的国产输入法，都在忙着收集用户的输入数据，却没有把精力投入到输入法的核心功能。&lt;/p&gt;
+
+&lt;p&gt;squirrel目前的优势：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;配置相当丰富，可定制性，可玩性都非常高&lt;/li&gt;
+&lt;li&gt;输入速度是非常快&lt;/li&gt;
+&lt;li&gt;五笔支持的非常好&lt;/li&gt;
+&lt;li&gt;不收集用户数据，这是我最看重的。&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

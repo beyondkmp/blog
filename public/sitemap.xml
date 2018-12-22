@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/post/macos_squirrel_inputmethod/</loc>
+    <lastmod>2018-12-22T17:10:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/post/xiaomi3g_padavan/</loc>
     <lastmod>2018-10-23T20:27:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -66,7 +73,7 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2018-10-23T20:27:39+08:00</lastmod>
+    <lastmod>2018-12-22T17:10:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -93,8 +100,29 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/categories/mac/</loc>
+    <lastmod>2018-12-22T17:10:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/macos%E8%BE%93%E5%85%A5%E6%B3%95/</loc>
+    <lastmod>2018-12-22T17:10:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/tags/padavan%E5%9B%BA%E4%BB%B6/</loc>
     <lastmod>2018-10-23T20:27:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/scala/</loc>
+    <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -107,8 +135,8 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/scala/</loc>
-    <lastmod>2018-09-18T16:37:36+08:00</lastmod>
+    <loc>https://beyondkmp.com/tags/squirrel/</loc>
+    <lastmod>2018-12-22T17:10:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -123,6 +151,13 @@
   <url>
     <loc>https://beyondkmp.com/tags/vagrant/</loc>
     <lastmod>2018-10-22T10:50:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/%E4%BA%94%E7%AC%94/</loc>
+    <lastmod>2018-12-22T17:10:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

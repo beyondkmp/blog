@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 23 Oct 2018 20:27:39 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 22 Dec 2018 17:10:35 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>macos上的神级输入法squirrel</title>
+      <link>https://beyondkmp.com/post/macos_squirrel_inputmethod/</link>
+      <pubDate>Sat, 22 Dec 2018 17:10:35 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/macos_squirrel_inputmethod/</guid>
+      <description>&lt;p&gt;squirrel输入法真是极客最想要的输入法，比起所谓的国产输入法，都在忙着收集用户的输入数据，却没有把精力投入到输入法的核心功能。&lt;/p&gt;
+
+&lt;p&gt;squirrel目前的优势：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;配置相当丰富，可定制性，可玩性都非常高&lt;/li&gt;
+&lt;li&gt;输入速度是非常快&lt;/li&gt;
+&lt;li&gt;五笔支持的非常好&lt;/li&gt;
+&lt;li&gt;不收集用户数据，这是我最看重的。&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
     
     <item>
       <title>小米路由器3G安装padavan固件</title>
