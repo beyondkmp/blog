@@ -66,7 +66,7 @@ sudo make install
 * luna_pinyin_simp.custom.yaml ，定义扩充词库、加载符号库、模糊拼音。明月拼音·简化字的输入方案配置文件，明月拼音对应的文件就是 luna_pinyin.custom.yaml；
 * installation.yaml，定义配置文件保存到 Dropbox 文件夹
 
->>以上几个以 .custom.yaml 作为后缀的文件，意味着是以补丁的方式来实现个性化定制的，输入法后续升级不会覆盖这些文件。所以自定义的文件配置中起始部分都会有patch:的字段，每个配置文件中有且只需要一行这个代码段。
+>以上几个以 .custom.yaml 作为后缀的文件，意味着是以补丁的方式来实现个性化定制的，输入法后续升级不会覆盖这些文件。所以自定义的文件配置中起始部分都会有patch:的字段，每个配置文件中有且只需要一行这个代码段。
 
 ### 界面配置
 
@@ -111,7 +111,7 @@ patch:
 
 界面效果如下:
 
-![]()
+![界面](/imgs/squirrel_interface.png)
 
 ### 自定义配置
 
@@ -183,7 +183,7 @@ patch:
   "speller/max_code_length": 4 #最长4码
   "speller/auto_select": false #顶字上屏
   "speller/auto_select_unique_candidate": false #无重码自动上屏
-  
+
   "translator/dictionary": wubi86 #加载五笔词库
   "reverse_lookup/comment_format/@1": xform/^(\w+).*/$1/
 
@@ -232,3 +232,4 @@ patch:
 2. [「鼠须管」的调教笔记](https://scomper.me/gtd/-shu-xu-guan-de-diao-jiao-bi-ji)
 3. [我的鼠须管配置](https://placeless.net/blog/my-rime-squirrel-config)
 4. [安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel)](https://placeless.net/blog/my-rime-squirrel-config)
+5. [RimeWithSchemata](https://github.com/rime/home/wiki/RimeWithSchemata)
