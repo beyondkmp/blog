@@ -25,51 +25,49 @@ squirrel目前的优势：
 
 目前如果要安装squirrel最新版本是要自己编译安装。具体的编译过程如下:
 
-### 安装编译工具
+1. 安装编译工具
 
-安装Xcode的工具,运行下面的命令
+    安装Xcode的工具,运行下面的命令
 
-``` sh
-xcode-select --install
-```
+    ``` sh
+    xcode-select --install
+    ```
 
-使用 [Homebrew](http://brew.sh/)安装相差依赖库:
+    使用 [Homebrew](http://brew.sh/)安装相差依赖库:
 
-``` sh
-# dev tools:
-brew install cmake
-brew install git
+    ``` sh
+    # dev tools:
+    brew install cmake
+    brew install git
 
-# libraries:
-brew install boost
-```
+    # libraries:
+    brew install boost
+    ```
 
-### 下载源代码
+2. 下载源代码
 
-``` sh
-git clone --recursive https://github.com/rime/squirrel.git
-```
+    ``` sh
+    git clone --recursive https://github.com/rime/squirrel.git
+    ```
 
-### 编译依赖库
-
-
-``` sh
-make deps
-```
-
-### 编译squirrel
-
-``` sh
-make
-```
-
-## 安装squirrel
-
-``` sh
-sudo make install
-```
+3. 编译依赖库
 
 
+    ``` sh
+    make deps
+    ```
+
+4. 编译squirrel
+
+    ``` sh
+    make
+    ```
+
+5. 安装squirrel
+
+    ``` sh
+    sudo make install
+    ```
 
 ## 参考
 
