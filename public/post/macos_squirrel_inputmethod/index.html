@@ -60,7 +60,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2018-12-22T17:10:35&#43;08:00" />
-<meta itemprop="wordCount" content="332">
+<meta itemprop="wordCount" content="2150">
 
 
 
@@ -159,6 +159,13 @@
 <li>
 <ul>
 <li><a href="#编译安装">编译安装</a></li>
+<li><a href="#部署">部署</a></li>
+<li><a href="#配置">配置</a>
+<ul>
+<li><a href="#界面配置">界面配置</a></li>
+<li><a href="#自定义配置">自定义配置</a></li>
+<li><a href="#五笔配置">五笔配置</a></li>
+</ul></li>
 <li><a href="#参考">参考</a></li>
 </ul></li>
 </ul>
@@ -187,6 +194,7 @@
 <p>目前如果要安装squirrel最新版本是要自己编译安装。具体的编译过程如下:</p>
 
 <pre><code class="language-sh">#安装Xcode的工具,运行下面的命令
+
 xcode-select --install
 
 # 使用 [Homebrew](http://brew.sh/)安装相差依赖库:
@@ -207,6 +215,186 @@ make
 
 #安装squirrel
 sudo make install
+</code></pre>
+
+<h2 id="部署">部署</h2>
+
+<ol>
+<li>下载官网的鼠须管安装包</li>
+<li>安装完成后不重启，使用上面的编译安装后重启</li>
+<li>「偏好设置 - 键盘 - 输入法」中添加「鼠须管」，重启系统</li>
+<li>下载配置文件和扩充词典文件~/Library/Rime/目录下面，重新部署，部署后会生成新的文件到build目录里面。</li>
+</ol>
+
+<h2 id="配置">配置</h2>
+
+<p><strong>配置输入法的的外观和特性的几个文件</strong>:</p>
+
+<ul>
+<li>squirrel.custom.yaml ，自定义皮肤；</li>
+<li>default.custom.yaml ，设定备选词数量，定义输入方案；</li>
+<li>luna_pinyin_simp.custom.yaml ，定义扩充词库、加载符号库、模糊拼音。明月拼音·简化字的输入方案配置文件，明月拼音对应的文件就是 luna_pinyin.custom.yaml；</li>
+<li>installation.yaml，定义配置文件保存到 Dropbox 文件夹</li>
+</ul>
+
+<blockquote>
+<blockquote>
+<p>以上几个以 .custom.yaml 作为后缀的文件，意味着是以补丁的方式来实现个性化定制的，输入法后续升级不会覆盖这些文件。所以自定义的文件配置中起始部分都会有patch:的字段，每个配置文件中有且只需要一行这个代码段。</p>
+</blockquote>
+</blockquote>
+
+<h3 id="界面配置">界面配置</h3>
+
+<p>界面的配置文件是squirrel.custom.yaml, 目前我最喜欢的界面如下，自己修改了一些，还有就是目前不能对单个style进行patch，试了很多配置都没有解决。索性直接自己完整的写个color theme</p>
+
+<pre><code class="language-yaml">patch:
+  show_notifications_when: appropriate # 状态通知，适当，也可设为全开（always）全关（never）
+  &quot;app_options/com.runningwithcrayons.Alfred-3/ascii_mode&quot;: true
+
+  style/color_scheme: beyondkmp             # 方案命名，不能有空格
+  preset_color_schemes:
+    beyondkmp:
+      name: 幽能／Psionics
+      author: 雨過之後、佛振
+
+      horizontal: true                                   # 水平排列
+      inline_preedit: true                               # 单行显示，false双行显示
+      candidate_format: &quot;%c\u2005%@ \u2005 \u2005&quot;       # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。
+
+      corner_radius: 5                                   # 候选条圆角
+      border_height: 6                                   # 窗口边界高度，大于圆角半径才生效
+      border_width: 6                                    # 窗口边界宽度，大于圆角半径才生效
+      font_face: &quot;PingFangSC-Regular,HanaMinB&quot;      # 候选词字体
+      font_point: 18                                     # 候选字词大小
+      label_font_face: &quot;STHeitiSC-Light&quot;                 # 候选词编号字体
+      label_font_point: 16                               # 候选编号大小
+      text_color: 0xc2c2c2                               # 拼音行文字颜色，24位色值，16进制，BGR顺序
+      back_color: 0x444444                               # 候选条背景色
+      border_color: 0xE0B693                             # 边框色
+      label_color: 0x9e9e9e                              # 预选栏编号颜色
+      candidate_text_color: 0xeeeeee                     # 预选项文字颜色
+      comment_text_color: 0x808080                       # 拼音等提示文字颜色
+      hilited_text_color: 0xeeeeee                       # 高亮拼音 (需要开启内嵌编码)
+      hilited_back_color: 0x444444                       # 高亮背景色
+      hilited_candidate_text_color: 0xfafafa             # 第一候选项文字颜色
+      hilited_candidate_back_color: 0xd8bf00             # 第一候选项背景背景色
+      hilited_candidate_label_color: 0xfafafa            # 第一候选项编号颜色
+      hilited_comment_text_color: 0x444444               # 注解文字高亮
+
+</code></pre>
+
+<p>界面效果如下:</p>
+
+<p>![]()</p>
+
+<h3 id="自定义配置">自定义配置</h3>
+
+<p>配置文件为<code>default.custom.yaml</code>,目前的配置如下:</p>
+
+<p>目前主要用luna_pinyin_simp和wubi_pinyin两种输入法</p>
+
+<pre><code class="language-yaml">patch:
+  menu:
+    page_size: 6  # 候选词的长度
+  schema_list:
+    - schema: luna_pinyin_simp      # 朙月拼音 简化字
+    - schema: wubi_pinyin           # 五笔拼音混合輸入
+
+  key_binder/bindings:  # 以方括号换页
+    - when: paging # [ -&gt; 上一页
+      accept: bracketleft
+      send: Page_Up
+    - when: has_menu #] -下一页
+      accept: bracketright
+      send: Page_Down
+
+  ascii_composer/switch_key:
+    Caps_Lock: noop
+    Control_L: noop
+    Control_R: noop
+    Eisu_toggle: clear
+    Shift_L: commit_code # 配置后，可以直接用shift上屏英文字母,就是打了一段编码后直接以这段编码上屏
+    Shift_R: noop
+</code></pre>
+
+<h3 id="五笔配置">五笔配置</h3>
+
+<pre><code class="language-yaml"># Rime schema settings
+# encoding: utf-8
+
+patch:
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [&quot;中文&quot;, &quot;西文&quot;]
+    - name: full_shape
+      states: [&quot;半角&quot;, &quot;全角&quot;]
+    - name: simplification
+      reset: 0
+      states: [&quot;汉字&quot;, &quot;漢字&quot;]
+    - name: ascii_punct
+      states: [&quot;。，&quot;, &quot;．，&quot;]
+    - name: show_emoji
+      reset: 1
+      states: [ &quot;🈚️️\uFE0E&quot;, &quot;🈶️️\uFE0F&quot; ]
+
+  simplifier:
+      opencc_config: simp2trad.json  # 简入繁出
+
+  engine/filters:
+    - simplifier
+    - uniquifier
+    - simplifier@emoji_conversion
+
+  emoji_conversion:
+    opencc_config: emoji.json
+    option_name: show_emoji
+    tags: abc
+
+
+  &quot;speller/max_code_length&quot;: 4 #最长4码
+  &quot;speller/auto_select&quot;: false #顶字上屏
+  &quot;speller/auto_select_unique_candidate&quot;: false #无重码自动上屏
+  
+  &quot;translator/dictionary&quot;: wubi86 #加载五笔词库
+  &quot;reverse_lookup/comment_format/@1&quot;: xform/^(\w+).*/$1/
+
+#  符号快速输入和部分符号的快速上屏
+  punctuator:
+    import_preset: symbols
+    symbols:
+      &quot;/fs&quot;: [½, ‰, ¼, ⅓, ⅔, ¾, ⅒ ]
+      &quot;/bq&quot;: [😂️, 😅️, ☺️, 😱️, 😭️, 😇️, 🙃️, 🤔️, 💊️, 💯️, 👍️, 🙈️, 💩️, 😈️ ]
+      &quot;/dn&quot;: [⌘, ⌥, ⇧, ⌃, ⎋, ⇪, , ⌫, ⌦, ↩︎, ⏎, ↑, ↓, ←, →, ↖, ↘, ⇟, ⇞]
+      &quot;/fh&quot;: [ ©, ®, ℗, ℠, ™, ℡, ⓘ, ♂, ♀, ☉, ☊, ☋, ☌, ☍, ☐, ☑︎, ☒, ☜, ☝, ☞, ☟, ✎, ✄, ♲, ♻, ⚐, ⚑, ⚠]
+      &quot;/xh&quot;: [ ＊, ×, ✱, ★, ☆, ✩, ✧, ❋, ❊, ❉, ❈, ❅, ✿, ✲]
+    half_shape:
+      &quot;#&quot;: &quot;#&quot;
+      &quot;*&quot;: &quot;*&quot;
+      &quot;`&quot;: &quot;`&quot;
+      &quot;~&quot;: &quot;~&quot;
+      &quot;@&quot;: &quot;@&quot;
+      &quot;=&quot;: &quot;=&quot;
+      &quot;/&quot;: [&quot;/&quot;, &quot;÷&quot;]
+      '\': &quot;、&quot;
+      &quot;_&quot; : &quot;──&quot;
+      &quot;'&quot;: {pair: [&quot;「&quot;, &quot;」&quot;]}
+      &quot;[&quot;: [&quot;【&quot;, &quot;[&quot;]
+      &quot;]&quot;: [&quot;】&quot;, &quot;]&quot;]
+      &quot;$&quot;: [&quot;¥&quot;, &quot;$&quot;, &quot;€&quot;, &quot;£&quot;, &quot;¢&quot;, &quot;¤&quot;]
+      &quot;&lt;&quot;: [&quot;《&quot;, &quot;〈&quot;, &quot;«&quot;, &quot;&lt;&quot;]
+      &quot;&gt;&quot;: [&quot;》&quot;, &quot;〉&quot;, &quot;»&quot;, &quot;&gt;&quot;]
+  recognizer/patterns/punct: &quot;^/([a-z]+|[0-9]0?)$&quot;
+
+# 使用自定义词典 custom_phrase.txt
+  custom_phrase:
+    dictionary: &quot;&quot;
+    user_dict: custom_phrase
+    db_class: stabledb
+    enable_completion: false
+    enable_sentence: false
+    initial_quality: 1
+  &quot;engine/translators/@4&quot;: table_translator@custom_phrase
 </code></pre>
 
 <h2 id="参考">参考</h2>
