@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Dec 2018 17:10:35 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jan 2019 01:10:20 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Golang Channel</title>
+      <link>https://beyondkmp.com/post/channel/</link>
+      <pubDate>Tue, 15 Jan 2019 01:10:20 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/channel/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>macos上的神级输入法squirrel</title>

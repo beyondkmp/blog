@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/post/channel/</loc>
+    <lastmod>2019-01-15T01:10:20+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/post/macos_squirrel_inputmethod/</loc>
     <lastmod>2018-12-23T15:03:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -73,7 +80,7 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2018-12-23T15:03:34+08:00</lastmod>
+    <lastmod>2019-01-15T01:10:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -81,6 +88,20 @@
   <url>
     <loc>https://beyondkmp.com/tags/</loc>
     <lastmod>2018-08-16T19:25:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/categories/golang/</loc>
+    <lastmod>2019-01-15T01:10:20+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/golang-channel/</loc>
+    <lastmod>2019-01-15T01:10:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
