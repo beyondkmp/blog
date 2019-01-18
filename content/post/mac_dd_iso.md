@@ -11,7 +11,9 @@ author: "beyondkmp"
 
 ---
 
-## 具体步骤
+## 使用dd命令步骤
+
+目前这个dd命令只适合制作linux的安装启动盘，不适合win10。
 
 <!--more-->
 
