@@ -11,7 +11,7 @@
   
   <url>
     <loc>https://beyondkmp.com/post/kone_clash/</loc>
-    <lastmod>2019-01-18T22:52:13+08:00</lastmod>
+    <lastmod>2019-01-19T02:01:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -94,7 +94,7 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-01-18T22:52:13+08:00</lastmod>
+    <lastmod>2019-01-19T02:01:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -108,7 +108,7 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/clash/</loc>
-    <lastmod>2019-01-18T22:52:13+08:00</lastmod>
+    <lastmod>2019-01-19T02:01:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -150,7 +150,7 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/kone/</loc>
-    <lastmod>2019-01-18T22:52:13+08:00</lastmod>
+    <lastmod>2019-01-19T02:01:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -191,14 +191,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/scala/</loc>
+    <loc>https://beyondkmp.com/categories/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/scala/</loc>
+    <loc>https://beyondkmp.com/tags/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -248,7 +248,7 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
-    <lastmod>2019-01-18T22:52:13+08:00</lastmod>
+    <lastmod>2019-01-19T02:01:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -262,7 +262,7 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/</loc>
-    <lastmod>2019-01-18T22:52:13+08:00</lastmod>
+    <lastmod>2019-01-19T02:01:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
