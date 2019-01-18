@@ -19,6 +19,7 @@ author: "beyondkmp"
     普通的非智能路由器，如[tp-link](http://service.tp-link.com.cn/detail_article_28.html)之类，都有这个功能,所以普通路由器就可以实现了,不需要高大上的智能路由器。反而智能路由器，如小米、极路由之类没有开放这个功能。不过也没事，智能路由器都是可以刷固件的，我目前刷的padavan，信号和稳定性比原生的系统还要好。
 
 * 树莓派可以正常使用互联网
+
 <!--more-->
 
 ## 安装kone
@@ -112,7 +113,7 @@ scp kone pi@192.168.123.2:/tmp
 
 ### 测试
 
-断开wifi重新连接，查看dns默认dns是不是10.192.0.1, 并ping www.github.com看下连接地址是不是10.192.x.x
+断开wifi重新连接，查看dns默认dns是不是10.192.0.1, 并`ping www.github.com`看下连接地址是不是10.192.x.x, 或者使用dig命令。
 
 ```
  $ ping www.github.com
