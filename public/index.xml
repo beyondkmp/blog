@@ -28,10 +28,12 @@ It makes use of a variety of open source projects including:
       <pubDate>Fri, 18 Jan 2019 17:15:41 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/mac_dd_iso/</guid>
-      <description>&lt;ol&gt;
+      <description>&lt;h2 id=&#34;具体步骤&#34;&gt;具体步骤&lt;/h2&gt;
+
+&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;先查看u盘的位置&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ diskutil list
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ diskutil list
 /dev/disk0 (internal, physical):
    #:                       TYPE NAME                    SIZE       IDENTIFIER
    0:      GUID_partition_scheme                        *121.3 GB   disk0
