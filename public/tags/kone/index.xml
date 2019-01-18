@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kone on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/kone/</link>
+    <description>Recent content in kone on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 18 Jan 2019 22:52:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/kone/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在树莓派上面kone和clash</title>
+      <link>https://beyondkmp.com/post/kone_clash/</link>
+      <pubDate>Fri, 18 Jan 2019 22:52:13 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/kone_clash/</guid>
+      <description>安装kone kone完全基于go语言开发,实现了tun2socks和fakeip功能。fakeip非常方便，可以接管你配置的域名流量. 硬件需</description>
+    </item>
+    
+  </channel>
+</rss>

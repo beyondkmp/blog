@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>在树莓派上面kone和clash</title>
+      <link>https://beyondkmp.com/post/kone_clash/</link>
+      <pubDate>Fri, 18 Jan 2019 22:52:13 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/kone_clash/</guid>
+      <description>安装kone kone完全基于go语言开发,实现了tun2socks和fakeip功能。fakeip非常方便，可以接管你配置的域名流量. 硬件需</description>
+    </item>
+    
+    <item>
       <title>macos下制作系统安装盘</title>
       <link>https://beyondkmp.com/post/mac_dd_iso/</link>
       <pubDate>Fri, 18 Jan 2019 17:15:41 +0800</pubDate>

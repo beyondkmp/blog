@@ -6,10 +6,19 @@
     <description>Recent content in 运维人生 on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 23 Oct 2018 20:27:39 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 18 Jan 2019 22:52:13 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在树莓派上面kone和clash</title>
+      <link>https://beyondkmp.com/post/kone_clash/</link>
+      <pubDate>Fri, 18 Jan 2019 22:52:13 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/kone_clash/</guid>
+      <description>安装kone kone完全基于go语言开发,实现了tun2socks和fakeip功能。fakeip非常方便，可以接管你配置的域名流量. 硬件需</description>
+    </item>
     
     <item>
       <title>小米路由器3G安装padavan固件</title>
