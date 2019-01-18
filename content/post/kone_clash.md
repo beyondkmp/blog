@@ -110,6 +110,8 @@ scp kone pi@192.168.123.2:/tmp
 
     tp-link 路由器的修改参考这里：<http://service.tp-link.com.cn/detail_article_575.html>
 
+* 保存配置后，重启路由器
+
 ### 测试
 
 断开wifi重新连接，查看dns默认dns是不是10.192.0.1, 并ping www.github.com看下连接地址是不是10.192.x.x
