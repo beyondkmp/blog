@@ -60,7 +60,7 @@
 
 <meta itemprop="datePublished" content="2019-01-18T17:15:41&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-18T17:15:41&#43;08:00" />
-<meta itemprop="wordCount" content="358">
+<meta itemprop="wordCount" content="344">
 
 
 
@@ -209,7 +209,7 @@
 <pre><code class="language-bash">$ diskutil unmountDisk /dev/disk4
 </code></pre></li>
 
-<li><p>写入的过程，如果在OS X下用dd,要用/dev/rdisk4,而不是上面的/dev/disk4 和bs=1m。rdisk指得是&rdquo;raw disk&rdquo;，在macos写入raw disk是非常快的。bs=1m表示1MB块大小。如果是linux系统的话要使用<code>bs=1M</code></p>
+<li><p>写入的过程，如果在OS X下用dd,要用/dev/rdisk4,而不是上面的/dev/disk4 和bs=1m。rdisk指得是<code>raw disk</code>，在macos写入raw disk是非常快的。bs=1m表示1MB块大小。如果是linux系统的话要使用<code>bs=1M</code></p>
 
 <pre><code class="language-bash">$ sudo dd if=Downloads/kali-linux-1.0.9a-amd64.iso of=/dev/rdisk4 bs=1m
 ^[363+1 records in
