@@ -1,10 +1,10 @@
 ---
-title: "在树莓派上面kone和clash"
+title: "在树莓派上使用kone和clash"
 date: 2019-01-18T22:52:13+0800
 lastmod: 2019-01-18T22:52:13+0800
 draft: false
 keywords: ["树莓派","kone","clash"]
-description: "在树莓派上面kone和clash"
+description: "在树莓派上使用kone和clash"
 tags: ["树莓派","kone","clash"]
 categories: ["运维人生"]
 author: "beyondkmp"
