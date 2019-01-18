@@ -13,7 +13,7 @@ author: "beyondkmp"
 
 ## 使用dd命令
 
-目前这个dd命令只适合制作linux的安装启动盘，不适合win10。
+目前这个dd命令只适合制作linux的安装启动盘，`不适合win10`。
 
 <!--more-->
 

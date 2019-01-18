@@ -19,7 +19,7 @@
       <guid>https://beyondkmp.com/post/mac_dd_iso/</guid>
       <description>&lt;h2 id=&#34;使用dd命令&#34;&gt;使用dd命令&lt;/h2&gt;
 
-&lt;p&gt;目前这个dd命令只适合制作linux的安装启动盘，不适合win10。&lt;/p&gt;</description>
+&lt;p&gt;目前这个dd命令只适合制作linux的安装启动盘，&lt;code&gt;不适合win10&lt;/code&gt;。&lt;/p&gt;</description>
     </item>
     
     <item>
