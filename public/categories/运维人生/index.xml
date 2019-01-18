@@ -17,17 +17,17 @@
       <pubDate>Fri, 18 Jan 2019 22:52:13 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/kone_clash/</guid>
-      <description>&lt;h1 id=&#34;安装kone&#34;&gt;安装kone&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;安装kone&#34;&gt;安装kone&lt;/h2&gt;
 
 &lt;p&gt;kone完全基于go语言开发,实现了tun2socks和fakeip功能。fakeip非常方便，可以接管你配置的域名流量.&lt;/p&gt;
 
-&lt;h2 id=&#34;硬件需求&#34;&gt;硬件需求&lt;/h2&gt;
+&lt;h3 id=&#34;硬件需求&#34;&gt;硬件需求&lt;/h3&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;需要一个可以更改静态路由的路由器。&lt;/p&gt;
 
-&lt;p&gt;普通的非智能路由器，如&lt;a href=&#34;http://service.tp-link.com.cn/detail_article_28.html&#34;&gt;tp-link&lt;/a&gt;之类，都有这个功能。反而智能路由器，如小米、极路由之类没有开放这个功能。不过也没事，智能路由器都是可以刷固件的，我目前刷的padavan，信号和稳定性比原生的系统还要好。&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;p&gt;普通的非智能路由器，如&lt;a href=&#34;http://service.tp-link.com.cn/detail_article_28.html&#34;&gt;tp-link&lt;/a&gt;之类，都有这个功能,所以普通路由器就可以实现了。反而智能路由器，如小米、极路由之类没有开放这个功能。不过也没事，智能路由器都是可以刷固件的，我目前刷的padavan，信号和稳定性比原生的系统还要好。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
