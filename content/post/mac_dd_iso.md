@@ -68,11 +68,11 @@ author: "beyondkmp"
     $ diskutil eject /dev/disk4
     ```
 
-## 使用unetbootin制作win10安装盘
+## 使用unetbootin制作win 10安装盘
 
 1. 下载win10安装镜像，[官方地址](https://www.microsoft.com/zh-cn/software-download/windows10ISO)
 
-![win10 download](/imgs/win10_download.png)
+    ![win10 download](/imgs/win10_download.png)
 
 2. 格式化u盘, 使用macos自带的磁盘工具,选中插入的u盘，点击抹掉,然后选择下面的格式进行格式化
 
