@@ -45,13 +45,13 @@ author: "beyondkmp"
     ```
 
 
-2. 插上u盘后，os x下会自动挂载，我们要写入时必须先卸载他。用下面的命令进行卸载：
+2. 插上u盘后，macos下会自动挂载，我们要写入时必须先卸载他。用下面的命令进行卸载：
 
     ```bash
     $ diskutil unmountDisk /dev/disk4
     ```
 
-3. 写入的过程，如果在OS X下用dd,要用/dev/rdisk4,而不是上面的/dev/disk4 和bs=1m。rdisk指得是`raw disk`，在macos写入raw disk是非常快的。bs=1m表示1MB块大小。如果是linux系统的话要使用`bs=1M`
+3. 写入的过程，如果在macos下要用/dev/rdisk4,而不是上面的/dev/disk4. rdisk指得是`raw disk`，在macos写入raw disk是非常快的。bs=1m表示1MB块大小。如果是linux系统的话要使用`bs=1M`
 
     ```bash
     $ sudo dd if=Downloads/kali-linux-1.0.9a-amd64.iso of=/dev/rdisk4 bs=1m
