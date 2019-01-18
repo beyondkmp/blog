@@ -1,5 +1,5 @@
 ---
-title: "macos下使用dd刻录iso"
+title: "macos下制作系统安装盘"
 date: 2019-01-18T17:15:41+0800
 lastmod: 2019-01-18T17:15:41+0800
 draft: false
