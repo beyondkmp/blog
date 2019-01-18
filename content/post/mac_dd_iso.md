@@ -13,6 +13,8 @@ author: "beyondkmp"
 
 ## 具体步骤
 
+<!--more-->
+
 1. 先查看u盘的位置
 
     ```bash
@@ -42,7 +44,6 @@ author: "beyondkmp"
        1:               Windows_NTFS Elements                1.0 TB     disk3s1
     ```
 
-    <!--more-->
 
 2. 插上u盘后，os x下会自动挂载，我们要写入时必须先卸载他。用下面的命令进行卸载：
 
