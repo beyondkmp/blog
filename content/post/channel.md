@@ -11,4 +11,8 @@ author: "beyondkmp"
 
 ---
 
+# channel基础语法
+# channel
+
+
 <!--more-->
