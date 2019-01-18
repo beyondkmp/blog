@@ -11,7 +11,7 @@ author: "beyondkmp"
 
 ---
 
-## 使用dd命令步骤
+## 使用dd命令
 
 目前这个dd命令只适合制作linux的安装启动盘，不适合win10。
 
@@ -68,8 +68,43 @@ author: "beyondkmp"
     $ diskutil eject /dev/disk4
     ```
 
+## 使用unetbootin制作win10安装盘
+
+1. 下载win10安装镜像，[官方地址](https://www.microsoft.com/zh-cn/software-download/windows10ISO)
+
+![win10 download](/imgs/win10_download.png)
+
+2. 格式化u盘, 使用macos自带的磁盘工具,选中插入的u盘，点击抹掉,然后选择下面的格式进行格式化
+
+    ```
+    Name: FAT32
+    Format: MS-DOS (FAT)
+    Scheme: Master Boot Record
+    ```
+    ![disk utility erase disk](/imgs/disk-utility-erase-disk.png)
+
+3. 将usb刻录成win10安装盘, 下载unetbootin并打开，打开过程中要输入密码,选择下面的参数，最后点击ok，等待写入完毕就完成了。
+
+    ```
+    Diskimage: checked, set to ISO and browse to your Windows 10 ISO
+    Type: USB Drive
+    Drive: Your USB drive (you should only see one entry here)
+    ```
+    ![unetbootin](/imgs/unetbootin.png)
+
+如果有多个usb盘选择，你可以通过下面的命令来确认哪个盘是你要写入的。
+
+```
+$ diskutil list FAT32
+/dev/disk2 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *16.0 GB    disk2
+   1:                 DOS_FAT_32 FAT32                   16.0 GB    disk2s1
+```
+
 ## 参考
 
 1. [USB flash installation media](https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_Mac_OS_X)
 2. [How to create a bootable USB stick on OS X](http://www.ubuntu.org.cn/download/desktop/create-a-usb-stick-on-mac-osx)
+3. [Installing Windows 10 on a Mac without Bootcamp](http://fgimian.github.io/blog/2016/03/12/installing-windows-10-on-a-mac-without-bootcamp/)
 

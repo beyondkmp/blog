@@ -60,7 +60,7 @@
 
 <meta itemprop="datePublished" content="2019-01-18T17:15:41&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-18T17:15:41&#43;08:00" />
-<meta itemprop="wordCount" content="376">
+<meta itemprop="wordCount" content="630">
 
 
 
@@ -158,7 +158,8 @@
 <ul>
 <li>
 <ul>
-<li><a href="#使用dd命令步骤">使用dd命令步骤</a></li>
+<li><a href="#使用dd命令">使用dd命令</a></li>
+<li><a href="#使用unetbootin制作win10安装盘">使用unetbootin制作win10安装盘</a></li>
 <li><a href="#参考">参考</a></li>
 </ul></li>
 </ul>
@@ -171,7 +172,7 @@
 
     
     <div class="post-content">
-      <h2 id="使用dd命令步骤">使用dd命令步骤</h2>
+      <h2 id="使用dd命令">使用dd命令</h2>
 
 <p>目前这个dd命令只适合制作linux的安装启动盘，不适合win10。</p>
 
@@ -223,11 +224,49 @@
 </code></pre></li>
 </ol>
 
+<h2 id="使用unetbootin制作win10安装盘">使用unetbootin制作win10安装盘</h2>
+
+<ol>
+<li>下载win10安装镜像，<a href="https://www.microsoft.com/zh-cn/software-download/windows10ISO">官方地址</a></li>
+</ol>
+
+<p><img src="/imgs/win10_download.png" alt="win10 download" /></p>
+
+<ol>
+<li><p>格式化u盘, 使用macos自带的磁盘工具,选中插入的u盘，点击抹掉,然后选择下面的格式进行格式化</p>
+
+<pre><code>Name: FAT32
+Format: MS-DOS (FAT)
+Scheme: Master Boot Record
+</code></pre>
+
+<p><img src="/imgs/disk-utility-erase-disk.png" alt="disk utility erase disk" /></p></li>
+
+<li><p>将usb刻录成win10安装盘, 下载unetbootin并打开，打开过程中要输入密码,选择下面的参数，最后点击ok，等待写入完毕就完成了。</p>
+
+<pre><code>Diskimage: checked, set to ISO and browse to your Windows 10 ISO
+Type: USB Drive
+Drive: Your USB drive (you should only see one entry here)
+</code></pre>
+
+<p><img src="/imgs/unetbootin.png" alt="unetbootin" /></p></li>
+</ol>
+
+<p>如果有多个usb盘选择，你可以通过下面的命令来确认哪个盘是你要写入的。</p>
+
+<pre><code>$ diskutil list FAT32
+/dev/disk2 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *16.0 GB    disk2
+   1:                 DOS_FAT_32 FAT32                   16.0 GB    disk2s1
+</code></pre>
+
 <h2 id="参考">参考</h2>
 
 <ol>
 <li><a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_Mac_OS_X">USB flash installation media</a></li>
 <li><a href="http://www.ubuntu.org.cn/download/desktop/create-a-usb-stick-on-mac-osx">How to create a bootable USB stick on OS X</a></li>
+<li><a href="http://fgimian.github.io/blog/2016/03/12/installing-windows-10-on-a-mac-without-bootcamp/">Installing Windows 10 on a Mac without Bootcamp</a></li>
 </ol>
     </div>
 
