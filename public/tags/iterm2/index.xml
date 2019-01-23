@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iTerm2 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/iterm2/</link>
+    <description>Recent content in iTerm2 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 23 Jan 2019 10:33:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/iterm2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>修复升级xcode后zsh崩溃</title>
+      <link>https://beyondkmp.com/post/zsh_crash_xcode/</link>
+      <pubDate>Wed, 23 Jan 2019 10:33:23 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/zsh_crash_xcode/</guid>
+      <description>&lt;p&gt;昨天升级了xcode, 好久没有升级了，而且zsh也没有升级。一升级完，iTerm2和系统自带的终端就直接崩溃了。报错如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dyld: Library not loaded: /usr/local/opt/gdbm/lib/libgdbm.4.dylib
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://beyondkmp.com/imgs/zsh_crash.jpg&#34; alt=&#34;zsh_crash&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

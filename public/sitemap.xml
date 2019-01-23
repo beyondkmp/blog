@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/post/zsh_crash_xcode/</loc>
+    <lastmod>2019-01-23T10:33:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/post/kone_clash/</loc>
     <lastmod>2019-01-19T02:01:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -94,7 +101,7 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-01-19T02:01:00+08:00</lastmod>
+    <lastmod>2019-01-23T10:33:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -135,6 +142,13 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/tags/iterm2/</loc>
+    <lastmod>2019-01-23T10:33:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/tags/iso%E5%88%BB%E5%BD%95/</loc>
     <lastmod>2019-01-18T17:15:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -164,7 +178,7 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/mac/</loc>
-    <lastmod>2019-01-18T17:15:41+08:00</lastmod>
+    <lastmod>2019-01-23T10:33:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -226,8 +240,22 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/tags/zsh%E5%B4%A9%E6%BA%83/</loc>
+    <lastmod>2019-01-23T10:33:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/tags/%E4%BA%94%E7%AC%94/</loc>
     <lastmod>2018-12-23T15:03:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/%E5%8D%87%E7%BA%A7xcode/</loc>
+    <lastmod>2019-01-23T10:33:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
