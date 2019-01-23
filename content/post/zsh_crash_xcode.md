@@ -11,6 +11,8 @@ author: "beyondkmp"
 
 ---
 
+## 问题
+
 昨天升级了xcode, 好久没有升级了，而且zsh也没有升级。一升级完，iTerm2和系统自带的终端就直接崩溃了。报错如下：
 
 ```
@@ -20,6 +22,8 @@ dyld: Library not loaded: /usr/local/opt/gdbm/lib/libgdbm.4.dylib
 ![zsh_crash](/imgs/zsh_crash.jpg)
 
 <!--more-->
+
+## 解决方法
 
 网上的解决方法都是升级zsh就可以解决，参考1的就是这样说。但是现在打开终端就直接如上图了，根本运行不了命令了。
 
