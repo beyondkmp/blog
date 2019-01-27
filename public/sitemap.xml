@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/post/libfaketime_surge/</loc>
+    <lastmod>2019-01-27T16:40:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/post/zsh_crash_xcode/</loc>
     <lastmod>2019-01-23T10:33:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -101,7 +108,7 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-01-23T10:33:23+08:00</lastmod>
+    <lastmod>2019-01-27T16:40:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -177,8 +184,15 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/tags/libfaketime/</loc>
+    <lastmod>2019-01-27T16:40:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/categories/mac/</loc>
-    <lastmod>2019-01-23T10:33:23+08:00</lastmod>
+    <lastmod>2019-01-27T16:40:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -228,6 +242,13 @@
   <url>
     <loc>https://beyondkmp.com/tags/ssh/</loc>
     <lastmod>2018-08-17T21:52:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/surge/</loc>
+    <lastmod>2019-01-27T16:40:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

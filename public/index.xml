@@ -21,6 +21,37 @@
     </item>
     
     <item>
+      <title>libfaketime改变软件的运行时间</title>
+      <link>https://beyondkmp.com/post/libfaketime_surge/</link>
+      <pubDate>Sun, 27 Jan 2019 16:40:07 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/libfaketime_surge/</guid>
+      <description>&lt;h2 id=&#34;libfaketime&#34;&gt;libfaketime&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/wolfcw/libfaketime&#34;&gt;libfaketime&lt;/a&gt;:主要是拦截了程序调用获取当前时间的系统调用。然后会将你修改(假的)后的时间返回给这些程序。这样的话你可以单独修改一个程序的获取的时间，而用不修改整个系统的时间。&lt;/p&gt;
+
+&lt;h2 id=&#34;安装libfaketime&#34;&gt;安装libfaketime&lt;/h2&gt;
+
+&lt;p&gt;有两种方法安装，brew和编译源码安装，brew安装的版本有点老，在最新的macos系统已经不行了。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;通过brew安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew install libfaketime coreutils
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;源码编译安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/wolfcw/libfaketime.git
+make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;使用faketime来运行surge&#34;&gt;使用faketime来运行surge&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
       <title>修复升级xcode后zsh崩溃</title>
       <link>https://beyondkmp.com/post/zsh_crash_xcode/</link>
       <pubDate>Wed, 23 Jan 2019 10:33:23 +0800</pubDate>
