@@ -47,7 +47,7 @@ author: "beyondkmp"
     $ faketime '@2007-01-01 00:00:00' /Applications/Surge.app/Contents/MacOS/Surge &
     ```
 
-    不过如果直接用上面的命令的运行，faketime的cpu占用非常大,让电脑一直发热。我们设置FAKETIME_STOP_AFTER_SECONDS=10, 就让它运行10s后自动关闭，因为软件只是在启动的时候检测一下时间，运行后退出libfaketime节省cpu。
+    不过如果直接用上面的命令的运行，faketime的cpu占用非常大,让电脑一直发热。我们设置`FAKETIME_STOP_AFTER_SECONDS=10`, 就让它运行10s后自动关闭，因为软件只是在启动的时候检测一下时间，运行后退出libfaketime节省cpu。
 
 
     ```
