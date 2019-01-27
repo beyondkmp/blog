@@ -215,7 +215,7 @@ sudo make install
 <pre><code>$ faketime '@2007-01-01 00:00:00' /Applications/Surge.app/Contents/MacOS/Surge &amp;
 </code></pre>
 
-<p>不过如果直接用上面的命令的运行，faketime的cpu占用非常大,让电脑一直发热。我们设置FAKETIME_STOP_AFTER_SECONDS=10, 就让它运行10s后自动关闭，因为软件只是在启动的时候检测一下时间，运行后退出libfaketime节省cpu。</p>
+<p>不过如果直接用上面的命令的运行，faketime的cpu占用非常大,让电脑一直发热。我们设置<code>FAKETIME_STOP_AFTER_SECONDS=10</code>, 就让它运行10s后自动关闭，因为软件只是在启动的时候检测一下时间，运行后退出libfaketime节省cpu。</p>
 
 <pre><code>$ FAKETIME_STOP_AFTER_SECONDS=10 faketime -f '@2007-01-01 00:00:00' /Applications/Surge.app/Contents/MacOS/Surge &amp;
 </code></pre></li>
