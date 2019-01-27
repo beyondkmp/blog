@@ -19,7 +19,7 @@
       <guid>https://beyondkmp.com/post/libfaketime_surge/</guid>
       <description>&lt;h2 id=&#34;libfaketime&#34;&gt;libfaketime&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/wolfcw/libfaketime&#34;&gt;libfaketime&lt;/a&gt;:主要是拦截了程序调用获取当前时间的系统调用。然后会将你修改(假的)后的时间返回给这些程序。这样的话你可以单独修改一个程序的获取的时间，而用不修改整个系统的时间。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/wolfcw/libfaketime&#34;&gt;libfaketime&lt;/a&gt;:主要是拦截了程序调用获取当前时间的系统调用。然后会将你修改(假的)后的时间返回给这些程序。这样的话你可以单独修改一个程序的获取的时间，而不用修改整个系统的时间。&lt;/p&gt;
 
 &lt;h2 id=&#34;安装libfaketime&#34;&gt;安装libfaketime&lt;/h2&gt;
 

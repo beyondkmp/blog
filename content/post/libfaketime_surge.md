@@ -12,7 +12,7 @@ author: "beyondkmp"
 ---
 
 ## libfaketime
-[libfaketime](https://github.com/wolfcw/libfaketime):主要是拦截了程序调用获取当前时间的系统调用。然后会将你修改(假的)后的时间返回给这些程序。这样的话你可以单独修改一个程序的获取的时间，而用不修改整个系统的时间。
+[libfaketime](https://github.com/wolfcw/libfaketime):主要是拦截了程序调用获取当前时间的系统调用。然后会将你修改(假的)后的时间返回给这些程序。这样的话你可以单独修改一个程序的获取的时间，而不用修改整个系统的时间。
 
 ## 安装libfaketime
 
