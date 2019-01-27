@@ -32,7 +32,7 @@
 
 &lt;h2 id=&#34;安装libfaketime&#34;&gt;安装libfaketime&lt;/h2&gt;
 
-&lt;p&gt;有两种方法安装，brew和编译源码安装，brew安装的版本有点老，在最新的macos系统已经不行了。&lt;/p&gt;
+&lt;p&gt;有两种方法安装，brew和编译源码安装. brew安装的版本有点老，在最新的macos系统已经不行了,运行时会报错。&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;通过brew安装&lt;/p&gt;

@@ -16,7 +16,7 @@ author: "beyondkmp"
 
 ## 安装libfaketime
 
-有两种方法安装，brew和编译源码安装，brew安装的版本有点老，在最新的macos系统已经不行了。
+有两种方法安装，brew和编译源码安装. brew安装的版本有点老，在最新的macos系统已经不行了,运行时会报错。
 
 1. 通过brew安装
 
