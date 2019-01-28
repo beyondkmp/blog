@@ -139,8 +139,8 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
   [params.reward]                                         # 文章打赏
     enable = true
-    wechat = "/wechat-qr-code.png"           # 微信二维码
-    alipay = "/alipay-qr-code.png"           # 支付宝二维码
+    gigsgigs = "/wechat-qr-code.png"           # 微信二维码
+    bwhost = "/alipay-qr-code.png"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
     a-email = "mailto:beyondkmp@gmail.com"
