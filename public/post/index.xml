@@ -6,10 +6,25 @@
     <description>Recent content in Posts on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 27 Jan 2019 16:40:07 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 29 Jan 2019 12:44:37 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>推荐高效的macos软件</title>
+      <link>https://beyondkmp.com/post/macos_softwares/</link>
+      <pubDate>Tue, 29 Jan 2019 12:44:37 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/macos_softwares/</guid>
+      <description>&lt;p&gt;个人已经使用macos快5年了，目前积累了不少高效软件。这些软件组合起来可以非常有效的提高工作效率。话不多说，直接上图吧，哈哈。&lt;/p&gt;
+
+&lt;h2 id=&#34;视频类&#34;&gt;视频类&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;[IINA]()&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
     
     <item>
       <title>libfaketime改变软件的运行时间</title>

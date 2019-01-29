@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/post/macos_softwares/</loc>
+    <lastmod>2019-01-29T12:44:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/post/libfaketime_surge/</loc>
     <lastmod>2019-01-27T16:40:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -108,7 +115,7 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-01-27T16:40:07+08:00</lastmod>
+    <lastmod>2019-01-29T12:44:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -192,14 +199,14 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/mac/</loc>
-    <lastmod>2019-01-27T16:40:07+08:00</lastmod>
+    <lastmod>2019-01-29T12:44:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/macos/</loc>
-    <lastmod>2019-01-18T17:15:41+08:00</lastmod>
+    <lastmod>2019-01-29T12:44:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -312,6 +319,13 @@
   <url>
     <loc>https://beyondkmp.com/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/</loc>
     <lastmod>2019-01-19T02:01:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/%E9%AB%98%E6%95%88%E8%BD%AF%E4%BB%B6/</loc>
+    <lastmod>2019-01-29T12:44:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
