@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.53" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/post/libfaketime_surge/" />
@@ -51,7 +51,8 @@
 <meta property="og:title" content="libfaketime改变软件的运行时间" />
 <meta property="og:description" content="libfaketime改变软件的运行时间" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://beyondkmp.com/post/libfaketime_surge/" /><meta property="article:published_time" content="2019-01-27T16:40:07&#43;08:00"/>
+<meta property="og:url" content="https://beyondkmp.com/post/libfaketime_surge/" />
+<meta property="article:published_time" content="2019-01-27T16:40:07&#43;08:00"/>
 <meta property="article:modified_time" content="2019-01-27T16:40:07&#43;08:00"/>
 
 <meta itemprop="name" content="libfaketime改变软件的运行时间">
@@ -296,20 +297,25 @@ sudo make install
   </article>
         </div>
         
-  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'www-birdcat-cn-1';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <div id="comments-gitment"></div>
+  <link rel="stylesheet" href="/lib/gitment/gitment-0.0.3.min.css">
+    <script src="/lib/gitment/gitment-0.0.3.min.js"></script>
+  <script type="text/javascript">
+  const gitment = new Gitment({
+    id: '2019-01-27 16:40:07 \x2b0800 CST',
+    title: 'libfaketime改变软件的运行时间',
+    link: decodeURI(location.href),
+    desc: '\x3ch2 id=\x22libfaketime\x22\x3elibfaketime\x3c\/h2\x3e\n\n\x3cp\x3e\x3ca href=\x22https:\/\/github.com\/wolfcw\/libfaketime\x22\x3elibfaketime\x3c\/a\x3e:主要是拦截了程序调用获取当前时间的系统调用。然后会将你修改(假的)后的时间返回给这些程序。这样的话你可以单独修改一个程序的获取的时间，而不用修改整个系统的时间。\x3c\/p\x3e\n\n\x3ch2 id=\x22安装libfaketime\x22\x3e安装libfaketime\x3c\/h2\x3e\n\n\x3cp\x3e有两种方法安装，brew和编译源码安装. brew安装的版本有点老，在最新的macos系统已经不行了,运行时会报错。\x3c\/p\x3e\n\n\x3col\x3e\n\x3cli\x3e\x3cp\x3e通过brew安装\x3c\/p\x3e\n\n\x3cpre\x3e\x3ccode\x3ebrew install libfaketime coreutils\n\x3c\/code\x3e\x3c\/pre\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cp\x3e源码编译安装\x3c\/p\x3e\n\n\x3cpre\x3e\x3ccode\x3egit clone https:\/\/github.com\/wolfcw\/libfaketime.git\nmake\nsudo make install\n\x3c\/code\x3e\x3c\/pre\x3e\x3c\/li\x3e\n\x3c\/ol\x3e\n\n\x3ch2 id=\x22使用faketime来运行surge\x22\x3e使用faketime来运行surge\x3c\/h2\x3e',
+    owner: 'beyondkmp',
+    repo: 'hugo-beyondkmp',
+    oauth: {
+      client_id: '60c95581e35aaeb04f31',
+      client_secret: '4ee720fd6af4268d0cdccf844a51935963bb8a68'
+    }
+  })
+  gitment.render('comments-gitment')
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
 
   
 
