@@ -29,7 +29,7 @@ tags: ["x windows","XQuartz","xclip","x11 forwarding"]
 
 ## 配置xclip与vim
 1. 设置xquartz,在pasteboard中选中所有
-	![xquartz pasteboard]({{IMAGE_PATH}}/xquartz/1.jpg)
+	![xquartz pasteboard](/imgs/xquartz/1.jpg)
 
 2. 为了可以将远程服务器的系统粘贴板直接复制到本地
     * 安装xclip

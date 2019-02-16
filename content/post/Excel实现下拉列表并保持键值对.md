@@ -27,30 +27,30 @@ tags: ["Excel","下拉列表","键值对"]
 
 1. 在sheet1中输入键值对key-value，实际中我用到了两组。
 
-    ![1]({{IMAGE_PATH}}/excel/1.png)
+    ![1](/imgs/excel/1.png)
 
 2. sheet2中:
 
     (1) 实现列的下拉框效果：选中D列，数据->有效性，选“序列”，输入来源，为下拉框的值，值之间用英文逗号隔开。
 
-    ![2]({{IMAGE_PATH}}/excel/2.png)
+    ![2](/imgs/excel/2.png)
 
     (2) 在F2框输入公式`=VLOOKUP(D2,Sheet1!$A$2:$B$4,2,FALSE)`，D2为要查找的值，直接选中要sheet1中要跟踪的数据区域，2表示(1)截图中的B列
 
-    ![3]({{IMAGE_PATH}}/excel/3.png)
+    ![3](/imgs/excel/3.png)
 
     (3) 但是F2输入框中显示的是`#N/A`，传到后台程序会读取成`#N/A`，但是若想让空值显示为空，则使用IF函数和ISNA函数搭配，最终的函数为
 
         =IF(ISNA(VLOOKUP(D2,Sheet1!$A$2:$B$4,2,FALSE)),"",VLOOKUP(D2,Sheet1!$A$2:$B$4,2,FALSE))
 
-    ![4]({{IMAGE_PATH}}/excel/4.png)
+    ![4](/imgs/excel/4.png)
 
 
     (4) 再者就是要实现多行都使用这个公式了。直接从F2输入框往下拖动，就可以实现D列选值后value直接写到F列
 
     (5) 最后实现的效果是D列为下拉框，选择一个值后，F列跟着相应变化
 
-    ![5]({{IMAGE_PATH}}/excel/5.png)
+    ![5](/imgs/excel/5.png)
 
 
 

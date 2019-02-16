@@ -159,13 +159,13 @@
 
 <p>这里让我不明白的是，无锁的日志系统安全吗？Ruby添加互斥锁的原因之一可能就是为了安全起见。如果在同一时间，多个线程同时写一个日志文件会怎么样？插入的日志信息会不会像下面：</p>
 
-<p><img src="{{IMAGE_PATH}}/linux多进程写文件/1.png" alt="1" /></p>
+<p><img src="/imgs/linux多进程写文件/1.png" alt="1" /></p>
 
 <h2 id="unix-beard-too-short-unix胡须太短-等不及">Unix beard too short&hellip;(unix胡须太短，等不及)</h2>
 
 <p>这是一个深奥的Unix问题。当我在mono_logger的bug跟踪系统中提出这个问题时，我承认我实在等不及想知道这个问题的答案。于是我转向求助我最后的Unix编程书籍：The Linux Programming Interface.</p>
 
-<p><img src="{{IMAGE_PATH}}/linux多进程写文件/2.png" alt="2" /></p>
+<p><img src="/imgs/linux多进程写文件/2.png" alt="2" /></p>
 
 <p>在书中找到我想要的答案。从几个知识点可以推导出这个问题的答案。</p>
 
@@ -207,7 +207,7 @@
 
 <p>但是还有一种方法。</p>
 
-<p><img src="{{IMAGE_PATH}}/linux多进程写文件/3.png" alt="3" /></p>
+<p><img src="/imgs/linux多进程写文件/3.png" alt="3" /></p>
 
 <p>为了能保证seek和write两个操作发生的原子性，你可以设置O_APPEND标志，当你在打开一个文件时。然后，任何往文件追加的写操作都能保证是原子性的。这正是我们在写要共享日志文件时想要的情况。Logger和MonoLogger都是用这个标志来打开文件。</p>
 <div class="highlight"><div class="chroma">

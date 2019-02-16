@@ -15,18 +15,18 @@ tags: ["ios","os x","技巧收集"]
 #### 技巧一：禁止屏幕旋转
 
 在主屏幕上往上拉出下面的快捷界面，点击那个小锁就可以。如下图：
-![禁止屏幕旋转]({{ IMAGE_PATH}}/ios及os的技巧收集/1.png)
+![禁止屏幕旋转](/imgs/ios及os的技巧收集/1.png)
 
 #### 技巧二：打开连接wifi界面
 
 在主屏幕上往上拉出下面的快捷界面，长按住wifi的小图标，就会自动跳转到wifi连接界面。
-![wifi连接]({{ IMAGE_PATH}}/ios及os的技巧收集/1.png)
+![wifi连接](/imgs/ios及os的技巧收集/1.png)
 
 ### 技巧三：不用电源键关机
 
 调出ios的assisitiveTouch,在控制->通用->辅助功能里面。就是屏幕上的小灯泡样的东西。调出后点击，再点设备，可以看到下面的锁定屏幕直接长按就会出来关机界面。
 
-![不用电源键关机]({{ IMAGE_PATH}}/ios及os的技巧收集/3.png)
+![不用电源键关机](/imgs/ios及os的技巧收集/3.png)
 
 ### 技巧四：在锁屏状态下挂电话
 
@@ -44,7 +44,7 @@ tags: ["ios","os x","技巧收集"]
 #### 技巧一：用空格查看图片
 
 你要查看图片，可以直接选中，按下空格就可以查看图片了，还有选中多张一起查看。
-![用空格查看图片]({{ IMAGE_PATH}}/ios及os的技巧收集/2.png)
+![用空格查看图片](/imgs/ios及os的技巧收集/2.png)
 
 #### 技巧二：修改文件名
 行路文件，直接按下enter就可以修改文件名了。
@@ -66,7 +66,7 @@ defaults write com.apple.finder AppleShowAllFiles -bool false  #这是隐藏
 * 先选择要相关的文件类型，例如.c文件,右键选择显示简介
 * 在简介界面有个打开方式，选择相应的程序，再点击下面的全部更改就ok了!
 
-![选择默认程序]({{ IMAGE_PATH}}/ios及os的技巧收集/4.png)
+![选择默认程序](/imgs/ios及os的技巧收集/4.png)
 
 ## 技巧六：输入法安装文件的位置
 
@@ -84,7 +84,7 @@ beyond@birdcat:/Library/Input Methods|
 
 在Apple Menu -> System Preferneces ->Keyboard -> 修饰键，如下图：
 
-![keyboard setting]({{ IMAGE_PATH}}/ios及os的技巧收集/5.png)
+![keyboard setting](/imgs/ios及os的技巧收集/5.png)
 
 ## 技巧八：修改状态栏上小图标的位置
 

@@ -79,17 +79,17 @@ file-allocation=prealloc
 ```
 第一次使用，直接copy[雪月秋水](https://blog.icehoney.me/)的配置文件。配置好上面后，直接在终端运行`aria2c --conf-path=<PATH> -D`,PATH必须是绝对路径，-D表示使Aria2在后台运行，即使关闭终端也不会停止运行。最后就是怎么管理Aria2的下载任务了，可以用binux的[YAAW](https://github.com/binux/yaaw),还可以使用[在线版本](http://binux.github.io/yaaw/demo/)。不过还有一个更美观的webui，就是ziahamza的[webui-aria2](https://github.com/ziahamza/webui-aria2)，也有在线版本的[在线版本webui-aria2](http://ziahamza.github.io/webui-aria2/)，如下图所示。
 
-![webui-aria2]({{IMAGE_PATH}}/配置aria2/overview.png)
+![webui-aria2](/imgs/配置aria2/overview.png)
 
 如果是mac的话也可以用aria2GUI这个软件，[下载地址](http://bbs.feng.com/read-htm-tid-10217584.html)，界面如下图：
 
-![aria2GUI]({{ IMAGE_PATH}}/配置aria2/2.png)
+![aria2GUI](/imgs/配置aria2/2.png)
 
 ## 安装百度网盘导出插件
 
 到[Baiduexporter](https://github.com/acgotaku/BaiduExporter)下载相应版本的游览器插件,安装好后打开百度网盘会多出一个导出设置，如下图所示，直接导出下载就可以了。
 
-![百度网盘导出aria2-download]({{IMAGE_PATH}}/配置aria2/1.png)
+![百度网盘导出aria2-download](/imgs/配置aria2/1.png)
 
 ## 参考
 1. [使用Aria2下载百度网盘和115的资源](https://blog.icehoney.me/posts/2015-01-31-Aria2-download)

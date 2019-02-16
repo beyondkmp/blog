@@ -14,21 +14,21 @@ tags: ["苹果","天才吧"]
 
 打开<http://www.apple.com/cn/retail/>,如果查找零售店里面没有，可以点击完整零售店列表，如下图，最后选择离你最近的苹果零售店:
 
-![查找零售店]({{IMAGE_PATH}}/geniusbar/1.png)
+![查找零售店](/imgs/geniusbar/1.png)
 
-![查找零售店]({{IMAGE_PATH}}/geniusbar/2.png)
+![查找零售店](/imgs/geniusbar/2.png)
 
 ## 第二步: 进入最近的零售店页面，点击genius bar
 
-![查找零售店]({{IMAGE_PATH}}/geniusbar/3.png)
+![查找零售店](/imgs/geniusbar/3.png)
 
 ## 第三步: 输入你的apple id，进入天才吧预约界面
 
-![查找零售店]({{IMAGE_PATH}}/geniusbar/4.png)
+![查找零售店](/imgs/geniusbar/4.png)
 
 ## 第四步: 填写相应的信息，要写的你身份证号，到店里要出示身份证的。
 
-![查找零售店]({{IMAGE_PATH}}/geniusbar/5.png)
+![查找零售店](/imgs/geniusbar/5.png)
 
 ## 第五步: 挑选一个合适的时间，就ok了。
 

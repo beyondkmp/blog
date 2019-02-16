@@ -73,7 +73,7 @@ func main() {
 
 程序的输出结果：
 
-![result]({{IMAGE_PATH}}/go字符串拼接/2.png)
+![result](/imgs/go字符串拼接/2.png)
 
 
 ## 参考

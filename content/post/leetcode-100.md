@@ -13,5 +13,5 @@ tags: ["leetcode"]
 
 ## 截个图，做个纪念
 
-![leetcode 100]({{IMAGE_PATH}}/leetcode_100/1.png)
+![leetcode 100](/imgs/leetcode_100/1.png)
 

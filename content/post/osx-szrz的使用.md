@@ -21,7 +21,7 @@ tags: ["os x","szrz"]
 
 3. 在iTerm 2下面设置相应的Triggers,Triggers位于`Preferences->Profiles->Advanced->Triggers`,直接edit就会出现下面的界面:
 
-    ![triggers]({{IMAGE_PATH}}/osx-szrz使用/1.png)
+    ![triggers](/imgs/osx-szrz使用/1.png)
 
 
     ```
