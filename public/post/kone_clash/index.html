@@ -418,27 +418,25 @@ stdout_logfile = /var/log/clash.log
   </article>
         </div>
         
-  <div id="comments-gitment"></div>
-  <link rel="stylesheet" href="/lib/gitment/gitment-0.0.3.min.css">
-    <script src="/lib/gitment/gitment-0.0.3.min.js"></script>
+  
+
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="/lib/gitalk/gitalk-1.2.2.min.css">
+    <script src="/lib/gitalk/gitalk-1.2.2.min.js"></script>
   <script type="text/javascript">
-  const gitment = new Gitment({
+  var gitalk = new Gitalk({
     id: '2019-01-18 22:52:13 \x2b0800 CST',
     title: '在树莓派上使用kone和clash',
-    link: decodeURI(location.href),
-    desc: '\x3ch2 id=\x22硬件需求\x22\x3e硬件需求\x3c\/h2\x3e\n\n\x3cul\x3e\n\x3cli\x3e\x3cp\x3e需要一个可以更改静态路由的路由器。\x3c\/p\x3e\n\n\x3cp\x3e普通的非智能路由器，如\x3ca href=\x22http:\/\/service.tp-link.com.cn\/detail_article_28.html\x22\x3etp-link\x3c\/a\x3e之类，都有这个功能,所以普通路由器就可以实现了,不需要高大上的智能路由器。反而智能路由器，如小米、极路由之类没有开放这个功能。不过也没事，智能路由器都是可以刷固件的，我目前刷的padavan，信号和稳定性比原生的系统还要好。\x3c\/p\x3e\x3c\/li\x3e\n\n\x3cli\x3e\x3cp\x3e树莓派可以正常使用互联网\x3c\/p\x3e\x3c\/li\x3e\n\x3c\/ul\x3e',
-    owner: 'beyondkmp',
+    clientID: '60c95581e35aaeb04f31',
+    clientSecret: '4ee720fd6af4268d0cdccf844a51935963bb8a68',
     repo: 'hugo-beyondkmp',
-    oauth: {
-      client_id: '60c95581e35aaeb04f31',
-      client_secret: '4ee720fd6af4268d0cdccf844a51935963bb8a68'
-    }
-  })
-  gitment.render('comments-gitment')
+    owner: 'beyondkmp',
+    admin: ['beyondkmp'],
+    body: decodeURI(location.href)
+  });
+  gitalk.render('gitalk-container');
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
-
-  
+  <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
       </div>
     </main>
