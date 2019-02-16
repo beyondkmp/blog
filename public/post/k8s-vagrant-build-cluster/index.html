@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-10-22T10:50:46&#43;08:00" />
 <meta itemprop="dateModified" content="2018-10-22T10:50:46&#43;08:00" />
-<meta itemprop="wordCount" content="1418">
+<meta itemprop="wordCount" content="1535">
 
 
 
@@ -174,39 +174,72 @@
 </ol>
 
 <h2 id="vagrant的配置文件">vagrant的配置文件</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># -*- mode: ruby -*-</span>
+<span class="c1"># vi: set ft=ruby :</span>
 
-<pre><code class="language-ruby"># -*- mode: ruby -*-
-# vi: set ft=ruby :
+<span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&#34;2&#34;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
 
-Vagrant.configure(&quot;2&quot;) do |config|
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&#34;k8s-01&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">edge</span><span class="o">|</span>
+    <span class="n">edge</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span>  <span class="s2">&#34;bento/ubuntu-16.04&#34;</span>
+    <span class="n">edge</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;private_network&#34;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&#34;192.168.1.4&#34;</span>
+    <span class="n">edge</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">insert_key</span> <span class="o">=</span> <span class="kp">false</span>
+    <span class="n">edge</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&#34;k8s-01&#34;</span>
+    <span class="n">edge</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="mi">2048</span>
+  <span class="k">end</span>
 
-  config.vm.define &quot;k8s-01&quot; do |edge|
-    edge.vm.box =  &quot;bento/ubuntu-16.04&quot;
-    edge.vm.network &quot;private_network&quot;, ip: &quot;192.168.1.4&quot;
-    edge.ssh.insert_key = false
-    edge.vm.hostname = &quot;k8s-01&quot;
-    edge.memory = 2048
-  end
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&#34;k8s-02&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">parent</span><span class="o">|</span>
+    <span class="n">parent</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span>  <span class="s2">&#34;bento/ubuntu-16.04&#34;</span>
+    <span class="n">parent</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;private_network&#34;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&#34;192.168.1.5&#34;</span>
+    <span class="n">parent</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">insert_key</span> <span class="o">=</span> <span class="kp">false</span>
+    <span class="n">parent</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&#34;k8s-02&#34;</span>
+    <span class="n">parent</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="mi">1024</span>
+  <span class="k">end</span>
 
-  config.vm.define &quot;k8s-02&quot; do |parent|
-    parent.vm.box =  &quot;bento/ubuntu-16.04&quot;
-    parent.vm.network &quot;private_network&quot;, ip: &quot;192.168.1.5&quot;
-    parent.ssh.insert_key = false
-    parent.vm.hostname = &quot;k8s-02&quot;
-    parent.memory = 1024
-  end
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&#34;k8s-03&#34;</span> <span class="k">do</span> <span class="o">|</span><span class="n">tertium</span><span class="o">|</span>
+    <span class="n">tertium</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span>  <span class="s2">&#34;bento/ubuntu-16.04&#34;</span>
+    <span class="n">tertium</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&#34;private_network&#34;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&#34;192.168.1.6&#34;</span>
+    <span class="n">tertium</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">insert_key</span> <span class="o">=</span> <span class="kp">false</span>
+    <span class="n">tertium</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&#34;k8s-03&#34;</span>
+    <span class="n">tertium</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="mi">1024</span>
+  <span class="k">end</span>
 
-  config.vm.define &quot;k8s-03&quot; do |tertium|
-    tertium.vm.box =  &quot;bento/ubuntu-16.04&quot;
-    tertium.vm.network &quot;private_network&quot;, ip: &quot;192.168.1.6&quot;
-    tertium.ssh.insert_key = false
-    tertium.vm.hostname = &quot;k8s-03&quot;
-    tertium.memory = 1024
-  end
-
-end
-</code></pre>
-
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="kubernets集群搭建">kubernets集群搭建</h1>
 
 <h2 id="master搭建">master搭建</h2>
@@ -214,79 +247,154 @@ end
 <h3 id="安装软件">安装软件</h3>
 
 <p>本教程主要使用kubeadm来搭建。先使用下面命令安装kubeadm,docker(前提是可以科学上网，要不能下面的命令可能会超时)</p>
-
-<pre><code class="language-bash">curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-cat &lt;&lt;EOF &gt; /etc/apt/sources.list.d/kubernetes.list
-deb http://apt.kubernetes.io/ kubernetes-xenial main
-EOF
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg <span class="p">|</span> apt-key add -
+cat <span class="s">&lt;&lt;EOF &gt; /etc/apt/sources.list.d/kubernetes.list
+</span><span class="s">deb http://apt.kubernetes.io/ kubernetes-xenial main
+</span><span class="s">EOF</span>
 apt-get update
-apt-get install -y docker.io kubeadm
-</code></pre>
-
+apt-get install -y docker.io kubeadm</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="初始化">初始化</h3>
 
 <p>使用下面的yml直接搭建起master,目前主要参考极客时间上kubernets专栏来搭建的。下面的v1alpaa1已经过时，如果直接运行会报下面的错误: <code>Please use kubeadm v1.11 instead and run 'kubeadm config migrate --old-config old.yaml --new-config new.yaml', which will write the new, similar spec using a newer API version</code>。</p>
 
 <p>原始的yml</p>
-
-<pre><code class="language-bash">apiVersion: kubeadm.k8s.io/v1alpha1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">apiVersion: kubeadm.k8s.io/v1alpha1
 kind: MasterConfiguration
 controllerManagerExtraArgs:
-  horizontal-pod-autoscaler-use-rest-clients: &quot;true&quot;
-  horizontal-pod-autoscaler-sync-period: &quot;10s&quot;
-  node-monitor-grace-period: &quot;10s&quot;
+  horizontal-pod-autoscaler-use-rest-clients: <span class="s2">&#34;true&#34;</span>
+  horizontal-pod-autoscaler-sync-period: <span class="s2">&#34;10s&#34;</span>
+  node-monitor-grace-period: <span class="s2">&#34;10s&#34;</span>
 apiServerExtraArgs:
-  runtime-config: &quot;api/all=true&quot;
-kubernetesVersion: &quot;stable-1.11&quot;
-</code></pre>
-
+  runtime-config: <span class="s2">&#34;api/all=true&#34;</span>
+kubernetesVersion: <span class="s2">&#34;stable-1.11&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>修改后的yml</p>
-
-<pre><code class="language-bash">apiVersion: kubeadm.k8s.io/v1alpha2
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">apiVersion: kubeadm.k8s.io/v1alpha2
 kind: MasterConfiguration
-  advertiseAddress: 192.168.1.4
+  advertiseAddress: <span class="m">192</span>.168.1.4
 controllerManagerExtraArgs:
-  horizontal-pod-autoscaler-use-rest-clients: &quot;true&quot;
-  horizontal-pod-autoscaler-sync-period: &quot;10s&quot;
-  node-monitor-grace-period: &quot;10s&quot;
+  horizontal-pod-autoscaler-use-rest-clients: <span class="s2">&#34;true&#34;</span>
+  horizontal-pod-autoscaler-sync-period: <span class="s2">&#34;10s&#34;</span>
+  node-monitor-grace-period: <span class="s2">&#34;10s&#34;</span>
 apiServerExtraArgs:
-  runtime-config: &quot;api/all=true&quot;
-kubernetesVersion: &quot;v1.12.1&quot;
-</code></pre>
-
+  runtime-config: <span class="s2">&#34;api/all=true&#34;</span>
+kubernetesVersion: <span class="s2">&#34;v1.12.1&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>上面的配置还添加了对应的ip，这样就不会使用默认的eth0的ip。修改完yml后面，直接运行下面命令.这样master的初始化就完成了。</p>
-
-<pre><code class="language-bash"> kubeadm init --config kubeadm.yaml
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"> kubeadm init --config kubeadm.yaml</code></pre></td></tr></table>
+</div>
+</div>
 <p>初始化完成后，会有一些提示,如下</p>
-
-<pre><code>To start using your cluster, you need to run the following as a regular user:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">To start using your cluster, you need to run the following as a regular user:
 
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 You should now deploy a pod network to the cluster.
-Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:
+Run &#34;kubectl apply -f [podnetwork].yaml&#34; with one of the options listed at:
   https://kubernetes.io/docs/concepts/cluster-administration/addons/
 
 You can now join any number of machines by running the following on each node
 as root:
 
-  kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2
-</code></pre>
-
+  kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2</pre></td></tr></table>
+</div>
+</div>
 <p>要将kubernets的配置放到这个用户的目录，才不会每次使用都报授权错误</p>
-
-<pre><code>Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of &quot;crypto/rsa: verification error&quot; while trying to verify candidate authority certificate &quot;kubernetes&quot;)
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of &#34;crypto/rsa: verification error&#34; while trying to verify candidate authority certificate &#34;kubernetes&#34;)</pre></td></tr></table>
+</div>
+</div>
 <h3 id="配置网络插件">配置网络插件</h3>
 
 <p>目前插件都容器化了，基本上也就是一条命令安装下就可以了。没有安装之前，需要网络的插件是pending状态,get node状态也是NotReady状态</p>
-
-<pre><code>root@k8s-01:~# kubectl get pods -n kube-system
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">root@k8s-01:~# kubectl get pods -n kube-system
 NAME                             READY   STATUS    RESTARTS   AGE
 coredns-576cbf47c7-8s8nh         0/1     Pending   0          3m20s
 coredns-576cbf47c7-pwctq         0/1     Pending   0          3m20s
@@ -298,23 +406,50 @@ kube-scheduler-k8s-01            1/1     Running   1          2m35s
 
 root@k8s-01:~# kubectl get nodes
 NAME     STATUS     ROLES    AGE     VERSION
-k8s-01   NotReady   master   5h47m   v1.12.1
-</code></pre>
-
+k8s-01   NotReady   master   5h47m   v1.12.1</pre></td></tr></table>
+</div>
+</div>
 <p>运行下面的命令安装网络插件</p>
-
-<pre><code>root@k8s-01:~#  kubectl apply -f https://git.io/weave-kube-1.6
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">root@k8s-01:~#  kubectl apply -f https://git.io/weave-kube-1.6
 serviceaccount/weave-net created
 clusterrole.rbac.authorization.k8s.io/weave-net created
 clusterrolebinding.rbac.authorization.k8s.io/weave-net created
 role.rbac.authorization.k8s.io/weave-net created
 rolebinding.rbac.authorization.k8s.io/weave-net created
-daemonset.extensions/weave-net created
-</code></pre>
-
+daemonset.extensions/weave-net created</pre></td></tr></table>
+</div>
+</div>
 <p>再查看相应的状态</p>
-
-<pre><code>root@k8s-01:~# kubectl get pods -n kube-system
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">root@k8s-01:~# kubectl get pods -n kube-system
 NAME                             READY   STATUS    RESTARTS   AGE
 coredns-576cbf47c7-8s8nh         1/1     Running   0          5h47m
 coredns-576cbf47c7-pwctq         1/1     Running   0          5h47m
@@ -327,9 +462,9 @@ weave-net-2b8q8                  2/2     Running   0          21s
 
 root@k8s-01:~# kubectl get nodes
 NAME     STATUS   ROLES    AGE     VERSION
-k8s-01   Ready    master   5h47m   v1.12.1
-</code></pre>
-
+k8s-01   Ready    master   5h47m   v1.12.1</pre></td></tr></table>
+</div>
+</div>
 <p>到目前为止，master基本就配置完成了。</p>
 
 <h1 id="kubernets-worker配置">kubernets worker配置</h1>
@@ -340,30 +475,53 @@ k8s-01   Ready    master   5h47m   v1.12.1
 <li>在所有的worker节点执行上面master软件安装的步骤。目前master和woker的软件安装都是一样，主要区别是master上面还会启动kube-apiserver、kube-scheduler、kube-controller-manager这三个系统pod。</li>
 
 <li><p>执行部署Master节点时最后的join命令</p>
-
-<pre><code>kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>在专栏里面上运行上面两个就可以通了，但是就是通不了。有一个网络插件weave一直CrashLoopBackOff，后面谷歌下，发现是路由找不到。</p>
-
-<pre><code>#在master运行下面的命令
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">#在master运行下面的命令
 root@k8s-01:~# kubectl get svc
 NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   6h37m
 
 # 然后在worker机器运行下面命令添加路由
-route add 100.96.0.1 gw &lt;your real master IP&gt;
-</code></pre></li>
+route add 100.96.0.1 gw &lt;your real master IP&gt;</pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
 <p>最后查看下worker的状态，没有问题就全部完成了。</p>
-
-<pre><code>root@k8s-01:~# kubectl get nodes
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">root@k8s-01:~# kubectl get nodes
 NAME     STATUS   ROLES    AGE     VERSION
 k8s-01   Ready    master   6h39m   v1.12.1
-k8s-03   Ready    &lt;none&gt;   15m     v1.12.1
-</code></pre>
-
+k8s-03   Ready    &lt;none&gt;   15m     v1.12.1</pre></td></tr></table>
+</div>
+</div>
 <h2 id="参考">参考</h2>
 
 <ol>

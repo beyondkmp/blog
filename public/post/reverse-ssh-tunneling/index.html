@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-08-17T21:52:53&#43;08:00" />
 <meta itemprop="dateModified" content="2018-08-17T21:52:53&#43;08:00" />
-<meta itemprop="wordCount" content="689">
+<meta itemprop="wordCount" content="700">
 
 
 
@@ -162,31 +162,53 @@
 
 <ol>
 <li><p>使用下面命令，从内网机器连通到公网机器，从而建立一条ssh隧道。19008是内网机器端口，要保证其它程序没在使用。22端口是是内网机器的ssh的port端口，如果是修改成其它的端口，就要修改为对应的端口，public-username是公网机器的用户名。</p>
-
-<pre><code class="language-bash">ssh -f -N -T -R 19008:localhost:22 public-username@1.1.1.1
-# -f: tells the SSH to background itself after it authenticates, saving you time by not having to run something on the remote server for the tunnel to remain alive.
-# -N: if all you need is to create a tunnel without running any remote commands then include this option to save resources.
-# -T: useful to disable pseudo-tty allocation, which is fitting if you are not trying to create an interactive shell.
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh -f -N -T -R <span class="m">19008</span>:localhost:22 public-username@1.1.1.1
+<span class="c1"># -f: tells the SSH to background itself after it authenticates, saving you time by not having to run something on the remote server for the tunnel to remain alive.</span>
+<span class="c1"># -N: if all you need is to create a tunnel without running any remote commands then include this option to save resources.</span>
+<span class="c1"># -T: useful to disable pseudo-tty allocation, which is fitting if you are not trying to create an interactive shell.</span></code></pre></td></tr></table>
+</div>
+</div>
 <p><img src="/imgs/ssh-reverse.png" alt="ssh反向代理隧道" /></p></li>
 
 <li><p>现在你可以从公网机器连接到内网机器了，使用以下命令,输入内网机器root用户的密码就可以远程操作了</p>
-
-<pre><code class="language-bash">ssh root@localhost -p 19008
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh root@localhost -p <span class="m">19008</span></code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>你还可以在其它内网，先连接到公网机器，再运行步骤2命令，这样就相当于架了一个桥，一个内网的机器可以访问另外一个内网机器。</p></li>
 
 <li><p>为了不了第一条命令断开，你可以连接上运行htop或者watch命令，这样就不会断开了。或者你可以直接写一个crontab判断是否断开，如果断开就重新连接</p>
-
-<pre><code class="language-bash">ps -ef|grep &quot;ssh -f -N -T -R 19008:localhost:22 public-username@1.1.1.1&quot; | grep -v grep -q
-if [[ $? -ne 0  ]];then
-    ssh -f -N -T -R 19008:localhost:22 public-username@1.1.1.1
-fi
-# crontab
-#* * * * * /usr/local/bin/ssh-reverse.sh &amp;
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ps -ef<span class="p">|</span>grep <span class="s2">&#34;ssh -f -N -T -R 19008:localhost:22 public-username@1.1.1.1&#34;</span> <span class="p">|</span> grep -v grep -q
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$?</span> -ne <span class="m">0</span>  <span class="o">]]</span><span class="p">;</span><span class="k">then</span>
+    ssh -f -N -T -R <span class="m">19008</span>:localhost:22 public-username@1.1.1.1
+<span class="k">fi</span>
+<span class="c1"># crontab</span>
+<span class="c1">#* * * * * /usr/local/bin/ssh-reverse.sh &amp;</span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
 <h2 id="参考">参考</h2>

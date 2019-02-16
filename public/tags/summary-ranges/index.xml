@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>summary ranges on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/summary-ranges/</link>
+    <description>Recent content in summary ranges on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 08 May 2016 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/summary-ranges/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>leetcode: Summary Ranges</title>
+      <link>https://beyondkmp.com/post/leetcode-288-summary-ranges/</link>
+      <pubDate>Sun, 08 May 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/leetcode-288-summary-ranges/</guid>
+      <description>描述 1 2 3 4 5 6 7 8 Given a sorted integer array without duplicates, return the summary of its ranges. For example, given [0,1,2,4,5,7], return [&amp;#34;0-&amp;gt;2&amp;#34;,&amp;#34;4-&amp;gt;5&amp;#34;,&amp;#34;7&amp;#34;]. **Credits:** Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases. Subscribe to see which companies asked this question go语言 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</description>
+    </item>
+    
+  </channel>
+</rss>

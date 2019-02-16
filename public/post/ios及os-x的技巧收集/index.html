@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ios及os x 下技巧收集 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="本文将收集一些ios与os x 常用技巧" /><meta name="keywords" content="ios, os x, 技巧收集" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/ios%E5%8F%8Aos-x%E7%9A%84%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="ios及os x 下技巧收集" />
+<meta property="og:description" content="本文将收集一些ios与os x 常用技巧" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/ios%E5%8F%8Aos-x%E7%9A%84%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86/" />
+<meta property="article:published_time" content="2015-04-10T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2015-04-10T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="ios及os x 下技巧收集">
+<meta itemprop="description" content="本文将收集一些ios与os x 常用技巧">
+
+
+<meta itemprop="datePublished" content="2015-04-10T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2015-04-10T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="1041">
+
+
+
+<meta itemprop="keywords" content="ios,os x,技巧收集," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ios及os x 下技巧收集"/>
+<meta name="twitter:description" content="本文将收集一些ios与os x 常用技巧"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">ios及os x 下技巧收集</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-04-10 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#ios技巧收集">ios技巧收集</a>
+<ul>
+<li>
+<ul>
+<li><a href="#技巧一-禁止屏幕旋转">技巧一：禁止屏幕旋转</a></li>
+<li><a href="#技巧二-打开连接wifi界面">技巧二：打开连接wifi界面</a></li>
+</ul></li>
+<li><a href="#技巧三-不用电源键关机">技巧三：不用电源键关机</a></li>
+<li><a href="#技巧四-在锁屏状态下挂电话">技巧四：在锁屏状态下挂电话</a></li>
+<li><a href="#技巧五-ios越狱后忘记openssh密码怎么修改">技巧五：ios越狱后忘记openssh密码怎么修改</a></li>
+</ul></li>
+<li><a href="#os-x技巧收集">os x技巧收集</a>
+<ul>
+<li>
+<ul>
+<li><a href="#技巧一-用空格查看图片">技巧一：用空格查看图片</a></li>
+<li><a href="#技巧二-修改文件名">技巧二：修改文件名</a></li>
+</ul></li>
+<li><a href="#技巧三-恢复回收站里的文件">技巧三：恢复回收站里的文件</a></li>
+<li><a href="#技巧四-显示隐藏文件">技巧四：显示隐藏文件</a></li>
+<li><a href="#技巧五-选择默认程序">技巧五：选择默认程序</a></li>
+</ul></li>
+<li><a href="#技巧六-输入法安装文件的位置">技巧六：输入法安装文件的位置</a></li>
+<li><a href="#技巧七-修改caps-lock与control之间的重映射">技巧七：修改Caps lock与control之间的重映射</a></li>
+<li><a href="#技巧八-修改状态栏上小图标的位置">技巧八：修改状态栏上小图标的位置</a></li>
+<li><a href="#技巧九-删除config导入的vpn配置">技巧九： 删除config导入的vpn配置</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="ios技巧收集">ios技巧收集</h2>
+
+<h4 id="技巧一-禁止屏幕旋转">技巧一：禁止屏幕旋转</h4>
+
+<p>在主屏幕上往上拉出下面的快捷界面，点击那个小锁就可以。如下图：
+<img src="{{ IMAGE_PATH}}/ios及os的技巧收集/1.png" alt="禁止屏幕旋转" /></p>
+
+<h4 id="技巧二-打开连接wifi界面">技巧二：打开连接wifi界面</h4>
+
+<p>在主屏幕上往上拉出下面的快捷界面，长按住wifi的小图标，就会自动跳转到wifi连接界面。
+<img src="{{ IMAGE_PATH}}/ios及os的技巧收集/1.png" alt="wifi连接" /></p>
+
+<h3 id="技巧三-不用电源键关机">技巧三：不用电源键关机</h3>
+
+<p>调出ios的assisitiveTouch,在控制-&gt;通用-&gt;辅助功能里面。就是屏幕上的小灯泡样的东西。调出后点击，再点设备，可以看到下面的锁定屏幕直接长按就会出来关机界面。</p>
+
+<p><img src="{{ IMAGE_PATH}}/ios及os的技巧收集/3.png" alt="不用电源键关机" /></p>
+
+<h3 id="技巧四-在锁屏状态下挂电话">技巧四：在锁屏状态下挂电话</h3>
+
+<p>在锁屏状态下没有直接挂电话的界面，可以连续按两下电源键就可以挂电话了。按一下电源键就是静音，但是没有挂电话。</p>
+
+<h3 id="技巧五-ios越狱后忘记openssh密码怎么修改">技巧五：ios越狱后忘记openssh密码怎么修改</h3>
+
+<ul>
+<li>下载iFunbox或者iFile</li>
+<li>打开/etc/master.passwd,用iFile的文本编辑功能打开master.passwd或者用iFunbox来在电脑上修改</li>
+<li>找到root那行，大致如：root:UlD3amElwHEpc:0:0::0:0:System</li>
+<li>将上面的UlD3amElwHEpc换成ab3z4hnHA5WdU，你的openssh的密码就变成了abc123,用terminal或者ssh连接上修改密码。</li>
+</ul>
+
+<h2 id="os-x技巧收集">os x技巧收集</h2>
+
+<h4 id="技巧一-用空格查看图片">技巧一：用空格查看图片</h4>
+
+<p>你要查看图片，可以直接选中，按下空格就可以查看图片了，还有选中多张一起查看。
+<img src="{{ IMAGE_PATH}}/ios及os的技巧收集/2.png" alt="用空格查看图片" /></p>
+
+<h4 id="技巧二-修改文件名">技巧二：修改文件名</h4>
+
+<p>行路文件，直接按下enter就可以修改文件名了。</p>
+
+<h3 id="技巧三-恢复回收站里的文件">技巧三：恢复回收站里的文件</h3>
+
+<p>选中回收站的文件，按command+delete键就恢复了。</p>
+
+<h3 id="技巧四-显示隐藏文件">技巧四：显示隐藏文件</h3>
+
+<p>打开终端，输入下面的命令，并重启Finder就可以了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">defaults write com.apple.finder AppleShowAllFiles -bool true  #这是显示
+defaults write com.apple.finder AppleShowAllFiles -bool false  #这是隐藏</pre></td></tr></table>
+</div>
+</div>
+<h3 id="技巧五-选择默认程序">技巧五：选择默认程序</h3>
+
+<ul>
+<li>先选择要相关的文件类型，例如.c文件,右键选择显示简介</li>
+<li>在简介界面有个打开方式，选择相应的程序，再点击下面的全部更改就ok了!</li>
+</ul>
+
+<p><img src="{{ IMAGE_PATH}}/ios及os的技巧收集/4.png" alt="选择默认程序" /></p>
+
+<h2 id="技巧六-输入法安装文件的位置">技巧六：输入法安装文件的位置</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">beyond@birdcat:/Library/Input Methods|
+⇒  pwd
+/Library/Input Methods
+beyond@birdcat:/Library/Input Methods|
+⇒  ls
+SogouWBInput.app WBIM.app
+beyond@birdcat:/Library/Input Methods|
+⇒</pre></td></tr></table>
+</div>
+</div>
+<h2 id="技巧七-修改caps-lock与control之间的重映射">技巧七：修改Caps lock与control之间的重映射</h2>
+
+<p>在Apple Menu -&gt; System Preferneces -&gt;Keyboard -&gt; 修饰键，如下图：</p>
+
+<p><img src="{{ IMAGE_PATH}}/ios及os的技巧收集/5.png" alt="keyboard setting" /></p>
+
+<h2 id="技巧八-修改状态栏上小图标的位置">技巧八：修改状态栏上小图标的位置</h2>
+
+<p>比如要将蓝牙的位置移动到wifi的后面，<strong>按住command键</strong>再拖动到wifi后面就可以了。如果不需要直接将其拖出状态栏就可以了！！！</p>
+
+<h2 id="技巧九-删除config导入的vpn配置">技巧九： 删除config导入的vpn配置</h2>
+
+<p>用config导入vpn设置，但是在网络设置中删除不了vpn配置。打开系统偏好设置&ndash;&gt; 描述文件&ndash;&gt; vpn配置文件，删除即可。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2015-04-10
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay-qr-code.png">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ios/">ios</a>
+          <a href="/tags/os-x/">os x</a>
+          <a href="/tags/%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86/">技巧收集</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/os-x%E4%B8%8B%E9%9D%A2%E7%A6%81%E6%AD%A2%E5%B9%B6%E5%88%A0%E9%99%A4.ds_store%E6%96%87%E4%BB%B6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">os x 下面禁止并删除.DS_Store文件</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/linux%E6%81%A2%E5%A4%8Drm%E5%88%A0%E9%99%A4%E8%BD%AF%E4%BB%B6/">
+            <span class="next-text nav-default">Linux恢复rm删除文件</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-04-10 00:00:00 \x2b0800 CST',
+        title: 'ios及os x 下技巧收集',
+        clientID: '60c95581e35aaeb04f31',
+        clientSecret: '4ee720fd6af4268d0cdccf844a51935963bb8a68',
+        repo: 'hugo-beyondkmp',
+        owner: 'beyondkmp',
+        admin: ['beyondkmp'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-01-27T16:40:07&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-27T16:40:07&#43;08:00" />
-<meta itemprop="wordCount" content="734">
+<meta itemprop="wordCount" content="740">
 
 
 
@@ -167,16 +167,28 @@
 
 <ol>
 <li><p>通过brew安装</p>
-
-<pre><code>brew install libfaketime coreutils
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">brew install libfaketime coreutils</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>源码编译安装</p>
-
-<pre><code>git clone https://github.com/wolfcw/libfaketime.git
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">git clone https://github.com/wolfcw/libfaketime.git
 make
-sudo make install
-</code></pre></li>
+sudo make install</pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
 <h2 id="使用faketime来运行surge">使用faketime来运行surge</h2>
@@ -193,14 +205,23 @@ sudo make install
 <li>先打开试用，更新配置，关闭软件的自动更新。正常使用后，退出软件。</li>
 
 <li><p>使用下面命令，通过faketime启动surge</p>
-
-<pre><code>$ faketime '@2007-01-01 00:00:00' /Applications/Surge.app/Contents/MacOS/Surge &amp;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ faketime &#39;@2007-01-01 00:00:00&#39; /Applications/Surge.app/Contents/MacOS/Surge &amp;</pre></td></tr></table>
+</div>
+</div>
 <p>不过如果直接用上面的命令的运行，faketime的cpu占用非常大,让电脑一直发热。我们设置<code>FAKETIME_STOP_AFTER_SECONDS=10</code>, 就让它运行10s后自动关闭，因为软件只是在启动的时候检测一下时间，运行后退出libfaketime节省cpu。</p>
-
-<pre><code>$ FAKETIME_STOP_AFTER_SECONDS=10 faketime -f '@2007-01-01 00:00:00' /Applications/Surge.app/Contents/MacOS/Surge &amp;
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ FAKETIME_STOP_AFTER_SECONDS=10 faketime -f &#39;@2007-01-01 00:00:00&#39; /Applications/Surge.app/Contents/MacOS/Surge &amp;</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>关闭终端</p></li>
 </ol>

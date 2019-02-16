@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Alfred2插件编写的方法 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="用Alfred插件来实现自动打开全局代理" /><meta name="keywords" content="Alfred2, 插件" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/alfred2%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E7%9A%84%E6%96%B9%E6%B3%95/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Alfred2插件编写的方法" />
+<meta property="og:description" content="用Alfred插件来实现自动打开全局代理" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/alfred2%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E7%9A%84%E6%96%B9%E6%B3%95/" />
+<meta property="article:published_time" content="2015-07-10T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2015-07-10T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="Alfred2插件编写的方法">
+<meta itemprop="description" content="用Alfred插件来实现自动打开全局代理">
+
+
+<meta itemprop="datePublished" content="2015-07-10T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2015-07-10T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="702">
+
+
+
+<meta itemprop="keywords" content="Alfred2,插件," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Alfred2插件编写的方法"/>
+<meta name="twitter:description" content="用Alfred插件来实现自动打开全局代理"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Alfred2插件编写的方法</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-07-10 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p><strong>主要是实现全局代理的自动打开与关闭：</strong></p>
+
+<p><img src="/imgs/Alfred2插件/2.png" alt="2" /></p>
+
+<p>直接在Alfred 2中输入proxy，如果没有打开代理就会自动勾选那些选项，打开全局代理。如果打开了就会自动关闭关闭全局代理。如下图：</p>
+
+<p><img src="/imgs/Alfred2插件/3.png" alt="3" /></p>
+
+<p>主要步骤如下：</p>
+
+<ol>
+<li><p>第一步就是先找到用shell脚本来实现全局代理的打开与关闭的方法，具体见下面参考[1], 先是想改相应的配置文件，就是/Library/Preferences/SystemConfiguration/preferences.plist，这里面是xml有proxy的选项。但是用networksetup 命令来修改更加简单,主要有命令如下Wi-Fi可以通过选项-listallnetworkservices来查到的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">networksetup -setwebproxystate Wi-Fi on 
+networksetup -setsecurewebproxystate Wi-Fi on
+networksetup -setftpproxystate Wi-Fi on
+networksetup -setsocksfirewallproxystate Wi-Fi on</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>第二步就是编写相应的插件了,可以直接添加相应的模板：</p>
+
+<p><img src="/imgs/Alfred2插件/4.png" alt="4" /></p></li>
+
+<li><p>如果直接用上面的shell 脚本命令添加到上图中的shell脚本中就会权限问题，每次运行都要输入密码，就要输入四次，这是很烦人的。具体见下面参考[2],方法就是用osascript命令来执行上面的命令，最后只要输入一次密码就可以了。具体代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">osascript -e  &#34;do shell script \&#34;networksetup -setwebproxystate Wi-Fi {query} &amp;&amp;   networksetup -setsecurewebproxystate Wi-Fi {query} &amp;&amp; networksetup -setftpproxystate Wi-Fi {query} &amp;&amp; networksetup -setsocksfirewallproxystate Wi-Fi {query};\&#34; with administrator privileges&#34;</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>上面的只是实现了proxy on则打开代理，proxy off则关闭代理。但是受到wifi toggle这个插件的启发，觉的直接输入proxy，让他自己判断，如果是关的就打开，如果是开的就关闭。具体的代码如下（echo 后面的内容会输出到通知栏里面很不错的）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+networksetup -getwebproxy Wi-Fi <span class="p">|</span> grep <span class="s1">&#39;No&#39;</span> <span class="p">&amp;</span>&gt;/dev/null <span class="o">&amp;&amp;</span> <span class="nv">var</span><span class="o">=</span>on <span class="o">||</span> <span class="nv">var</span><span class="o">=</span>off 
+
+osascript -e  <span class="s2">&#34;do shell script \&#34;networksetup -setwebproxystate Wi-Fi </span><span class="nv">$var</span><span class="s2"> &amp;&amp; networksetup -setsecurewebproxystate Wi-Fi </span><span class="nv">$var</span><span class="s2"> &amp;&amp; networksetup -setftpproxystate Wi-Fi </span><span class="nv">$var</span><span class="s2"> &amp;&amp; networksetup -setsocksfirewallproxystate Wi-Fi </span><span class="nv">$var</span><span class="s2">;\&#34; with administrator privileges&#34;</span>
+
+<span class="nb">echo</span> <span class="s2">&#34;global proxy is </span><span class="nv">$var</span><span class="s2">&#34;</span></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<h4 id="参考">参考</h4>
+
+<ol>
+<li><a href="http://stackoverflow.com/questions/6796442/change-network-proxy-settings-in-via-commandline-in-mac-os-x-lion">Change network proxy settings in via commandline in Mac OS X Lion</a></li>
+<li><a href="http://www.alfredforum.com/topic/686-workflows-requiring-privileges/">Workflows requiring privileges</a></li>
+<li><a href="http://dalang.im/post/dev-logs/write-alfred-workflow">尝试给自己写Alfred Work</a></li>
+<li><a href="http://www.alfredworkflow.com/">Alfred 2 Workflow Theme Tip List</a></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2015-07-10
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay-qr-code.png">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/alfred2/">Alfred2</a>
+          <a href="/tags/%E6%8F%92%E4%BB%B6/">插件</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E5%8F%8D%E8%BD%AC%E5%8D%95%E9%93%BE%E8%A1%A8/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">反转单链表</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/jetbrains%E7%A0%B4%E8%A7%A3_mac%E7%89%88%E6%9C%AC/">
+            <span class="next-text nav-default">Jetbrainds破解(mac和linux版本)</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-07-10 00:00:00 \x2b0800 CST',
+        title: 'Alfred2插件编写的方法',
+        clientID: '60c95581e35aaeb04f31',
+        clientSecret: '4ee720fd6af4268d0cdccf844a51935963bb8a68',
+        repo: 'hugo-beyondkmp',
+        owner: 'beyondkmp',
+        admin: ['beyondkmp'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

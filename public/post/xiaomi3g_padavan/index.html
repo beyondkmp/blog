@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-10-23T20:27:39&#43;08:00" />
 <meta itemprop="dateModified" content="2018-10-23T20:27:39&#43;08:00" />
-<meta itemprop="wordCount" content="1340">
+<meta itemprop="wordCount" content="1345">
 
 
 
@@ -195,13 +195,22 @@
 <li>在ssh连接上路由器, 运行下面命令进行md5验证下<code>md5sum breed-mt7621-xiaomi-r3g.bin</code>, 原文件的md5为<code>1231233</code></li>
 
 <li><p>如果不需要备份，则可以直接干了。先给breed的文件取个简短的名字,<code>cp /tmp;cp breed-mt7621-xiaomi-r3g.bin breed.bin</code>, 然后运行下面的命令<code>mtd -r write /tmp/breed.bin Bootloader</code>,一定不要打错了这条命令。等待路由器重启&hellip;</p>
-
-<pre><code>root@XiaoQiang:~# mtd -r write /tmp/breed.bin Bootloader
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">root@XiaoQiang:~# mtd -r write /tmp/breed.bin Bootloader
 Unlocking Bootloader ...
 
 Writing from /tmp/breed.bin to Bootloader ...
-Rebooting ...
-</code></pre></li>
+Rebooting ...</pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
 <h2 id="使用breed刷入padavan">使用BREED刷入padavan</h2>

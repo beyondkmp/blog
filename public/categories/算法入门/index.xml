@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法入门 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/categories/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/</link>
+    <description>Recent content in 算法入门 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 08 May 2016 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/categories/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>leetcode: Summary Ranges</title>
+      <link>https://beyondkmp.com/post/leetcode-288-summary-ranges/</link>
+      <pubDate>Sun, 08 May 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/leetcode-288-summary-ranges/</guid>
+      <description>描述 1 2 3 4 5 6 7 8 Given a sorted integer array without duplicates, return the summary of its ranges. For example, given [0,1,2,4,5,7], return [&amp;#34;0-&amp;gt;2&amp;#34;,&amp;#34;4-&amp;gt;5&amp;#34;,&amp;#34;7&amp;#34;]. **Credits:** Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases. Subscribe to see which companies asked this question go语言 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</description>
+    </item>
+    
+    <item>
+      <title>排序算法-插入算法</title>
+      <link>https://beyondkmp.com/post/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Thu, 19 Nov 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
+      <description>描述 大多数纸牌游戏都采用插入排序来排列他们手中的纸牌。他们保持已发到手中的牌有序，当拿到一张新牌时，将其插入到合适的位置。为了将数组x[n]</description>
+    </item>
+    
+    <item>
+      <title>leetcode--Number of Digit One</title>
+      <link>https://beyondkmp.com/post/leetcode-number-of-digit-one/</link>
+      <pubDate>Wed, 18 Nov 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/leetcode-number-of-digit-one/</guid>
+      <description>Number of Digit One Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n. For example: Given n = 13,Return 6, because digit 1 occurred in the following numbers: 1, 10, 11, 12, 13. 思路 考虑134045百位上出现1的个数是多少？ 1</description>
+    </item>
+    
+    <item>
+      <title>leetcode数组题目</title>
+      <link>https://beyondkmp.com/post/leetcode%E6%95%B0%E7%BB%84%E9%A2%98%E7%9B%AE/</link>
+      <pubDate>Thu, 23 Jul 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/leetcode%E6%95%B0%E7%BB%84%E9%A2%98%E7%9B%AE/</guid>
+      <description>Remove Element Given an array and a value, remove all instances of that value in place and return the new length. The order of elements can be changed. It doesn&amp;rsquo;t matter what you leave beyond the new length. 主要思路如下图： code: 1 2 3 4 5 6 7 8 9 int removeElement(int* nums, int numsSize, int val) { int i,j; i=-1; for(j=0;j&amp;lt;numsSize;j++) if(j-i&amp;gt;0) if(nums[j]!=val)</description>
+    </item>
+    
+    <item>
+      <title>反转单链表</title>
+      <link>https://beyondkmp.com/post/%E5%8F%8D%E8%BD%AC%E5%8D%95%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Tue, 21 Jul 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/%E5%8F%8D%E8%BD%AC%E5%8D%95%E9%93%BE%E8%A1%A8/</guid>
+      <description>方法一：逐个改变每一个结点指向下一个节点的指针. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 /** * Definition for singly-linked list. * struct ListNode { * int val; * struct ListNode *next; * }; */ struct ListNode* reverseList(struct ListNode* head)</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>键值对 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/%E9%94%AE%E5%80%BC%E5%AF%B9/</link>
+    <description>Recent content in 键值对 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 14 Apr 2015 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/%E9%94%AE%E5%80%BC%E5%AF%B9/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Excel实现下拉列表并管理键值对</title>
+      <link>https://beyondkmp.com/post/excel%E5%AE%9E%E7%8E%B0%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BF%9D%E6%8C%81%E9%94%AE%E5%80%BC%E5%AF%B9/</link>
+      <pubDate>Tue, 14 Apr 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/excel%E5%AE%9E%E7%8E%B0%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BF%9D%E6%8C%81%E9%94%AE%E5%80%BC%E5%AF%B9/</guid>
+      <description>今天做.net程序，要实现excel列做成下拉框且键值对的效果。在网上查了很多资料，最后终于找到实现方法，怕以后会忘记，现在赶紧记录下来。 使</description>
+    </item>
+    
+  </channel>
+</rss>

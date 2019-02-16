@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aria2配置 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/aria2%E9%85%8D%E7%BD%AE/</link>
+    <description>Recent content in aria2配置 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 08 Jan 2016 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/aria2%E9%85%8D%E7%BD%AE/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>配置aria2高速下载百度网盘资源</title>
+      <link>https://beyondkmp.com/post/%E9%85%8D%E7%BD%AEaria2%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</link>
+      <pubDate>Fri, 08 Jan 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/%E9%85%8D%E7%BD%AEaria2%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</guid>
+      <description>aria2 是一个轻量级的跨平台的命令行下载工具，支持多种协议。目前支持的协议有：HTTP/HTTP,FTP,SFTP,BitTorrent和Meta</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>os x 下面禁止并删除.DS_Store文件 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content=".DS_Store如果不小心上传到github或者网站中会泄露自己的网站目录与路径的" /><meta name="keywords" content="os x, .DS_STORE, 删除" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/os-x%E4%B8%8B%E9%9D%A2%E7%A6%81%E6%AD%A2%E5%B9%B6%E5%88%A0%E9%99%A4.ds_store%E6%96%87%E4%BB%B6/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="os x 下面禁止并删除.DS_Store文件" />
+<meta property="og:description" content=".DS_Store如果不小心上传到github或者网站中会泄露自己的网站目录与路径的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/os-x%E4%B8%8B%E9%9D%A2%E7%A6%81%E6%AD%A2%E5%B9%B6%E5%88%A0%E9%99%A4.ds_store%E6%96%87%E4%BB%B6/" />
+<meta property="article:published_time" content="2015-04-13T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2015-04-13T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="os x 下面禁止并删除.DS_Store文件">
+<meta itemprop="description" content=".DS_Store如果不小心上传到github或者网站中会泄露自己的网站目录与路径的">
+
+
+<meta itemprop="datePublished" content="2015-04-13T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2015-04-13T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="460">
+
+
+
+<meta itemprop="keywords" content="os x,.DS_STORE,删除," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="os x 下面禁止并删除.DS_Store文件"/>
+<meta name="twitter:description" content=".DS_Store如果不小心上传到github或者网站中会泄露自己的网站目录与路径的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">os x 下面禁止并删除.DS_Store文件</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-04-13 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#查看-ds-store文件结构">查看.DS_Store文件结构</a></li>
+<li><a href="#删除-ds-store">删除.DS_Store</a></li>
+<li><a href="#禁止-ds-store文件生成">禁止.DS_Store文件生成</a></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="查看-ds-store文件结构">查看.DS_Store文件结构</h2>
+
+<p>先来看看怎么样解析.DS_Store文件，代码来自: <a href="https://github.com/ff0000team/Beebeeto-framework/blob/master/utils/tools/ds_store_viewer.py">https://github.com/ff0000team/Beebeeto-framework/blob/master/utils/tools/ds_store_viewer.py</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># coding=utf8</span>
+<span class="c1"># author=evi1m0@201503</span>
+<span class="c1"># poc: http://www.beebeeto.com/pdb/poc-2015-0052/</span>
+<span class="c1"># install: https://pypi.python.org/pypi/ds_store</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">ds_store</span> <span class="kn">import</span> <span class="n">DSStore</span>
+
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;[*] Usage: </span><span class="si">%s</span><span class="s1"> path/.DS_Store&#39;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sys</span><span class="o">.</span><span class="nb">exit</span><span class="p">()</span>
+
+<span class="n">filelist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">DSStore</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">obj</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">:</span>
+                <span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;[-] Error: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">filelist</span><span class="p">)):</span>
+    <span class="k">print</span> <span class="s1">&#39;[*] &#39;</span> <span class="o">+</span> <span class="n">name</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>运行上面的代码的结果如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">beyond@birdcat:~/code/code-python|⇒  python ds_store_view.py ~/.DS_Store
+[*] .oh-my-zsh
+[*] hacker
+[*] code
+[*] .python-eggs
+[*] Movies
+[*] .zshrc
+[*] .zsh-update
+[*] Desktop
+[*] Music
+[*] .profile
+[*] .fontconfig
+[*] .zshrc-e
+[*] .geeknote
+[*] .subversion
+[*] .489454.padl
+[*] .zenmap-etc
+[*] .Xauthority
+[*] .vimrc
+[*] Downloads
+[*] .config
+[*] .cheat
+[*] .cache
+[*] .
+[*] .matplotlib
+[*] .rvm
+[*] .DS_Store
+[*] .sqlmap
+[*] .wireshark-etc
+[*] .mkshrc
+[*] .Trash
+[*] .pip
+[*] Public
+[*] .bash_profile
+[*] Documents
+[*] .zprofile
+[*] .bash_history
+[*] Applications
+[*] .viminfo
+[*] Library
+[*] Pictures
+[*] .vim</pre></td></tr></table>
+</div>
+</div>
+<h2 id="删除-ds-store">删除.DS_Store</h2>
+
+<p>直接在终端下输入下面命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">find / -name &#34;.DS_Store&#34; -delete</pre></td></tr></table>
+</div>
+</div>
+<h2 id="禁止-ds-store文件生成">禁止.DS_Store文件生成</h2>
+
+<p>在终端下面输入下面命令，就可以了,<strong>注意一定要sudo权限才可以的,改好后要注销用户或者重启系统</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">禁止.DS_store生成：
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+恢复.DS_store生成：
+defaults delete com.apple.desktopservices DSDontWriteNetworkStores</pre></td></tr></table>
+</div>
+</div>
+<h2 id="参考">参考</h2>
+
+<ol>
+<li><a href="https://support.apple.com/zh-cn/HT1629">Mac OS X v10.4 and later: How to prevent .DS_Store file creation over network connections - Apple 支持</a></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2015-04-13
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay-qr-code.png">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/os-x/">os x</a>
+          <a href="/tags/.ds_store/">.DS_STORE</a>
+          <a href="/tags/%E5%88%A0%E9%99%A4/">删除</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/excel%E5%AE%9E%E7%8E%B0%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BF%9D%E6%8C%81%E9%94%AE%E5%80%BC%E5%AF%B9/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Excel实现下拉列表并管理键值对</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/ios%E5%8F%8Aos-x%E7%9A%84%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86/">
+            <span class="next-text nav-default">ios及os x 下技巧收集</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-04-13 00:00:00 \x2b0800 CST',
+        title: 'os x 下面禁止并删除.DS_Store文件',
+        clientID: '60c95581e35aaeb04f31',
+        clientSecret: '4ee720fd6af4268d0cdccf844a51935963bb8a68',
+        repo: 'hugo-beyondkmp',
+        owner: 'beyondkmp',
+        admin: ['beyondkmp'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="beyondkmp&#39;s hugo blog" /><meta name="keywords" content="beyondkmp, programming, swimming" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/" />
+  <link href="https://beyondkmp.com/index.xml" rel="alternate" type="application/rss+xml" title="Kmp - beyondkmp&#39;s new hugo blog" />
+  <link href="https://beyondkmp.com/index.xml" rel="feed" type="application/rss+xml" title="Kmp - beyondkmp&#39;s new hugo blog" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Kmp - beyondkmp&#39;s new hugo blog" />
+<meta property="og:description" content="beyondkmp&#39;s hugo blog" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://beyondkmp.com/" />
+
+<meta property="og:updated_time" content="2015-02-05T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="Kmp - beyondkmp&#39;s new hugo blog">
+<meta itemprop="description" content="beyondkmp&#39;s hugo blog">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kmp - beyondkmp&#39;s new hugo blog"/>
+<meta name="twitter:description" content="beyondkmp&#39;s hugo blog"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%85%8B%E9%9A%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%96%B9%E6%B3%95/">克隆系统的方法</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-02-05 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      ###步骤一： 用linux u盘启动系统启动到一个linux系统中 ###步骤二： fdisk -l /dev/sd* 或者 df -lh /dev/sd*来查看系统盘所在的盘符以及要克隆
+    </div>
+    <div class="read-more">
+      <a href="/post/%E5%85%8B%E9%9A%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%96%B9%E6%B3%95/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E7%88%86%E7%82%92%E8%8A%B1%E8%9B%A4/">爆炒花蛤</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-02-01 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%8F%9C%E8%B0%B1/"> 菜谱 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      ###步骤一 花蛤先要泡水，多洗几次，要不花蛤里面有沙子；准备好大蒜，姜，蒜瓣，晾干花蛤。 ###步骤二 加油，油热后先倒入蒜和姜，爆炒后放入花蛤
+    </div>
+    <div class="read-more">
+      <a href="/post/%E7%88%86%E7%82%92%E8%8A%B1%E8%9B%A4/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%BE%92%E6%AD%A5%E5%8C%97%E4%BA%AC%E7%AC%AC%E4%B8%80%E7%AB%99/">徒步北京第一站</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-31 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%BE%92%E6%AD%A5%E5%8C%97%E4%BA%AC/"> 徒步北京 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      ###第一站：北京大学城 2015年1月30号中午，我突然决定不能再这么等下去，我必须要实行我的计划&ndash;徒步北京！ 徒步北京这个计划其
+    </div>
+    <div class="read-more">
+      <a href="/post/%E5%BE%92%E6%AD%A5%E5%8C%97%E4%BA%AC%E7%AC%AC%E4%B8%80%E7%AB%99/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/fedora21-intall-infinality/">给fedora 21安装infinality补丁</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-23 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      ###在Fedora 21中安装 RPM: freetype-infinality-2.4.12-1.20130514_01.fc21.x86_64.rpm RPM: fontconfig-infinality-1-20120615_1.noarch.rpm 再安装gnome-tweak-tool来设置slight和rgb，安装包 RPM: gnome-tweak-tool 安装好后将提示(hinti
+    </div>
+    <div class="read-more">
+      <a href="/post/fedora21-intall-infinality/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%89%8D%E7%AB%AF%E7%9A%84%E5%BC%80%E5%A7%8B/">前端的开端——切图</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-19 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/"> 前端 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      已经决定好好研究前端开发了。虽然在这一年半的工作中，已经接触html、css、js也有一年多了吧，但是都没有系统的学习过，只是会调试，会写一
+    </div>
+    <div class="read-more">
+      <a href="/post/%E5%89%8D%E7%AB%AF%E7%9A%84%E5%BC%80%E5%A7%8B/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/markdown-skill-myself/">markdown技巧个人收集</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-17 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      #####用法一：加入图片的时候设置图片的大小的方法，目前我用的是用html的img标签 1 2 &lt;img src=&#34;/imgs/鸡翅1.png&
+    </div>
+    <div class="read-more">
+      <a href="/post/markdown-skill-myself/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%8F%AF%E4%B9%90%E9%B8%A1%E7%BF%85/">可乐鸡翅的做法</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-17 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%8F%9C%E8%B0%B1/"> 菜谱 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      先来说说这个可乐鸡翅的传说吧： ###传说一： 国外有道菜叫coca-chichen,是用可乐、番茄酱为配料制作的，主要为鸡肉，此烧法传入中国后
+    </div>
+    <div class="read-more">
+      <a href="/post/%E5%8F%AF%E4%B9%90%E9%B8%A1%E7%BF%85/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/markdown-teaching/">(转载)Markdown 语法说明 (简体中文版)</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-01-14 </span>
+      <div class="post-category">
+          <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      &lt;&lt; 访问 Wow!Ubuntu NOTE: This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to Markdown: Syntax. 声明： 这份文档派生(fork)于繁体中文版，在此基础上进行了繁体转简体工作，并进行了适
+    </div>
+    <div class="read-more">
+      <a href="/post/markdown-teaching/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    </section>
+  
+  <nav class="pagination">
+    <a class="prev" href="/page/7/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">Prev</span>
+      </a>
+    <a class="next" href="/page/9/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+  </nav>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

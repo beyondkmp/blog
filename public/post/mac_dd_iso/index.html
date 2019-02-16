@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-01-18T17:15:41&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-18T17:15:41&#43;08:00" />
-<meta itemprop="wordCount" content="630">
+<meta itemprop="wordCount" content="671">
 
 
 
@@ -158,50 +158,96 @@
 
 <ol>
 <li><p>先查看u盘的位置</p>
-
-<pre><code class="language-bash">$ diskutil list
-/dev/disk0 (internal, physical):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      GUID_partition_scheme                        *121.3 GB   disk0
-   1:                        EFI EFI                     209.7 MB   disk0s1
-   2:          Apple_CoreStorage Macintosh HD            120.5 GB   disk0s2
-   3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
-/dev/disk1 (internal, virtual):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:                  Apple_HFS Macintosh HD           +120.2 GB   disk1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ diskutil list
+/dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
+   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+   <span class="m">0</span>:      GUID_partition_scheme                        *121.3 GB   disk0
+   <span class="m">1</span>:                        EFI EFI                     <span class="m">209</span>.7 MB   disk0s1
+   <span class="m">2</span>:          Apple_CoreStorage Macintosh HD            <span class="m">120</span>.5 GB   disk0s2
+   <span class="m">3</span>:                 Apple_Boot Recovery HD             <span class="m">650</span>.0 MB   disk0s3
+/dev/disk1 <span class="o">(</span>internal, virtual<span class="o">)</span>:
+   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+   <span class="m">0</span>:                  Apple_HFS Macintosh HD           +120.2 GB   disk1
                                  Logical Volume on disk0s2
                                  F9F82D9B-129B-4A0C-B5F5-1DF79AB1B1F7
                                  Unencrypted
-/dev/disk2 (internal, physical):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      GUID_partition_scheme                        *129.8 GB   disk2
-   1:                        EFI NO NAME                 536.9 MB   disk2s1
-   2: FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF               32.2 GB    disk2s2
-   3: FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF               64.6 GB    disk2s3
-   4:       Microsoft Basic Data Share                   32.4 GB    disk2s4
-/dev/disk3 (external, physical):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:     FDisk_partition_scheme                        *1.0 TB     disk3
-   1:               Windows_NTFS Elements                1.0 TB     disk3s1
-</code></pre></li>
+/dev/disk2 <span class="o">(</span>internal, physical<span class="o">)</span>:
+   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+   <span class="m">0</span>:      GUID_partition_scheme                        *129.8 GB   disk2
+   <span class="m">1</span>:                        EFI NO NAME                 <span class="m">536</span>.9 MB   disk2s1
+   <span class="m">2</span>: FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF               <span class="m">32</span>.2 GB    disk2s2
+   <span class="m">3</span>: FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF               <span class="m">64</span>.6 GB    disk2s3
+   <span class="m">4</span>:       Microsoft Basic Data Share                   <span class="m">32</span>.4 GB    disk2s4
+/dev/disk3 <span class="o">(</span>external, physical<span class="o">)</span>:
+   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+   <span class="m">0</span>:     FDisk_partition_scheme                        *1.0 TB     disk3
+   <span class="m">1</span>:               Windows_NTFS Elements                <span class="m">1</span>.0 TB     disk3s1</code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>插上u盘后，macos下会自动挂载，我们要写入时必须先卸载他。用下面的命令进行卸载：</p>
-
-<pre><code class="language-bash">$ diskutil unmountDisk /dev/disk4
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ diskutil unmountDisk /dev/disk4</code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>写入的过程，如果在macos下要用<code>/dev/rdisk4</code>,而不是上面的<code>/dev/disk4</code>. rdisk指得是<code>raw disk</code>，在macos写入<code>raw disk</code>是非常快的。bs=1m表示1MB块大小。如果是linux系统的话要使用<code>bs=1M</code></p>
-
-<pre><code class="language-bash">$ sudo dd if=Downloads/kali-linux-1.0.9a-amd64.iso of=/dev/rdisk4 bs=1m
-^[363+1 records in
-363+1 records out
-3053371392 bytes transferred in 369.204163 secs (8270143 bytes/sec)
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo dd <span class="k">if</span><span class="o">=</span>Downloads/kali-linux-1.0.9a-amd64.iso <span class="nv">of</span><span class="o">=</span>/dev/rdisk4 <span class="nv">bs</span><span class="o">=</span>1m
+^<span class="o">[</span><span class="m">363</span>+1 records in
+<span class="m">363</span>+1 records out
+<span class="m">3053371392</span> bytes transferred in <span class="m">369</span>.204163 secs <span class="o">(</span><span class="m">8270143</span> bytes/sec<span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>最后推出相应的u盘</p>
-
-<pre><code class="language-bash">$ diskutil eject /dev/disk4
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ diskutil eject /dev/disk4</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
 <h2 id="使用unetbootin制作win-10安装盘">使用unetbootin制作win 10安装盘</h2>
@@ -212,33 +258,53 @@
 <p><img src="/imgs/win10_download.png" alt="win10 download" /></p></li>
 
 <li><p>格式化u盘, 使用macos自带的磁盘工具,选中插入的u盘，点击抹掉,然后选择下面的格式进行格式化</p>
-
-<pre><code>Name: FAT32
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Name: FAT32
 Format: MS-DOS (FAT)
-Scheme: Master Boot Record
-</code></pre>
-
+Scheme: Master Boot Record</pre></td></tr></table>
+</div>
+</div>
 <p><img src="/imgs/disk-utility-erase-disk.png" alt="disk utility erase disk" /></p></li>
 
 <li><p>将usb刻录成win10安装盘, 下载unetbootin并打开，打开过程中要输入密码,选择下面的参数，最后点击ok，等待写入完毕就完成了。</p>
-
-<pre><code>Diskimage: checked, set to ISO and browse to your Windows 10 ISO
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Diskimage: checked, set to ISO and browse to your Windows 10 ISO
 Type: USB Drive
-Drive: Your USB drive (you should only see one entry here)
-</code></pre>
-
+Drive: Your USB drive (you should only see one entry here)</pre></td></tr></table>
+</div>
+</div>
 <p><img src="/imgs/unetbootin.png" alt="unetbootin" /></p></li>
 </ol>
 
 <p>如果有多个usb盘选择，你可以通过下面的命令来确认哪个盘是你要写入的。</p>
-
-<pre><code>$ diskutil list FAT32
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ diskutil list FAT32
 /dev/disk2 (external, physical):
    #:                       TYPE NAME                    SIZE       IDENTIFIER
    0:     FDisk_partition_scheme                        *16.0 GB    disk2
-   1:                 DOS_FAT_32 FAT32                   16.0 GB    disk2s1
-</code></pre>
-
+   1:                 DOS_FAT_32 FAT32                   16.0 GB    disk2s1</pre></td></tr></table>
+</div>
+</div>
 <h2 id="参考">参考</h2>
 
 <ol>

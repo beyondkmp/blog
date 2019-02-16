@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux下多进程写同一文件，要不要加锁？ - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="经常在写日志文件时，在多进程环境下要考虑要不要加锁,本文将给出一个答案" /><meta name="keywords" content="Linux多进程, 写文件&#34;, 加锁" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/linux%E4%B8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%97%B6%E5%86%99%E5%90%8C%E4%B8%80%E6%96%87%E4%BB%B6%E8%A6%81%E4%B8%8D%E8%A6%81%E5%8A%A0%E9%94%81/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Linux下多进程写同一文件，要不要加锁？" />
+<meta property="og:description" content="经常在写日志文件时，在多进程环境下要考虑要不要加锁,本文将给出一个答案" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/linux%E4%B8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%97%B6%E5%86%99%E5%90%8C%E4%B8%80%E6%96%87%E4%BB%B6%E8%A6%81%E4%B8%8D%E8%A6%81%E5%8A%A0%E9%94%81/" />
+<meta property="article:published_time" content="2016-02-04T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2016-02-04T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="Linux下多进程写同一文件，要不要加锁？">
+<meta itemprop="description" content="经常在写日志文件时，在多进程环境下要考虑要不要加锁,本文将给出一个答案">
+
+
+<meta itemprop="datePublished" content="2016-02-04T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2016-02-04T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="1467">
+
+
+
+<meta itemprop="keywords" content="Linux多进程,写文件&#34;,加锁," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux下多进程写同一文件，要不要加锁？"/>
+<meta name="twitter:description" content="经常在写日志文件时，在多进程环境下要考虑要不要加锁,本文将给出一个答案"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Linux下多进程写同一文件，要不要加锁？</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-02-04 </span>
+        <div class="post-category">
+            <a href="/categories/linux%E4%B8%8Ac%E7%BC%96%E7%A8%8B/"> linux上c编程 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#unix-beard-too-short-unix胡须太短-等不及">Unix beard too short&hellip;(unix胡须太短，等不及)</a></li>
+<li><a href="#pipe-buf-max">PIPE_BUF_MAX?</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>本文翻译自：<a href="http://www.jstorimer.com/blogs/workingwithcode/7982047-is-lock-free-logging-safe">Is lock-free logging safe?</a></p>
+
+<p>最近，我看到了mono_logger_project。它声称给ruby2.0提供了不用加锁的日志系统。当我看到这个项目时，我在想：Cool!我要看看他们用什么技术来实现这种日志系统的。一开始觉的他是非常简单易懂的。当我深入理解并将它与ruby中的标准库Logger比较时，发现他俩是完全一样的，不过减去了互斥(mutex).</p>
+
+<p>这里让我不明白的是，无锁的日志系统安全吗？Ruby添加互斥锁的原因之一可能就是为了安全起见。如果在同一时间，多个线程同时写一个日志文件会怎么样？插入的日志信息会不会像下面：</p>
+
+<p><img src="{{IMAGE_PATH}}/linux多进程写文件/1.png" alt="1" /></p>
+
+<h2 id="unix-beard-too-short-unix胡须太短-等不及">Unix beard too short&hellip;(unix胡须太短，等不及)</h2>
+
+<p>这是一个深奥的Unix问题。当我在mono_logger的bug跟踪系统中提出这个问题时，我承认我实在等不及想知道这个问题的答案。于是我转向求助我最后的Unix编程书籍：The Linux Programming Interface.</p>
+
+<p><img src="{{IMAGE_PATH}}/linux多进程写文件/2.png" alt="2" /></p>
+
+<p>在书中找到我想要的答案。从几个知识点可以推导出这个问题的答案。</p>
+
+<p>对于初学者，<strong>所有的系统调用都是原子性的</strong>。这句话来自TLPI:</p>
+
+<blockquote>
+<p>&ldquo;All system calls are executed atomically. By this, we mean that the kernel guarantees that all of the steps in a system call are completed as a single operation, without being interrupted by another process of thread.&rdquo;</p>
+</blockquote>
+
+<p>太好了！于是当两个线程或进程在同一时间写同一文件时，我们可以肯定他们的数据不会交叉插入。这使调用write(2)不需要互斥锁，而且还能保证原子性，因为内核已经帮我们做到那个了。</p>
+
+<p>但是还有一个问题，一般写文件时，你需要找到你想插入的具体的位置，然后再进行真正的写入操作。不幸的是，这会涉及到两个系统调用，lseek(2)和write(2).他们各自是原子性的，但是两个操作作为一个整体就不是原子性的。让我们来证明下：</p>
+
+<p>用下面的伪代码表示写文件的过程：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">lseek</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">SEEK_END</span><span class="p">);</span>  <span class="c1">//seek to the end of the file
+</span><span class="c1"></span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="s">&#34;log message&#34;</span><span class="p">,</span><span class="n">len</span><span class="p">);</span> <span class="o">//</span><span class="n">perform</span> <span class="n">the</span> <span class="n">write</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>在多线程环境下，这种操作是不安全的。通过这两个系统调用不能保证原子性，例如下面的情况：</p>
+
+<ul>
+<li>Thread A seeks to the end of the file</li>
+<li>&ndash; the thread scheduler decides to switch context to Thread B &ndash;</li>
+<li>Thread B seeks to the end of the file</li>
+<li>Thread B writes its data</li>
+<li>&ndash; thread scheduler switches context back to Thread A &ndash;</li>
+<li>Thread A has already done its lseek, so it doesn&rsquo;t do it again, it just performs its write</li>
+</ul>
+
+<p>d&rsquo;oh,线程A不再是指向真正的文件末尾,它指向的是此文件的前一个尾部，就是线程B写入信息的位置。当线程A进行写操作时，它会覆盖掉线程B写的信息。</p>
+
+<p>通过这种方法写文件，有可能会丢失数据。</p>
+
+<p>但是还有一种方法。</p>
+
+<p><img src="{{IMAGE_PATH}}/linux多进程写文件/3.png" alt="3" /></p>
+
+<p>为了能保证seek和write两个操作发生的原子性，你可以设置O_APPEND标志，当你在打开一个文件时。然后，任何往文件追加的写操作都能保证是原子性的。这正是我们在写要共享日志文件时想要的情况。Logger和MonoLogger都是用这个标志来打开文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,(</span><span class="n">FILE</span><span class="o">::</span><span class="n">WRONLY</span> <span class="o">|</span> <span class="n">FILE</span><span class="o">::</span><span class="n">APPEND</span><span class="p">))</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>因此MonoLogger可以原子性的追加到日志系统，而不需要互斥信号。</p>
+
+<h2 id="pipe-buf-max">PIPE_BUF_MAX?</h2>
+
+<p>在github的issue里面，我提出了一个关于PIPE_BUF_MAX的问题。在这里我不想过多讨论它，因为在写入文件方面并不是相关的。本质上而言，当写入目标是一个文件时，write(2)能保证任何大小的写是原子性的。但是当写入一个pipe时，wirte(2)只能当其小于PIPE_BUF_MAX时保证原子性。</p>
+
+<p>我用python写了一个测试程序如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&#34;test.log&#34;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">cpuCount</span><span class="o">=</span><span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+    <span class="k">print</span> <span class="s2">&#34;the number of cpu is </span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span><span class="n">cpuCount</span>
+    <span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">cpuCount</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">cpuCount</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&#34;hello </span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">func</span><span class="p">,(</span><span class="n">msg</span><span class="p">,))</span>
+    <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="k">print</span> <span class="s2">&#34;sub-process(es) done.&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>测试结果如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">beyond@birdcat-2:~/code/code-python|
+⇒  python multi-pool.py
+the number of cpu is 4
+sub-process(es) done.
+beyond@birdcat-2:~/code/code-python|
+⇒  cat test.log| wc -l
+ 4000000</pre></td></tr></table>
+</div>
+</div>
+<p>测试程序二：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&#34;test.log&#34;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">SEEK_END</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">cpuCount</span><span class="o">=</span><span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+    <span class="k">print</span> <span class="s2">&#34;the number of cpu is </span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span><span class="n">cpuCount</span>
+    <span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">cpuCount</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">cpuCount</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&#34;hello </span><span class="si">%d</span><span class="s2">&#34;</span> <span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">func</span><span class="p">,(</span><span class="n">msg</span><span class="p">,))</span>
+    <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="k">print</span> <span class="s2">&#34;sub-process(es) done.&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>测试结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">beyond@birdcat-2:~/code/code-python|
+⇒  python multi-pool.py
+the number of cpu is 4
+sub-process(es) done.
+beyond@birdcat-2:~/code/code-python|
+⇒  cat test.log| wc -l
+ 1000000</pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2016-02-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay-qr-code.png">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux%E5%A4%9A%E8%BF%9B%E7%A8%8B/">Linux多进程</a>
+          <a href="/tags/%E5%86%99%E6%96%87%E4%BB%B6/">写文件&#34;</a>
+          <a href="/tags/%E5%8A%A0%E9%94%81/">加锁</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/go%E8%AF%AD%E8%A8%80%E4%B8%AD%E9%AB%98%E6%95%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">go语言中高效字符串拼接</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/osx%E4%B8%8B%E5%A5%BD%E7%94%A8%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95rime/">
+            <span class="next-text nav-default">OSX下好用的输入法rime</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2016-02-04 00:00:00 \x2b0800 CST',
+        title: 'Linux下多进程写同一文件，要不要加锁？',
+        clientID: '60c95581e35aaeb04f31',
+        clientSecret: '4ee720fd6af4268d0cdccf844a51935963bb8a68',
+        repo: 'hugo-beyondkmp',
+        owner: 'beyondkmp',
+        admin: ['beyondkmp'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

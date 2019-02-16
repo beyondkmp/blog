@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>http on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/http/</link>
+    <description>Recent content in http on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 20 Feb 2017 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>python指定网卡ip进行http访问</title>
+      <link>https://beyondkmp.com/post/python-%E6%8C%87%E5%AE%9A%E7%BD%91%E5%8D%A1ip%E8%BF%9B%E8%A1%8Chttp%E8%AE%BF%E9%97%AE/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/python-%E6%8C%87%E5%AE%9A%E7%BD%91%E5%8D%A1ip%E8%BF%9B%E8%A1%8Chttp%E8%AE%BF%E9%97%AE/</guid>
+      <description>python3 提供的http底层库已经支持指定souce_addr, 这个参数是一个元组类型,包括ip与端口,端口为0时系统会随机指定端口 1 2 3 4 5 6 7 8</description>
+    </item>
+    
+  </channel>
+</rss>

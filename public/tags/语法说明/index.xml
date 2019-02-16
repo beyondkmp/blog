@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>语法说明 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E/</link>
+    <description>Recent content in 语法说明 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 14 Jan 2015 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/%E8%AF%AD%E6%B3%95%E8%AF%B4%E6%98%8E/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>(转载)Markdown 语法说明 (简体中文版)</title>
+      <link>https://beyondkmp.com/post/markdown-teaching/</link>
+      <pubDate>Wed, 14 Jan 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/markdown-teaching/</guid>
+      <description>&amp;lt;&amp;lt; 访问 Wow!Ubuntu NOTE: This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to Markdown: Syntax. 声明： 这份文档派生(fork)于繁体中文版，在此基础上进行了繁体转简体工作，并进行了适</description>
+    </item>
+    
+  </channel>
+</rss>

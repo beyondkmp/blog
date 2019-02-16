@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ls命令卡住 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/ls%E5%91%BD%E4%BB%A4%E5%8D%A1%E4%BD%8F/</link>
+    <description>Recent content in ls命令卡住 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Jul 2017 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/ls%E5%91%BD%E4%BB%A4%E5%8D%A1%E4%BD%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>非常大的文件夹导致ls命令卡住</title>
+      <link>https://beyondkmp.com/post/ls%E5%91%BD%E4%BB%A4%E5%8D%A1%E4%BD%8F/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/ls%E5%91%BD%E4%BB%A4%E5%8D%A1%E4%BD%8F/</guid>
+      <description>本文翻译自http://unixetc.co.uk/2012/05/20/large-directory-causes-ls-to-hang</description>
+    </item>
+    
+  </channel>
+</rss>

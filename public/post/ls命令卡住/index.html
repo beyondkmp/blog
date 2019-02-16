@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>非常大的文件夹导致ls命令卡住 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="在一个包含300万文件的文件夹中，ls命令会卡住" /><meta name="keywords" content="大文件夹, ls命令卡住" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/ls%E5%91%BD%E4%BB%A4%E5%8D%A1%E4%BD%8F/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="非常大的文件夹导致ls命令卡住" />
+<meta property="og:description" content="在一个包含300万文件的文件夹中，ls命令会卡住" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/ls%E5%91%BD%E4%BB%A4%E5%8D%A1%E4%BD%8F/" />
+<meta property="article:published_time" content="2017-07-05T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2017-07-05T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="非常大的文件夹导致ls命令卡住">
+<meta itemprop="description" content="在一个包含300万文件的文件夹中，ls命令会卡住">
+
+
+<meta itemprop="datePublished" content="2017-07-05T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2017-07-05T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="1701">
+
+
+
+<meta itemprop="keywords" content="大文件夹,ls命令卡住," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="非常大的文件夹导致ls命令卡住"/>
+<meta name="twitter:description" content="在一个包含300万文件的文件夹中，ls命令会卡住"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">非常大的文件夹导致ls命令卡住</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-07-05 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#为什么-ls-命令会卡住">为什么<code>ls</code>命令会卡住</a></li>
+<li><a href="#一种-ext3-ext4-bug">一种 ext3/ext4 bug?</a></li>
+<li><a href="#排序-排序">排序，排序</a></li>
+<li><a href="#程序hanging住了-spy-on-it">程序HANGING住了？ Spy on it.</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>本文翻译自<a href="http://unixetc.co.uk/2012/05/20/large-directory-causes-ls-to-hang/">http://unixetc.co.uk/2012/05/20/large-directory-causes-ls-to-hang/</a></p>
+
+<p>当一个文件夹里面包含上百万的文件时，直接<code>ls</code>经常会卡死。</p>
+
+<p>用<code>ls -1 -f</code>则可以立即显示所有文件。如果我们要删除这个大文件夹里面的所有文件，我们应该用下面的命令来删除</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ls -1 -f | xargs rm</pre></td></tr></table>
+</div>
+</div>
+<p>当你删除了非常多不想要的文件时，你很有可能会导致生成一个非常大并且稀疏的文件夹对象。一个拥有300百万文件的文件夹，除了这些文件自身占用的空间外，这个文件夹对象可能会占用到100Mb的空间。</p>
+
+<p>你可能会想到重建这个文件夹来释放这些空间。但是如果这个文件夹是/tmp目录，在单用户模式下我们处理的时候要非常小心。</p>
+
+<h2 id="为什么-ls-命令会卡住">为什么<code>ls</code>命令会卡住</h2>
+
+<p>如果直接使用<code>ls</code>,它默认会对输出结果进行排序。为了实现排序，它首先将每一个文件的文件名导入内存中。当在一个大文件夹里面使用<code>ls</code>命令时，你就要乖乖的等着它读取所有文件名最近按字典顺序输出，但是同时占用的内存也会越来越多。</p>
+
+<p><strong>举个栗子</strong></p>
+
+<p>下面是我们对一个包含300万文件的文件夹做的测试。这些文件的文件名是这样的：test_file_a_1, test_file_a_2&hellip;直到test_file_a_3000000。使用Perl脚本按照数字的顺序来创建这些文件。</p>
+
+<p><code>ls -f -1</code>用来列举开始的一部分文件，几乎是瞬间返回</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">bash-4.2$ time ls -1 -f | head
+.
+..
+test_file_a_2531963
+test_file_a_467778
+test_file_a_2677947
+test_file_a_329896
+test_file_a_835701
+test_file_a_1266060
+test_file_a_261887
+test_file_a_311007
+
+real	0m0.006s
+user	0m0.000s
+sys	0m0.008s</pre></td></tr></table>
+</div>
+</div>
+<p>接下来我们去除<code>-1 -f</code> 参数，则<code>ls</code>命令大概用了57s，比之前慢了约10000倍。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">bash-4.2$ time /bin/ls | head
+test_file_a_1
+test_file_a_10
+test_file_a_100
+test_file_a_1000
+test_file_a_10000
+test_file_a_100000
+test_file_a_1000000
+test_file_a_1000001
+test_file_a_1000002
+test_file_a_1000003
+
+real	0m57.880s
+user	0m55.644s
+sys	0m2.121s</pre></td></tr></table>
+</div>
+</div>
+<p>不仅时间上非常慢，第二种方式的命令还会占用更多的内存。在打印文件名的阶段，<code>ls</code>命令会存储300万个文件名，最终将使用507Mb内存. 而<code>ls -f -1</code>命令使用的内存都没有超过4.5Mb，几乎少了100倍。</p>
+
+<h2 id="一种-ext3-ext4-bug">一种 ext3/ext4 bug?</h2>
+
+<p>遍历ext3/ext4文件系统占用太多的时间与内存通常会认为是文件系统的bug.但是从个人角度来说，我更认为是遍历软件的bug,而非是文件系统本身的bug.</p>
+
+<h2 id="排序-排序">排序，排序</h2>
+
+<p>不过上面的测试过程中也有一些比较奇特的事。<code>ls</code>命令总能正确的安排字典顺序输出所有文件名。但是<code>ls -f -1</code>命令输出的结果总是随机的。前三个文件分别是test_file_a_2531963, test_file_a_467778, test_file_a_2677947.
+这些文件并没有按文件的创建时间，更新时间或者inode数目或者其它什么的排序。到底发生了什么呢？</p>
+
+<p>这种情况主要是ext4文件系统本身导致的。ext4(和ext3)底层使用“Htree”的hash树的算法来存储所有文件名的，当使用这个算法时，他返回的文件名是随机的。所以，<code>ls -f -1</code>将会显示很原始的文件夹顺序，使的输出结果看来越来比较混乱和无序。
+Ext2文件系统有时会和ext3和ext4一样，乱序返回文件名（比如在Fedora 16上），有时则不会（比如在Red Hat 4）上面，比如按当时创建的顺序返回所有文件名。</p>
+
+<h2 id="程序hanging住了-spy-on-it">程序HANGING住了？ Spy on it.</h2>
+
+<p>作为<code>ls -1 -f</code>命令的一种替代，或者有时这个命令不能用时，有时我们可以用strace(Linux)或者truss(Solaris)来监测一个程序并从中探听到一些有用的信息。我第一次看这种巧妙的方法的时候，是我看到我同事Neil Dixon使用来他来监测一个在非常大的/tmp目录下hang住的<code>ls</code>进程.在一个终端下 :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">cd verybigdir
+ls -l &gt;/dev/null</pre></td></tr></table>
+</div>
+</div>
+<p>让上面的命令一直跑着，然后我们获取ls进程id,然后从另外一个终端窗口来监视他，并显示出所有文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[root@saturn ~]# strace -p 3963 2&gt;&amp;1 | grep lstat
+lstat64(“test_file_a_2433028”, {st_mode=S_IFREG|0664, st_size=0, …}) = 0
+lstat64(“test_file_a_2047256”, {st_mode=S_IFREG|0664, st_size=0, …}) = 0
+lstat64(“test_file_a_1201573”, {st_mode=S_IFREG|0664, st_size=0, …}) = 0</pre></td></tr></table>
+</div>
+</div>
+<p>你就可以立马看到所有文件名了。如果你想删除他们，则可以用awk命令过滤出文件名并删除他们。</p>
+
+<p>我认为这个方法可以用到探测其它程序。已经有人开始使用这种方法了，比如，比如检测一个备份程序，一个非常大的find/cpio job或者就是一个非常大的cp的具体的进度。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2017-07-05
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay-qr-code.png">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E5%A4%A7%E6%96%87%E4%BB%B6%E5%A4%B9/">大文件夹</a>
+          <a href="/tags/ls%E5%91%BD%E4%BB%A4%E5%8D%A1%E4%BD%8F/">ls命令卡住</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/centos7-ocser-config/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">在CentOS 7 上搭建ocserv</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/glide%E4%BD%BF%E7%94%A8/">
+            <span class="next-text nav-default">glide使用总结</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2017-07-05 00:00:00 \x2b0800 CST',
+        title: '非常大的文件夹导致ls命令卡住',
+        clientID: '60c95581e35aaeb04f31',
+        clientSecret: '4ee720fd6af4268d0cdccf844a51935963bb8a68',
+        repo: 'hugo-beyondkmp',
+        owner: 'beyondkmp',
+        admin: ['beyondkmp'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>克隆 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/%E5%85%8B%E9%9A%86/</link>
+    <description>Recent content in 克隆 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 05 Feb 2015 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/%E5%85%8B%E9%9A%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>克隆系统的方法</title>
+      <link>https://beyondkmp.com/post/%E5%85%8B%E9%9A%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 05 Feb 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/%E5%85%8B%E9%9A%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>###步骤一： 用linux u盘启动系统启动到一个linux系统中 ###步骤二： fdisk -l /dev/sd* 或者 df -lh /dev/sd*来查看系统盘所在的盘符以及要克隆</description>
+    </item>
+    
+  </channel>
+</rss>

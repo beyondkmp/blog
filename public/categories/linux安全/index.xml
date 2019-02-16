@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux安全 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/categories/linux%E5%AE%89%E5%85%A8/</link>
+    <description>Recent content in Linux安全 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 30 Mar 2015 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/categories/linux%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux提权辅助-Linux_Exploit_Suggester</title>
+      <link>https://beyondkmp.com/post/%E6%8F%90%E6%9D%83%E8%BE%85%E5%8A%A9_linux_exploit_suggester/</link>
+      <pubDate>Mon, 30 Mar 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/%E6%8F%90%E6%9D%83%E8%BE%85%E5%8A%A9_linux_exploit_suggester/</guid>
+      <description>原网址:https://github.com/PenturaLabs/Linux_Exploit_Suggester Linux Exploit Suggester;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>常用技巧 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+    <description>Recent content in 常用技巧 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Jul 2017 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>非常大的文件夹导致ls命令卡住</title>
+      <link>https://beyondkmp.com/post/ls%E5%91%BD%E4%BB%A4%E5%8D%A1%E4%BD%8F/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/ls%E5%91%BD%E4%BB%A4%E5%8D%A1%E4%BD%8F/</guid>
+      <description>本文翻译自http://unixetc.co.uk/2012/05/20/large-directory-causes-ls-to-hang</description>
+    </item>
+    
+    <item>
+      <title>leetcode 做了100道了</title>
+      <link>https://beyondkmp.com/post/leetcode-100/</link>
+      <pubDate>Wed, 17 May 2017 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/leetcode-100/</guid>
+      <description>截个图，做个纪念</description>
+    </item>
+    
+    <item>
+      <title>在mac osx安装XQuartz并配置x11 forwarding</title>
+      <link>https://beyondkmp.com/post/enable-x11-forward-in-osx/</link>
+      <pubDate>Tue, 21 Feb 2017 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/enable-x11-forward-in-osx/</guid>
+      <description>安装X window并配置 下载XQuartz,并安装 配置远程服务器ssh服务 安装 xorg-xauth and xorg-xhost 配置 /etc/ssh/sshd_config: 1 2 3 4 AllowTcpForwarding yes X11UseLocalhost yes X11DisplayOffset 10 X11Forwarding yes 重启sshd服务 在客户端可</description>
+    </item>
+    
+    <item>
+      <title>在mac os x 下面使用szrz</title>
+      <link>https://beyondkmp.com/post/osx-szrz%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 21 May 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/osx-szrz%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>安装步骤 安装lrzsz软件 1 brew install lrzsz 将https://github.com/mmastrac/iterm2-zmodem下载的 iterm2-send-zmodem.sh and iterm2</description>
+    </item>
+    
+    <item>
+      <title>apple天才吧的最新申请方法</title>
+      <link>https://beyondkmp.com/post/apple%E5%A4%A9%E6%89%8D%E5%90%A7%E6%9C%80%E6%96%B0%E7%9A%84%E7%94%B3%E8%AF%B7%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sun, 27 Mar 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/apple%E5%A4%A9%E6%89%8D%E5%90%A7%E6%9C%80%E6%96%B0%E7%9A%84%E7%94%B3%E8%AF%B7%E6%96%B9%E6%B3%95/</guid>
+      <description>第一步: 上官网查找零售店 打开http://www.apple.com/cn/retail/,如果查找零售店里面没有，可以点击完整零售店列表，</description>
+    </item>
+    
+    <item>
+      <title>OSX下好用的输入法rime</title>
+      <link>https://beyondkmp.com/post/osx%E4%B8%8B%E5%A5%BD%E7%94%A8%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95rime/</link>
+      <pubDate>Sun, 17 Jan 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/osx%E4%B8%8B%E5%A5%BD%E7%94%A8%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95rime/</guid>
+      <description>由于本人用五笔输入法，在linux下用过一段时间fcitx五笔，还是非常不错的，基本的功能需求都能达到。但是到mac下来，发现目前用的比较多</description>
+    </item>
+    
+    <item>
+      <title>mac os X软件收集网站</title>
+      <link>https://beyondkmp.com/post/mac%E8%BD%AF%E4%BB%B6%E7%BD%91%E7%AB%99%E6%94%B6%E9%9B%86/</link>
+      <pubDate>Fri, 08 Jan 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/mac%E8%BD%AF%E4%BB%B6%E7%BD%91%E7%AB%99%E6%94%B6%E9%9B%86/</guid>
+      <description>爱情守望者-致力于分享最精彩的互联网 Mac OSX软件游戏分享区</description>
+    </item>
+    
+    <item>
+      <title>配置aria2高速下载百度网盘资源</title>
+      <link>https://beyondkmp.com/post/%E9%85%8D%E7%BD%AEaria2%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</link>
+      <pubDate>Fri, 08 Jan 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/%E9%85%8D%E7%BD%AEaria2%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/</guid>
+      <description>aria2 是一个轻量级的跨平台的命令行下载工具，支持多种协议。目前支持的协议有：HTTP/HTTP,FTP,SFTP,BitTorrent和Meta</description>
+    </item>
+    
+    <item>
+      <title>pandoc常用技巧</title>
+      <link>https://beyondkmp.com/post/pandoc%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Tue, 22 Dec 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/pandoc%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
+      <description>在mac os x下面安装pandoc：brew install pandoc 直接将md文件转化成html文件,没有css样式： 1 pandoc test.md -o test.html 使用指定的css文件样式，可以生成</description>
+    </item>
+    
+    <item>
+      <title>说说Linux下的僵尸进程</title>
+      <link>https://beyondkmp.com/post/%E8%AF%B4%E8%AF%B4linux%E4%B8%8B%E7%9A%84%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B/</link>
+      <pubDate>Sat, 24 Oct 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/%E8%AF%B4%E8%AF%B4linux%E4%B8%8B%E7%9A%84%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B/</guid>
+      <description>僵尸进程的产生 为了理解僵尸进程是什么和僵尸进程是怎么产生的，我们需要先来理解下在Linux下进程是怎么工作的。 在Linux下当一个进行死掉的</description>
+    </item>
+    
+    <item>
+      <title>mac或Linux上自动更新metasploit</title>
+      <link>https://beyondkmp.com/post/maclinux%E4%B8%8A%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0metasploit%E4%B8%ADexploit/</link>
+      <pubDate>Thu, 20 Aug 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/maclinux%E4%B8%8A%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0metasploit%E4%B8%ADexploit/</guid>
+      <description>由于metasploit中的data基本几天就有新的expoit的提交，但是如果每次都是msfupdate都比较慢，而且不会自动更新到git</description>
+    </item>
+    
+    <item>
+      <title>OS X上iTunes下载的iOS固件的位置</title>
+      <link>https://beyondkmp.com/post/mac-%E4%B8%8Aitunes%E4%B8%8B%E8%BD%BD%E7%9A%84ios%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%85%B7%E4%BD%93%E4%BD%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 19 Aug 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/mac-%E4%B8%8Aitunes%E4%B8%8B%E8%BD%BD%E7%9A%84ios%E5%9B%BA%E4%BB%B6%E7%9A%84%E5%85%B7%E4%BD%93%E4%BD%8D%E7%BD%AE/</guid>
+      <description>先打开finder，按下快捷键shift+command+g,或者在菜单里面的&amp;rdquo;前往&amp;rdquo;,点击&amp;rdquo;前往文件夹</description>
+    </item>
+    
+    <item>
+      <title>Alfred2插件编写的方法</title>
+      <link>https://beyondkmp.com/post/alfred2%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 10 Jul 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/alfred2%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>主要是实现全局代理的自动打开与关闭： 直接在Alfred 2中输入proxy，如果没有打开代理就会自动勾选那些选项，打开全局代理。如果打开了就会</description>
+    </item>
+    
+    <item>
+      <title>Jetbrainds破解(mac和linux版本)</title>
+      <link>https://beyondkmp.com/post/jetbrains%E7%A0%B4%E8%A7%A3_mac%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Thu, 07 May 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/jetbrains%E7%A0%B4%E8%A7%A3_mac%E7%89%88%E6%9C%AC/</guid>
+      <description>从官网下载Clion,使用Rover12421的一个破解程序，从github下载。 执行gradle fatjar，但是没有gradle，记得以</description>
+    </item>
+    
+    <item>
+      <title>ios下载微信视频</title>
+      <link>https://beyondkmp.com/post/ios%E4%B8%8B%E8%BD%BD%E5%BE%AE%E4%BF%A1%E8%A7%86%E9%A2%91/</link>
+      <pubDate>Mon, 04 May 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/ios%E4%B8%8B%E8%BD%BD%E5%BE%AE%E4%BF%A1%E8%A7%86%E9%A2%91/</guid>
+      <description>微信里面的视频越来越多，很多人看到很好的视频就想保存到自己的电脑，而不仅仅是保存一个视频链接。接下来教大家怎么用ios下载微信视频。 步骤一：</description>
+    </item>
+    
+    <item>
+      <title>Excel实现下拉列表并管理键值对</title>
+      <link>https://beyondkmp.com/post/excel%E5%AE%9E%E7%8E%B0%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BF%9D%E6%8C%81%E9%94%AE%E5%80%BC%E5%AF%B9/</link>
+      <pubDate>Tue, 14 Apr 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/excel%E5%AE%9E%E7%8E%B0%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E5%B9%B6%E4%BF%9D%E6%8C%81%E9%94%AE%E5%80%BC%E5%AF%B9/</guid>
+      <description>今天做.net程序，要实现excel列做成下拉框且键值对的效果。在网上查了很多资料，最后终于找到实现方法，怕以后会忘记，现在赶紧记录下来。 使</description>
+    </item>
+    
+    <item>
+      <title>os x 下面禁止并删除.DS_Store文件</title>
+      <link>https://beyondkmp.com/post/os-x%E4%B8%8B%E9%9D%A2%E7%A6%81%E6%AD%A2%E5%B9%B6%E5%88%A0%E9%99%A4.ds_store%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Mon, 13 Apr 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/os-x%E4%B8%8B%E9%9D%A2%E7%A6%81%E6%AD%A2%E5%B9%B6%E5%88%A0%E9%99%A4.ds_store%E6%96%87%E4%BB%B6/</guid>
+      <description>查看.DS_Store文件结构 先来看看怎么样解析.DS_Store文件，代码来自: https://github.com/ff0000team/Beebeeto-framework/blob/master/utils/tools/ds_store_viewer.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 #!/usr/bin/env python #</description>
+    </item>
+    
+    <item>
+      <title>ios及os x 下技巧收集</title>
+      <link>https://beyondkmp.com/post/ios%E5%8F%8Aos-x%E7%9A%84%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/ios%E5%8F%8Aos-x%E7%9A%84%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86/</guid>
+      <description>ios技巧收集 技巧一：禁止屏幕旋转 在主屏幕上往上拉出下面的快捷界面，点击那个小锁就可以。如下图： 技巧二：打开连接wifi界面 在主屏幕上往上拉</description>
+    </item>
+    
+    <item>
+      <title>Linux恢复rm删除文件</title>
+      <link>https://beyondkmp.com/post/linux%E6%81%A2%E5%A4%8Drm%E5%88%A0%E9%99%A4%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Wed, 08 Apr 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/linux%E6%81%A2%E5%A4%8Drm%E5%88%A0%E9%99%A4%E8%BD%AF%E4%BB%B6/</guid>
+      <description>##步骤一：将磁盘挂载为只读 这个是必须一定得放在第一步来做。如果不做，其它进程写了这个磁盘那就很难恢复了。磁盘规划时一定要做功能分区，/ro</description>
+    </item>
+    
+    <item>
+      <title>os x 10.10安装metasploit</title>
+      <link>https://beyondkmp.com/post/os-x-10.10%E5%AE%89%E8%A3%85metasploit/</link>
+      <pubDate>Tue, 31 Mar 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/os-x-10.10%E5%AE%89%E8%A3%85metasploit/</guid>
+      <description>##步骤一：安装metasploit 参考Installing Metasploit Framework on Mountain Lion and Mavericks ##步骤二：安装postgreSQL 安装postgresql: 1 brew</description>
+    </item>
+    
+    <item>
+      <title>os x 10.10安装goagent</title>
+      <link>https://beyondkmp.com/post/os-x-10.10%E5%AE%89%E8%A3%85goagent/</link>
+      <pubDate>Thu, 26 Mar 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/os-x-10.10%E5%AE%89%E8%A3%85goagent/</guid>
+      <description>##详细过程 (转载自:https://github.com/goagent/goagent/blob/wiki/InstallGuide.m</description>
+    </item>
+    
+    <item>
+      <title>印象笔记介绍</title>
+      <link>https://beyondkmp.com/post/%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 23 Mar 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0%E4%BB%8B%E7%BB%8D/</guid>
+      <description>##写作 从待办事项到调研报告，在这里专注完成写作，迅速化想象力为行动力。如果觉的他自带的编辑器不怎么样，可以用马克飞象，geeknote,或</description>
+    </item>
+    
+    <item>
+      <title>dmg格式转化成iso</title>
+      <link>https://beyondkmp.com/post/dmg%E6%A0%BC%E5%BC%8F%E8%BD%AC%E5%8C%96%E6%88%90iso/</link>
+      <pubDate>Tue, 17 Mar 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/dmg%E6%A0%BC%E5%BC%8F%E8%BD%AC%E5%8C%96%E6%88%90iso/</guid>
+      <description>安装dmg2img,在gentoo下的源里面直接有 1 sudo emerge -av dmg2img man下dmg2img,没啥，直接dmg2img有以下说明： 1 2 3 4 5 6 7 8 9 b</description>
+    </item>
+    
+    <item>
+      <title>iphone电源键坏了怎么开机</title>
+      <link>https://beyondkmp.com/post/iphone%E7%94%B5%E6%BA%90%E9%94%AE%E5%9D%8F%E4%BA%86%E6%80%8E%E4%B9%88%E5%BC%80%E6%9C%BA/</link>
+      <pubDate>Fri, 13 Mar 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/iphone%E7%94%B5%E6%BA%90%E9%94%AE%E5%9D%8F%E4%BA%86%E6%80%8E%E4%B9%88%E5%BC%80%E6%9C%BA/</guid>
+      <description>自己的iphone4s已经用了近三年了，屏幕早就碎了，最近电源键还坏了，看来是得换个的时候了。 可是自己还没有赚钱啊。忍忍吧! 电源键坏了，就是</description>
+    </item>
+    
+    <item>
+      <title>克隆系统的方法</title>
+      <link>https://beyondkmp.com/post/%E5%85%8B%E9%9A%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 05 Feb 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/%E5%85%8B%E9%9A%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>###步骤一： 用linux u盘启动系统启动到一个linux系统中 ###步骤二： fdisk -l /dev/sd* 或者 df -lh /dev/sd*来查看系统盘所在的盘符以及要克隆</description>
+    </item>
+    
+    <item>
+      <title>给fedora 21安装infinality补丁</title>
+      <link>https://beyondkmp.com/post/fedora21-intall-infinality/</link>
+      <pubDate>Fri, 23 Jan 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/fedora21-intall-infinality/</guid>
+      <description>###在Fedora 21中安装 RPM: freetype-infinality-2.4.12-1.20130514_01.fc21.x86_64.rpm RPM: fontconfig-infinality-1-20120615_1.noarch.rpm 再安装gnome-tweak-tool来设置slight和rgb，安装包 RPM: gnome-tweak-tool 安装好后将提示(hinti</description>
+    </item>
+    
+    <item>
+      <title>markdown技巧个人收集</title>
+      <link>https://beyondkmp.com/post/markdown-skill-myself/</link>
+      <pubDate>Sat, 17 Jan 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/markdown-skill-myself/</guid>
+      <description>#####用法一：加入图片的时候设置图片的大小的方法，目前我用的是用html的img标签 1 2 &amp;lt;img src=&amp;#34;/imgs/鸡翅1.png&amp;</description>
+    </item>
+    
+    <item>
+      <title>(转载)Markdown 语法说明 (简体中文版)</title>
+      <link>https://beyondkmp.com/post/markdown-teaching/</link>
+      <pubDate>Wed, 14 Jan 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/markdown-teaching/</guid>
+      <description>&amp;lt;&amp;lt; 访问 Wow!Ubuntu NOTE: This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to Markdown: Syntax. 声明： 这份文档派生(fork)于繁体中文版，在此基础上进行了繁体转简体工作，并进行了适</description>
+    </item>
+    
+    <item>
+      <title>iR3235N在线扫描仪的用法小结</title>
+      <link>https://beyondkmp.com/post/ir3235n-%E5%9C%A8%E7%BA%BF%E6%89%AB%E6%8F%8F-%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Tue, 13 Jan 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/ir3235n-%E5%9C%A8%E7%BA%BF%E6%89%AB%E6%8F%8F-%E7%94%A8%E6%B3%95/</guid>
+      <description>由于实验室有一台打印机，型号为iR3235N,以前看打印店的老板用那机子好简单啊，结果自己真正来操作就觉的不是那么一回事。搞了一个晚上才搞定</description>
+    </item>
+    
+  </channel>
+</rss>

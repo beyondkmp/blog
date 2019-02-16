@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2018-12-23T15:03:34&#43;08:00" />
-<meta itemprop="wordCount" content="2150">
+<meta itemprop="wordCount" content="3909">
 
 
 
@@ -172,31 +172,56 @@
 <h2 id="编译安装">编译安装</h2>
 
 <p>目前如果要安装squirrel最新版本是要自己编译安装。具体的编译过程如下:</p>
-
-<pre><code class="language-sh">#安装Xcode的工具,运行下面的命令
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#安装Xcode的工具,运行下面的命令</span>
 
 xcode-select --install
 
-# 使用 [Homebrew](http://brew.sh/)安装相差依赖库:
-# dev tools:
+<span class="c1"># 使用 [Homebrew](http://brew.sh/)安装相差依赖库:</span>
+<span class="c1"># dev tools:</span>
 brew install cmake
 brew install git
-# libraries:
+<span class="c1"># libraries:</span>
 brew install boost
 
-#下载源代码
+<span class="c1">#下载源代码</span>
 git clone --recursive https://github.com/rime/squirrel.git
 
-#编译依赖库
+<span class="c1">#编译依赖库</span>
 make deps
 
-#编译squirrel
+<span class="c1">#编译squirrel</span>
 make
 
-#安装squirrel
-sudo make install
-</code></pre>
-
+<span class="c1">#安装squirrel</span>
+sudo make install</code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="部署">部署</h2>
 
 <ol>
@@ -224,43 +249,78 @@ sudo make install
 <h3 id="界面配置">界面配置</h3>
 
 <p>界面的配置文件是squirrel.custom.yaml, 目前我最喜欢的界面如下，自己修改了一些，还有就是目前不能对单个style进行patch，试了很多配置都没有解决。索性直接自己完整的写个color theme</p>
-
-<pre><code class="language-yaml">patch:
-  show_notifications_when: appropriate # 状态通知，适当，也可设为全开（always）全关（never）
-  &quot;app_options/com.runningwithcrayons.Alfred-3/ascii_mode&quot;: true
-
-  style/color_scheme: beyondkmp             # 方案命名，不能有空格
-  preset_color_schemes:
-    beyondkmp:
-      name: 幽能／Psionics
-      author: 雨過之後、佛振
-
-      horizontal: true                                   # 水平排列
-      inline_preedit: true                               # 单行显示，false双行显示
-      candidate_format: &quot;%c\u2005%@ \u2005 \u2005&quot;       # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。
-
-      corner_radius: 5                                   # 候选条圆角
-      border_height: 6                                   # 窗口边界高度，大于圆角半径才生效
-      border_width: 6                                    # 窗口边界宽度，大于圆角半径才生效
-      font_face: &quot;PingFangSC-Regular,HanaMinB&quot;      # 候选词字体
-      font_point: 18                                     # 候选字词大小
-      label_font_face: &quot;STHeitiSC-Light&quot;                 # 候选词编号字体
-      label_font_point: 16                               # 候选编号大小
-      text_color: 0xc2c2c2                               # 拼音行文字颜色，24位色值，16进制，BGR顺序
-      back_color: 0x444444                               # 候选条背景色
-      border_color: 0xE0B693                             # 边框色
-      label_color: 0x9e9e9e                              # 预选栏编号颜色
-      candidate_text_color: 0xeeeeee                     # 预选项文字颜色
-      comment_text_color: 0x808080                       # 拼音等提示文字颜色
-      hilited_text_color: 0xeeeeee                       # 高亮拼音 (需要开启内嵌编码)
-      hilited_back_color: 0x444444                       # 高亮背景色
-      hilited_candidate_text_color: 0xfafafa             # 第一候选项文字颜色
-      hilited_candidate_back_color: 0xd8bf00             # 第一候选项背景背景色
-      hilited_candidate_label_color: 0xfafafa            # 第一候选项编号颜色
-      hilited_comment_text_color: 0x444444               # 注解文字高亮
-
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml">patch<span class="p">:</span><span class="w">
+</span><span class="w">  </span>show_notifications_when<span class="p">:</span><span class="w"> </span>appropriate<span class="w"> </span><span class="c"># 状态通知，适当，也可设为全开（always）全关（never）</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;app_options/com.runningwithcrayons.Alfred-3/ascii_mode&#34;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span>style/color_scheme<span class="p">:</span><span class="w"> </span>beyondkmp<span class="w">             </span><span class="c"># 方案命名，不能有空格</span><span class="w">
+</span><span class="w">  </span>preset_color_schemes<span class="p">:</span><span class="w">
+</span><span class="w">    </span>beyondkmp<span class="p">:</span><span class="w">
+</span><span class="w">      </span>name<span class="p">:</span><span class="w"> </span>幽能／Psionics<span class="w">
+</span><span class="w">      </span>author<span class="p">:</span><span class="w"> </span>雨過之後、佛振<span class="w">
+</span><span class="w">
+</span><span class="w">      </span>horizontal<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                                   </span><span class="c"># 水平排列</span><span class="w">
+</span><span class="w">      </span>inline_preedit<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                               </span><span class="c"># 单行显示，false双行显示</span><span class="w">
+</span><span class="w">      </span>candidate_format<span class="p">:</span><span class="w"> </span><span class="s2">&#34;%c\u2005%@ \u2005 \u2005&#34;</span><span class="w">       </span><span class="c"># 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>corner_radius<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">                                   </span><span class="c"># 候选条圆角</span><span class="w">
+</span><span class="w">      </span>border_height<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">                                   </span><span class="c"># 窗口边界高度，大于圆角半径才生效</span><span class="w">
+</span><span class="w">      </span>border_width<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">                                    </span><span class="c"># 窗口边界宽度，大于圆角半径才生效</span><span class="w">
+</span><span class="w">      </span>font_face<span class="p">:</span><span class="w"> </span><span class="s2">&#34;PingFangSC-Regular,HanaMinB&#34;</span><span class="w">      </span><span class="c"># 候选词字体</span><span class="w">
+</span><span class="w">      </span>font_point<span class="p">:</span><span class="w"> </span><span class="m">18</span><span class="w">                                     </span><span class="c"># 候选字词大小</span><span class="w">
+</span><span class="w">      </span>label_font_face<span class="p">:</span><span class="w"> </span><span class="s2">&#34;STHeitiSC-Light&#34;</span><span class="w">                 </span><span class="c"># 候选词编号字体</span><span class="w">
+</span><span class="w">      </span>label_font_point<span class="p">:</span><span class="w"> </span><span class="m">16</span><span class="w">                               </span><span class="c"># 候选编号大小</span><span class="w">
+</span><span class="w">      </span>text_color<span class="p">:</span><span class="w"> </span><span class="m">0xc2c2c2</span><span class="w">                               </span><span class="c"># 拼音行文字颜色，24位色值，16进制，BGR顺序</span><span class="w">
+</span><span class="w">      </span>back_color<span class="p">:</span><span class="w"> </span><span class="m">0x444444</span><span class="w">                               </span><span class="c"># 候选条背景色</span><span class="w">
+</span><span class="w">      </span>border_color<span class="p">:</span><span class="w"> </span>0xE0B693<span class="w">                             </span><span class="c"># 边框色</span><span class="w">
+</span><span class="w">      </span>label_color<span class="p">:</span><span class="w"> </span><span class="m">0x9e9e9e</span><span class="w">                              </span><span class="c"># 预选栏编号颜色</span><span class="w">
+</span><span class="w">      </span>candidate_text_color<span class="p">:</span><span class="w"> </span><span class="m">0xeeeeee</span><span class="w">                     </span><span class="c"># 预选项文字颜色</span><span class="w">
+</span><span class="w">      </span>comment_text_color<span class="p">:</span><span class="w"> </span><span class="m">0x808080</span><span class="w">                       </span><span class="c"># 拼音等提示文字颜色</span><span class="w">
+</span><span class="w">      </span>hilited_text_color<span class="p">:</span><span class="w"> </span><span class="m">0xeeeeee</span><span class="w">                       </span><span class="c"># 高亮拼音 (需要开启内嵌编码)</span><span class="w">
+</span><span class="w">      </span>hilited_back_color<span class="p">:</span><span class="w"> </span><span class="m">0x444444</span><span class="w">                       </span><span class="c"># 高亮背景色</span><span class="w">
+</span><span class="w">      </span>hilited_candidate_text_color<span class="p">:</span><span class="w"> </span><span class="m">0xfafafa</span><span class="w">             </span><span class="c"># 第一候选项文字颜色</span><span class="w">
+</span><span class="w">      </span>hilited_candidate_back_color<span class="p">:</span><span class="w"> </span><span class="m">0xd8bf00</span><span class="w">             </span><span class="c"># 第一候选项背景背景色</span><span class="w">
+</span><span class="w">      </span>hilited_candidate_label_color<span class="p">:</span><span class="w"> </span><span class="m">0xfafafa</span><span class="w">            </span><span class="c"># 第一候选项编号颜色</span><span class="w">
+</span><span class="w">      </span>hilited_comment_text_color<span class="p">:</span><span class="w"> </span><span class="m">0x444444</span><span class="w">               </span><span class="c"># 注解文字高亮</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>界面效果如下:</p>
 
 <p><img src="/imgs/squirrel_interface.png" alt="界面" /></p>
@@ -270,111 +330,215 @@ sudo make install
 <p>配置文件为<code>default.custom.yaml</code>,目前的配置如下:</p>
 
 <p>目前主要用luna_pinyin_simp和wubi_pinyin两种输入法</p>
-
-<pre><code class="language-yaml">patch:
-  menu:
-    page_size: 6  # 候选词的长度
-  schema_list:
-    - schema: luna_pinyin_simp      # 朙月拼音 简化字
-    - schema: wubi_pinyin           # 五笔拼音混合輸入
-
-  key_binder/bindings:  # 以方括号换页
-    - when: paging # [ -&gt; 上一页
-      accept: bracketleft
-      send: Page_Up
-    - when: has_menu #] -下一页
-      accept: bracketright
-      send: Page_Down
-
-  ascii_composer/switch_key:
-    Caps_Lock: noop
-    Control_L: noop
-    Control_R: noop
-    Eisu_toggle: clear
-    Shift_L: commit_code # 配置后，可以直接用shift上屏英文字母,就是打了一段编码后直接以这段编码上屏
-    Shift_R: noop
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml">patch<span class="p">:</span><span class="w">
+</span><span class="w">  </span>menu<span class="p">:</span><span class="w">
+</span><span class="w">    </span>page_size<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">  </span><span class="c"># 候选词的长度</span><span class="w">
+</span><span class="w">  </span>schema_list<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>schema<span class="p">:</span><span class="w"> </span>luna_pinyin_simp<span class="w">      </span><span class="c"># 朙月拼音 简化字</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>schema<span class="p">:</span><span class="w"> </span>wubi_pinyin<span class="w">           </span><span class="c"># 五笔拼音混合輸入</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span>key_binder/bindings<span class="p">:</span><span class="w">  </span><span class="c"># 以方括号换页</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>paging<span class="w"> </span><span class="c"># [ -&gt; 上一页</span><span class="w">
+</span><span class="w">      </span>accept<span class="p">:</span><span class="w"> </span>bracketleft<span class="w">
+</span><span class="w">      </span>send<span class="p">:</span><span class="w"> </span>Page_Up<span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>has_menu<span class="w"> </span><span class="c">#] -下一页</span><span class="w">
+</span><span class="w">      </span>accept<span class="p">:</span><span class="w"> </span>bracketright<span class="w">
+</span><span class="w">      </span>send<span class="p">:</span><span class="w"> </span>Page_Down<span class="w">
+</span><span class="w">
+</span><span class="w">  </span>ascii_composer/switch_key<span class="p">:</span><span class="w">
+</span><span class="w">    </span>Caps_Lock<span class="p">:</span><span class="w"> </span>noop<span class="w">
+</span><span class="w">    </span>Control_L<span class="p">:</span><span class="w"> </span>noop<span class="w">
+</span><span class="w">    </span>Control_R<span class="p">:</span><span class="w"> </span>noop<span class="w">
+</span><span class="w">    </span>Eisu_toggle<span class="p">:</span><span class="w"> </span>clear<span class="w">
+</span><span class="w">    </span>Shift_L<span class="p">:</span><span class="w"> </span>commit_code<span class="w"> </span><span class="c"># 配置后，可以直接用shift上屏英文字母,就是打了一段编码后直接以这段编码上屏</span><span class="w">
+</span><span class="w">    </span>Shift_R<span class="p">:</span><span class="w"> </span>noop</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="五笔配置">五笔配置</h3>
-
-<pre><code class="language-yaml"># Rime schema settings
-# encoding: utf-8
-
-patch:
-  switches:
-    - name: ascii_mode
-      reset: 0
-      states: [&quot;中文&quot;, &quot;西文&quot;]
-    - name: full_shape
-      states: [&quot;半角&quot;, &quot;全角&quot;]
-    - name: simplification
-      reset: 0
-      states: [&quot;汉字&quot;, &quot;漢字&quot;]
-    - name: ascii_punct
-      states: [&quot;。，&quot;, &quot;．，&quot;]
-    - name: show_emoji
-      reset: 1
-      states: [ &quot;🈚️️\uFE0E&quot;, &quot;🈶️️\uFE0F&quot; ]
-
-  simplifier:
-      opencc_config: simp2trad.json  # 简入繁出
-
-  engine/filters:
-    - simplifier
-    - uniquifier
-    - simplifier@emoji_conversion
-
-  emoji_conversion:
-    opencc_config: emoji.json
-    option_name: show_emoji
-    tags: abc
-
-
-  &quot;speller/max_code_length&quot;: 4 #最长4码
-  &quot;speller/auto_select&quot;: false #顶字上屏
-  &quot;speller/auto_select_unique_candidate&quot;: false #无重码自动上屏
-
-  &quot;translator/dictionary&quot;: wubi86 #加载五笔词库
-  &quot;reverse_lookup/comment_format/@1&quot;: xform/^(\w+).*/$1/
-
-#  符号快速输入和部分符号的快速上屏
-  punctuator:
-    import_preset: symbols
-    symbols:
-      &quot;/fs&quot;: [½, ‰, ¼, ⅓, ⅔, ¾, ⅒ ]
-      &quot;/bq&quot;: [😂️, 😅️, ☺️, 😱️, 😭️, 😇️, 🙃️, 🤔️, 💊️, 💯️, 👍️, 🙈️, 💩️, 😈️ ]
-      &quot;/dn&quot;: [⌘, ⌥, ⇧, ⌃, ⎋, ⇪, , ⌫, ⌦, ↩︎, ⏎, ↑, ↓, ←, →, ↖, ↘, ⇟, ⇞]
-      &quot;/fh&quot;: [ ©, ®, ℗, ℠, ™, ℡, ⓘ, ♂, ♀, ☉, ☊, ☋, ☌, ☍, ☐, ☑︎, ☒, ☜, ☝, ☞, ☟, ✎, ✄, ♲, ♻, ⚐, ⚑, ⚠]
-      &quot;/xh&quot;: [ ＊, ×, ✱, ★, ☆, ✩, ✧, ❋, ❊, ❉, ❈, ❅, ✿, ✲]
-    half_shape:
-      &quot;#&quot;: &quot;#&quot;
-      &quot;*&quot;: &quot;*&quot;
-      &quot;`&quot;: &quot;`&quot;
-      &quot;~&quot;: &quot;~&quot;
-      &quot;@&quot;: &quot;@&quot;
-      &quot;=&quot;: &quot;=&quot;
-      &quot;/&quot;: [&quot;/&quot;, &quot;÷&quot;]
-      '\': &quot;、&quot;
-      &quot;_&quot; : &quot;──&quot;
-      &quot;'&quot;: {pair: [&quot;「&quot;, &quot;」&quot;]}
-      &quot;[&quot;: [&quot;【&quot;, &quot;[&quot;]
-      &quot;]&quot;: [&quot;】&quot;, &quot;]&quot;]
-      &quot;$&quot;: [&quot;¥&quot;, &quot;$&quot;, &quot;€&quot;, &quot;£&quot;, &quot;¢&quot;, &quot;¤&quot;]
-      &quot;&lt;&quot;: [&quot;《&quot;, &quot;〈&quot;, &quot;«&quot;, &quot;&lt;&quot;]
-      &quot;&gt;&quot;: [&quot;》&quot;, &quot;〉&quot;, &quot;»&quot;, &quot;&gt;&quot;]
-  recognizer/patterns/punct: &quot;^/([a-z]+|[0-9]0?)$&quot;
-
-# 使用自定义词典 custom_phrase.txt
-  custom_phrase:
-    dictionary: &quot;&quot;
-    user_dict: custom_phrase
-    db_class: stabledb
-    enable_completion: false
-    enable_sentence: false
-    initial_quality: 1
-  &quot;engine/translators/@4&quot;: table_translator@custom_phrase
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Rime schema settings</span><span class="w">
+</span><span class="w"></span><span class="c"># encoding: utf-8</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>patch<span class="p">:</span><span class="w">
+</span><span class="w">  </span>switches<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>ascii_mode<span class="w">
+</span><span class="w">      </span>reset<span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">      </span>states<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;中文&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;西文&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>full_shape<span class="w">
+</span><span class="w">      </span>states<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;半角&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;全角&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>simplification<span class="w">
+</span><span class="w">      </span>reset<span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">      </span>states<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;汉字&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;漢字&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>ascii_punct<span class="w">
+</span><span class="w">      </span>states<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;。，&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;．，&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>show_emoji<span class="w">
+</span><span class="w">      </span>reset<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">      </span>states<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;🈚️️\uFE0E&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;🈶️️\uFE0F&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span>simplifier<span class="p">:</span><span class="w">
+</span><span class="w">      </span>opencc_config<span class="p">:</span><span class="w"> </span>simp2trad.json<span class="w">  </span><span class="c"># 简入繁出</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span>engine/filters<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>simplifier<span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>uniquifier<span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>simplifier@emoji_conversion<span class="w">
+</span><span class="w">
+</span><span class="w">  </span>emoji_conversion<span class="p">:</span><span class="w">
+</span><span class="w">    </span>opencc_config<span class="p">:</span><span class="w"> </span>emoji.json<span class="w">
+</span><span class="w">    </span>option_name<span class="p">:</span><span class="w"> </span>show_emoji<span class="w">
+</span><span class="w">    </span>tags<span class="p">:</span><span class="w"> </span>abc<span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;speller/max_code_length&#34;</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="c">#最长4码</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;speller/auto_select&#34;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c">#顶字上屏</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;speller/auto_select_unique_candidate&#34;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c">#无重码自动上屏</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;translator/dictionary&#34;</span><span class="p">:</span><span class="w"> </span>wubi86<span class="w"> </span><span class="c">#加载五笔词库</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;reverse_lookup/comment_format/@1&#34;</span><span class="p">:</span><span class="w"> </span>xform/^(\w+).<span class="cp">*/$1/</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c">#  符号快速输入和部分符号的快速上屏</span><span class="w">
+</span><span class="w">  </span>punctuator<span class="p">:</span><span class="w">
+</span><span class="w">    </span>import_preset<span class="p">:</span><span class="w"> </span>symbols<span class="w">
+</span><span class="w">    </span>symbols<span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/fs&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>½<span class="p">,</span><span class="w"> </span>‰<span class="p">,</span><span class="w"> </span>¼<span class="p">,</span><span class="w"> </span>⅓<span class="p">,</span><span class="w"> </span>⅔<span class="p">,</span><span class="w"> </span>¾<span class="p">,</span><span class="w"> </span>⅒<span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/bq&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>😂️<span class="p">,</span><span class="w"> </span>😅️<span class="p">,</span><span class="w"> </span>☺️<span class="p">,</span><span class="w"> </span>😱️<span class="p">,</span><span class="w"> </span>😭️<span class="p">,</span><span class="w"> </span>😇️<span class="p">,</span><span class="w"> </span>🙃️<span class="p">,</span><span class="w"> </span>🤔️<span class="p">,</span><span class="w"> </span>💊️<span class="p">,</span><span class="w"> </span>💯️<span class="p">,</span><span class="w"> </span>👍️<span class="p">,</span><span class="w"> </span>🙈️<span class="p">,</span><span class="w"> </span>💩️<span class="p">,</span><span class="w"> </span>😈️<span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/dn&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>⌘<span class="p">,</span><span class="w"> </span>⌥<span class="p">,</span><span class="w"> </span>⇧<span class="p">,</span><span class="w"> </span>⌃<span class="p">,</span><span class="w"> </span>⎋<span class="p">,</span><span class="w"> </span>⇪<span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span>⌫<span class="p">,</span><span class="w"> </span>⌦<span class="p">,</span><span class="w"> </span>↩︎<span class="p">,</span><span class="w"> </span>⏎<span class="p">,</span><span class="w"> </span>↑<span class="p">,</span><span class="w"> </span>↓<span class="p">,</span><span class="w"> </span>←<span class="p">,</span><span class="w"> </span>→<span class="p">,</span><span class="w"> </span>↖<span class="p">,</span><span class="w"> </span>↘<span class="p">,</span><span class="w"> </span>⇟<span class="p">,</span><span class="w"> </span>⇞<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/fh&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>©<span class="p">,</span><span class="w"> </span>®<span class="p">,</span><span class="w"> </span>℗<span class="p">,</span><span class="w"> </span>℠<span class="p">,</span><span class="w"> </span>™<span class="p">,</span><span class="w"> </span>℡<span class="p">,</span><span class="w"> </span>ⓘ<span class="p">,</span><span class="w"> </span>♂<span class="p">,</span><span class="w"> </span>♀<span class="p">,</span><span class="w"> </span>☉<span class="p">,</span><span class="w"> </span>☊<span class="p">,</span><span class="w"> </span>☋<span class="p">,</span><span class="w"> </span>☌<span class="p">,</span><span class="w"> </span>☍<span class="p">,</span><span class="w"> </span>☐<span class="p">,</span><span class="w"> </span>☑︎<span class="p">,</span><span class="w"> </span>☒<span class="p">,</span><span class="w"> </span>☜<span class="p">,</span><span class="w"> </span>☝<span class="p">,</span><span class="w"> </span>☞<span class="p">,</span><span class="w"> </span>☟<span class="p">,</span><span class="w"> </span>✎<span class="p">,</span><span class="w"> </span>✄<span class="p">,</span><span class="w"> </span>♲<span class="p">,</span><span class="w"> </span>♻<span class="p">,</span><span class="w"> </span>⚐<span class="p">,</span><span class="w"> </span>⚑<span class="p">,</span><span class="w"> </span>⚠<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/xh&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>＊<span class="p">,</span><span class="w"> </span>×<span class="p">,</span><span class="w"> </span>✱<span class="p">,</span><span class="w"> </span>★<span class="p">,</span><span class="w"> </span>☆<span class="p">,</span><span class="w"> </span>✩<span class="p">,</span><span class="w"> </span>✧<span class="p">,</span><span class="w"> </span>❋<span class="p">,</span><span class="w"> </span>❊<span class="p">,</span><span class="w"> </span>❉<span class="p">,</span><span class="w"> </span>❈<span class="p">,</span><span class="w"> </span>❅<span class="p">,</span><span class="w"> </span>✿<span class="p">,</span><span class="w"> </span>✲<span class="p">]</span><span class="w">
+</span><span class="w">    </span>half_shape<span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;#&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;#&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;*&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;`&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;`&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;~&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;~&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;@&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;@&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;=&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;=&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;/&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;÷&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="s1">&#39;\&#39;: &#34;、&#34;
+</span><span class="s1">      &#34;_&#34; : &#34;──&#34;
+</span><span class="s1">      &#34;&#39;</span><span class="s2">&#34;: {pair: [&#34;</span>「<span class="s2">&#34;, &#34;</span>」<span class="s2">&#34;]}
+</span><span class="s2">      &#34;</span><span class="p">[</span><span class="s2">&#34;: [&#34;</span>【<span class="s2">&#34;, &#34;</span><span class="p">[</span><span class="s2">&#34;]
+</span><span class="s2">      &#34;</span><span class="p">]</span><span class="s2">&#34;: [&#34;</span>】<span class="s2">&#34;, &#34;</span><span class="p">]</span><span class="s2">&#34;]
+</span><span class="s2">      &#34;</span>$<span class="s2">&#34;: [&#34;</span>¥<span class="s2">&#34;, &#34;</span>$<span class="s2">&#34;, &#34;</span>€<span class="s2">&#34;, &#34;</span>£<span class="s2">&#34;, &#34;</span>¢<span class="s2">&#34;, &#34;</span>¤<span class="s2">&#34;]
+</span><span class="s2">      &#34;</span>&lt;<span class="s2">&#34;: [&#34;</span>《<span class="s2">&#34;, &#34;</span>〈<span class="s2">&#34;, &#34;</span>«<span class="s2">&#34;, &#34;</span>&lt;<span class="s2">&#34;]
+</span><span class="s2">      &#34;</span>&gt;<span class="s2">&#34;: [&#34;</span>》<span class="s2">&#34;, &#34;</span>〉<span class="s2">&#34;, &#34;</span>»<span class="s2">&#34;, &#34;</span>&gt;<span class="s2">&#34;]
+</span><span class="s2">  recognizer/patterns/punct: &#34;</span>^/(<span class="p">[</span>a-z<span class="p">]</span>+|<span class="p">[</span><span class="m">0</span>-<span class="m">9</span><span class="p">]</span><span class="m">0</span><span class="p">?</span>)$<span class="s2">&#34;
+</span><span class="s2">
+</span><span class="s2"># 使用自定义词典 custom_phrase.txt
+</span><span class="s2">  custom_phrase:
+</span><span class="s2">    dictionary: &#34;&#34;
+</span><span class="s2">    user_dict: custom_phrase
+</span><span class="s2">    db_class: stabledb
+</span><span class="s2">    enable_completion: false
+</span><span class="s2">    enable_sentence: false
+</span><span class="s2">    initial_quality: 1
+</span><span class="s2">  &#34;</span>engine/translators/@<span class="m">4</span>&#34;<span class="p">:</span><span class="w"> </span>table_translator@custom_phrase</code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="参考">参考</h2>
 
 <ol>

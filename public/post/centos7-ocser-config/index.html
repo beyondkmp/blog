@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-08-16T19:25:21&#43;08:00" />
 <meta itemprop="dateModified" content="2018-08-16T19:25:21&#43;08:00" />
-<meta itemprop="wordCount" content="1602">
+<meta itemprop="wordCount" content="1785">
 
 
 
@@ -163,47 +163,96 @@
       <p>ocserv 是一个 OpenConnect SSL VPN 协议服务端，0.3.0 版后兼容使用 AnyConnect SSL VPN 协议的终端。官方主页<a href="http://www.infradead.org/ocserv/">http://www.infradead.org/ocserv/</a>。ocserv 已经在 epel 仓库中提供了，所以可以直接通过 yum 安装</p>
 
 <h2 id="安装-ocserv">安装 ocserv</h2>
-
-<pre><code class="language-bash">$ yum install epel-release
-$ yum install ocserv
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ yum install epel-release
+$ yum install ocserv</code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="生成证书">生成证书</h2>
 
 <p><a href="http://ocserv.gitlab.io/www/manual.html">官方文档</a>,具体步骤如下</p>
 
 <ol>
 <li><p>创建工作文件夹</p>
-
-<pre><code class="language-bash">$ mkdir anyconnect
-$ cd anyconnect
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ mkdir anyconnect
+$ <span class="nb">cd</span> anyconnect</code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>生成ca证书</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ certtool --generate-privkey --outfile ca-key.pem
+$ cat &gt;ca.tmpl <span class="s">&lt;&lt;EOF
+</span><span class="s">cn = &#34;VPN CA&#34;
+</span><span class="s">organization = &#34;Big Corp&#34;
+</span><span class="s">serial = 1
+</span><span class="s">expiration_days = 3650
+</span><span class="s">ca
+</span><span class="s">signing_key
+</span><span class="s">cert_signing_key
+</span><span class="s">crl_signing_key
+</span><span class="s">EOF</span>
 
-<pre><code class="language-bash">$ certtool --generate-privkey --outfile ca-key.pem
-$ cat &gt;ca.tmpl &lt;&lt;EOF
-cn = &quot;VPN CA&quot;
-organization = &quot;Big Corp&quot;
-serial = 1
-expiration_days = 3650
-ca
-signing_key
-cert_signing_key
-crl_signing_key
-EOF
-
-$ certtool --generate-self-signed --load-privkey ca-key.pem \
---template ca.tmpl --outfile ca-cert.pem
-$ cp ca-cert.pem /etc/pki/ocserv/cacerts
-</code></pre></li>
+$ certtool --generate-self-signed --load-privkey ca-key.pem <span class="se">\
+</span><span class="se"></span>--template ca.tmpl --outfile ca-cert.pem
+$ cp ca-cert.pem /etc/pki/ocserv/cacerts</code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>生成服务器证书</p>
-
-<pre><code>$ certtool --generate-privkey --outfile server-key.pem
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ certtool --generate-privkey --outfile server-key.pem
 $ cat &gt;server.tmpl &lt;&lt;EOF
-cn = &quot;www.beyondkmp.com&quot;
-organization = &quot;Beyondkmp&quot;
+cn = &#34;www.beyondkmp.com&#34;
+organization = &#34;Beyondkmp&#34;
 serial = 2
 expiration_days = 3650
 encryption_key
@@ -215,41 +264,70 @@ $ certtool --generate-certificate --load-privkey server-key.pem \
 --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem \
 --template server.tmpl --outfile server-cert.pem
 $ cp server-cert.pem /etc/pki/ocserv/public/server.crt
-$ cp server-key.pem /etc/pki/ocserv/private/server.key
-</code></pre></li>
+$ cp server-key.pem /etc/pki/ocserv/private/server.key</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>生成本地服务器证书(如果不用证书登录，此步骤可以不做）</p>
 
 <p>创建 gen-client-cert.sh，并将下面内容复制进去</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">USER</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">CA_DIR</span><span class="o">=</span><span class="nv">$2</span>
+<span class="nv">SERIAL</span><span class="o">=</span><span class="sb">`</span>date +%s<span class="sb">`</span>
+certtool --generate-privkey --outfile <span class="nv">$USER</span>-key.pem
+cat <span class="s">&lt;&lt; _EOF_ &gt;user.tmpl
+</span><span class="s">cn = &#34;$USER&#34;
+</span><span class="s">unit = &#34;users&#34;
+</span><span class="s">serial = &#34;$SERIAL&#34;
+</span><span class="s">expiration_days = 9999
+</span><span class="s">signing_key
+</span><span class="s">tls_www_client
+</span><span class="s">_EOF_</span>
+certtool --generate-certificate --load-privkey <span class="nv">$USER</span>-key.pem --load-ca-certificate <span class="nv">$CA_DIR</span>/ca-cert.pem --load-ca-privkey <span class="nv">$CA_DIR</span>/ca-key.pem --template user.tmpl --outfile <span class="nv">$USER</span>-cert.pem
 
-<pre><code class="language-bash">#!/bin/bash
-USER=$1
-CA_DIR=$2
-SERIAL=`date +%s`
-certtool --generate-privkey --outfile $USER-key.pem
-cat &lt;&lt; _EOF_ &gt;user.tmpl
-cn = &quot;$USER&quot;
-unit = &quot;users&quot;
-serial = &quot;$SERIAL&quot;
-expiration_days = 9999
-signing_key
-tls_www_client
-_EOF_
-certtool --generate-certificate --load-privkey $USER-key.pem --load-ca-certificate $CA_DIR/ca-cert.pem --load-ca-privkey $CA_DIR/ca-key.pem --template user.tmpl --outfile $USER-cert.pem
-
-openssl pkcs12 -export -inkey $USER-key.pem -in $USER-cert.pem -name &quot;$USER VPN Client Cert&quot; -certfile $CA_DIR/ca-cert.pem -out $USER.p12
-EOF 
-</code></pre>
-
+openssl pkcs12 -export -inkey <span class="nv">$USER</span>-key.pem -in <span class="nv">$USER</span>-cert.pem -name <span class="s2">&#34;</span><span class="nv">$USER</span><span class="s2"> VPN Client Cert&#34;</span> -certfile <span class="nv">$CA_DIR</span>/ca-cert.pem -out <span class="nv">$USER</span>.p12
+EOF </code></pre></td></tr></table>
+</div>
+</div>
 <p>创建用户文件夹并调用 gen-client-cert.sh 生成证书</p>
-
-<pre><code class="language-bash">$ mkdir user
-$ cd user
-# user 指的是用户名，.. 指的是 ca 证书所在的目录
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ mkdir user
+$ <span class="nb">cd</span> user
+<span class="c1"># user 指的是用户名，.. 指的是 ca 证书所在的目录</span>
 $ ../gen-client-cert.sh user ..
-# 按提示设置证书使用密码，或直接回车不设密码
-</code></pre>
-
+<span class="c1"># 按提示设置证书使用密码，或直接回车不设密码</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>最后，通过 http 服务器或其他方式将 user.p12 传输给客户端导入即可</p></li>
 </ol>
 
@@ -257,88 +335,169 @@ $ ../gen-client-cert.sh user ..
 
 <ol>
 <li><p>配置 ocserv, 配置文件<code>/etc/ocserv/ocserv.conf</code>**</p>
-
-<pre><code class="language-bash">#ocserv支持多种认证方式，这是自带的密码认证，使用ocpasswd创建密码文件
-#ocserv还支持证书认证，可以通过Pluggable Authentication Modules (PAM)使用radius等认证方式
-auth = &quot;plain[passwd=/etc/ocserv/ocpasswd]&quot;
-#指定替代的登录方式，这里使用证书登录作为第二种登录方式
-enable-auth = &quot;certificate&quot;
-#证书路径
-server-cert = /etc/ocserv/server-cert.pem
-server-key = /etc/ocserv/server-key.pem
-#ca路径
-ca-cert = /etc/ocserv/ca-cert.pem
-#从证书中提取用户名的方式，这里提取的是证书中的 CN 字段作为用户名
-cert-user-oid = 2.5.4.3
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#ocserv支持多种认证方式，这是自带的密码认证，使用ocpasswd创建密码文件</span>
+<span class="c1">#ocserv还支持证书认证，可以通过Pluggable Authentication Modules (PAM)使用radius等认证方式</span>
+<span class="nv">auth</span> <span class="o">=</span> <span class="s2">&#34;plain[passwd=/etc/ocserv/ocpasswd]&#34;</span>
+<span class="c1">#指定替代的登录方式，这里使用证书登录作为第二种登录方式</span>
+enable-auth <span class="o">=</span> <span class="s2">&#34;certificate&#34;</span>
+<span class="c1">#证书路径</span>
+server-cert <span class="o">=</span> /etc/ocserv/server-cert.pem
+server-key <span class="o">=</span> /etc/ocserv/server-key.pem
+<span class="c1">#ca路径</span>
+ca-cert <span class="o">=</span> /etc/ocserv/ca-cert.pem
+<span class="c1">#从证书中提取用户名的方式，这里提取的是证书中的 CN 字段作为用户名</span>
+cert-user-oid <span class="o">=</span> <span class="m">2</span>.5.4.3
         
-#最大用户数量
-max-clients = 16
+<span class="c1">#最大用户数量</span>
+max-clients <span class="o">=</span> <span class="m">16</span>
         
-#同一个用户最多同时登陆数
-max-same-clients = 10
+<span class="c1">#同一个用户最多同时登陆数</span>
+max-same-clients <span class="o">=</span> <span class="m">10</span>
         
-#tcp和udp端口
-tcp-port = 4433
-udp-port = 4433
+<span class="c1">#tcp和udp端口</span>
+tcp-port <span class="o">=</span> <span class="m">4433</span>
+udp-port <span class="o">=</span> <span class="m">4433</span>
         
-#运行用户和组
-run-as-user = ocserv
-run-as-group = ocserv
+<span class="c1">#运行用户和组</span>
+run-as-user <span class="o">=</span> ocserv
+run-as-group <span class="o">=</span> ocserv
         
-#虚拟设备名称
-device = vpns
+<span class="c1">#虚拟设备名称</span>
+<span class="nv">device</span> <span class="o">=</span> vpns
         
-#分配给VPN客户端的IP段
-ipv4-network = 10.12.0.0
-ipv4-netmask = 255.255.255.0
+<span class="c1">#分配给VPN客户端的IP段</span>
+ipv4-network <span class="o">=</span> <span class="m">10</span>.12.0.0
+ipv4-netmask <span class="o">=</span> <span class="m">255</span>.255.255.0
         
-#DNS
-dns = 114.114.114.114
-dns = 8.8.8.8
+<span class="c1">#DNS</span>
+<span class="nv">dns</span> <span class="o">=</span> <span class="m">114</span>.114.114.114
+<span class="nv">dns</span> <span class="o">=</span> <span class="m">8</span>.8.8.8
         
-#压缩，提高效率
-compression = true
-no-compression-limit = 256
+<span class="c1">#压缩，提高效率</span>
+<span class="nv">compression</span> <span class="o">=</span> <span class="nb">true</span>
+no-compression-limit <span class="o">=</span> <span class="m">256</span>
         
-#注释掉route的字段，这样表示所有流量都通过 VPN 
-# route配置表示这个网段会经过vpn,这个网段一般是客户的内网网段
-route = 192.168.1.0/255.255.255.0
-#route = 192.168.5.0/255.255.255.0
-</code></pre></li>
+<span class="c1">#注释掉route的字段，这样表示所有流量都通过 VPN</span> 
+<span class="c1"># route配置表示这个网段会经过vpn,这个网段一般是客户的内网网段</span>
+<span class="nv">route</span> <span class="o">=</span> <span class="m">192</span>.168.1.0/255.255.255.0
+<span class="c1">#route = 192.168.5.0/255.255.255.0</span></code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>建立用户</p>
-
-<pre><code class="language-bash">#username为你要添加的用户名
-$ sudo ocpasswd -c /etc/ocserv/ocpasswd username
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#username为你要添加的用户名</span>
+$ sudo ocpasswd -c /etc/ocserv/ocpasswd username</code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>系统配置</p>
 
 <ol>
 <li><p>开启内核转发</p>
-
-<pre><code>$ echo &quot;net.ipv4.ip_forward = 1&quot; &gt;&gt; /etc/sysctl.conf
-$ sysctl -p /etc/sysctl.conf
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ echo &#34;net.ipv4.ip_forward = 1&#34; &gt;&gt; /etc/sysctl.conf
+$ sysctl -p /etc/sysctl.conf</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>配置防火墙规则</p>
-
-<pre><code class="language-bash">#使用firewalled
-firewall-cmd --permanent --add-port=4433/tcp
-firewall-cmd --permanent --add-port=4433/udp
-# Allow firewall to forward
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#使用firewalled</span>
+firewall-cmd --permanent --add-port<span class="o">=</span><span class="m">4433</span>/tcp
+firewall-cmd --permanent --add-port<span class="o">=</span><span class="m">4433</span>/udp
+<span class="c1"># Allow firewall to forward</span>
 firewall-cmd --permanent --add-masquerade
 firewall-cmd --reload
         
-# 使用iptables,vpnnetwork为配置中的内网网址，此配置为10.12.0.0/24,eth为公网ip
-iptables -I INPUT -p tcp --dport 4433 -j ACCEPT
-iptables -I INPUT -p udp --dport 4433 -j ACCEPT
-iptables -I FORWARD -s ${vpnnetwork} -j ACCEPT
-iptables -I FORWARD -d ${vpnnetwork} -j ACCEPT
-iptables -t nat -A POSTROUTING -s ${vpnnetwork} -o ${eth} -j MASQUERADE
-#iptables -t nat -A POSTROUTING -j MASQUERADE
-service iptables save
-</code></pre></li>
+<span class="c1"># 使用iptables,vpnnetwork为配置中的内网网址，此配置为10.12.0.0/24,eth为公网ip</span>
+iptables -I INPUT -p tcp --dport <span class="m">4433</span> -j ACCEPT
+iptables -I INPUT -p udp --dport <span class="m">4433</span> -j ACCEPT
+iptables -I FORWARD -s <span class="si">${</span><span class="nv">vpnnetwork</span><span class="si">}</span> -j ACCEPT
+iptables -I FORWARD -d <span class="si">${</span><span class="nv">vpnnetwork</span><span class="si">}</span> -j ACCEPT
+iptables -t nat -A POSTROUTING -s <span class="si">${</span><span class="nv">vpnnetwork</span><span class="si">}</span> -o <span class="si">${</span><span class="nv">eth</span><span class="si">}</span> -j MASQUERADE
+<span class="c1">#iptables -t nat -A POSTROUTING -j MASQUERADE</span>
+service iptables save</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol></li>
 </ol>
 
@@ -346,37 +505,70 @@ service iptables save
 
 <ol>
 <li><p>修改systemctl的标准输出与错误输出</p>
-
-<pre><code class="language-bash">vim /usr/lib/systemd/system/ocserv.service
-ExecStart=/usr/sbin/ocserv --pid-file /var/run/ocserv.pid --config /etc/ocserv/ocserv.conf -f
-#修改为
-ExecStart=/bin/sh -c '/usr/sbin/ocserv --pid-file /var/run/ocserv.pid --config /etc/ocserv/ocserv.conf -f &gt;&gt; /var/log/agent.log 2&gt;&amp;1'
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vim /usr/lib/systemd/system/ocserv.service
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/sbin/ocserv --pid-file /var/run/ocserv.pid --config /etc/ocserv/ocserv.conf -f
+<span class="c1">#修改为</span>
+<span class="nv">ExecStart</span><span class="o">=</span>/bin/sh -c <span class="s1">&#39;/usr/sbin/ocserv --pid-file /var/run/ocserv.pid --config /etc/ocserv/ocserv.conf -f &gt;&gt; /var/log/agent.log 2&gt;&amp;1&#39;</span></code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>输出用户连接和断开的日志信息</p>
-
-<pre><code class="language-bash">vim /etc/ocserv/ocserv.conf
-# 修改下面的配置
-connect-script = /etc/ocserv/connect-script
-disconnect-script = /etc/ocserv/connect-script
-cert-user-oid = 2.5.4.3
-cert-group-oid = 2.5.4.11
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vim /etc/ocserv/ocserv.conf
+<span class="c1"># 修改下面的配置</span>
+connect-script <span class="o">=</span> /etc/ocserv/connect-script
+disconnect-script <span class="o">=</span> /etc/ocserv/connect-script
+cert-user-oid <span class="o">=</span> <span class="m">2</span>.5.4.3
+cert-group-oid <span class="o">=</span> <span class="m">2</span>.5.4.11
     
 vim /etc/ocserv/connect-script
-# 输入下面内容，可以自己定制
-#!/bin/sh
-#echo $USERNAME : $REASON : $DEVICE
-case &quot;$REASON&quot; in
-  connect)
-echo `date` $USERNAME &quot;connected&quot;
-echo `date` $REASON $USERNAME $DEVICE $IP_LOCAL $IP_REMOTE $IP_REAL
-    ;;
-  disconnect)
-echo `date` $USERNAME &quot;disconnected&quot;
-    ;;
-esac
-exit 0
-</code></pre></li>
+<span class="c1"># 输入下面内容，可以自己定制</span>
+<span class="cp">#!/bin/sh
+</span><span class="cp"></span><span class="c1">#echo $USERNAME : $REASON : $DEVICE</span>
+<span class="k">case</span> <span class="s2">&#34;</span><span class="nv">$REASON</span><span class="s2">&#34;</span> in
+  connect<span class="o">)</span>
+<span class="nb">echo</span> <span class="sb">`</span>date<span class="sb">`</span> <span class="nv">$USERNAME</span> <span class="s2">&#34;connected&#34;</span>
+<span class="nb">echo</span> <span class="sb">`</span>date<span class="sb">`</span> <span class="nv">$REASON</span> <span class="nv">$USERNAME</span> <span class="nv">$DEVICE</span> <span class="nv">$IP_LOCAL</span> <span class="nv">$IP_REMOTE</span> <span class="nv">$IP_REAL</span>
+    <span class="p">;;</span>
+  disconnect<span class="o">)</span>
+<span class="nb">echo</span> <span class="sb">`</span>date<span class="sb">`</span> <span class="nv">$USERNAME</span> <span class="s2">&#34;disconnected&#34;</span>
+    <span class="p">;;</span>
+<span class="k">esac</span>
+<span class="nb">exit</span> <span class="m">0</span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
 <h2 id="radius-cli配置">radius cli配置</h2>
@@ -385,48 +577,87 @@ exit 0
 <li><p><strong>Radcli installation，目前yum 安装ocserv时会自动安装radcli</strong></p></li>
 
 <li><p><strong>radcli configuration (No TLS)</strong></p>
-
-<pre><code class="language-bash">vim /etc/radcli/radiusclient.conf
-# 修改下面配置
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vim /etc/radcli/radiusclient.conf
+<span class="c1"># 修改下面配置</span>
 nas-identifier fw01  
-authserver 192.168.5.5  
-acctserver 192.168.5.5  
+authserver <span class="m">192</span>.168.5.5  
+acctserver <span class="m">192</span>.168.5.5  
 servers /etc/radcli/servers  
 dictionary /etc/radcli/dictionary  
 default_realm  
-radius_timeout 10  
-radius_retries 3  
-bindaddr *
-</code></pre>
-
+radius_timeout <span class="m">10</span>  
+radius_retries <span class="m">3</span>  
+bindaddr *</code></pre></td></tr></table>
+</div>
+</div>
 <p>配置servers的密码</p>
-
-<pre><code>vim servers
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">vim servers
 # 根据radius server的配置来设置servers的密码
     
 192.168.5.5 radiustestsecretpassword 
-#Save and exit
-</code></pre></li>
+#Save and exit</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p><strong>Security considerations and radcli configuration with TLS</strong></p>
 
 <p>如果安全考虑，使用adiusclient-tls.conf 和 servers-tls这两个配置设置tls.</p></li>
 
 <li><p><strong>修改ocserv的认证方式</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vim /etc/ocserv/ocserv.conf
+<span class="c1">#auth = &#34;pam&#34;</span>  
+<span class="c1">#auth = &#34;pam[gid-min=1000]&#34;</span>  
+<span class="c1">#auth = &#34;plain[passwd=./ocserv.passwd]&#34;</span>  
+<span class="c1">#auth = &#34;certificate&#34;</span>  
+<span class="c1">#auth = &#34;radius[config=/etc/radcli/radiusclient.conf,groupconfig=true]&#34;</span>  
+<span class="c1">#Add a line as follows:</span>
 
-<pre><code class="language-bash">vim /etc/ocserv/ocserv.conf
-#auth = &quot;pam&quot;  
-#auth = &quot;pam[gid-min=1000]&quot;  
-#auth = &quot;plain[passwd=./ocserv.passwd]&quot;  
-#auth = &quot;certificate&quot;  
-#auth = &quot;radius[config=/etc/radcli/radiusclient.conf,groupconfig=true]&quot;  
-#Add a line as follows:
+<span class="nv">auth</span> <span class="o">=</span> <span class="s2">&#34;radius [config=/etc/radcli/radiusclient.conf,groupconfig=true]&#34;</span>
+<span class="c1">#If you need RADIUS accounting, add a line in the &#34;Accounting methods available&#34; Section:</span>
 
-auth = &quot;radius [config=/etc/radcli/radiusclient.conf,groupconfig=true]&quot;
-#If you need RADIUS accounting, add a line in the &quot;Accounting methods available&quot; Section:
-
-acct = &quot;radius [config=/etc/radcli/radiusclient.conf,groupconfig=true]&quot;
-</code></pre></li>
+<span class="nv">acct</span> <span class="o">=</span> <span class="s2">&#34;radius [config=/etc/radcli/radiusclient.conf,groupconfig=true]&#34;</span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
 <h2 id="常用命令">常用命令</h2>
@@ -435,56 +666,101 @@ acct = &quot;radius [config=/etc/radcli/radiusclient.conf,groupconfig=true]&quot
 
 <ol>
 <li><p>添加用户</p>
-
-<pre><code>ocpasswd -c /etc/ocserv/ocpasswd 【用户名】
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ocpasswd -c /etc/ocserv/ocpasswd 【用户名】</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>添加用户至某个分组</p>
-
-<pre><code>ocpasswd -c /etc/ocserv/ocpasswd -g 【分组名称】 【用户名】
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ocpasswd -c /etc/ocserv/ocpasswd -g 【分组名称】 【用户名】</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>锁定用户</p>
-
-<pre><code>ocpasswd -c /etc/ocserv/ocpasswd -l 【用户名】
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ocpasswd -c /etc/ocserv/ocpasswd -l 【用户名】</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>解锁用户</p>
-
-<pre><code>ocpasswd -c /etc/ocserv/ocpasswd -u 【用户名】
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ocpasswd -c /etc/ocserv/ocpasswd -u 【用户名】</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>删除用户</p>
-
-<pre><code>ocpasswd -c /etc/ocserv/ocpasswd -d 【用户名】
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ocpasswd -c /etc/ocserv/ocpasswd -d 【用户名】</pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
 <h3 id="查看当前状态">查看当前状态:</h3>
 
 <ol>
 <li><p>查看当前服务运行状态</p>
-
-<pre><code>occtl -n show status
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">occtl -n show status</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>查看当前在线用户详情:</p>
-
-<pre><code class="language-bash">occtl -n show users
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">occtl -n show users</code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>踢掉当前在线用户:</p>
 
 <ol>
 <li><p>通过用户名:</p>
-
-<pre><code class="language-bash">occtl disconnect user 【用户名】
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">occtl disconnect user 【用户名】</code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>通过id</p>
-
-<pre><code class="language-bash">occtl disconnect id 【id号】
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">occtl disconnect id 【id号】</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol></li>
 </ol>
 
@@ -538,7 +814,11 @@ acct = &quot;radius [config=/etc/radcli/radiusclient.conf,groupconfig=true]&quot
             <span class="prev-text nav-default">反向ssh代理隧道</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
+        <a class="next" href="/post/ls%E5%91%BD%E4%BB%A4%E5%8D%A1%E4%BD%8F/">
+            <span class="next-text nav-default">非常大的文件夹导致ls命令卡住</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
       </nav>
     </footer>
   </article>

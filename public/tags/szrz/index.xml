@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>szrz on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/szrz/</link>
+    <description>Recent content in szrz on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 21 May 2016 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/szrz/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在mac os x 下面使用szrz</title>
+      <link>https://beyondkmp.com/post/osx-szrz%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 21 May 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/osx-szrz%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>安装步骤 安装lrzsz软件 1 brew install lrzsz 将https://github.com/mmastrac/iterm2-zmodem下载的 iterm2-send-zmodem.sh and iterm2</description>
+    </item>
+    
+  </channel>
+</rss>

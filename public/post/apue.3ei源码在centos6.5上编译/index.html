@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>apue.3e源码在centos6.5上编译 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="在编译过程会出现heapsort错误,主要是缺少libbsd包" /><meta name="keywords" content="apue.3e, 源码编译" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/apue.3ei%E6%BA%90%E7%A0%81%E5%9C%A8centos6.5%E4%B8%8A%E7%BC%96%E8%AF%91/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="apue.3e源码在centos6.5上编译" />
+<meta property="og:description" content="在编译过程会出现heapsort错误,主要是缺少libbsd包" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/apue.3ei%E6%BA%90%E7%A0%81%E5%9C%A8centos6.5%E4%B8%8A%E7%BC%96%E8%AF%91/" />
+<meta property="article:published_time" content="2015-08-11T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2015-08-11T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="apue.3e源码在centos6.5上编译">
+<meta itemprop="description" content="在编译过程会出现heapsort错误,主要是缺少libbsd包">
+
+
+<meta itemprop="datePublished" content="2015-08-11T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2015-08-11T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="276">
+
+
+
+<meta itemprop="keywords" content="apue.3e,源码编译," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="apue.3e源码在centos6.5上编译"/>
+<meta name="twitter:description" content="在编译过程会出现heapsort错误,主要是缺少libbsd包"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">apue.3e源码在centos6.5上编译</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-08-11 </span>
+        <div class="post-category">
+            <a href="/categories/linux%E4%B8%8Ac%E7%BC%96%E7%A8%8B/"> linux上c编程 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<ol>
+<li>到<a href="http://www.apuebook.com/code3e.html">官网</a>下载源代码。</li>
+
+<li><p>直接make会出现下面的错误:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">../lib -lapue -pthread -lrt -lbsd
+gcc -ansi -I../include -Wall -DLINUX -D_GNU_SOURCE  barrier.c -o barrier
+-L../lib -lapue -pthread -lrt -lbsd
+/tmp/ccaYTQPh.o: In function `thr_fn&#39;:
+barrier.c:(.text+0x80): undefined reference to `heapsort&#39;
+collect2: ld 返回 1
+make[1]: *** [barrier] 错误 1
+make[1]: Leaving directory `/home/beyond/code/apue.3e/threads&#39;
+make: *** [all] 错误 1</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>到下面的<strong>参考1</strong>中找到了相应的包，备份如下：</p>
+
+<p><a href="/imgs/apue.3e/libbsd-0.2.0-4.el6.elrepo.x86_64.rpm">libbsd-0.2.0-4.el6.elrepo.x86_64.rpm</a></p>
+
+<p><a href="/imgs/apue.3e/libbsd-devel-0.2.0-4.el6.elrepo.x86_64.rpm">libbsd-devel-0.2.0-4.el6.elrepo.x86_64.rpm</a></p></li>
+
+<li><p>安装上面的包后可以顺利编译通过，再参照下面<strong>参考2</strong>中,将头文件和生成的静态链接库放到gcc的默认搜索路径下，以后就不要自己添加了。(libapue.a是apue.h头文件中包含的所有函数及宏定义的具体实现，是一个静态链接库)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">cp ./include/apue.h /usr/include/
+cp ./lib/libapue.a /usr/local/lib/</pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<h2 id="参考">参考</h2>
+
+<ol>
+<li><a href="http://blog.csdn.net/macanv/article/details/41457425">CentOS 7 下安装libbsd-dev 编译apue3时出错处理</a></li>
+<li><a href="http://www.shazidoubing.com/cplus/639.html">Linux下配置APUE的编译 报错之后如何处理</a></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2015-08-11
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay-qr-code.png">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/apue.3e/">apue.3e</a>
+          <a href="/tags/%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/">源码编译</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/unpv3%E6%BA%90%E7%A0%81%E5%9C%A864%E4%BD%8Dlinux%E4%B8%8A%E7%BC%96%E8%AF%91/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">unpv3源码在64位Linux上编译</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/os-x10.10.4-dyld_print_to_file%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E/">
+            <span class="next-text nav-default">os x10.10.4 DYLD_PRINT_TO_FILE提权漏洞</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-08-11 00:00:00 \x2b0800 CST',
+        title: 'apue.3e源码在centos6.5上编译',
+        clientID: '60c95581e35aaeb04f31',
+        clientSecret: '4ee720fd6af4268d0cdccf844a51935963bb8a68',
+        repo: 'hugo-beyondkmp',
+        owner: 'beyondkmp',
+        admin: ['beyondkmp'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

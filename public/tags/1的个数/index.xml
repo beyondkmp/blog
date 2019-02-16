@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1的个数 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/1%E7%9A%84%E4%B8%AA%E6%95%B0/</link>
+    <description>Recent content in 1的个数 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 18 Nov 2015 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/1%E7%9A%84%E4%B8%AA%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>leetcode--Number of Digit One</title>
+      <link>https://beyondkmp.com/post/leetcode-number-of-digit-one/</link>
+      <pubDate>Wed, 18 Nov 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/leetcode-number-of-digit-one/</guid>
+      <description>Number of Digit One Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n. For example: Given n = 13,Return 6, because digit 1 occurred in the following numbers: 1, 10, 11, 12, 13. 思路 考虑134045百位上出现1的个数是多少？ 1</description>
+    </item>
+    
+  </channel>
+</rss>

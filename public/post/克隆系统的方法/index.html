@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>克隆系统的方法 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="将一个完整的系统完整的克隆到另一个盘中" /><meta name="keywords" content="克隆, 系统" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/%E5%85%8B%E9%9A%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%96%B9%E6%B3%95/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="克隆系统的方法" />
+<meta property="og:description" content="将一个完整的系统完整的克隆到另一个盘中" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/%E5%85%8B%E9%9A%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%96%B9%E6%B3%95/" />
+<meta property="article:published_time" content="2015-02-05T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2015-02-05T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="克隆系统的方法">
+<meta itemprop="description" content="将一个完整的系统完整的克隆到另一个盘中">
+
+
+<meta itemprop="datePublished" content="2015-02-05T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2015-02-05T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="568">
+
+
+
+<meta itemprop="keywords" content="克隆,系统," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="克隆系统的方法"/>
+<meta name="twitter:description" content="将一个完整的系统完整的克隆到另一个盘中"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">克隆系统的方法</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-02-05 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    
+  </div>
+</div>
+    <div class="post-content">
+      <p>###步骤一：</p>
+
+<p>用linux u盘启动系统启动到一个linux系统中</p>
+
+<p>###步骤二：</p>
+
+<p>fdisk -l /dev/sd* 或者 df -lh /dev/sd*来查看系统盘所在的盘符以及要克隆的盘的盘符</p>
+
+<p>###步骤三：</p>
+
+<p>由步骤二得系统盘的盘符是/dev/sda,要克隆的盘的盘符是/dev/sdb,所以用下面的命令直接克隆：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">dd <span class="k">if</span><span class="o">=</span>/dev/sda <span class="nv">of</span><span class="o">=</span>/dev/sdb</code></pre></td></tr></table>
+</div>
+</div>
+<p>##中间遇到的问题</p>
+
+<ol>
+<li>上面克隆完一个linux系统后，想再在多余的容量里面安装一个windows,直接用pe启动将剩余的容量重新分区，设置一个主分区，用diskgenius分区时一定要<strong>激活安装系统的盘</strong>,要不在安装的时总会出错。</li>
+
+<li><p>如果在上面安装windows的时候将linux系统的grub引导删除了，可以用下面的方法来恢复：</p>
+
+<ol>
+<li>先用U盘启动到一个试用Linux中，打开一个终端。</li>
+<li>将引导坏了的系统盘挂载到试用Linux中，命令如下</li>
+</ol></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">$cd</span> /mnt
+<span class="nv">$mkdir</span> gentoo
+<span class="nv">$mount</span> /dev/sda4 /mnt/gentoo  <span class="c1">##我的系统的根目录位于/dev/sda4</span>
+<span class="nv">$mkdir</span> gentoo/boot  <span class="c1">##如果存在就不用建了</span>
+<span class="nv">$mount</span> /dev/sda2 /mnt/gentoo/boot  <span class="c1">##我的系统启动盘位于/dev/sda2</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>3.
+安装好双系统后，想用grub引导双系统，可以用grub2-mkconfig来生成除Linux外的其它系统的选项，不过在
+gentoo下面要安装os-prober这个软件，上面的功能才有效。全部命令如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">$sudo</span> emerge -av os-prober
+<span class="nv">$sudo</span> mount /dev/sda2 /boot <span class="c1">##将启动区挂载到/boot下</span>
+<span class="nv">$sudo</span> grub2-mkconfig -o /boot/grub/grub.cfg  <span class="c1">##生成的系统选项写入到grub.cfg中</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2015-02-05
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay-qr-code.png">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E5%85%8B%E9%9A%86/">克隆</a>
+          <a href="/tags/%E7%B3%BB%E7%BB%9F/">系统</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E5%85%83%E5%AE%B5%E5%A4%9C%E6%B8%B8%E5%8C%97%E4%BA%AC/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">元宵夜游北京</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E7%88%86%E7%82%92%E8%8A%B1%E8%9B%A4/">
+            <span class="next-text nav-default">爆炒花蛤</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-02-05 00:00:00 \x2b0800 CST',
+        title: '克隆系统的方法',
+        clientID: '60c95581e35aaeb04f31',
+        clientSecret: '4ee720fd6af4268d0cdccf844a51935963bb8a68',
+        repo: 'hugo-beyondkmp',
+        owner: 'beyondkmp',
+        admin: ['beyondkmp'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

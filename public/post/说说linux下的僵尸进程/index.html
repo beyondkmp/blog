@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>说说Linux下的僵尸进程 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="僵尸进程是怎么产生的，怎么预防僵尸进程的产生" /><meta name="keywords" content="Linux, 僵尸进程" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/%E8%AF%B4%E8%AF%B4linux%E4%B8%8B%E7%9A%84%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="说说Linux下的僵尸进程" />
+<meta property="og:description" content="僵尸进程是怎么产生的，怎么预防僵尸进程的产生" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/%E8%AF%B4%E8%AF%B4linux%E4%B8%8B%E7%9A%84%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B/" />
+<meta property="article:published_time" content="2015-10-24T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2015-10-24T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="说说Linux下的僵尸进程">
+<meta itemprop="description" content="僵尸进程是怎么产生的，怎么预防僵尸进程的产生">
+
+
+<meta itemprop="datePublished" content="2015-10-24T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2015-10-24T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="1978">
+
+
+
+<meta itemprop="keywords" content="Linux,僵尸进程," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="说说Linux下的僵尸进程"/>
+<meta name="twitter:description" content="僵尸进程是怎么产生的，怎么预防僵尸进程的产生"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">说说Linux下的僵尸进程</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-10-24 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#僵尸进程的产生">僵尸进程的产生</a></li>
+<li><a href="#僵尸进程的危害">僵尸进程的危害</a></li>
+<li><a href="#远离僵尸进程和杀死僵尸进程">远离僵尸进程和杀死僵尸进程</a></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="僵尸进程的产生">僵尸进程的产生</h2>
+
+<p>为了理解僵尸进程是什么和僵尸进程是怎么产生的，我们需要先来理解下在Linux下进程是怎么工作的。</p>
+
+<p>在Linux下当一个进行死掉的时候，它占有的所有资源并不会立即释放。它的进程描述符还停留在内存里面(不过进程描述符仅仅占了一点点内存)。这个时候进程的状态变成EXIT_ZOMBIE,也被称作为僵尸进程,同时此僵尸进程会向其父里程发送SIGCHLD信号。然后父进程接收到SIGCHLD信号，执行wait()这个系统调用来读取子进程的退出状态和其它信息。Linux下允许父进程从dead process中读取信息的。当wait()执行完后，僵尸进程的所有资源都会从内存中移除。僵尸进程也就被清理干净了。</p>
+
+<p>上段描述的是正常情况下僵尸进程的产生与消亡的过程，由于上面的过程可能发生的太快以至于在系统中根本没有看到僵尸进程的产生。但是，当父进程没有正常的执行wait()系统调用或者就忘了执行，那么它的僵尸子进程的进程描述符会一直停留在内存中，直到管理员自己去把他们清楚掉。</p>
+
+<p>在Linux我们可以用ps和top命令来查看僵尸进程,接下来我们自己来产生一个僵尸进程看看了！</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-C" data-lang="C"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C" data-lang="C"><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">pid_t</span> <span class="n">pid</span><span class="o">=</span><span class="n">fork</span><span class="p">();</span> <span class="c1">// call fork() to fork a child process
+</span><span class="c1"></span>
+    <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">//one call, return two value,child process return &#34;0&#34;,parent process return child&#39;s process id
+</span><span class="c1"></span>    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;This is parent process!!!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;after sleeping,and exit!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;This is the child process,and exit!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>上述代码中父进程没有调用wait()系统调用函数，当子进程退出的时候就变成僵尸进程一直停留在内存中，我们可以用下述命令来编译运行上述代码，然后再看看系统的进程状态。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">beyond@gcc:~/code/c<span class="p">|</span>⇒  gcc zombie.c
+beyond@gcc:~/code/c<span class="p">|</span>⇒  ls
+a.out  zombie.c
+beyond@gcc:~/code/c<span class="p">|</span>⇒  ./a.out
+This is parent process!!!
+This is the child process,and exit!
+after sleeping,and exit!</code></pre></td></tr></table>
+</div>
+</div>
+<p>结果如下:</p>
+
+<p><img src="{{IMAGE_PATH}}/僵尸进程/1.png" alt="僵尸进程" /></p>
+
+<p>我们可以从上图中看到，产生了一个僵尸进程。但是当父进程在60秒后睡来时，我们再将查看系统的进程信息时，又找不到此僵尸进程了。为什么会这样呢？实际上是父进程退出后，它的僵尸子进程会被init进程(进程id为1)领养，init进程调用wait系统调用读取到僵尸进程的信息与状态，并将其完全移除。</p>
+
+<h2 id="僵尸进程的危害">僵尸进程的危害</h2>
+
+<p>僵尸进程并不会用光系统的所有资源(实际上每一个进程都只会使用很小一点的内存来保存其进程描述符)。不过，每一个僵尸进程都会保留并占用一个进程ID号(PID)。Linux系统下进程ID的数目是有限的&mdash;&gt; 32位系统下默认是32767。有一种情况是非常危险的，当僵尸进程以非常快的速率积累并生成时，比如一个不正常的服务器软件运行时不断的产生僵尸进程，那么没被使用的进程ID号最终都会分配给僵尸进程，最后会导致正常的进程产生不了。</p>
+
+<p>但是，当只有很少量的僵尸进程停留在内存是没有什么大问题的，它们的存在可能说明父进程在系统中存在相应的bug。</p>
+
+<h2 id="远离僵尸进程和杀死僵尸进程">远离僵尸进程和杀死僵尸进程</h2>
+
+<p>我们不能像杀死一个正常进程一样来杀死一个僵尸进程,即使给僵尸进程发送SIGKILL信号也是没用的，因为僵尸进程已经死掉了，只是剩下一个进程描述符停留在内存中。请记住，我们不需要时时关注并避免僵尸进程，除非有大量的僵尸进程在我们的系统中。少量的僵尸进程是无害的，不过，我们还是可以用下面几种方法来杀死并远离僵尸进程的。</p>
+
+<p><strong>方法一:</strong></p>
+
+<p>我们可以手动发送SIGCHLD信号给僵尸进程的父进程。这个信号的作用就是要求父进程执行wait()系统调用并清除它的僵尸进程。发信号的命令是kill命令，下面的pid换成相应的父进程的PID就可以了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ps -o <span class="nv">ppid</span><span class="o">=</span> -p zombie_pid  <span class="c1">#查找僵尸进程的父进程</span>
+<span class="nb">kill</span> -s SIGCHLD pid   <span class="c1"># 此处的pid应该是父进程的pid</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>方法二:</strong></p>
+
+<p>但是，当父进程编写的时候有问题，忽略所有的SIGCHLD信号，那么方法一就不起作用了。那我们只有杀死或者关闭僵尸进程的父进程。当创建僵尸进程的父进程结束后，init进程就会继承僵尸进程，并成为它们的新的父进程。(init进程是Linux在启动时的第一个进程并分配pid为1)。init进程会周期性执行wait()系统调用来清除它的所有的僵尸进程,因此init进程会花费一小部分时间来处理僵尸进程。我们在关闭其父进程后还可以重启此进程。</p>
+
+<p>当子进程死掉的时候，会向其父进程发送SIGCHLD信号，而上面的c代码中父进程是直接忽略了SIGCHLD信号，我们编写程序的时候应该自己增加此信号的处理函数，在处理函数中我们可以调用wait(),这样父进程就会自动清除僵尸进程了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;signal.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;sys/wait.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="n">sig_atomic_t</span> <span class="n">child_exit_status</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">clean_up_child_process</span><span class="p">(</span><span class="kt">int</span> <span class="n">signal_num</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//remove child process
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">status</span><span class="p">;</span>
+    <span class="n">wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">status</span><span class="p">);</span>
+
+    <span class="c1">//save exit status in a global variable
+</span><span class="c1"></span>    <span class="n">child_exit_status</span><span class="o">=</span><span class="n">status</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">//handle SIGCHLD by calling clean_up_child_process
+</span><span class="c1"></span>    <span class="k">struct</span> <span class="n">sigaction</span> <span class="n">sigchild_action</span><span class="p">;</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sigchild_action</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">sigchild_action</span><span class="p">));</span>
+    <span class="n">sigchild_action</span><span class="p">.</span><span class="n">sa_handler</span><span class="o">=&amp;</span><span class="n">clean_up_child_process</span><span class="p">;</span>
+    <span class="n">sigaction</span><span class="p">(</span><span class="n">SIGCHLD</span><span class="p">,</span><span class="o">&amp;</span><span class="n">sigchild_action</span><span class="p">,</span><span class="nb">NULL</span><span class="p">);</span>
+
+
+    <span class="c1">//fork a child process
+</span><span class="c1"></span>    <span class="n">pid_t</span> <span class="n">c_pid</span><span class="o">=</span><span class="n">fork</span><span class="p">();</span> <span class="c1">// call fork() to fork a child process
+</span><span class="c1"></span>
+    <span class="k">if</span><span class="p">(</span><span class="n">c_pid</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">//one call, return two value,child process return &#34;0&#34;,parent process return child&#39;s process id
+</span><span class="c1"></span>    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;This is parent process!!!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">c_pid</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;This is the child process,and exit!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;fork failed!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="参考">参考</h2>
+
+<ol>
+<li><a href="http://www.itsprite.com/how-to-deep-understand-the-zombie-process-in-linux/">How to deep understand the Zombie Process in linux</a></li>
+<li><a href="http://www.howtogeek.com/119815/htg-explains-what-is-a-zombie-process-on-linux/">HTG Explains: What is a Zombie Process on Linux?</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Zombie_process">Zombie process</a></li>
+<li><a href="http://superuser.com/questions/150117/how-to-get-parent-pid-of-a-given-process-in-gnu-linux-from-command-line">How to get parent PID of a given process in GNU/Linux from command line?</a></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2015-10-24
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay-qr-code.png">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B/">僵尸进程</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/leetcode-number-of-digit-one/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">leetcode--Number of Digit One</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/os10.10.5%E7%9A%840day%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E/">
+            <span class="next-text nav-default">os x 10.10.5 又一提权漏洞</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-10-24 00:00:00 \x2b0800 CST',
+        title: '说说Linux下的僵尸进程',
+        clientID: '60c95581e35aaeb04f31',
+        clientSecret: '4ee720fd6af4268d0cdccf844a51935963bb8a68',
+        repo: 'hugo-beyondkmp',
+        owner: 'beyondkmp',
+        admin: ['beyondkmp'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

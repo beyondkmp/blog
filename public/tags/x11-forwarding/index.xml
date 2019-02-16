@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>x11 forwarding on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/x11-forwarding/</link>
+    <description>Recent content in x11 forwarding on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 21 Feb 2017 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/x11-forwarding/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在mac osx安装XQuartz并配置x11 forwarding</title>
+      <link>https://beyondkmp.com/post/enable-x11-forward-in-osx/</link>
+      <pubDate>Tue, 21 Feb 2017 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/enable-x11-forward-in-osx/</guid>
+      <description>安装X window并配置 下载XQuartz,并安装 配置远程服务器ssh服务 安装 xorg-xauth and xorg-xhost 配置 /etc/ssh/sshd_config: 1 2 3 4 AllowTcpForwarding yes X11UseLocalhost yes X11DisplayOffset 10 X11Forwarding yes 重启sshd服务 在客户端可</description>
+    </item>
+    
+  </channel>
+</rss>

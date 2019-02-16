@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jetbraind on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/jetbraind/</link>
+    <description>Recent content in jetbraind on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 07 May 2015 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/jetbraind/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Jetbrainds破解(mac和linux版本)</title>
+      <link>https://beyondkmp.com/post/jetbrains%E7%A0%B4%E8%A7%A3_mac%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Thu, 07 May 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/jetbrains%E7%A0%B4%E8%A7%A3_mac%E7%89%88%E6%9C%AC/</guid>
+      <description>从官网下载Clion,使用Rover12421的一个破解程序，从github下载。 执行gradle fatjar，但是没有gradle，记得以</description>
+    </item>
+    
+  </channel>
+</rss>

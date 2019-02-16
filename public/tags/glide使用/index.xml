@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>glide使用 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/glide%E4%BD%BF%E7%94%A8/</link>
+    <description>Recent content in glide使用 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 30 May 2017 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/glide%E4%BD%BF%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>glide使用总结</title>
+      <link>https://beyondkmp.com/post/glide%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 30 May 2017 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/glide%E4%BD%BF%E7%94%A8/</guid>
+      <description>当我们从github下载开源的go项目时，开源项目一般都会引入很多其它的开源库，这样我们直接去编译的时候就会提示缺少哪些库，然后一个一个用g</description>
+    </item>
+    
+  </channel>
+</rss>

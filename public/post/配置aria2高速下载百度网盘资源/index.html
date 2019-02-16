@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>配置aria2高速下载百度网盘资源 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="配置aria2,以后可以高速下载百度网盘资源了" /><meta name="keywords" content="aria2配置, 百度网盘资源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/%E9%85%8D%E7%BD%AEaria2%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="配置aria2高速下载百度网盘资源" />
+<meta property="og:description" content="配置aria2,以后可以高速下载百度网盘资源了" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/%E9%85%8D%E7%BD%AEaria2%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/" />
+<meta property="article:published_time" content="2016-01-08T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2016-01-08T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="配置aria2高速下载百度网盘资源">
+<meta itemprop="description" content="配置aria2,以后可以高速下载百度网盘资源了">
+
+
+<meta itemprop="datePublished" content="2016-01-08T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2016-01-08T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="1470">
+
+
+
+<meta itemprop="keywords" content="aria2配置,百度网盘资源," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="配置aria2高速下载百度网盘资源"/>
+<meta name="twitter:description" content="配置aria2,以后可以高速下载百度网盘资源了"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">配置aria2高速下载百度网盘资源</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-01-08 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安装方法">安装方法</a></li>
+<li><a href="#aria2的优势">aria2的优势</a></li>
+<li><a href="#配置aria2">配置aria2</a></li>
+<li><a href="#安装百度网盘导出插件">安装百度网盘导出插件</a></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>aria2 是一个轻量级的跨平台的命令行下载工具，支持多种协议。目前支持的协议有：HTTP/HTTP,FTP,SFTP,BitTorrent和MetaLink。aria2也可以通过JSON-PRC和XML-PRC接口来控制操作。</p>
+
+<h2 id="安装方法">安装方法</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">brew install aria2</pre></td></tr></table>
+</div>
+</div>
+<h2 id="aria2的优势">aria2的优势</h2>
+
+<ul>
+<li><strong>Multi-Connection Download</strong>.aria2可以从通过多种协议或多个源头下载同一文件，这样可以最大化下载代宽。</li>
+<li><strong>Lightweight</strong>. aria2运行时不会占用太多内存与cpu，非常轻量级。当磁盘缓存关闭时，aria2占用物理内存通常为4Mib(正常的HTTP/FTP下载)到9Mib(Bittorrent下载).使用Bittorrent以2.8Mib/sec速度下载，cpu占用率大概为6%。</li>
+<li><strong>Fully Featured Bittorrent Client</strong>. 所有的BitTorrent客户端的功能都能使用:DHT,PEX,Encryption,Magnet URI,Web-Seeding,Selective Downloads,Local Peer Discovery 和UDP tracker.</li>
+<li><strong>Remote Control</strong>. aria2运行PRC接口来控制aria2进程。支持JSON-PRC(over HTTP and WebSocket)和XML-PRC两种接口。</li>
+</ul>
+
+<h2 id="配置aria2">配置aria2</h2>
+
+<p>aria2有两种下载模式：一种是直接命令行模式下载，平时可以用用。另一种是RPC模式，在这种模式下aria2启动后会在后台安静的等待下载请求，下载完成后也仍然后安全的驻留在后台不会自动退出。本文使用RPC模式，用以下配置文件来配置此模式(此配置文件参考<a href="https://blog.icehoney.me/posts/2015-01-31-Aria2-download">1</a>),此配置文件保存在~/.aria2/aria2.conf。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">#用户名
+#rpc-user=user
+#密码
+#rpc-passwd=passwd
+#上面的认证方式不建议使用,建议使用下面的token方式
+#设置加密的密钥
+#rpc-secret=token
+#允许rpc
+enable-rpc=true
+#允许所有来源, web界面跨域权限需要
+rpc-allow-origin-all=true
+#允许外部访问，false的话只监听本地端口
+rpc-listen-all=true
+#RPC端口, 仅当默认端口被占用时修改
+#rpc-listen-port=6800
+#最大同时下载数(任务数), 路由建议值: 3
+max-concurrent-downloads=5
+#断点续传
+continue=true
+#同服务器连接数
+max-connection-per-server=5
+#最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要
+min-split-size=10M
+#单文件最大线程数, 路由建议值: 5
+split=10
+#下载速度限制
+max-overall-download-limit=0
+#单文件速度限制
+max-download-limit=0
+#上传速度限制
+max-overall-upload-limit=0
+#单文件速度限制
+max-upload-limit=0
+#断开速度过慢的连接
+#lowest-speed-limit=0
+#验证用，需要1.16.1之后的release版本
+#referer=*
+#文件保存路径, 默认为当前启动位置
+dir=/Users/beyond/Downloads
+#文件缓存, 使用内置的文件缓存, 如果你不相信Linux内核文件缓存和磁盘内置缓存时使用, 需要1.16及以上版本
+#disk-cache=0
+#另一种Linux文件缓存方式, 使用前确保您使用的内核支持此选项, 需要1.15及以上版本(?)
+#enable-mmap=true
+#文件预分配, 能有效降低文件碎片, 提高磁盘性能. 缺点是预分配时间较长
+#所需时间 none &lt; falloc ? trunc &lt;&lt; prealloc, falloc和trunc需要文件系统和内核支持
+file-allocation=prealloc</pre></td></tr></table>
+</div>
+</div>
+<p>第一次使用，直接copy<a href="https://blog.icehoney.me/">雪月秋水</a>的配置文件。配置好上面后，直接在终端运行<code>aria2c --conf-path=&lt;PATH&gt; -D</code>,PATH必须是绝对路径，-D表示使Aria2在后台运行，即使关闭终端也不会停止运行。最后就是怎么管理Aria2的下载任务了，可以用binux的<a href="https://github.com/binux/yaaw">YAAW</a>,还可以使用<a href="http://binux.github.io/yaaw/demo/">在线版本</a>。不过还有一个更美观的webui，就是ziahamza的<a href="https://github.com/ziahamza/webui-aria2">webui-aria2</a>，也有在线版本的<a href="http://ziahamza.github.io/webui-aria2/">在线版本webui-aria2</a>，如下图所示。</p>
+
+<p><img src="{{IMAGE_PATH}}/配置aria2/overview.png" alt="webui-aria2" /></p>
+
+<p>如果是mac的话也可以用aria2GUI这个软件，<a href="http://bbs.feng.com/read-htm-tid-10217584.html">下载地址</a>，界面如下图：</p>
+
+<p><img src="{{ IMAGE_PATH}}/配置aria2/2.png" alt="aria2GUI" /></p>
+
+<h2 id="安装百度网盘导出插件">安装百度网盘导出插件</h2>
+
+<p>到<a href="https://github.com/acgotaku/BaiduExporter">Baiduexporter</a>下载相应版本的游览器插件,安装好后打开百度网盘会多出一个导出设置，如下图所示，直接导出下载就可以了。</p>
+
+<p><img src="{{IMAGE_PATH}}/配置aria2/1.png" alt="百度网盘导出aria2-download" /></p>
+
+<h2 id="参考">参考</h2>
+
+<ol>
+<li><a href="https://blog.icehoney.me/posts/2015-01-31-Aria2-download">使用Aria2下载百度网盘和115的资源</a></li>
+<li><a href="http://sspai.com/32167">Mac 上使用百度网盘很烦躁？花点时间配置 aria2 吧</a></li>
+<li><a href="http://blog.binux.me/2012/12/aria2-examples/">aria2配置示例</a></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2016-01-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay-qr-code.png">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/aria2%E9%85%8D%E7%BD%AE/">aria2配置</a>
+          <a href="/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B5%84%E6%BA%90/">百度网盘资源</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/mac%E8%BD%AF%E4%BB%B6%E7%BD%91%E7%AB%99%E6%94%B6%E9%9B%86/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">mac os X软件收集网站</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/pandoc%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/">
+            <span class="next-text nav-default">pandoc常用技巧</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2016-01-08 00:00:00 \x2b0800 CST',
+        title: '配置aria2高速下载百度网盘资源',
+        clientID: '60c95581e35aaeb04f31',
+        clientSecret: '4ee720fd6af4268d0cdccf844a51935963bb8a68',
+        repo: 'hugo-beyondkmp',
+        owner: 'beyondkmp',
+        admin: ['beyondkmp'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

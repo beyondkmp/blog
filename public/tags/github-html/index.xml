@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github html on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/github-html/</link>
+    <description>Recent content in github html on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 08 Jan 2016 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/github-html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mac os X软件收集网站</title>
+      <link>https://beyondkmp.com/post/mac%E8%BD%AF%E4%BB%B6%E7%BD%91%E7%AB%99%E6%94%B6%E9%9B%86/</link>
+      <pubDate>Fri, 08 Jan 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/mac%E8%BD%AF%E4%BB%B6%E7%BD%91%E7%AB%99%E6%94%B6%E9%9B%86/</guid>
+      <description>爱情守望者-致力于分享最精彩的互联网 Mac OSX软件游戏分享区</description>
+    </item>
+    
+    <item>
+      <title>pandoc常用技巧</title>
+      <link>https://beyondkmp.com/post/pandoc%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Tue, 22 Dec 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/pandoc%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
+      <description>在mac os x下面安装pandoc：brew install pandoc 直接将md文件转化成html文件,没有css样式： 1 pandoc test.md -o test.html 使用指定的css文件样式，可以生成</description>
+    </item>
+    
+  </channel>
+</rss>

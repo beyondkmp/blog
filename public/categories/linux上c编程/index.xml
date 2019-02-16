@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux上c编程 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/categories/linux%E4%B8%8Ac%E7%BC%96%E7%A8%8B/</link>
+    <description>Recent content in linux上c编程 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 04 Feb 2016 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/categories/linux%E4%B8%8Ac%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux下多进程写同一文件，要不要加锁？</title>
+      <link>https://beyondkmp.com/post/linux%E4%B8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%97%B6%E5%86%99%E5%90%8C%E4%B8%80%E6%96%87%E4%BB%B6%E8%A6%81%E4%B8%8D%E8%A6%81%E5%8A%A0%E9%94%81/</link>
+      <pubDate>Thu, 04 Feb 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/linux%E4%B8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%97%B6%E5%86%99%E5%90%8C%E4%B8%80%E6%96%87%E4%BB%B6%E8%A6%81%E4%B8%8D%E8%A6%81%E5%8A%A0%E9%94%81/</guid>
+      <description>本文翻译自：Is lock-free logging safe? 最近，我看到了mono_logger_project。它声称给ruby2.0提供了不用加锁的日志系统。当我看到这个项目</description>
+    </item>
+    
+    <item>
+      <title>unpv3源码在64位Linux上编译</title>
+      <link>https://beyondkmp.com/post/unpv3%E6%BA%90%E7%A0%81%E5%9C%A864%E4%BD%8Dlinux%E4%B8%8A%E7%BC%96%E8%AF%91/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/unpv3%E6%BA%90%E7%A0%81%E5%9C%A864%E4%BD%8Dlinux%E4%B8%8A%E7%BC%96%E8%AF%91/</guid>
+      <description>从unpbook.com下载源代码 解压，安装README中的步骤安装 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 ./configure # try to figure out all implementation differences cd lib # build the basic library that all programs</description>
+    </item>
+    
+    <item>
+      <title>apue.3e源码在centos6.5上编译</title>
+      <link>https://beyondkmp.com/post/apue.3ei%E6%BA%90%E7%A0%81%E5%9C%A8centos6.5%E4%B8%8A%E7%BC%96%E8%AF%91/</link>
+      <pubDate>Tue, 11 Aug 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/apue.3ei%E6%BA%90%E7%A0%81%E5%9C%A8centos6.5%E4%B8%8A%E7%BC%96%E8%AF%91/</guid>
+      <description>到官网下载源代码。 直接make会出现下面的错误: 1 2 3 4 5 6 7 8 9 ../lib -lapue -pthread -lrt -lbsd gcc -ansi -I../include -Wall -DLINUX -D_GNU_SOURCE barrier.c -o barrier -L../lib -lapue -pthread -lrt -lbsd /tmp/ccaYTQPh.o: In function `thr_fn&amp;#39;: barrier.c:(.text+0x80): undefined reference to `heapsort&amp;#39; collect2: ld 返回 1 make[1]: *** [barrier] 错</description>
+    </item>
+    
+  </channel>
+</rss>

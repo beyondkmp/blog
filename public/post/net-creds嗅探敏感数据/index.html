@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>net-creds嗅探敏感数据 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="本文主要介绍net-creds来实现嗅探网络中的敏感数据" /><meta name="keywords" content="python代码, net-creds, 嗅探敏感数据" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/net-creds%E5%97%85%E6%8E%A2%E6%95%8F%E6%84%9F%E6%95%B0%E6%8D%AE/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="net-creds嗅探敏感数据" />
+<meta property="og:description" content="本文主要介绍net-creds来实现嗅探网络中的敏感数据" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/net-creds%E5%97%85%E6%8E%A2%E6%95%8F%E6%84%9F%E6%95%B0%E6%8D%AE/" />
+<meta property="article:published_time" content="2015-04-30T00:00:00&#43;08:00"/>
+<meta property="article:modified_time" content="2015-04-30T00:00:00&#43;08:00"/>
+
+<meta itemprop="name" content="net-creds嗅探敏感数据">
+<meta itemprop="description" content="本文主要介绍net-creds来实现嗅探网络中的敏感数据">
+
+
+<meta itemprop="datePublished" content="2015-04-30T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2015-04-30T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="187">
+
+
+
+<meta itemprop="keywords" content="python代码,net-creds,嗅探敏感数据," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="net-creds嗅探敏感数据"/>
+<meta name="twitter:description" content="本文主要介绍net-creds来实现嗅探网络中的敏感数据"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">net-creds嗅探敏感数据</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-04-30 </span>
+        <div class="post-category">
+            <a href="/categories/%E4%BB%A3%E7%A0%81%E6%94%B6%E9%9B%86/"> 代码收集 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#代码源地址-net-creds-https-github-com-danmcinerney-net-creds">代码源地址:<a href="https://github.com/DanMcInerney/net-creds">net-creds</a></a></li>
+<li><a href="#备份地址-beyondkmp-net-creds-https-github-com-beyondkmp-net-creds">备份地址: <a href="https://github.com/beyondkmp/net-creds">beyondkmp/net-creds</a></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>主要功能从网络接口或者pcap文件中嗅探出密码或者hash。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">beyond@gcc:~/Desktop/net-creds-master$ python net-creds.py -p ../http.pcap
+[192.168.137.2] GET api.bing.com/asjson.aspx?query=172&amp;form=APMCS2
+[192.168.137.2] GET api.bing.com/asjson.aspx?query=172.16.69.88/&amp;form=APMCS2
+[192.168.137.2] GET api.bing.com/asjson.aspx?query=172.16.69.88/&amp;form=APMCS2
+[192.168.137.2] GET api.bing.com/asjson.aspx?query=172.16.69.88/&amp;form=APMCS2
+[192.168.137.2] GET 172.16.69.88/old/
+[192.168.137.2] GET 172.16.69.88/wordpress
+[192.168.137.2] GET 172.16.69.88/old/
+[192.168.137.2] GET 172.16.69.88/old/
+[172.16.69.60] GET 172.16.69.88/old/
+[172.16.69.60] GET 172.16.69.88/old/wp-content/themes/Invoker/timthumb.php?src=http://172.16.69.88/old/wp-content/...
+[172.16.69.60] GET 172.16.69.88/old/wp-content/themes/Invoker/timthumb.php?src=http://172.16.69.88/old/wp-content/...
+[172.16.69.60] GET 172.16.69.88/old/wp-login.php
+[172.16.69.60] GET 172.16.69.88/old/wp-includes/css/buttons.min.css?ver=4.0.1
+[172.16.69.60] GET 172.16.69.88/old/wp-includes/css/dashicons.min.css?ver=4.0.1
+[172.16.69.60] GET 172.16.69.88/old/wp-admin/css/login.min.css?ver=4.0.1
+[172.16.69.60] GET 172.16.69.88/old/wp-admin/images/wordpress-logo.svg?ver=20131107
+[172.16.69.60] POST 172.16.69.88/old/wp-login.php
+[172.16.69.60] POST load: 
+[172.16.69.60] POST 172.16.69.88/old/wp-login.php
+[172.16.69.60] POST load: log=beyond&amp;pwd=qweqweqwe&amp;wp-submit=%E7%99%BB%E5%BD%95&amp;redirect_to=http%3A%2F%2F172.16.69.88%2Fold%2...
+[172.16.69.60] POST 172.16.69.88/old/wp-login.php
+[172.16.69.60] POST load: 
+[172.16.69.60] POST 172.16.69.88/old/wp-login.php
+[172.16.69.60] POST load: log=beyond&amp;pwd=qweQWEqwe&amp;wp-submit=%E7%99%BB%E5%BD%95&amp;redirect_to=http%3A%2F%2F172.16.69.88%2Fold%2...
+[172.16.69.60] GET 172.16.69.88/old/wp-admin/
+[172.16.69.60] GET 172.16.69.88/old/wp-content/languages/zh_CN-administration-screens.css?ver=20111120
+[172.16.69.60] GET 172.16.69.88/old/wp-content/themes/Invoker/css/admin-post.css?ver=1.0.1
+[172.16.69.60] GET 172.16.69.88/old/wp-admin/load-scripts.php?c=1&amp;load%5B%5D=jquery-core,jquery-migrate,utils,json...
+[172.16.69.60] GET 172.16.69.88/old/wp-includes/js/thickbox/thickbox.css?ver=4.0.1
+[172.16.69.60] GET 172.16.69.88/old/wp-admin/css/colors/blue/colors.min.css?ver=4.0.1
+[172.16.69.60] GET 172.16.69.88/old/wp-admin/load-styles.php?c=1&amp;dir=ltr&amp;load=dashicons,admin-bar,wp-admin,buttons...
+[172.16.69.60] GET 172.16.69.88/old/wp-content/themes/Invoker/js/admin-post.js?ver=1.0.1</pre></td></tr></table>
+</div>
+</div>
+<h3 id="代码源地址-net-creds-https-github-com-danmcinerney-net-creds">代码源地址:<a href="https://github.com/DanMcInerney/net-creds">net-creds</a></h3>
+
+<h3 id="备份地址-beyondkmp-net-creds-https-github-com-beyondkmp-net-creds">备份地址: <a href="https://github.com/beyondkmp/net-creds">beyondkmp/net-creds</a></h3>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2015-04-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay-qr-code.png">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/python%E4%BB%A3%E7%A0%81/">python代码</a>
+          <a href="/tags/net-creds/">net-creds</a>
+          <a href="/tags/%E5%97%85%E6%8E%A2%E6%95%8F%E6%84%9F%E6%95%B0%E6%8D%AE/">嗅探敏感数据</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E4%BA%94%E4%B8%80%E6%B8%B8%E8%AE%B0%E4%B8%80/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">北京郊区游玩儿</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E6%A3%80%E6%B5%8Bms15-034%E7%9A%84%E5%BE%AE%E8%BD%AF%E7%9A%84iis%E6%BC%8F%E6%B4%9E/">
+            <span class="next-text nav-default">检测ms15-034的微软的iis漏洞</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-04-30 00:00:00 \x2b0800 CST',
+        title: 'net-creds嗅探敏感数据',
+        clientID: '60c95581e35aaeb04f31',
+        clientSecret: '4ee720fd6af4268d0cdccf844a51935963bb8a68',
+        repo: 'hugo-beyondkmp',
+        owner: 'beyondkmp',
+        admin: ['beyondkmp'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

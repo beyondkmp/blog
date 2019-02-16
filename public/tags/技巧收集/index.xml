@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技巧收集 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86/</link>
+    <description>Recent content in 技巧收集 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 10 Apr 2015 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ios及os x 下技巧收集</title>
+      <link>https://beyondkmp.com/post/ios%E5%8F%8Aos-x%E7%9A%84%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/ios%E5%8F%8Aos-x%E7%9A%84%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86/</guid>
+      <description>ios技巧收集 技巧一：禁止屏幕旋转 在主屏幕上往上拉出下面的快捷界面，点击那个小锁就可以。如下图： 技巧二：打开连接wifi界面 在主屏幕上往上拉</description>
+    </item>
+    
+  </channel>
+</rss>

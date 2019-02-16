@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alfred2 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/alfred2/</link>
+    <description>Recent content in Alfred2 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 10 Jul 2015 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/alfred2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Alfred2插件编写的方法</title>
+      <link>https://beyondkmp.com/post/alfred2%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 10 Jul 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/alfred2%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>主要是实现全局代理的自动打开与关闭： 直接在Alfred 2中输入proxy，如果没有打开代理就会自动勾选那些选项，打开全局代理。如果打开了就会</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-01-15T01:10:20&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-15T01:10:20&#43;08:00" />
-<meta itemprop="wordCount" content="298">
+<meta itemprop="wordCount" content="346">
 
 
 
@@ -163,72 +163,131 @@
 <h3 id="读取关闭的无缓存通道">读取关闭的无缓存通道</h3>
 
 <p>读取关闭后的无缓存通道，不管通道中是否有数据，返回值都为0和false。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
-<pre><code class="language-go">package main
+<span class="kn">import</span> <span class="p">(</span>
+        <span class="s">&#34;fmt&#34;</span>
+        <span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
 
-import (
-        &quot;fmt&quot;
-        &quot;time&quot;
-)
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">done</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
+        <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+                <span class="nx">done</span> <span class="o">&lt;-</span> <span class="mi">1</span>
+        <span class="p">}()</span>
 
-func main() {
-        done := make(chan int)
-        go func() {
-                done &lt;- 1
-        }()
+        <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+        <span class="nb">close</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span>
 
-        time.Sleep(5 * time.Second)
-        close(done)
-
-        for i := 1; i &lt;= 3; i++ {
-                t, ok := &lt;-done
-                fmt.Println(i, &quot;:&quot;, t, ok)
-        }
-}
-</code></pre>
-
+        <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+                <span class="nx">t</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">done</span>
+                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>运行结果:</p>
-
-<pre><code>1 : 0 false
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">1 : 0 false
 2 : 0 false
-3 : 0 false
-</code></pre>
-
+3 : 0 false</pre></td></tr></table>
+</div>
+</div>
 <h3 id="读取关闭的有缓存通道">读取关闭的有缓存通道</h3>
 
 <p>读取关闭后的有缓存通道，将缓存数据读取完后，再读取返回值为0和false。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
-<pre><code class="language-go">package main
+<span class="kn">import</span> <span class="p">(</span>
+        <span class="s">&#34;fmt&#34;</span>
+        <span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
 
-import (
-        &quot;fmt&quot;
-        &quot;time&quot;
-)
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">done</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+                <span class="nx">done</span> <span class="o">&lt;-</span> <span class="mi">1</span>
+        <span class="p">}()</span>
 
-func main() {
-        done := make(chan int, 1)
-        go func() {
-                done &lt;- 1
-        }()
+        <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+        <span class="nb">close</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span>
 
-        time.Sleep(5 * time.Second)
-        close(done)
-
-        for i := 1; i &lt;= 3; i++ {
-                t, ok := &lt;-done
-                fmt.Println(i, &quot;:&quot;, t, ok)
-        }
-}
-
-</code></pre>
-
+        <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+                <span class="nx">t</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">done</span>
+                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="s">&#34;:&#34;</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">ok</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>运行结果:</p>
-
-<pre><code>1 : 1 true
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">1 : 1 true
 2 : 0 false
-3 : 0 false
-</code></pre>
-
+3 : 0 false</pre></td></tr></table>
+</div>
+</div>
 <p>4、range遍历通道：
 通道写完后，必须关闭通道，否则range遍历会出现死锁。</p>
 

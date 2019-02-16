@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技巧 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/%E6%8A%80%E5%B7%A7/</link>
+    <description>Recent content in 技巧 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 17 Jan 2015 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>markdown技巧个人收集</title>
+      <link>https://beyondkmp.com/post/markdown-skill-myself/</link>
+      <pubDate>Sat, 17 Jan 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/markdown-skill-myself/</guid>
+      <description>#####用法一：加入图片的时候设置图片的大小的方法，目前我用的是用html的img标签 1 2 &amp;lt;img src=&amp;#34;/imgs/鸡翅1.png&amp;</description>
+    </item>
+    
+  </channel>
+</rss>

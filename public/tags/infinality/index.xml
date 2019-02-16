@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>infinality on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/infinality/</link>
+    <description>Recent content in infinality on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 23 Jan 2015 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/infinality/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>给fedora 21安装infinality补丁</title>
+      <link>https://beyondkmp.com/post/fedora21-intall-infinality/</link>
+      <pubDate>Fri, 23 Jan 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/fedora21-intall-infinality/</guid>
+      <description>###在Fedora 21中安装 RPM: freetype-infinality-2.4.12-1.20130514_01.fc21.x86_64.rpm RPM: fontconfig-infinality-1-20120615_1.noarch.rpm 再安装gnome-tweak-tool来设置slight和rgb，安装包 RPM: gnome-tweak-tool 安装好后将提示(hinti</description>
+    </item>
+    
+  </channel>
+</rss>
