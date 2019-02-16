@@ -12,7 +12,7 @@ author: "beyondkmp"
 ---
 
 # channel基础语法
-# channel
+# channel实例
 
 
 <!--more-->
