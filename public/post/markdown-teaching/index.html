@@ -1540,23 +1540,25 @@ _   底线
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitalk = new Gitalk({
+      var gitment = new Gitment({
         id: '2015-01-14 00:00:00 \x2b0800 CST',
         title: '(转载)Markdown 语法说明 (简体中文版)',
-        clientID: '965756a88b9dbcf06a51',
-        clientSecret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256',
-        repo: 'comment',
+        link: decodeURI(location.href),
+        desc: '\x26lt;\x26lt; 访问 Wow!Ubuntu NOTE: This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to Markdown: Syntax. 声明： 这份文档派生(fork)于繁体中文版，在此基础上进行了繁体转简体工作，并进行了适',
         owner: 'beyondkmp-blog',
-        admin: ['beyondkmp-blog'],
-        body: decodeURI(location.href)
+        repo: 'comment',
+        oauth: {
+          client_id: '965756a88b9dbcf06a51',
+          client_secret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256'
+        }
       });
-      gitalk.render('gitalk-container');
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
 
       </div>
     </main>

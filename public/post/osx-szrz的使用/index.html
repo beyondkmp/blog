@@ -272,23 +272,25 @@ Parameters: /usr/local/bin/iterm2-recv-zmodem.sh</pre></td></tr></table>
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitalk = new Gitalk({
+      var gitment = new Gitment({
         id: '2016-05-21 00:00:00 \x2b0800 CST',
         title: '在mac os x 下面使用szrz',
-        clientID: '965756a88b9dbcf06a51',
-        clientSecret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256',
-        repo: 'comment',
+        link: decodeURI(location.href),
+        desc: '安装步骤 安装lrzsz软件 1 brew install lrzsz 将https:\/\/github.com\/mmastrac\/iterm2-zmodem下载的 iterm2-send-zmodem.sh and iterm2',
         owner: 'beyondkmp-blog',
-        admin: ['beyondkmp-blog'],
-        body: decodeURI(location.href)
+        repo: 'comment',
+        oauth: {
+          client_id: '965756a88b9dbcf06a51',
+          client_secret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256'
+        }
       });
-      gitalk.render('gitalk-container');
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
 
       </div>
     </main>

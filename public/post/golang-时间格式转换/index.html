@@ -271,23 +271,25 @@
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitalk = new Gitalk({
+      var gitment = new Gitment({
         id: '2017-01-08 00:00:00 \x2b0800 CST',
         title: 'golang时间格式转换',
-        clientID: '965756a88b9dbcf06a51',
-        clientSecret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256',
-        repo: 'comment',
+        link: decodeURI(location.href),
+        desc: '将YYYYmmddHHDD类型的时间转化成unix时间戳 1 2 3 4 5 6 7 8 9 10 11 12 13 package main import ( \x26#34;fmt\x26#34; \x26#34;time\x26#34; ) func main() { stringTime := \x26#34;201601010000\x26#34; tmpTime, _ := time.ParseInLocation(\x26#34;200601021504\x26#34;, stringTime, time.Local) unixTime := tmpTime.Unix() fmt.Printf(\x26#34;The Unix time of %v is %v\\n\x26#34;,',
         owner: 'beyondkmp-blog',
-        admin: ['beyondkmp-blog'],
-        body: decodeURI(location.href)
+        repo: 'comment',
+        oauth: {
+          client_id: '965756a88b9dbcf06a51',
+          client_secret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256'
+        }
       });
-      gitalk.render('gitalk-container');
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
 
       </div>
     </main>

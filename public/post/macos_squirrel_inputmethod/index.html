@@ -600,23 +600,25 @@ sudo make install</code></pre></td></tr></table>
     </footer>
   </article>
         </div>
-        <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitalk = new Gitalk({
+      var gitment = new Gitment({
         id: '2018-12-22 17:10:35 \x2b0800 CST',
         title: 'macos上的神级输入法squirrel',
-        clientID: '965756a88b9dbcf06a51',
-        clientSecret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256',
-        repo: 'comment',
+        link: decodeURI(location.href),
+        desc: '\x3cp\x3esquirrel输入法真是极客最想要的输入法，然而大多数国产输入法，都在忙着收集用户的输入数据，却没有把精力投入到输入法的核心功能。\x3c\/p\x3e\n\n\x3cp\x3esquirrel目前的优势：\x3c\/p\x3e\n\n\x3col\x3e\n\x3cli\x3e配置相当丰富，可定制性，可玩性都非常高\x3c\/li\x3e\n\x3cli\x3e输入速度是非常快\x3c\/li\x3e\n\x3cli\x3e五笔支持的非常好\x3c\/li\x3e\n\x3cli\x3e不收集用户数据，这是我最看重的。\x3c\/li\x3e\n\x3c\/ol\x3e',
         owner: 'beyondkmp-blog',
-        admin: ['beyondkmp-blog'],
-        body: decodeURI(location.href)
+        repo: 'comment',
+        oauth: {
+          client_id: '965756a88b9dbcf06a51',
+          client_secret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256'
+        }
       });
-      gitalk.render('gitalk-container');
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
 
       </div>
     </main>
