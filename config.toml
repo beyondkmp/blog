@@ -132,7 +132,7 @@ highlightInClient = false
     owner = "kmpcc"              # Your GitHub ID
     repo = "cc"               # The repo to store comments
     clientId = "09f3c46ac16e3f8e49df"           # Your client ID
-    clientSecret = "1736fc17e316a53c5df349b2db222532dc2305a6"       # Your client secret
+    clientSecret = "63853d202d8b0aefed23d108a8ce0dd9fca1b324"       # Your client secret
 
   [params.flowchartDiagrams]# see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
     enable = false
