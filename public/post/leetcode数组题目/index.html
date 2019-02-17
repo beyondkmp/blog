@@ -337,25 +337,23 @@ return the new length.</p>
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2015-07-23 00:00:00 \x2b0800 CST',
         title: 'leetcode数组题目',
-        link: decodeURI(location.href),
-        desc: 'Remove Element Given an array and a value, remove all instances of that value in place and return the new length. The order of elements can be changed. It doesn\x26rsquo;t matter what you leave beyond the new length. 主要思路如下图： code: 1 2 3 4 5 6 7 8 9 int removeElement(int* nums, int numsSize, int val) { int i,j; i=-1; for(j=0;j\x26lt;numsSize;j\x2b\x2b) if(j-i\x26gt;0) if(nums[j]!=val)',
-        owner: 'beyondkmp-blog',
+        clientID: '965756a88b9dbcf06a51',
+        clientSecret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256',
         repo: 'comment',
-        oauth: {
-          client_id: '965756a88b9dbcf06a51',
-          client_secret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256'
-        }
+        owner: 'beyondkmp-blog',
+        admin: ['beyondkmp-blog'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
       </div>
     </main>

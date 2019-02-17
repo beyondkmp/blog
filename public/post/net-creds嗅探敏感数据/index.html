@@ -285,25 +285,23 @@
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2015-04-30 00:00:00 \x2b0800 CST',
         title: 'net-creds嗅探敏感数据',
-        link: decodeURI(location.href),
-        desc: '主要功能从网络接口或者pcap文件中嗅探出密码或者hash。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 beyond@gcc:~\/Desktop\/net-creds-master$ python net-creds.py -p ..\/http.pcap [192.168.137.2] GET',
-        owner: 'beyondkmp-blog',
+        clientID: '965756a88b9dbcf06a51',
+        clientSecret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256',
         repo: 'comment',
-        oauth: {
-          client_id: '965756a88b9dbcf06a51',
-          client_secret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256'
-        }
+        owner: 'beyondkmp-blog',
+        admin: ['beyondkmp-blog'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
       </div>
     </main>

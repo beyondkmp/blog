@@ -282,25 +282,23 @@ osascript -e  <span class="s2">&#34;do shell script \&#34;networksetup -setwebpr
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2015-07-10 00:00:00 \x2b0800 CST',
         title: 'Alfred2插件编写的方法',
-        link: decodeURI(location.href),
-        desc: '主要是实现全局代理的自动打开与关闭： 直接在Alfred 2中输入proxy，如果没有打开代理就会自动勾选那些选项，打开全局代理。如果打开了就会',
-        owner: 'beyondkmp-blog',
+        clientID: '965756a88b9dbcf06a51',
+        clientSecret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256',
         repo: 'comment',
-        oauth: {
-          client_id: '965756a88b9dbcf06a51',
-          client_secret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256'
-        }
+        owner: 'beyondkmp-blog',
+        admin: ['beyondkmp-blog'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
       </div>
     </main>

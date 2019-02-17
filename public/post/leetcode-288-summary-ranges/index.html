@@ -292,25 +292,23 @@ Subscribe to see which companies asked this question</pre></td></tr></table>
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2016-05-08 00:00:00 \x2b0800 CST',
         title: 'leetcode: Summary Ranges',
-        link: decodeURI(location.href),
-        desc: '描述 1 2 3 4 5 6 7 8 Given a sorted integer array without duplicates, return the summary of its ranges. For example, given [0,1,2,4,5,7], return [\x26#34;0-\x26gt;2\x26#34;,\x26#34;4-\x26gt;5\x26#34;,\x26#34;7\x26#34;]. **Credits:** Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases. Subscribe to see which companies asked this question go语言 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15',
-        owner: 'beyondkmp-blog',
+        clientID: '965756a88b9dbcf06a51',
+        clientSecret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256',
         repo: 'comment',
-        oauth: {
-          client_id: '965756a88b9dbcf06a51',
-          client_secret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256'
-        }
+        owner: 'beyondkmp-blog',
+        admin: ['beyondkmp-blog'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
       </div>
     </main>

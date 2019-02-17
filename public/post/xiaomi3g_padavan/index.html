@@ -286,25 +286,23 @@ Rebooting ...</pre></td></tr></table>
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2018-10-23 20:27:39 \x2b0800 CST',
         title: '小米路由器3G安装padavan固件',
-        link: decodeURI(location.href),
-        desc: '\x3ch1 id=\x22获取路由器ssh权限\x22\x3e获取路由器ssh权限\x3c\/h1\x3e\n\n\x3cp\x3e从京东下一台小米3G路由器，很快就送到了。接下来就要搞事情了\x26hellip;\x3c\/p\x3e\n\n\x3ch2 id=\x22工具准备\x22\x3e工具准备\x3c\/h2\x3e\n\n\x3col\x3e\n\x3cli\x3emac电脑一台\x3c\/li\x3e\n\x3cli\x3eu盘一个，格式为FAT或者FAT32\x3c\/li\x3e\n\x3cli\x3emac的usb网络转接口一个\x3c\/li\x3e\n\x3c\/ol\x3e',
-        owner: 'beyondkmp-blog',
+        clientID: '965756a88b9dbcf06a51',
+        clientSecret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256',
         repo: 'comment',
-        oauth: {
-          client_id: '965756a88b9dbcf06a51',
-          client_secret: '92a6b1e0eb314bba66821dbc1890b46b8bbe5256'
-        }
+        owner: 'beyondkmp-blog',
+        admin: ['beyondkmp-blog'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
       </div>
     </main>
