@@ -132,7 +132,7 @@ highlightInClient = false
     owner = "beyondkmp-blog"              # Your GitHub ID
     repo = "comment"               # The repo to store comments
     clientId = "965756a88b9dbcf06a51"           # Your client ID
-    clientSecret = "92a6b1e0eb314bba66821dbc1890b46b8bbe5256"       # Your client secret
+    clientSecret = "6c398b4510a9b189964d2a9230c6930ef6c06bd3"       # Your client secret
 
   [params.flowchartDiagrams]# see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
     enable = false
