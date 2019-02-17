@@ -129,10 +129,10 @@ highlightInClient = false
     clientSecret = ""       # Your client secret
 
   [params.gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
-    owner = "kmpcc"              # Your GitHub ID
-    repo = "cc"               # The repo to store comments
-    clientId = "09f3c46ac16e3f8e49df"           # Your client ID
-    clientSecret = "63853d202d8b0aefed23d108a8ce0dd9fca1b324"       # Your client secret
+    owner = "kmpccc"              # Your GitHub ID
+    repo = "c"               # The repo to store comments
+    clientId = "8c413eab333f8cafbd18"           # Your client ID
+    clientSecret = "050bd9a4697c830cddf6038327c616dea25d0a7f"       # Your client secret
 
   [params.flowchartDiagrams]# see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
     enable = false
