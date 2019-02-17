@@ -133,6 +133,7 @@ highlightInClient = false
     repo = "c"               # The repo to store comments
     clientId = "8c413eab333f8cafbd18"           # Your client ID
     clientSecret = "050bd9a4697c830cddf6038327c616dea25d0a7f"       # Your client secret
+    language = "en"
 
   [params.flowchartDiagrams]# see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
     enable = false
