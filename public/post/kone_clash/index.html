@@ -184,18 +184,18 @@
 <p>kone官方直接在树莓派上面安装go，通过go来安装kone。不是非常喜欢，主要是太慢了，下载东西也慢。可以直接在我们自己电脑上面进行交叉编译。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">go get github.com/xjdrew/kone
-cd $GOPATH/src/github.com/xjdrew/kone
-GOARCH=arm GOOS=linux GOARM=7 CGO_ENABLED=0 go build -ldflags &#39;-w -s&#39;
-#上传到pi上
-scp kone pi@192.168.123.2:/tmp</pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">go get github.com/xjdrew/kone
+<span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/xjdrew/kone
+<span class="nv">GOARCH</span><span class="o">=</span>arm <span class="nv">GOOS</span><span class="o">=</span>linux <span class="nv">GOARM</span><span class="o">=</span><span class="m">7</span> <span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> go build -ldflags <span class="s1">&#39;-w -s&#39;</span>
+<span class="c1">#上传到pi上</span>
+scp kone pi@192.168.123.2:/tmp</code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="配置树莓派">配置树莓派</h3>
@@ -204,34 +204,34 @@ scp kone pi@192.168.123.2:/tmp</pre></td></tr></table>
 <li><p>把树莓派设置成路由模式(需要切换到root用户)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">echo &#39;net.ipv4.ip_forward = 1&#39; &gt;&gt; /etc/sysctl.conf
-sysctl -p</pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">&#39;net.ipv4.ip_forward = 1&#39;</span> &gt;&gt; /etc/sysctl.conf
+sysctl -p</code></pre></td></tr></table>
 </div>
 </div></li>
 
 <li><p>目前我将用网线将树莓派和路由器连接上，并设置静态路由, 一般也可以不用配置静态路由，基本上ip是不会变化的。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"># 在 /etc/network/interfaces,修改eth0配置
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 在 /etc/network/interfaces,修改eth0配置</span>
 auto eth0
 iface eth0 inet static
-    address 192.168.123.2
-    netmask 255.255.255.0
-    gateway 192.168.123.1
-    dns-nameservers 114.114.114.114</pre></td></tr></table>
+    address <span class="m">192</span>.168.123.2
+    netmask <span class="m">255</span>.255.255.0
+    gateway <span class="m">192</span>.168.123.1
+    dns-nameservers <span class="m">114</span>.114.114.114</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -245,14 +245,14 @@ iface eth0 inet static
 为了简化问题，只需要把默认配置文件拷贝到合适的目录，命名为<code>my.ini</code>，然后把<code>[proxy &quot;A&quot;]</code>配置项下的url改成你拥有的代理，目前支持http, socks5代理。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">[proxy &#34;A&#34;]
-url = socks5://127.0.0.1:7891
-default = yes</pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>proxy <span class="s2">&#34;A&#34;</span><span class="o">]</span>
+<span class="nv">url</span> <span class="o">=</span> socks5://127.0.0.1:7891
+<span class="nv">default</span> <span class="o">=</span> yes</code></pre></td></tr></table>
 </div>
 </div>
 <p>其他配置选项的含义，参考配置文件里面的说明,直接用default配置就可以.</p></li>
@@ -262,7 +262,7 @@ default = yes</pre></td></tr></table>
 <p>目前使用supervisor管理，配置文件<code>/etc/supervisor/conf.d/kone.conf</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -273,19 +273,19 @@ default = yes</pre></td></tr></table>
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">[program:kone]
-user=root
-command =/home/pi/kone/kone /home/pi/kone/my.ini
-autostart = true
-startsecs = 5
-autorestart = true
-startretries = 1024
-redirect_stderr = true
-stdout_logfile_maxbytes = 10MB
-stdout_logfile_backups = 10
-stdout_logfile = /tmp/kone.log</pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>program:kone<span class="o">]</span>
+<span class="nv">user</span><span class="o">=</span>root
+<span class="nb">command</span> <span class="o">=</span>/home/pi/kone/kone /home/pi/kone/my.ini
+<span class="nv">autostart</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">startsecs</span> <span class="o">=</span> <span class="m">5</span>
+<span class="nv">autorestart</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">startretries</span> <span class="o">=</span> <span class="m">1024</span>
+<span class="nv">redirect_stderr</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">stdout_logfile_maxbytes</span> <span class="o">=</span> 10MB
+<span class="nv">stdout_logfile_backups</span> <span class="o">=</span> <span class="m">10</span>
+<span class="nv">stdout_logfile</span> <span class="o">=</span> /tmp/kone.log</code></pre></td></tr></table>
 </div>
 </div>
 <p>配置完成后<code>supervisorctl update</code>下就可以。</p></li>
@@ -316,7 +316,7 @@ stdout_logfile = /tmp/kone.log</pre></td></tr></table>
 <p>断开wifi重新连接，查看dns默认dns是不是10.192.0.1, 并<code>ping www.github.com</code>看下连接地址是不是10.192.x.x, 或者使用dig命令。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -329,21 +329,21 @@ stdout_logfile = /tmp/kone.log</pre></td></tr></table>
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"> $ ping www.github.com
- PING www.github.com (10.192.47.177) 56(84) bytes of data.
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=1 ttl=63 time=1.70 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=2 ttl=63 time=1.96 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=3 ttl=63 time=1.82 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=4 ttl=63 time=2.05 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=5 ttl=63 time=1.98 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=6 ttl=63 time=2.81 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=7 ttl=63 time=2.23 ms
+<pre class="chroma"><code class="language-bash" data-lang="bash"> $ ping www.github.com
+ PING www.github.com <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
+ <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.70 ms
+ <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.96 ms
+ <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.82 ms
+ <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">4</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.05 ms
+ <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">5</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.98 ms
+ <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">6</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.81 ms
+ <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">7</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.23 ms
  ^C
  --- www.github.com ping statistics ---
- 7 packets transmitted, 7 received, 0% packet loss, time 18ms
- rtt min/avg/max/mdev = 1.696/2.078/2.813/0.342 ms</pre></td></tr></table>
+ <span class="m">7</span> packets transmitted, <span class="m">7</span> received, <span class="m">0</span>% packet loss, <span class="nb">time</span> 18ms
+ rtt min/avg/max/mdev <span class="o">=</span> <span class="m">1</span>.696/2.078/2.813/0.342 ms</code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="安装clash">安装clash</h2>
@@ -355,16 +355,16 @@ stdout_logfile = /tmp/kone.log</pre></td></tr></table>
 <p>具体的命令如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git clone https://github.com/Dreamacro/clash.git
-cd clash
-GOARCH=arm GOOS=linux GOARM=7 CGO_ENABLED=0 go build -ldflags &#39;-w -s&#39;
-scp clash pi@192.168.123.1:/tmp</pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/Dreamacro/clash.git
+<span class="nb">cd</span> clash
+<span class="nv">GOARCH</span><span class="o">=</span>arm <span class="nv">GOOS</span><span class="o">=</span>linux <span class="nv">GOARM</span><span class="o">=</span><span class="m">7</span> <span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> go build -ldflags <span class="s1">&#39;-w -s&#39;</span>
+scp clash pi@192.168.123.1:/tmp</code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="管理并启动clash">管理并启动clash</h3>
@@ -372,7 +372,7 @@ scp clash pi@192.168.123.1:/tmp</pre></td></tr></table>
 <p>配置clash, 具体的clash配置可以从网上下载. supervisor的配置文件<code>/etc/supervisor/conf.d/clash.conf</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -383,19 +383,19 @@ scp clash pi@192.168.123.1:/tmp</pre></td></tr></table>
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">[program:clash]
-user=root
-command =/home/pi/clash/clash -d /home/pi/clash
-autostart = true
-startsecs = 5
-autorestart = true
-startretries = 1024
-redirect_stderr = true
-stdout_logfile_maxbytes = 10MB
-stdout_logfile_backups = 10
-stdout_logfile = /var/log/clash.log</pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>program:clash<span class="o">]</span>
+<span class="nv">user</span><span class="o">=</span>root
+<span class="nb">command</span> <span class="o">=</span>/home/pi/clash/clash -d /home/pi/clash
+<span class="nv">autostart</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">startsecs</span> <span class="o">=</span> <span class="m">5</span>
+<span class="nv">autorestart</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">startretries</span> <span class="o">=</span> <span class="m">1024</span>
+<span class="nv">redirect_stderr</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">stdout_logfile_maxbytes</span> <span class="o">=</span> 10MB
+<span class="nv">stdout_logfile_backups</span> <span class="o">=</span> <span class="m">10</span>
+<span class="nv">stdout_logfile</span> <span class="o">=</span> /var/log/clash.log</code></pre></td></tr></table>
 </div>
 </div>
 <h3 id="clash配置说明">clash配置说明</h3>

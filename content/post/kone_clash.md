@@ -30,7 +30,7 @@ kone完全基于go语言开发,实现了tun2socks和fakeip功能。fakeip非常�
 
 kone官方直接在树莓派上面安装go，通过go来安装kone。不是非常喜欢，主要是太慢了，下载东西也慢。可以直接在我们自己电脑上面进行交叉编译。
 
-```
+```bash
 go get github.com/xjdrew/kone
 cd $GOPATH/src/github.com/xjdrew/kone
 GOARCH=arm GOOS=linux GOARM=7 CGO_ENABLED=0 go build -ldflags '-w -s'
@@ -42,13 +42,13 @@ scp kone pi@192.168.123.2:/tmp
 
 * 把树莓派设置成路由模式(需要切换到root用户)
 
-    ```
+    ```bash
     echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf
     sysctl -p
     ```
 * 目前我将用网线将树莓派和路由器连接上，并设置静态路由, 一般也可以不用配置静态路由，基本上ip是不会变化的。
 
-	```
+	```bash
     # 在 /etc/network/interfaces,修改eth0配置
     auto eth0
     iface eth0 inet static
@@ -65,7 +65,7 @@ scp kone pi@192.168.123.2:/tmp
     在代码目录[misc/example/example.ini](https://github.com/xjdrew/kone/blob/master/misc/example/example.ini)，提供了一份默认配置文件。
     为了简化问题，只需要把默认配置文件拷贝到合适的目录，命名为`my.ini`，然后把`[proxy "A"]`配置项下的url改成你拥有的代理，目前支持http, socks5代理。
 
-    ```
+    ```bash
     [proxy "A"]
     url = socks5://127.0.0.1:7891
     default = yes
@@ -77,7 +77,7 @@ scp kone pi@192.168.123.2:/tmp
 
     目前使用supervisor管理，配置文件`/etc/supervisor/conf.d/kone.conf `
 
-    ```
+    ```bash
     [program:kone]
 	user=root
 	command =/home/pi/kone/kone /home/pi/kone/my.ini
@@ -115,7 +115,7 @@ scp kone pi@192.168.123.2:/tmp
 
 断开wifi重新连接，查看dns默认dns是不是10.192.0.1, 并`ping www.github.com`看下连接地址是不是10.192.x.x, 或者使用dig命令。
 
-```
+```bash
  $ ping www.github.com
  PING www.github.com (10.192.47.177) 56(84) bytes of data.
  64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=1 ttl=63 time=1.70 ms
@@ -140,7 +140,7 @@ clash完全基于go语言开发,实现了完善的规则分流，自动和主备
 
 具体的命令如下:
 
-```
+```bash
 git clone https://github.com/Dreamacro/clash.git
 cd clash
 GOARCH=arm GOOS=linux GOARM=7 CGO_ENABLED=0 go build -ldflags '-w -s'
@@ -151,7 +151,7 @@ scp clash pi@192.168.123.1:/tmp
 
 配置clash, 具体的clash配置可以从网上下载. supervisor的配置文件`/etc/supervisor/conf.d/clash.conf`
 
-```
+```bash
 [program:clash]
 user=root
 command =/home/pi/clash/clash -d /home/pi/clash
