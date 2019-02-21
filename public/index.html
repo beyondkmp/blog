@@ -141,7 +141,9 @@
 $ git branch -D branch_name</code></pre></td></tr></table>
 </div>
 </div>
-<p>Note: -d只能删除已经完全合并的分支，比如你在master分支上，要删除一个test分支，如果这个分支没有merge到master分支，这里用-d是删除不了的。可以用<code>git branch --no-merged</code>来查看没有合并的分支，<code>git branch --merged</code>来查看合并的分支</p>
+<p>Note:</p>
+
+<p><code>-d</code>只能删除已经完全合并的分支，比如你在a分支上，要删除一个b分支，如果这个分支没有merge到a分支，这里用-d是删除不了的, 只能使用-D来强制删除。可以用<code>git branch --no-merged</code>来查看没有合并的分支，<code>git branch --merged</code>来查看合并的分支</p>
     </div>
     <div class="read-more">
       <a href="/post/git_delete_branch/" class="read-more-link">Read more..</a>

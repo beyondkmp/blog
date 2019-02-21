@@ -17,7 +17,9 @@ $ git branch -d branch_name
 $ git branch -D branch_name
 ```
 
-Note: -d只能删除已经完全合并的分支，比如你在master分支上，要删除一个test分支，如果这个分支没有merge到master分支，这里用-d是删除不了的。可以用`git branch --no-merged`来查看没有合并的分支，`git branch --merged`来查看合并的分支
+Note:
+
+`-d`只能删除已经完全合并的分支，比如你在a分支上，要删除一个b分支，如果这个分支没有merge到a分支，这里用-d是删除不了的, 只能使用-D来强制删除。可以用`git branch --no-merged`来查看没有合并的分支，`git branch --merged`来查看合并的分支
 
 <!--more-->
 
@@ -28,9 +30,9 @@ $ git push <remote_name> --delete <branch_name>
 $ git push <remote_name> :<branch_name>
 ```
 
-note:
+Note:
 
-**第一个命令**: `git push origin --delete test`,这样就会删除origin上面的test分支,如果是git2.8版本及之后版本可以直接用`git push origin -d test`
+**第一个命令**: `git push origin --delete test`, 这样就会删除origin上面的test分支,如果是git2.8版本及之后版本可以直接用`git push origin -d test`
 
 **第二个命令**: 比较巧妙，这里详细讲解下, 一般我们push到远程分支是使用`git push origin test`, 这个会被git展开为：`git push origin refs/heads/test:refs/heads/test`,第一个`refs/heads/test`代表本地的test分支，第二个代表为远程的test分支。如果你想远程的分支取一个更好的名字，可以改为：`git push origin test:awesome`,这样远程的上分支就叫awesome. 这个原理懂了，这个命令其实就是推一个空的本地到分支到远程分支上，这样也相当于删除了。
 

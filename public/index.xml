@@ -37,7 +37,9 @@
 $ git branch -D branch_name&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;Note: -d只能删除已经完全合并的分支，比如你在master分支上，要删除一个test分支，如果这个分支没有merge到master分支，这里用-d是删除不了的。可以用&lt;code&gt;git branch --no-merged&lt;/code&gt;来查看没有合并的分支，&lt;code&gt;git branch --merged&lt;/code&gt;来查看合并的分支&lt;/p&gt;</description>
+&lt;p&gt;Note:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;-d&lt;/code&gt;只能删除已经完全合并的分支，比如你在a分支上，要删除一个b分支，如果这个分支没有merge到a分支，这里用-d是删除不了的, 只能使用-D来强制删除。可以用&lt;code&gt;git branch --no-merged&lt;/code&gt;来查看没有合并的分支，&lt;code&gt;git branch --merged&lt;/code&gt;来查看合并的分支&lt;/p&gt;</description>
     </item>
     
     <item>
