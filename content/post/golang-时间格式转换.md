@@ -6,7 +6,7 @@ draft: false
 keywords: ["golang","时间格式","转换"]
 tags:  ["golang","时间格式","转换"]
 description: "个人总结的golang语言时间标准库的常用方法"
-categories: ["golang学习"]
+categories: ["golang"]
 tags: ["golang","时间格式","转换"]
 ---
 

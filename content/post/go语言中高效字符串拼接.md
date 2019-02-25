@@ -6,7 +6,7 @@ draft: false
 keywords: ["golang","高效","字符串拼接"]
 tags:  ["golang","高效","字符串拼接"]
 description: "在相同的情况下比较了三种常见的字符串拼接的方法的时间效率"
-categories: ["golang学习"]
+categories: ["golang"]
 tags: ["golang","高效","字符串拼接"]
 ---
 

@@ -6,7 +6,7 @@ draft: false
 keywords: ["glide使用", "golang包管理"]
 tags:  ["glide使用", "golang包管理"]
 description: "使用glide管理golang依赖包版本"
-categories: ["golang学习"]
+categories: ["golang"]
 ---
 
 当我们从github下载开源的go项目时，开源项目一般都会引入很多其它的开源库，这样我们直接去编译的时候就会提示缺少哪些库，然后一个一个用`go get`命令安装上，这样是在浪费生命啊！使用glide直接一键安装，还可以管理依赖包的版本号，这样当相关依赖包进行了重大升级时，我们也不怕。
