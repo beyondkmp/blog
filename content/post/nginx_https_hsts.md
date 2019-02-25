@@ -13,7 +13,7 @@ author: "beyondkmp"
 
 ## nginx编译安装
 
-### 下载源代码
+### 下载源码
 
 1. 下载官方nginx版本[Stable version](http://nginx.org/download/nginx-1.14.2.tar.gz)
 2. 下载openssl1.1.1版本，支持tls1.3,[openssl-1.1.1a.tar.gz](https://www.openssl.org/source/openssl-1.1.1a.tar.gz)
@@ -22,20 +22,20 @@ author: "beyondkmp"
 
 在configure里面加上tls1.3, 开启httpv2模块
 
-```
-$ tar -xvf nginx-1.1.4.2.tar.gz
-$ tar -xvf openssl-1.1.1a.tar.gz
-$ cd nginx-1.1.4.2
-$ ./configure  --prefix=/usr/local/nginx \
+```bash
+tar -xvf nginx-1.1.4.2.tar.gz
+tar -xvf openssl-1.1.1a.tar.gz
+cd nginx-1.1.4.2
+./configure  --prefix=/usr/local/nginx \
 --with-stream \
 --with-stream_ssl_preread_module \
---with-http_v2_module \
+--with-http_v2_module \ 
 --with-http_ssl_module  \
 --with-pcre  \
 --with-openssl=/tmp/openssl-1.1.1a \
 --with-openssl-opt='enable-tls1_3'
-$ make -j 4
-$ make install
+make -j 4
+make install
 ```
 
 <!--more-->
@@ -88,33 +88,31 @@ server {
 
 ### 申请let's encrypt免费证书
 
-1. 下载[certbot-auto](https://raw.githubusercontent.com/certbot/certbot/master/certbot-auto)脚本
+1. 下载certbot-auto脚本，并生成证书
 
-2. 运行下面命令生成证书
+    ```bash
+    wget https://raw.githubusercontent.com/certbot/certbot/master/certbot-auto
+    chmod +x certbot-auto
+    cp certbot-auto /usr/local/bin
+    /usr/local/bin/certbot-auto certonly -d beyondkmp.com -d www.beyondkmp.com  --standalone
+    ```
 
-```bash
-wget https://raw.githubusercontent.com/certbot/certbot/master/certbot-auto
-chmod +x certbot-auto
-cp certbot-auto /usr/local/bin
-/usr/local/bin/certbot-auto certonly -d beyondkmp.com -d www.beyondkmp.com  --standalone
-```
+3. 证书过期前手动运行下面命令更新证书
 
-3. 证书过期前运行下面命令更新证书
-
-```bash
-/usr/local/bin/certbot-auto renew --force-renewal
-```
+    ```bash
+    /usr/local/bin/certbot-auto renew --force-renewal
+    ```
 
 4. 加入crontab每月自动更新证书
 
-```bash
-0 9 1 * * systemctl stop nginx; /usr/local/bin/certbot-auto renew --force-renewal;systemctl start nginx
-```
+    ```bash
+    0 9 1 * * systemctl stop nginx; /usr/local/bin/certbot-auto renew --force-renewal;systemctl start nginx
+    ```
 
 
 ## nginx中HSTS配置
 
-```
+```nginx
 add_header Strict-Transport-Security "max-age=31557600; includeSubDomains";
 ```
 
