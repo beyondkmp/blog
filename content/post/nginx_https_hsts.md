@@ -1,10 +1,10 @@
 ---
-title: "nginx https常用配置"
+title: "nginx配置参考"
 date: 2019-02-22T21:19:44+0800
-lastmod: 2019-02-22T21:19:44+0800
+lastmod: 2019-02-25T14:51:17+0800
 draft: false
-keywords: ["nginx https","hsts"]
-description: "nginx https常用配置"
+keywords: ["nginx config","hsts"]
+description: "nginx常用配置"
 tags: ["nginx https","hsts"]
 categories: ["运维人生"]
 author: "beyondkmp"
