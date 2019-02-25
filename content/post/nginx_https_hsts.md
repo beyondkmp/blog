@@ -116,3 +116,6 @@ server {
 add_header Strict-Transport-Security "max-age=31557600; includeSubDomains";
 ```
 
+## 参考
+
+1. [Nginx Quick Reference](https://github.com/trimstray/nginx-quick-reference)
