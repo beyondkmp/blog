@@ -88,6 +88,28 @@ server {
 
 ### 申请let's encrypt免费证书
 
+1. 下载[certbot-auto](https://raw.githubusercontent.com/certbot/certbot/master/certbot-auto)脚本
+
+2. 运行下面命令生成证书
+
+```bash
+wget https://raw.githubusercontent.com/certbot/certbot/master/certbot-auto
+chmod +x certbot-auto
+cp certbot-auto /usr/local/bin
+/usr/local/bin/certbot-auto certonly -d beyondkmp.com -d www.beyondkmp.com  --standalone
+```
+
+3. 证书过期前运行下面命令更新证书
+
+```bash
+/usr/local/bin/certbot-auto renew --force-renewal
+```
+
+4. 加入crontab每月自动更新证书
+
+```bash
+0 9 1 * * systemctl stop nginx; /usr/local/bin/certbot-auto renew --force-renewal;systemctl start nginx
+```
 
 
 ## nginx中HSTS配置
