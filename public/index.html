@@ -119,6 +119,70 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/nginx_https_hsts/">nginx https常用配置</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-02-22 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="nginx编译安装">nginx编译安装</h2>
+
+<h3 id="下载源代码">下载源代码</h3>
+
+<ol>
+<li>下载官方nginx版本<a href="http://nginx.org/download/nginx-1.14.2.tar.gz">Stable version</a></li>
+<li>下载openssl1.1.1版本，支持tls1.3,<a href="https://www.openssl.org/source/openssl-1.1.1a.tar.gz">openssl-1.1.1a.tar.gz</a></li>
+</ol>
+
+<h3 id="编译安装">编译安装</h3>
+
+<p>在configure里面加上tls1.3, 开启httpv2模块</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ tar -xvf nginx-1.1.4.2.tar.gz
+$ tar -xvf openssl-1.1.1a.tar.gz
+$ cd nginx-1.1.4.2
+$ ./configure  --prefix=/usr/local/nginx \
+--with-stream \
+--with-stream_ssl_preread_module \
+--with-http_v2_module \
+--with-http_ssl_module  \
+--with-pcre  \
+--with-openssl=/tmp/openssl-1.1.1a \
+--with-openssl-opt=&#39;enable-tls1_3&#39;
+$ make -j 4
+$ make install</pre></td></tr></table>
+</div>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/post/nginx_https_hsts/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/git_delete_branch/">git删除分支</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-02-20 </span>
@@ -345,36 +409,6 @@ sudo make install</pre></td></tr></table>
     </div>
     <div class="read-more">
       <a href="/post/channel/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/macos_squirrel_inputmethod/">macos上的神级输入法squirrel</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-12-22 </span>
-      <div class="post-category">
-          <a href="/categories/mac/"> mac </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>squirrel输入法真是极客最想要的输入法，然而大多数国产输入法，都在忙着收集用户的输入数据，却没有把精力投入到输入法的核心功能。</p>
-
-<p>squirrel目前的优势：</p>
-
-<ol>
-<li>配置相当丰富，可定制性，可玩性都非常高</li>
-<li>输入速度是非常快</li>
-<li>五笔支持的非常好</li>
-<li>不收集用户数据，这是我最看重的。</li>
-</ol>
-    </div>
-    <div class="read-more">
-      <a href="/post/macos_squirrel_inputmethod/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>

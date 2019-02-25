@@ -6,10 +6,62 @@
     <description>Recent content in Posts on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Feb 2019 11:22:14 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Feb 2019 21:19:44 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>nginx https常用配置</title>
+      <link>https://beyondkmp.com/post/nginx_https_hsts/</link>
+      <pubDate>Fri, 22 Feb 2019 21:19:44 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/nginx_https_hsts/</guid>
+      <description>&lt;h2 id=&#34;nginx编译安装&#34;&gt;nginx编译安装&lt;/h2&gt;
+
+&lt;h3 id=&#34;下载源代码&#34;&gt;下载源代码&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;下载官方nginx版本&lt;a href=&#34;http://nginx.org/download/nginx-1.14.2.tar.gz&#34;&gt;Stable version&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;下载openssl1.1.1版本，支持tls1.3,&lt;a href=&#34;https://www.openssl.org/source/openssl-1.1.1a.tar.gz&#34;&gt;openssl-1.1.1a.tar.gz&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;编译安装&#34;&gt;编译安装&lt;/h3&gt;
+
+&lt;p&gt;在configure里面加上tls1.3, 开启httpv2模块&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;$ tar -xvf nginx-1.1.4.2.tar.gz
+$ tar -xvf openssl-1.1.1a.tar.gz
+$ cd nginx-1.1.4.2
+$ ./configure  --prefix=/usr/local/nginx \
+--with-stream \
+--with-stream_ssl_preread_module \
+--with-http_v2_module \
+--with-http_ssl_module  \
+--with-pcre  \
+--with-openssl=/tmp/openssl-1.1.1a \
+--with-openssl-opt=&amp;#39;enable-tls1_3&amp;#39;
+$ make -j 4
+$ make install&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>git删除分支</title>
