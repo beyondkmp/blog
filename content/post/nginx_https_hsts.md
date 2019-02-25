@@ -119,3 +119,4 @@ add_header Strict-Transport-Security "max-age=31557600; includeSubDomains";
 ## 参考
 
 1. [Nginx Quick Reference](https://github.com/trimstray/nginx-quick-reference)
+2. [本博客 Nginx 配置之性能篇](https://imququ.com/post/my-nginx-conf-for-wpo.html)
