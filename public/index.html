@@ -132,7 +132,7 @@
     <div class="post-summary">
       <h2 id="nginx编译安装">nginx编译安装</h2>
 
-<h3 id="下载源代码">下载源代码</h3>
+<h3 id="下载源码">下载源码</h3>
 
 <ol>
 <li>下载官方nginx版本<a href="http://nginx.org/download/nginx-1.14.2.tar.gz">Stable version</a></li>
@@ -144,7 +144,7 @@
 <p>在configure里面加上tls1.3, 开启httpv2模块</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -157,21 +157,21 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ tar -xvf nginx-1.1.4.2.tar.gz
-$ tar -xvf openssl-1.1.1a.tar.gz
-$ cd nginx-1.1.4.2
-$ ./configure  --prefix=/usr/local/nginx \
---with-stream \
---with-stream_ssl_preread_module \
---with-http_v2_module \
---with-http_ssl_module  \
---with-pcre  \
---with-openssl=/tmp/openssl-1.1.1a \
---with-openssl-opt=&#39;enable-tls1_3&#39;
-$ make -j 4
-$ make install</pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">tar -xvf nginx-1.1.4.2.tar.gz
+tar -xvf openssl-1.1.1a.tar.gz
+<span class="nb">cd</span> nginx-1.1.4.2
+./configure  --prefix<span class="o">=</span>/usr/local/nginx <span class="se">\
+</span><span class="se"></span>--with-stream <span class="se">\
+</span><span class="se"></span>--with-stream_ssl_preread_module <span class="se">\
+</span><span class="se"></span>--with-http_v2_module <span class="se">\ </span>
+--with-http_ssl_module  <span class="se">\
+</span><span class="se"></span>--with-pcre  <span class="se">\
+</span><span class="se"></span>--with-openssl<span class="o">=</span>/tmp/openssl-1.1.1a <span class="se">\
+</span><span class="se"></span>--with-openssl-opt<span class="o">=</span><span class="s1">&#39;enable-tls1_3&#39;</span>
+make -j <span class="m">4</span>
+make install</code></pre></td></tr></table>
 </div>
 </div>
     </div>
