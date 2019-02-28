@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2015-12-22T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2015-12-22T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="279">
+<meta itemprop="wordCount" content="271">
 
 
 
@@ -161,55 +161,31 @@
 
 <ol>
 <li><p>直接将md文件转化成html文件,没有css样式：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">pandoc test.md -o test.html</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>pandoc test.md -o test.html
+</code></pre></li>
 
 <li><p>使用指定的css文件样式，可以生成github模板的网页</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">pandoc -c github.css test.md -o test.html</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>pandoc -c github.css test.md -o test.html
+</code></pre></li>
 
 <li><p>生成独立的html，即将css样式包含到html中</p>
 
 <ul>
 <li><p>方法一：在github.css样式文件的头部和尾部加上,参考文献<a href="http://devilgate.org/blog/2012/07/02/tip-using-pandoc-to-create-truly-standalone-html-files/">[1]</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;style type=&#34;text/css&#34;&gt;
+
+<pre><code>&lt;style type=&quot;text/css&quot;&gt;
 github.css中的原内容
 &lt;/style&gt;
 
-pandoc -s -H github.css test.md -o test.html</pre></td></tr></table>
-</div>
-</div></li>
+pandoc -s -H github.css test.md -o test.html
+</code></pre></li>
 
 <li><p>方法二：&ndash;self-contained会把css，图片，视频等都包含到html中，将其编码为base64,用data://协议读取。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">pandoc --self-contained -c github.css test.md -o test.html</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>pandoc --self-contained -c github.css test.md -o test.html
+</code></pre></li>
 </ul></li>
 </ol>
 

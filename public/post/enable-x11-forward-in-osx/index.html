@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2017-02-21T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-02-21T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="739">
+<meta itemprop="wordCount" content="714">
 
 
 
@@ -210,16 +210,10 @@ X11Forwarding  yes</code></pre></td></tr></table>
 
 <ul>
 <li><p>查看vim是否支持X11</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">vim --version | grep clipboard
-# 如果返回显示clipboard及xterm_clipboard是减号,就说明不支持</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>vim --version | grep clipboard
+# 如果返回显示clipboard及xterm_clipboard是减号,就说明不支持
+</code></pre></li>
 
 <li><p>可以通过安装gvim或者安装vim-x11, 下面给出archlinux的安装方法</p>
 
@@ -230,39 +224,15 @@ sudo pacman -S gvim
 </code></li>
 
 <li><p>方法二: abs编译安装,见参考</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># pacman -S abs
+
+<pre><code># pacman -S abs
 # abs extra/vim
 # cp -r /var/abs/extra/vim ~/ &amp;&amp; cd ~/vim
 修改 PKGBUILD 文件
             
 PKGBUILD
 ...
-pkgname=(&#39;vim&#39; &#39;gvim&#39; &#39;vim-runtime&#39;)
+pkgname=('vim' 'gvim' 'vim-runtime')
 # 去除不需要编译的包
 # 至于编译依赖，不了解可以像我一样选择不取消
 ...
@@ -275,31 +245,20 @@ $ makepkg -s
 安装 Vim
             
 # pacman -U vim-7.3.754-1-x86_64.pkg.tar.xz
-重新进行验证，果然生效</pre></td></tr></table>
-</div>
-</div></li>
+重新进行验证，果然生效
+</code></pre></li>
 
 <li><p>方法三: 通过yaourt安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">yaourt -S vim-x11</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>yaourt -S vim-x11
+</code></pre></li>
 </ul></li>
 </ul></li>
 
 <li><p>配置vim,在vim中使用<code>&quot;+y</code>可以将选中的内容复制到系统粘贴板中,在视图模式我们设置如下快捷键Ctrl+c就可以直接将选中的内容复制到本地系统粘贴板中</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">vnoremap &lt;C-c&gt; &#34;+y</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>vnoremap &lt;C-c&gt; &quot;+y
+</code></pre></li>
 </ol>
 
 <h2 id="参考">参考</h2>

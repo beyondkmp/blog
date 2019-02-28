@@ -10,7 +10,7 @@ theme = "even"
 pygmentsOptions = "linenos=table"
 pygmentsCodefences = true
 pygmentsUseClasses = true
-pygmentsCodefencesGuessSyntax = true
+pygmentsCodefencesGuessSyntax = false
 
 
 preserveTaxonomyNames = true

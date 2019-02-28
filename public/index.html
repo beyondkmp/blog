@@ -119,6 +119,70 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git_commands/">基础git命令收集</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-02-28 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="打标签">打标签</h2>
+
+<h3 id="列出所有标签">列出所有标签</h3>
+
+<pre><code>git tag
+</code></pre>
+
+<h3 id="列出特定标签">列出特定标签</h3>
+
+<pre><code>git tag -l 'v1.8.5*'
+</code></pre>
+
+<h3 id="显示标签详细信息">显示标签详细信息</h3>
+
+<pre><code>git show v1.5
+</code></pre>
+
+<h3 id="创建标签">创建标签</h3>
+
+<pre><code># 轻量标签(很像一个不会改变的分支)
+git tag v1.4-lw
+
+# 附注标签
+git tag -a v1.4 -m 'my version 1.4'
+</code></pre>
+
+<h3 id="后期打标签">后期打标签</h3>
+
+<pre><code>git tag -a v1.2 9fceb02
+</code></pre>
+
+<h3 id="上传标签">上传标签</h3>
+
+<pre><code>git push origin --tags
+</code></pre>
+
+<h3 id="删除标签">删除标签</h3>
+
+<pre><code># 本地删除
+git tag -d v1.4-lw
+
+# 远程删除( git push &lt;remote&gt; :refs/tags/&lt;tagname&gt; )
+git push origin :refs/tags/v1.4-lw
+</code></pre>
+    </div>
+    <div class="read-more">
+      <a href="/post/git_commands/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/collections/">技术blog收藏</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-02-28 </span>
@@ -303,28 +367,16 @@ $ git branch -D branch_name</code></pre></td></tr></table>
 
 <ol>
 <li><p>通过brew安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">brew install libfaketime coreutils</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>brew install libfaketime coreutils
+</code></pre></li>
 
 <li><p>源码编译安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">git clone https://github.com/wolfcw/libfaketime.git
+
+<pre><code>git clone https://github.com/wolfcw/libfaketime.git
 make
-sudo make install</pre></td></tr></table>
-</div>
-</div></li>
+sudo make install
+</code></pre></li>
 </ol>
 
 <h2 id="使用faketime来运行surge">使用faketime来运行surge</h2>
@@ -351,14 +403,10 @@ sudo make install</pre></td></tr></table>
       <h2 id="问题">问题</h2>
 
 <p>昨天升级了xcode, 好久没有升级了，而且zsh也没有升级。一升级完，iTerm2和系统自带的终端就直接崩溃了。报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">dyld: Library not loaded: /usr/local/opt/gdbm/lib/libgdbm.4.dylib</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>dyld: Library not loaded: /usr/local/opt/gdbm/lib/libgdbm.4.dylib
+</code></pre>
+
 <p><img src="/imgs/zsh_crash.jpg" alt="zsh_crash" /></p>
     </div>
     <div class="read-more">
@@ -392,29 +440,6 @@ sudo make install</pre></td></tr></table>
     </div>
     <div class="read-more">
       <a href="/post/kone_clash/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/mac_dd_iso/">macos下制作系统安装盘</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-01-18 </span>
-      <div class="post-category">
-          <a href="/categories/mac/"> mac </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="使用dd命令">使用dd命令</h2>
-
-<p>目前这个dd命令只适合制作linux的安装启动盘，<code>不适合win10</code>。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/mac_dd_iso/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>

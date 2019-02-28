@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2015-04-19T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2015-04-19T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="871">
+<meta itemprop="wordCount" content="867">
 
 
 
@@ -179,18 +179,12 @@
 <h2 id="攻击代码">攻击代码</h2>
 
 <p>用下面代码检测是否存在漏洞</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">⇒  python vul.py 172.16.69.67
+
+<pre><code>⇒  python vul.py 172.16.69.67
 [*] Audit Started
-[!!] Looks VULN</pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
+[!!] Looks VULN
+</code></pre>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -374,14 +368,10 @@
 </div>
 </div>
 <p>运行上面的代码</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">python vul.py 172.16.69.67</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>python vul.py 172.16.69.67
+</code></pre>
+
 <p>成功后的留念,这两段代码的主要区别在于<strong>bytes后面的数字</strong>:</p>
 
 <p><img src="/imgs/iis7漏洞/5.jpg" alt="5" /></p>

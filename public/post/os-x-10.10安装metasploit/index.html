@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2015-03-31T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2015-03-31T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="484">
+<meta itemprop="wordCount" content="466">
 
 
 
@@ -174,20 +174,8 @@
 </div>
 </div>
 <p>然后会出现下面的提示：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">WARNING: enabling &#34;trust&#34; authentication for local connections
+
+<pre><code>WARNING: enabling &quot;trust&quot; authentication for local connections
 You can change this by editing pg_hba.conf or using the option -A, or
 --auth-local and --auth-host, the next time you run initdb.
 
@@ -195,9 +183,9 @@ Success. You can now start the database server using:
 
 postgres -D /usr/local/var/postgres/data
 or
-pg_ctl -D /usr/local/var/postgres/data -l logfile start</pre></td></tr></table>
-</div>
-</div>
+pg_ctl -D /usr/local/var/postgres/data -l logfile start
+</code></pre>
+
 <p>运行上面的指令，不要运行pg_ctl(有问题)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -217,20 +205,8 @@ pg_ctl -D /usr/local/var/postgres/data -l logfile start</pre></td></tr></table>
 </div>
 </div>
 <p>上面只是启动,还要在postgresql建立相应的用户与数据库，在metasploit的安装目录下的config文件夹中找到database.yml,内容如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">development: &amp;pgsql
+
+<pre><code>development: &amp;pgsql
   adapter: postgresql
   database: msf 
   username: msf 
@@ -238,9 +214,9 @@ pg_ctl -D /usr/local/var/postgres/data -l logfile start</pre></td></tr></table>
   host: localhost
   port: 5432
   pool: 5
-  timeout: 5</pre></td></tr></table>
-</div>
-</div>
+  timeout: 5
+</code></pre>
+
 <p>根据上面的内容运行下面命令建立相应的数据库与用户：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

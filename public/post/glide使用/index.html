@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2017-05-30T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-05-30T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1204">
+<meta itemprop="wordCount" content="1127">
 
 
 
@@ -172,212 +172,100 @@
 
 <ul>
 <li><p>方法一: 使用<code>go get</code>安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">go get github.com/Masterminds/glide</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>go get github.com/Masterminds/glide
+</code></pre></li>
 
 <li><p>方法二: 使用官方安装脚本</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">curl https://glide.sh/get | sh</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>curl https://glide.sh/get | sh
+</code></pre></li>
 
 <li><p>方法三: 使用系统自带的安装软件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># mac osx
+
+<pre><code># mac osx
 brew install glide
 #arch linux
-pacman -S glide</pre></td></tr></table>
-</div>
-</div></li>
+pacman -S glide
+</code></pre></li>
 </ul>
 
 <h2 id="使用">使用</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"><span class="err">$</span> <span class="nx">glide</span> <span class="nx">create</span>                            <span class="err">#</span> <span class="nx">Start</span> <span class="nx">a</span> <span class="nx">new</span> <span class="nx">workspace</span>
-<span class="err">$</span> <span class="nx">vim</span> <span class="nx">glide</span><span class="p">.</span><span class="nx">yaml</span>                         <span class="err">#</span> <span class="nx">and</span> <span class="nx">edit</span> <span class="nx">away</span><span class="p">!</span>
-<span class="err">$</span> <span class="nx">glide</span> <span class="nx">get</span> <span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">Masterminds</span><span class="o">/</span><span class="nx">cookoo</span> <span class="err">#</span> <span class="nx">Get</span> <span class="nx">a</span> <span class="kn">package</span> <span class="nx">and</span> <span class="nx">add</span> <span class="nx">to</span> <span class="nx">glide</span><span class="p">.</span><span class="nx">yaml</span>
-<span class="err">$</span> <span class="nx">glide</span> <span class="nx">install</span>                           <span class="err">#</span> <span class="nx">Install</span> <span class="nx">packages</span> <span class="nx">and</span> <span class="nx">dependencies</span>
-<span class="err">#</span> <span class="nx">work</span><span class="p">,</span> <span class="nx">work</span><span class="p">,</span> <span class="nx">work</span>
-<span class="err">$</span> <span class="k">go</span> <span class="nx">build</span>                                <span class="err">#</span> <span class="nx">Go</span> <span class="nx">tools</span> <span class="nx">work</span> <span class="nx">normally</span>
-<span class="err">$</span> <span class="nx">glide</span> <span class="nx">up</span>                                <span class="err">#</span> <span class="nx">Update</span> <span class="nx">to</span> <span class="nx">newest</span> <span class="nx">versions</span> <span class="nx">of</span> <span class="nx">the</span> <span class="kn">package</span></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ glide create                            # Start a new workspace
+$ vim glide.yaml                         # and edit away!
+$ glide get github.com/Masterminds/cookoo # Get a package and add to glide.yaml
+$ glide install                           # Install packages and dependencies
+# work, work, work
+$ go build                                # Go tools work normally
+$ glide up                                # Update to newest versions of the package
+</code></pre>
+
 <h3 id="glide-create-或init">glide create(或init)</h3>
 
 <p>初始化一个开发环境。在初始化过程中，会自动创建glide.yaml文件，并会尝试猜测依赖包的版本号，并将其写入yaml配置文件中。比如，你的项目使用的Godep管理的，glide会自动探测Godep使用的版本号。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"><span class="err">$</span> <span class="nx">glide</span> <span class="nx">create</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="nx">Generating</span> <span class="nx">a</span> <span class="nx">YAML</span> <span class="nx">configuration</span> <span class="nx">file</span> <span class="nx">and</span> <span class="nx">guessing</span> <span class="nx">the</span> <span class="nx">dependencies</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="nx">Attempting</span> <span class="nx">to</span> <span class="kn">import</span> <span class="nx">from</span> <span class="nx">other</span> <span class="kn">package</span> <span class="nf">managers</span> <span class="p">(</span><span class="nx">use</span> <span class="o">--</span><span class="nx">skip</span><span class="o">-</span><span class="kn">import</span> <span class="nx">to</span> <span class="nx">skip</span><span class="p">)</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="nx">Scanning</span> <span class="nx">code</span> <span class="nx">to</span> <span class="nx">look</span> <span class="k">for</span> <span class="nx">dependencies</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="o">--</span><span class="p">&gt;</span> <span class="nx">Found</span> <span class="nx">reference</span> <span class="nx">to</span> <span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">Masterminds</span><span class="o">/</span><span class="nx">semver</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="o">--</span><span class="p">&gt;</span> <span class="nx">Found</span> <span class="nx">reference</span> <span class="nx">to</span> <span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">Masterminds</span><span class="o">/</span><span class="nx">vcs</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="o">--</span><span class="p">&gt;</span> <span class="nx">Found</span> <span class="nx">reference</span> <span class="nx">to</span> <span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">codegangsta</span><span class="o">/</span><span class="nx">cli</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="o">--</span><span class="p">&gt;</span> <span class="nx">Found</span> <span class="nx">reference</span> <span class="nx">to</span> <span class="nx">gopkg</span><span class="p">.</span><span class="nx">in</span><span class="o">/</span><span class="nx">yaml</span><span class="p">.</span><span class="nx">v2</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="nx">Writing</span> <span class="nx">configuration</span> <span class="nf">file</span> <span class="p">(</span><span class="nx">glide</span><span class="p">.</span><span class="nx">yaml</span><span class="p">)</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="nx">Would</span> <span class="nx">you</span> <span class="nx">like</span> <span class="nx">Glide</span> <span class="nx">to</span> <span class="nx">help</span> <span class="nx">you</span> <span class="nx">find</span> <span class="nx">ways</span> <span class="nx">to</span> <span class="nx">improve</span> <span class="nx">your</span> <span class="nx">glide</span><span class="p">.</span><span class="nx">yaml</span> <span class="nx">configuration</span><span class="err">?</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="nx">If</span> <span class="nx">you</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">revisit</span> <span class="nx">this</span> <span class="nx">step</span> <span class="nx">you</span> <span class="nx">can</span> <span class="nx">use</span> <span class="nx">the</span> <span class="nx">config</span><span class="o">-</span><span class="nx">wizard</span> <span class="nx">command</span> <span class="nx">at</span> <span class="nx">any</span> <span class="nx">time</span><span class="p">.</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="nf">Yes</span> <span class="p">(</span><span class="nx">Y</span><span class="p">)</span> <span class="nx">or</span> <span class="nf">No</span> <span class="p">(</span><span class="nx">N</span><span class="p">)</span><span class="err">?</span>
-<span class="nx">n</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="nx">You</span> <span class="nx">can</span> <span class="nx">now</span> <span class="nx">edit</span> <span class="nx">the</span> <span class="nx">glide</span><span class="p">.</span><span class="nx">yaml</span> <span class="nx">file</span><span class="p">.</span> <span class="nx">Consider</span><span class="p">:</span>
-<span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="o">--</span><span class="p">&gt;</span> <span class="nx">Using</span> <span class="nx">versions</span> <span class="nx">and</span> <span class="nx">ranges</span><span class="p">.</span> <span class="nx">See</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//glide.sh/docs/versions/
-</span><span class="c1"></span><span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="o">--</span><span class="p">&gt;</span> <span class="nx">Adding</span> <span class="nx">additional</span> <span class="nx">metadata</span><span class="p">.</span> <span class="nx">See</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//glide.sh/docs/glide.yaml/
-</span><span class="c1"></span><span class="p">[</span><span class="nx">INFO</span><span class="p">]</span>	<span class="o">--</span><span class="p">&gt;</span> <span class="nx">Running</span> <span class="nx">the</span> <span class="nx">config</span><span class="o">-</span><span class="nx">wizard</span> <span class="nx">command</span> <span class="nx">to</span> <span class="nx">improve</span> <span class="nx">the</span> <span class="nx">versions</span> <span class="nx">in</span> <span class="nx">your</span> <span class="nx">configuration</span></pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ glide create
+[INFO]	Generating a YAML configuration file and guessing the dependencies
+[INFO]	Attempting to import from other package managers (use --skip-import to skip)
+[INFO]	Scanning code to look for dependencies
+[INFO]	--&gt; Found reference to github.com/Masterminds/semver
+[INFO]	--&gt; Found reference to github.com/Masterminds/vcs
+[INFO]	--&gt; Found reference to github.com/codegangsta/cli
+[INFO]	--&gt; Found reference to gopkg.in/yaml.v2
+[INFO]	Writing configuration file (glide.yaml)
+[INFO]	Would you like Glide to help you find ways to improve your glide.yaml configuration?
+[INFO]	If you want to revisit this step you can use the config-wizard command at any time.
+[INFO]	Yes (Y) or No (N)?
+n
+[INFO]	You can now edit the glide.yaml file. Consider:
+[INFO]	--&gt; Using versions and ranges. See https://glide.sh/docs/versions/
+[INFO]	--&gt; Adding additional metadata. See https://glide.sh/docs/glide.yaml/
+[INFO]	--&gt; Running the config-wizard command to improve the versions in your configuration
+</code></pre>
+
 <h3 id="glide-install">glide install</h3>
 
 <p>要安装<code>glide.lock</code>文件里面的特定版本的依赖包，使用<code>glide install命令</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ glide install</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>$ glide install
+</code></pre>
+
 <p>这个命令会读取<code>glide.lock</code>文件，并会安装特定commit id的版本到此目录下面的vender文件夹中,如果这个文件不存在，运行<code>glide install</code>时将会执行一次update并生成lock文件</p>
 
 <h2 id="使用实例">使用实例</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">cd $GOPATH/src
+
+<pre><code>cd $GOPATH/src
 git clone https://github.com/xtaci/kcptun.git
 cd kcptun
 glide create
 glide install
 cd server
-go build</pre></td></tr></table>
-</div>
-</div>
+go build
+</code></pre>
+
 <h3 id="说明">说明</h3>
 
 <ol>
 <li>一定要放到$GOPATH/src目录下面，要不<code>go build</code>找不到<code>vender</code>目录下面的依赖包。这个是由于<code>go build</code>查找相应的依赖包的机制有关。</li>
 
 <li><p>不要直接用<code>go build</code>, 这样会带上debug信息，生成的可执行文件非常大,使用下面命令编译，不带上debug信息</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">go build -ldflags &#34;-s -w&#34;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>go build -ldflags &quot;-s -w&quot;
+</code></pre></li>
 
 <li><p>使用<code>-s</code>选项后安装包还是非常大，我们再使用upx工具对其进行终极压缩，可以缩小几倍</p>
 
 <ul>
 <li><p>安装goupx</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ pacman -S upx
-$ go get github.com/pwaller/goupx</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>$ pacman -S upx
+$ go get github.com/pwaller/goupx
+</code></pre></li>
 
 <li><p>编译大小对比,upx可以对可以执行文件进行压缩并进行一些混淆,这里主要用来作为压缩功能。此处压缩后的大小与gz压缩后的大小差不多</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ go build
+
+<pre><code>$ go build
 $ ls -lh
 total 9.5M
 -rw-r--r-- 1 vagrant vagrant 1.2K May 30 23:53 config.go
@@ -386,7 +274,7 @@ total 9.5M
 -rw-r--r-- 1 vagrant vagrant  391 May 30 23:53 signal.go
 
 
-$ go build -ldflags &#34;-s -w&#34;
+$ go build -ldflags &quot;-s -w&quot;
 $ ls -lh
 total 6.4M
 -rw-r--r-- 1 vagrant vagrant 1.2K May 30 23:53 config.go
@@ -412,9 +300,8 @@ total 2.4M
 -rw-r--r-- 1 vagrant vagrant 1.2K May 30 23:53 config.go
 -rw-r--r-- 1 vagrant vagrant  11K May 30 23:53 main.go
 -rwxr-xr-x 1 vagrant vagrant 2.3M May 31 00:06 server
--rw-r--r-- 1 vagrant vagrant  391 May 30 23:53 signal.go</pre></td></tr></table>
-</div>
-</div></li>
+-rw-r--r-- 1 vagrant vagrant  391 May 30 23:53 signal.go
+</code></pre></li>
 </ul></li>
 </ol>
 

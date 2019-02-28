@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2015-08-11T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2015-08-11T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="276">
+<meta itemprop="wordCount" content="265">
 
 
 
@@ -161,30 +161,17 @@
 <li>到<a href="http://www.apuebook.com/code3e.html">官网</a>下载源代码。</li>
 
 <li><p>直接make会出现下面的错误:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">../lib -lapue -pthread -lrt -lbsd
+
+<pre><code>../lib -lapue -pthread -lrt -lbsd
 gcc -ansi -I../include -Wall -DLINUX -D_GNU_SOURCE  barrier.c -o barrier
 -L../lib -lapue -pthread -lrt -lbsd
-/tmp/ccaYTQPh.o: In function `thr_fn&#39;:
-barrier.c:(.text+0x80): undefined reference to `heapsort&#39;
+/tmp/ccaYTQPh.o: In function `thr_fn':
+barrier.c:(.text+0x80): undefined reference to `heapsort'
 collect2: ld 返回 1
 make[1]: *** [barrier] 错误 1
-make[1]: Leaving directory `/home/beyond/code/apue.3e/threads&#39;
-make: *** [all] 错误 1</pre></td></tr></table>
-</div>
-</div></li>
+make[1]: Leaving directory `/home/beyond/code/apue.3e/threads'
+make: *** [all] 错误 1
+</code></pre></li>
 
 <li><p>到下面的<strong>参考1</strong>中找到了相应的包，备份如下：</p>
 
@@ -193,16 +180,10 @@ make: *** [all] 错误 1</pre></td></tr></table>
 <p><a href="/imgs/apue.3e/libbsd-devel-0.2.0-4.el6.elrepo.x86_64.rpm">libbsd-devel-0.2.0-4.el6.elrepo.x86_64.rpm</a></p></li>
 
 <li><p>安装上面的包后可以顺利编译通过，再参照下面<strong>参考2</strong>中,将头文件和生成的静态链接库放到gcc的默认搜索路径下，以后就不要自己添加了。(libapue.a是apue.h头文件中包含的所有函数及宏定义的具体实现，是一个静态链接库)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">cp ./include/apue.h /usr/include/
-cp ./lib/libapue.a /usr/local/lib/</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>cp ./include/apue.h /usr/include/
+cp ./lib/libapue.a /usr/local/lib/
+</code></pre></li>
 </ol>
 
 <h2 id="参考">参考</h2>

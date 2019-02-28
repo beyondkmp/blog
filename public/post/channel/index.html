@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-01-15T01:10:20&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-15T01:10:20&#43;08:00" />
-<meta itemprop="wordCount" content="347">
+<meta itemprop="wordCount" content="341">
 
 
 
@@ -220,18 +220,12 @@
 </div>
 </div>
 <p>运行结果:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">1 : 0 false
+
+<pre><code>1 : 0 false
 2 : 0 false
-3 : 0 false</pre></td></tr></table>
-</div>
-</div>
+3 : 0 false
+</code></pre>
+
 <h3 id="读取关闭的有缓存通道">读取关闭的有缓存通道</h3>
 
 <p>读取关闭后的有缓存通道，将缓存数据读取完后，再读取返回值为0和false。</p>
@@ -284,18 +278,12 @@
 </div>
 </div>
 <p>运行结果:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">1 : 1 true
+
+<pre><code>1 : 1 true
 2 : 0 false
-3 : 0 false</pre></td></tr></table>
-</div>
-</div>
+3 : 0 false
+</code></pre>
+
 <p>4、range遍历通道：
 通道写完后，必须关闭通道，否则range遍历会出现死锁。</p>
 

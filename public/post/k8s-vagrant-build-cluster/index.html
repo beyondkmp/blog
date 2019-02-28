@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-10-22T10:50:46&#43;08:00" />
 <meta itemprop="dateModified" content="2018-10-22T10:50:46&#43;08:00" />
-<meta itemprop="wordCount" content="1535">
+<meta itemprop="wordCount" content="1474">
 
 
 
@@ -336,70 +336,33 @@ kubernetesVersion: <span class="s2">&#34;v1.12.1&#34;</span></code></pre></td></
 </div>
 </div>
 <p>初始化完成后，会有一些提示,如下</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">To start using your cluster, you need to run the following as a regular user:
+
+<pre><code>To start using your cluster, you need to run the following as a regular user:
 
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 You should now deploy a pod network to the cluster.
-Run &#34;kubectl apply -f [podnetwork].yaml&#34; with one of the options listed at:
+Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:
   https://kubernetes.io/docs/concepts/cluster-administration/addons/
 
 You can now join any number of machines by running the following on each node
 as root:
 
-  kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2</pre></td></tr></table>
-</div>
-</div>
+  kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2
+</code></pre>
+
 <p>要将kubernets的配置放到这个用户的目录，才不会每次使用都报授权错误</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of &#34;crypto/rsa: verification error&#34; while trying to verify candidate authority certificate &#34;kubernetes&#34;)</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of &quot;crypto/rsa: verification error&quot; while trying to verify candidate authority certificate &quot;kubernetes&quot;)
+</code></pre>
+
 <h3 id="配置网络插件">配置网络插件</h3>
 
 <p>目前插件都容器化了，基本上也就是一条命令安装下就可以了。没有安装之前，需要网络的插件是pending状态,get node状态也是NotReady状态</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">root@k8s-01:~# kubectl get pods -n kube-system
+
+<pre><code>root@k8s-01:~# kubectl get pods -n kube-system
 NAME                             READY   STATUS    RESTARTS   AGE
 coredns-576cbf47c7-8s8nh         0/1     Pending   0          3m20s
 coredns-576cbf47c7-pwctq         0/1     Pending   0          3m20s
@@ -411,50 +374,23 @@ kube-scheduler-k8s-01            1/1     Running   1          2m35s
 
 root@k8s-01:~# kubectl get nodes
 NAME     STATUS     ROLES    AGE     VERSION
-k8s-01   NotReady   master   5h47m   v1.12.1</pre></td></tr></table>
-</div>
-</div>
+k8s-01   NotReady   master   5h47m   v1.12.1
+</code></pre>
+
 <p>运行下面的命令安装网络插件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">root@k8s-01:~#  kubectl apply -f https://git.io/weave-kube-1.6
+
+<pre><code>root@k8s-01:~#  kubectl apply -f https://git.io/weave-kube-1.6
 serviceaccount/weave-net created
 clusterrole.rbac.authorization.k8s.io/weave-net created
 clusterrolebinding.rbac.authorization.k8s.io/weave-net created
 role.rbac.authorization.k8s.io/weave-net created
 rolebinding.rbac.authorization.k8s.io/weave-net created
-daemonset.extensions/weave-net created</pre></td></tr></table>
-</div>
-</div>
+daemonset.extensions/weave-net created
+</code></pre>
+
 <p>再查看相应的状态</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">root@k8s-01:~# kubectl get pods -n kube-system
+
+<pre><code>root@k8s-01:~# kubectl get pods -n kube-system
 NAME                             READY   STATUS    RESTARTS   AGE
 coredns-576cbf47c7-8s8nh         1/1     Running   0          5h47m
 coredns-576cbf47c7-pwctq         1/1     Running   0          5h47m
@@ -467,9 +403,9 @@ weave-net-2b8q8                  2/2     Running   0          21s
 
 root@k8s-01:~# kubectl get nodes
 NAME     STATUS   ROLES    AGE     VERSION
-k8s-01   Ready    master   5h47m   v1.12.1</pre></td></tr></table>
-</div>
-</div>
+k8s-01   Ready    master   5h47m   v1.12.1
+</code></pre>
+
 <p>到目前为止，master基本就配置完成了。</p>
 
 <h1 id="kubernets-worker配置">kubernets worker配置</h1>
@@ -480,53 +416,30 @@ k8s-01   Ready    master   5h47m   v1.12.1</pre></td></tr></table>
 <li>在所有的worker节点执行上面master软件安装的步骤。目前master和woker的软件安装都是一样，主要区别是master上面还会启动kube-apiserver、kube-scheduler、kube-controller-manager这三个系统pod。</li>
 
 <li><p>执行部署Master节点时最后的join命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>kubeadm join 192.168.1.4:6443 --token g61cb8.19evngqy28x7wk4d --discovery-token-ca-cert-hash sha256:0315ab4d1a602ab5b27dcd1259af25bb9449b02554189870ec17c088643f2ba2
+</code></pre></li>
 
 <li><p>在专栏里面上运行上面两个就可以通了，但是就是通不了。有一个网络插件weave一直CrashLoopBackOff，后面谷歌下，发现是路由找不到。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#在master运行下面的命令
+
+<pre><code>#在master运行下面的命令
 root@k8s-01:~# kubectl get svc
 NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   6h37m
 
 # 然后在worker机器运行下面命令添加路由
-route add 100.96.0.1 gw &lt;your real master IP&gt;</pre></td></tr></table>
-</div>
-</div></li>
+route add 100.96.0.1 gw &lt;your real master IP&gt;
+</code></pre></li>
 </ol>
 
 <p>最后查看下worker的状态，没有问题就全部完成了。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">root@k8s-01:~# kubectl get nodes
+
+<pre><code>root@k8s-01:~# kubectl get nodes
 NAME     STATUS   ROLES    AGE     VERSION
 k8s-01   Ready    master   6h39m   v1.12.1
-k8s-03   Ready    &lt;none&gt;   15m     v1.12.1</pre></td></tr></table>
-</div>
-</div>
+k8s-03   Ready    &lt;none&gt;   15m     v1.12.1
+</code></pre>
+
 <h2 id="参考">参考</h2>
 
 <ol>

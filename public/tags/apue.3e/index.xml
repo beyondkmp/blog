@@ -17,7 +17,7 @@
       <pubDate>Tue, 11 Aug 2015 00:00:00 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/apue.3ei%E6%BA%90%E7%A0%81%E5%9C%A8centos6.5%E4%B8%8A%E7%BC%96%E8%AF%91/</guid>
-      <description>到官网下载源代码。 直接make会出现下面的错误: 1 2 3 4 5 6 7 8 9 ../lib -lapue -pthread -lrt -lbsd gcc -ansi -I../include -Wall -DLINUX -D_GNU_SOURCE barrier.c -o barrier -L../lib -lapue -pthread -lrt -lbsd /tmp/ccaYTQPh.o: In function `thr_fn&amp;#39;: barrier.c:(.text+0x80): undefined reference to `heapsort&amp;#39; collect2: ld 返回 1 make[1]: *** [barrier] 错</description>
+      <description>到官网下载源代码。 直接make会出现下面的错误: ../lib -lapue -pthread -lrt -lbsd gcc -ansi -I../include -Wall -DLINUX -D_GNU_SOURCE barrier.c -o barrier -L../lib -lapue -pthread -lrt -lbsd /tmp/ccaYTQPh.o: In function `thr_fn&#39;: barrier.c:(.text+0x80): undefined reference to `heapsort&#39; collect2: ld 返回 1 make[1]: *** [barrier] 错误 1 make[1]: Leaving directory `/home/beyond/code/apue.3e/threads&#39; make: *** [all]</description>
     </item>
     
   </channel>

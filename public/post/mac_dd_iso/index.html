@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-01-18T17:15:41&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-18T17:15:41&#43;08:00" />
-<meta itemprop="wordCount" content="671">
+<meta itemprop="wordCount" content="660">
 
 
 
@@ -263,53 +263,33 @@
 <p><img src="/imgs/win10_download.png" alt="win10 download" /></p></li>
 
 <li><p>格式化u盘, 使用macos自带的磁盘工具,选中插入的u盘，点击抹掉,然后选择下面的格式进行格式化</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Name: FAT32
+
+<pre><code>Name: FAT32
 Format: MS-DOS (FAT)
-Scheme: Master Boot Record</pre></td></tr></table>
-</div>
-</div>
+Scheme: Master Boot Record
+</code></pre>
+
 <p><img src="/imgs/disk-utility-erase-disk.png" alt="disk utility erase disk" /></p></li>
 
 <li><p>将usb刻录成win10安装盘, 下载unetbootin并打开，打开过程中要输入密码,选择下面的参数，最后点击ok，等待写入完毕就完成了。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Diskimage: checked, set to ISO and browse to your Windows 10 ISO
+
+<pre><code>Diskimage: checked, set to ISO and browse to your Windows 10 ISO
 Type: USB Drive
-Drive: Your USB drive (you should only see one entry here)</pre></td></tr></table>
-</div>
-</div>
+Drive: Your USB drive (you should only see one entry here)
+</code></pre>
+
 <p><img src="/imgs/unetbootin.png" alt="unetbootin" /></p></li>
 </ol>
 
 <p>如果有多个usb盘选择，你可以通过下面的命令来确认哪个盘是你要写入的。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ diskutil list FAT32
+
+<pre><code>$ diskutil list FAT32
 /dev/disk2 (external, physical):
    #:                       TYPE NAME                    SIZE       IDENTIFIER
    0:     FDisk_partition_scheme                        *16.0 GB    disk2
-   1:                 DOS_FAT_32 FAT32                   16.0 GB    disk2s1</pre></td></tr></table>
-</div>
-</div>
+   1:                 DOS_FAT_32 FAT32                   16.0 GB    disk2s1
+</code></pre>
+
 <h2 id="参考">参考</h2>
 
 <ol>

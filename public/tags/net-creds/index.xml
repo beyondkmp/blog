@@ -17,7 +17,7 @@
       <pubDate>Thu, 30 Apr 2015 00:00:00 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/net-creds%E5%97%85%E6%8E%A2%E6%95%8F%E6%84%9F%E6%95%B0%E6%8D%AE/</guid>
-      <description>主要功能从网络接口或者pcap文件中嗅探出密码或者hash。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 beyond@gcc:~/Desktop/net-creds-master$ python net-creds.py -p ../http.pcap [192.168.137.2] GET</description>
+      <description>主要功能从网络接口或者pcap文件中嗅探出密码或者hash。 beyond@gcc:~/Desktop/net-creds-master$ python net-creds.py -p ../http.pcap [192.168.137.2] GET api.bing.com/asjson.aspx?query=172&amp;amp;form=APMCS2 [192.168.137.2] GET api.bing.com/asjson.aspx?query=172.16.69.88/&amp;amp;form=APMCS2 [192.168.137.2] GET api.bing.com/asjson.aspx?query=172.16.69.88/&amp;amp;form=APMCS2 [192.168.137.2] GET api.bing.com/asjson.aspx?query=172.16.69.88/&amp;amp;form=APMCS2 [192.168.137.2] GET 172.16.69.88/old/ [192.168.137.2] GET 172.16.69.88/wordpress [192.168.137.2] GET 172.16.69.88/old/ [192.168.137.2] GET 172.16.69.88/old/ [172.16.69.60] GET 172.16.69.88/old/ [172.16.69.60] GET 172.16.69.88/old/wp-content/themes/Invoker/timthumb.php?src=http://172.16.69.88/old/wp-content/... [172.16.69.60] GET 172.16.69.88/old/wp-content/themes/Invoker/timthumb.php?src=http://172.16.69.88/old/wp-content/... [172.16.69.60] GET</description>
     </item>
     
   </channel>

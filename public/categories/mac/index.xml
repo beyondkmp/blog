@@ -49,28 +49,16 @@
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;通过brew安装&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;brew install libfaketime coreutils&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
+
+&lt;pre&gt;&lt;code&gt;brew install libfaketime coreutils
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;源码编译安装&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;git clone https://github.com/wolfcw/libfaketime.git
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/wolfcw/libfaketime.git
 make
-sudo make install&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&#34;使用faketime来运行surge&#34;&gt;使用faketime来运行surge&lt;/h2&gt;</description>
@@ -85,14 +73,10 @@ sudo make install&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 
 &lt;p&gt;昨天升级了xcode, 好久没有升级了，而且zsh也没有升级。一升级完，iTerm2和系统自带的终端就直接崩溃了。报错如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;dyld: Library not loaded: /usr/local/opt/gdbm/lib/libgdbm.4.dylib&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;dyld: Library not loaded: /usr/local/opt/gdbm/lib/libgdbm.4.dylib
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;&lt;img src=&#34;https://beyondkmp.com/imgs/zsh_crash.jpg&#34; alt=&#34;zsh_crash&#34; /&gt;&lt;/p&gt;</description>
     </item>
     

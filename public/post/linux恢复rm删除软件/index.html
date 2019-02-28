@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2015-04-08T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2015-04-08T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1135">
+<meta itemprop="wordCount" content="1096">
 
 
 
@@ -170,22 +170,8 @@
 <p>这个是必须一定得放在第一步来做。如果不做，其它进程写了这个磁盘那就很难恢复了。磁盘规划时一定要做功能分区，/root 、/home、/tmp等等最好不要放在一个区。</p>
 
 <p>比如/data挂载在/dev/sdc1上，用mount命令查看挂载信息：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">beyond@localhost:~|⇒  mount
+
+<pre><code>beyond@localhost:~|⇒  mount
 /dev/mapper/vg_gcc-lv_root on / type ext4 (rw)
 proc on /proc type proc (rw)
 sysfs on /sys type sysfs (rw)
@@ -195,9 +181,9 @@ tmpfs on /dev/shm type tmpfs (rw)
 /dev/mapper/vg_gcc-lv_home on /home type ext4 (rw)
 none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
 gvfs-fuse-daemon on /home/beyond/.gvfs type fuse.gvfs-fuse-daemon (rw,nosuid,nodev,user=beyond)
-/dev/sdc1 on /data type ext4 (rw)</pre></td></tr></table>
-</div>
-</div>
+/dev/sdc1 on /data type ext4 (rw)
+</code></pre>
+
 <p>从<code>/dev/sdc1 on /data type ext4 (rw)</code>可知/data挂载在/dev/sdc1</p>
 
 <p>用命令<code>mount -r -n -o remount /data</code> 来将/dev/sdc1进行重新挂载，挂载模式为只读</p>
@@ -212,27 +198,17 @@ gvfs-fuse-daemon on /home/beyond/.gvfs type fuse.gvfs-fuse-daemon (rw,nosuid,nod
 <code>mount -r -n -o remount /data</code></p>
 
 <p>最后测试下有没有成功改为只读模式：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#touch test
-#touch: cannot touch &#39;test&#39;: Read-only file system</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>#touch test
+#touch: cannot touch 'test': Read-only file system
+</code></pre>
+
 <p>上面的方法有点复杂了，来点简单粗暴的,直接卸载磁盘：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># fuser -k /data
-umount /data</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code># fuser -k /data
+umount /data
+</code></pre>
+
 <h2 id="步骤二-安装数据恢复软件extundelete">步骤二：安装数据恢复软件extundelete</h2>
 
 <ol>
@@ -240,20 +216,12 @@ umount /data</pre></td></tr></table>
 <li>安装依赖包<code>yum -y install e2fsprogs e2fsprogs-libs e2fsprogs-devel</code></li>
 
 <li><p>解压并安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">tar -xvf extundelete-0.2.4.tar.bz2
+
+<pre><code>tar -xvf extundelete-0.2.4.tar.bz2
 ./confiuger
 make
-sudo make install</pre></td></tr></table>
-</div>
-</div></li>
+sudo make install
+</code></pre></li>
 </ol>
 
 <h3 id="步骤三-数据恢复">步骤三：数据恢复</h3>
@@ -263,90 +231,54 @@ sudo make install</pre></td></tr></table>
 <code>extundelete /dev/sdb2 --inode id(此处的id就是上面的id,2一般代码根目录)</code></p></li>
 
 <li><p>从上面可以得到被删除的文件名，如果文件不是很多可以用下面的命令恢复：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">开始恢复单个文件
+
+<pre><code>开始恢复单个文件
 # extundelete /dev/sdc1 --restore-file test(test是你    从上面查看的文件名，要恢复文件的名字)
 恢复一个目录
-# extundelete /dev/sdc1 --restore-directory test</pre></td></tr></table>
-</div>
-</div>
+# extundelete /dev/sdc1 --restore-directory test
+</code></pre>
+
 <p>上面都是默认将恢复的数据拷贝到当前目录的RECOVERED_FILES目录中，所以千万要注意你当前文件夹的容量一定要大于要恢复文件的大小，否则就会放不小。</p>
 
 <p>如果删除的东西很多，最好用全盘恢复，命令如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># extundelete /dev/sdc1 --restore-all</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code># extundelete /dev/sdc1 --restore-all
+</code></pre></li>
 
 <li><p>还可以从时间来恢复和结点来恢复文件</p>
 
 <h4 id="根据时间来恢复文件">根据时间来恢复文件</h4>
 
 <p>删除文件的时候应该记的，我们可以恢复从这个时间之后被删除的文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># date -d &#34;2015-04-03 16:00:00&#34; +%s
+
+<pre><code># date -d &quot;2015-04-03 16:00:00&quot; +%s
 1428048000
-# extundelete --restore-all --after &#34;1428048000&#34; /data</pre></td></tr></table>
-</div>
-</div>
+# extundelete --restore-all --after &quot;1428048000&quot; /data
+</code></pre>
+
 <h4 id="根据inode来恢复文件">根据inode来恢复文件</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">ls -id /data
+
+<pre><code>ls -id /data
 1234
-# extundelete --restore-inode 1234 /deb/sdc1</pre></td></tr></table>
-</div>
-</div>
+# extundelete --restore-inode 1234 /deb/sdc1
+</code></pre>
+
 <p>最后从实际效果来看还是基本都恢复了。最好用restore-all选项来恢复。</p></li>
 </ol>
 
 <p>从这次血的教训，还是对rm命令启用别名，防止沉默式删除。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">vim /etc/rc 或者 /etc/zshrc
+
+<pre><code>vim /etc/rc 或者 /etc/zshrc
 
 # do not delete / or prompt if deleting more than 3 files at a time #
-alias rm=&#39;rm -I --preserve-root&#39;
+alias rm='rm -I --preserve-root'
 
 # 都进行提示 #
-alias mv=&#39;mv -i&#39;
-alias cp=&#39;cp -i&#39;
-alias ln=&#39;ln -i&#39;</pre></td></tr></table>
-</div>
-</div>
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
+</code></pre>
+
 <h3 id="参考">参考：</h3>
 
 <ol>

@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2015-04-13T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2015-04-13T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="460">
+<meta itemprop="wordCount" content="413">
 
 
 
@@ -220,53 +220,8 @@
 </div>
 </div>
 <p>运行上面的代码的结果如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">beyond@birdcat:~/code/code-python|⇒  python ds_store_view.py ~/.DS_Store
+
+<pre><code>beyond@birdcat:~/code/code-python|⇒  python ds_store_view.py ~/.DS_Store
 [*] .oh-my-zsh
 [*] hacker
 [*] code
@@ -307,37 +262,26 @@
 [*] .viminfo
 [*] Library
 [*] Pictures
-[*] .vim</pre></td></tr></table>
-</div>
-</div>
+[*] .vim
+</code></pre>
+
 <h2 id="删除-ds-store">删除.DS_Store</h2>
 
 <p>直接在终端下输入下面命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">find / -name &#34;.DS_Store&#34; -delete</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>find / -name &quot;.DS_Store&quot; -delete
+</code></pre>
+
 <h2 id="禁止-ds-store文件生成">禁止.DS_Store文件生成</h2>
 
 <p>在终端下面输入下面命令，就可以了,<strong>注意一定要sudo权限才可以的,改好后要注销用户或者重启系统</strong>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">禁止.DS_store生成：
+
+<pre><code>禁止.DS_store生成：
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 恢复.DS_store生成：
-defaults delete com.apple.desktopservices DSDontWriteNetworkStores</pre></td></tr></table>
-</div>
-</div>
+defaults delete com.apple.desktopservices DSDontWriteNetworkStores
+</code></pre>
+
 <h2 id="参考">参考</h2>
 
 <ol>

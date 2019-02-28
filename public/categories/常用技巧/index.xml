@@ -44,7 +44,7 @@
       <pubDate>Sat, 21 May 2016 00:00:00 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/osx-szrz%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
-      <description>安装步骤 安装lrzsz软件 1 brew install lrzsz 将https://github.com/mmastrac/iterm2-zmodem下载的 iterm2-send-zmodem.sh and iterm2</description>
+      <description>安装步骤 安装lrzsz软件 brew install lrzsz 将https://github.com/mmastrac/iterm2-zmodem下载的 iterm2-send-zmodem.sh and iterm2-</description>
     </item>
     
     <item>
@@ -89,7 +89,7 @@
       <pubDate>Tue, 22 Dec 2015 00:00:00 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/pandoc%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
-      <description>在mac os x下面安装pandoc：brew install pandoc 直接将md文件转化成html文件,没有css样式： 1 pandoc test.md -o test.html 使用指定的css文件样式，可以生成</description>
+      <description>在mac os x下面安装pandoc：brew install pandoc 直接将md文件转化成html文件,没有css样式： pandoc test.md -o test.html 使用指定的css文件样式，可以生成g</description>
     </item>
     
     <item>

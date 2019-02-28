@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2015-07-10T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2015-07-10T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="702">
+<meta itemprop="wordCount" content="693">
 
 
 
@@ -175,56 +175,32 @@
 
 <ol>
 <li><p>第一步就是先找到用shell脚本来实现全局代理的打开与关闭的方法，具体见下面参考[1], 先是想改相应的配置文件，就是/Library/Preferences/SystemConfiguration/preferences.plist，这里面是xml有proxy的选项。但是用networksetup 命令来修改更加简单,主要有命令如下Wi-Fi可以通过选项-listallnetworkservices来查到的。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">networksetup -setwebproxystate Wi-Fi on 
+
+<pre><code>networksetup -setwebproxystate Wi-Fi on 
 networksetup -setsecurewebproxystate Wi-Fi on
 networksetup -setftpproxystate Wi-Fi on
-networksetup -setsocksfirewallproxystate Wi-Fi on</pre></td></tr></table>
-</div>
-</div></li>
+networksetup -setsocksfirewallproxystate Wi-Fi on
+</code></pre></li>
 
 <li><p>第二步就是编写相应的插件了,可以直接添加相应的模板：</p>
 
 <p><img src="/imgs/Alfred2插件/4.png" alt="4" /></p></li>
 
 <li><p>如果直接用上面的shell 脚本命令添加到上图中的shell脚本中就会权限问题，每次运行都要输入密码，就要输入四次，这是很烦人的。具体见下面参考[2],方法就是用osascript命令来执行上面的命令，最后只要输入一次密码就可以了。具体代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">osascript -e  &#34;do shell script \&#34;networksetup -setwebproxystate Wi-Fi {query} &amp;&amp;   networksetup -setsecurewebproxystate Wi-Fi {query} &amp;&amp; networksetup -setftpproxystate Wi-Fi {query} &amp;&amp; networksetup -setsocksfirewallproxystate Wi-Fi {query};\&#34; with administrator privileges&#34;</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>osascript -e  &quot;do shell script \&quot;networksetup -setwebproxystate Wi-Fi {query} &amp;&amp;   networksetup -setsecurewebproxystate Wi-Fi {query} &amp;&amp; networksetup -setftpproxystate Wi-Fi {query} &amp;&amp; networksetup -setsocksfirewallproxystate Wi-Fi {query};\&quot; with administrator privileges&quot;
+</code></pre></li>
 
 <li><p>上面的只是实现了proxy on则打开代理，proxy off则关闭代理。但是受到wifi toggle这个插件的启发，觉的直接输入proxy，让他自己判断，如果是关的就打开，如果是开的就关闭。具体的代码如下（echo 后面的内容会输出到通知栏里面很不错的）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>
-networksetup -getwebproxy Wi-Fi <span class="p">|</span> grep <span class="s1">&#39;No&#39;</span> <span class="p">&amp;</span>&gt;/dev/null <span class="o">&amp;&amp;</span> <span class="nv">var</span><span class="o">=</span>on <span class="o">||</span> <span class="nv">var</span><span class="o">=</span>off 
 
-osascript -e  <span class="s2">&#34;do shell script \&#34;networksetup -setwebproxystate Wi-Fi </span><span class="nv">$var</span><span class="s2"> &amp;&amp; networksetup -setsecurewebproxystate Wi-Fi </span><span class="nv">$var</span><span class="s2"> &amp;&amp; networksetup -setftpproxystate Wi-Fi </span><span class="nv">$var</span><span class="s2"> &amp;&amp; networksetup -setsocksfirewallproxystate Wi-Fi </span><span class="nv">$var</span><span class="s2">;\&#34; with administrator privileges&#34;</span>
+<pre><code>#!/bin/bash
 
-<span class="nb">echo</span> <span class="s2">&#34;global proxy is </span><span class="nv">$var</span><span class="s2">&#34;</span></pre></td></tr></table>
-</div>
-</div></li>
+networksetup -getwebproxy Wi-Fi | grep 'No' &amp;&gt;/dev/null &amp;&amp; var=on || var=off 
+
+osascript -e  &quot;do shell script \&quot;networksetup -setwebproxystate Wi-Fi $var &amp;&amp; networksetup -setsecurewebproxystate Wi-Fi $var &amp;&amp; networksetup -setftpproxystate Wi-Fi $var &amp;&amp; networksetup -setsocksfirewallproxystate Wi-Fi $var;\&quot; with administrator privileges&quot;
+
+echo &quot;global proxy is $var&quot;
+</code></pre></li>
 </ol>
 
 <h4 id="参考">参考</h4>

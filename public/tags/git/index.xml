@@ -6,10 +6,62 @@
     <description>Recent content in git on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Feb 2019 11:22:14 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Feb 2019 15:07:41 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>基础git命令收集</title>
+      <link>https://beyondkmp.com/post/git_commands/</link>
+      <pubDate>Thu, 28 Feb 2019 15:07:41 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/git_commands/</guid>
+      <description>&lt;h2 id=&#34;打标签&#34;&gt;打标签&lt;/h2&gt;
+
+&lt;h3 id=&#34;列出所有标签&#34;&gt;列出所有标签&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;git tag
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;列出特定标签&#34;&gt;列出特定标签&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;git tag -l &#39;v1.8.5*&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;显示标签详细信息&#34;&gt;显示标签详细信息&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;git show v1.5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;创建标签&#34;&gt;创建标签&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;# 轻量标签(很像一个不会改变的分支)
+git tag v1.4-lw
+
+# 附注标签
+git tag -a v1.4 -m &#39;my version 1.4&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;后期打标签&#34;&gt;后期打标签&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;git tag -a v1.2 9fceb02
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;上传标签&#34;&gt;上传标签&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;git push origin --tags
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;删除标签&#34;&gt;删除标签&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;# 本地删除
+git tag -d v1.4-lw
+
+# 远程删除( git push &amp;lt;remote&amp;gt; :refs/tags/&amp;lt;tagname&amp;gt; )
+git push origin :refs/tags/v1.4-lw
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     
     <item>
       <title>git删除分支</title>

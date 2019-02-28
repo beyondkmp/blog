@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2016-05-21T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2016-05-21T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="474">
+<meta itemprop="wordCount" content="465">
 
 
 
@@ -163,42 +163,25 @@
 
 <ol>
 <li><p>安装lrzsz软件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">brew install lrzsz</pre></td></tr></table>
-</div>
-</div></li>
+
+<pre><code>brew install lrzsz
+</code></pre></li>
 
 <li><p>将<a href="https://github.com/mmastrac/iterm2-zmodem">https://github.com/mmastrac/iterm2-zmodem</a>下载的 iterm2-send-zmodem.sh and iterm2-recv-zmodem.sh脚本保存到/usr/local/bin下面,并添加可执行权限</p></li>
 
 <li><p>在iTerm 2下面设置相应的Triggers,Triggers位于<code>Preferences-&gt;Profiles-&gt;Advanced-&gt;Triggers</code>,直接edit就会出现下面的界面:</p>
 
 <p><img src="/imgs/osx-szrz使用/1.png" alt="triggers" /></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">具体的内容如下:
+
+<pre><code>具体的内容如下:
 Regular expression: rz waiting to receive.\*\*B0100
 Action: Run Silent Coprocess
 Parameters: /usr/local/bin/iterm2-send-zmodem.sh
 
 Regular expression: \*\*B00000000000000
 Action: Run Silent Coprocess
-Parameters: /usr/local/bin/iterm2-recv-zmodem.sh</pre></td></tr></table>
-</div>
-</div></li>
+Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
+</code></pre></li>
 </ol>
 
 <h2 id="使用方法">使用方法</h2>

@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-01-23T10:33:23&#43;08:00" />
 <meta itemprop="dateModified" content="2019-01-23T10:33:23&#43;08:00" />
-<meta itemprop="wordCount" content="266">
+<meta itemprop="wordCount" content="265">
 
 
 
@@ -160,14 +160,10 @@
       <h2 id="问题">问题</h2>
 
 <p>昨天升级了xcode, 好久没有升级了，而且zsh也没有升级。一升级完，iTerm2和系统自带的终端就直接崩溃了。报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">dyld: Library not loaded: /usr/local/opt/gdbm/lib/libgdbm.4.dylib</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>dyld: Library not loaded: /usr/local/opt/gdbm/lib/libgdbm.4.dylib
+</code></pre>
+
 <p><img src="/imgs/zsh_crash.jpg" alt="zsh_crash" /></p>
 
 <h2 id="解决方法">解决方法</h2>

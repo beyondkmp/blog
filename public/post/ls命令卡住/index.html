@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2017-07-05T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2017-07-05T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1701">
+<meta itemprop="wordCount" content="1664">
 
 
 
@@ -165,14 +165,10 @@
 <p>当一个文件夹里面包含上百万的文件时，直接<code>ls</code>经常会卡死。</p>
 
 <p>用<code>ls -1 -f</code>则可以立即显示所有文件。如果我们要删除这个大文件夹里面的所有文件，我们应该用下面的命令来删除</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">ls -1 -f | xargs rm</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>ls -1 -f | xargs rm
+</code></pre>
+
 <p>当你删除了非常多不想要的文件时，你很有可能会导致生成一个非常大并且稀疏的文件夹对象。一个拥有300百万文件的文件夹，除了这些文件自身占用的空间外，这个文件夹对象可能会占用到100Mb的空间。</p>
 
 <p>你可能会想到重建这个文件夹来释放这些空间。但是如果这个文件夹是/tmp目录，在单用户模式下我们处理的时候要非常小心。</p>
@@ -186,26 +182,8 @@
 <p>下面是我们对一个包含300万文件的文件夹做的测试。这些文件的文件名是这样的：test_file_a_1, test_file_a_2&hellip;直到test_file_a_3000000。使用Perl脚本按照数字的顺序来创建这些文件。</p>
 
 <p><code>ls -f -1</code>用来列举开始的一部分文件，几乎是瞬间返回</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">bash-4.2$ time ls -1 -f | head
+
+<pre><code>bash-4.2$ time ls -1 -f | head
 .
 ..
 test_file_a_2531963
@@ -219,30 +197,12 @@ test_file_a_311007
 
 real	0m0.006s
 user	0m0.000s
-sys	0m0.008s</pre></td></tr></table>
-</div>
-</div>
+sys	0m0.008s
+</code></pre>
+
 <p>接下来我们去除<code>-1 -f</code> 参数，则<code>ls</code>命令大概用了57s，比之前慢了约10000倍。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">bash-4.2$ time /bin/ls | head
+
+<pre><code>bash-4.2$ time /bin/ls | head
 test_file_a_1
 test_file_a_10
 test_file_a_100
@@ -256,9 +216,9 @@ test_file_a_1000003
 
 real	0m57.880s
 user	0m55.644s
-sys	0m2.121s</pre></td></tr></table>
-</div>
-</div>
+sys	0m2.121s
+</code></pre>
+
 <p>不仅时间上非常慢，第二种方式的命令还会占用更多的内存。在打印文件名的阶段，<code>ls</code>命令会存储300万个文件名，最终将使用507Mb内存. 而<code>ls -f -1</code>命令使用的内存都没有超过4.5Mb，几乎少了100倍。</p>
 
 <h2 id="一种-ext3-ext4-bug">一种 ext3/ext4 bug?</h2>
@@ -276,31 +236,19 @@ Ext2文件系统有时会和ext3和ext4一样，乱序返回文件名（比如�
 <h2 id="程序hanging住了-spy-on-it">程序HANGING住了？ Spy on it.</h2>
 
 <p>作为<code>ls -1 -f</code>命令的一种替代，或者有时这个命令不能用时，有时我们可以用strace(Linux)或者truss(Solaris)来监测一个程序并从中探听到一些有用的信息。我第一次看这种巧妙的方法的时候，是我看到我同事Neil Dixon使用来他来监测一个在非常大的/tmp目录下hang住的<code>ls</code>进程.在一个终端下 :</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">cd verybigdir
-ls -l &gt;/dev/null</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>cd verybigdir
+ls -l &gt;/dev/null
+</code></pre>
+
 <p>让上面的命令一直跑着，然后我们获取ls进程id,然后从另外一个终端窗口来监视他，并显示出所有文件。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">[root@saturn ~]# strace -p 3963 2&gt;&amp;1 | grep lstat
+
+<pre><code>[root@saturn ~]# strace -p 3963 2&gt;&amp;1 | grep lstat
 lstat64(“test_file_a_2433028”, {st_mode=S_IFREG|0664, st_size=0, …}) = 0
 lstat64(“test_file_a_2047256”, {st_mode=S_IFREG|0664, st_size=0, …}) = 0
-lstat64(“test_file_a_1201573”, {st_mode=S_IFREG|0664, st_size=0, …}) = 0</pre></td></tr></table>
-</div>
-</div>
+lstat64(“test_file_a_1201573”, {st_mode=S_IFREG|0664, st_size=0, …}) = 0
+</code></pre>
+
 <p>你就可以立马看到所有文件名了。如果你想删除他们，则可以用awk命令过滤出文件名并删除他们。</p>
 
 <p>我认为这个方法可以用到探测其它程序。已经有人开始使用这种方法了，比如，比如检测一个备份程序，一个非常大的find/cpio job或者就是一个非常大的cp的具体的进度。</p>

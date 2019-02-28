@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2015-04-14T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2015-04-14T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="651">
+<meta itemprop="wordCount" content="650">
 
 
 
@@ -191,14 +191,10 @@
 <p><img src="/imgs/excel/3.png" alt="3" /></p>
 
 <p>(3) 但是F2输入框中显示的是<code>#N/A</code>，传到后台程序会读取成<code>#N/A</code>，但是若想让空值显示为空，则使用IF函数和ISNA函数搭配，最终的函数为</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">=IF(ISNA(VLOOKUP(D2,Sheet1!$A$2:$B$4,2,FALSE)),&#34;&#34;,VLOOKUP(D2,Sheet1!$A$2:$B$4,2,FALSE))</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>=IF(ISNA(VLOOKUP(D2,Sheet1!$A$2:$B$4,2,FALSE)),&quot;&quot;,VLOOKUP(D2,Sheet1!$A$2:$B$4,2,FALSE))
+</code></pre>
+
 <p><img src="/imgs/excel/4.png" alt="4" /></p>
 
 <p>(4) 再者就是要实现多行都使用这个公式了。直接从F2输入框往下拖动，就可以实现D列选值后value直接写到F列</p>

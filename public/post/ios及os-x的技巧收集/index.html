@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2015-04-10T00:00:00&#43;08:00" />
 <meta itemprop="dateModified" content="2015-04-10T00:00:00&#43;08:00" />
-<meta itemprop="wordCount" content="1041">
+<meta itemprop="wordCount" content="1031">
 
 
 
@@ -231,16 +231,11 @@
 <h3 id="技巧四-显示隐藏文件">技巧四：显示隐藏文件</h3>
 
 <p>打开终端，输入下面的命令，并重启Finder就可以了。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">defaults write com.apple.finder AppleShowAllFiles -bool true  #这是显示
-defaults write com.apple.finder AppleShowAllFiles -bool false  #这是隐藏</pre></td></tr></table>
-</div>
-</div>
+
+<pre><code>defaults write com.apple.finder AppleShowAllFiles -bool true  #这是显示
+defaults write com.apple.finder AppleShowAllFiles -bool false  #这是隐藏
+</code></pre>
+
 <h3 id="技巧五-选择默认程序">技巧五：选择默认程序</h3>
 
 <ul>
@@ -251,28 +246,17 @@ defaults write com.apple.finder AppleShowAllFiles -bool false  #这是隐藏</pr
 <p><img src="/imgs/ios及os的技巧收集/4.png" alt="选择默认程序" /></p>
 
 <h2 id="技巧六-输入法安装文件的位置">技巧六：输入法安装文件的位置</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">beyond@birdcat:/Library/Input Methods|
+
+<pre><code>beyond@birdcat:/Library/Input Methods|
 ⇒  pwd
 /Library/Input Methods
 beyond@birdcat:/Library/Input Methods|
 ⇒  ls
 SogouWBInput.app WBIM.app
 beyond@birdcat:/Library/Input Methods|
-⇒</pre></td></tr></table>
-</div>
-</div>
+⇒
+</code></pre>
+
 <h2 id="技巧七-修改caps-lock与control之间的重映射">技巧七：修改Caps lock与control之间的重映射</h2>
 
 <p>在Apple Menu -&gt; System Preferneces -&gt;Keyboard -&gt; 修饰键，如下图：</p>
