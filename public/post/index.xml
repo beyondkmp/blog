@@ -6,10 +6,29 @@
     <description>Recent content in Posts on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 22 Feb 2019 21:19:44 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Feb 2019 14:51:59 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>技术blog收藏</title>
+      <link>https://beyondkmp.com/post/collections/</link>
+      <pubDate>Thu, 28 Feb 2019 14:51:59 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/collections/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://mysql.taobao.org/monthly/&#34;&gt;淘宝的数据库内核月报&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;kubernets&#34;&gt;kubernets&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://draveness.me/&#34;&gt;面向信仰编程(Draveness&amp;rsquo;s Blog)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;k8s的原理讲的非常详细，并且付有详细的代码解释&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
     
     <item>
       <title>nginx配置参考</title>

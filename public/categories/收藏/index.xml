@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>收藏 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/categories/%E6%94%B6%E8%97%8F/</link>
+    <description>Recent content in 收藏 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 28 Feb 2019 14:51:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/categories/%E6%94%B6%E8%97%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>技术blog收藏</title>
+      <link>https://beyondkmp.com/post/collections/</link>
+      <pubDate>Thu, 28 Feb 2019 14:51:59 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/collections/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://mysql.taobao.org/monthly/&#34;&gt;淘宝的数据库内核月报&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;kubernets&#34;&gt;kubernets&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://draveness.me/&#34;&gt;面向信仰编程(Draveness&amp;rsquo;s Blog)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;k8s的原理讲的非常详细，并且付有详细的代码解释&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
