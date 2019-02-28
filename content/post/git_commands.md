@@ -31,6 +31,8 @@ git tag -l 'v1.8.5*'
 git show v1.5
 ```
 
+<!--more-->
+
 ### 创建标签
 
 ```
@@ -62,11 +64,6 @@ git tag -d v1.4-lw
 # 远程删除( git push <remote> :refs/tags/<tagname> )
 git push origin :refs/tags/v1.4-lw
 ```
-
-
-
-<!--more-->
-
 
 
 ## 参考

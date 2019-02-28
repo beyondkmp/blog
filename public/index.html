@@ -146,34 +146,6 @@
 
 <pre><code>git show v1.5
 </code></pre>
-
-<h3 id="创建标签">创建标签</h3>
-
-<pre><code># 轻量标签(很像一个不会改变的分支)
-git tag v1.4-lw
-
-# 附注标签
-git tag -a v1.4 -m 'my version 1.4'
-</code></pre>
-
-<h3 id="后期打标签">后期打标签</h3>
-
-<pre><code>git tag -a v1.2 9fceb02
-</code></pre>
-
-<h3 id="上传标签">上传标签</h3>
-
-<pre><code>git push origin --tags
-</code></pre>
-
-<h3 id="删除标签">删除标签</h3>
-
-<pre><code># 本地删除
-git tag -d v1.4-lw
-
-# 远程删除( git push &lt;remote&gt; :refs/tags/&lt;tagname&gt; )
-git push origin :refs/tags/v1.4-lw
-</code></pre>
     </div>
     <div class="read-more">
       <a href="/post/git_commands/" class="read-more-link">Read more..</a>

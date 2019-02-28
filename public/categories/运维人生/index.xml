@@ -32,34 +32,6 @@
 &lt;h3 id=&#34;显示标签信息&#34;&gt;显示标签信息&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;git show v1.5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;创建标签&#34;&gt;创建标签&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;# 轻量标签(很像一个不会改变的分支)
-git tag v1.4-lw
-
-# 附注标签
-git tag -a v1.4 -m &#39;my version 1.4&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;后期打标签&#34;&gt;后期打标签&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;git tag -a v1.2 9fceb02
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;上传标签&#34;&gt;上传标签&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;git push origin --tags
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;删除标签&#34;&gt;删除标签&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;# 本地删除
-git tag -d v1.4-lw
-
-# 远程删除( git push &amp;lt;remote&amp;gt; :refs/tags/&amp;lt;tagname&amp;gt; )
-git push origin :refs/tags/v1.4-lw
 &lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
