@@ -38,7 +38,7 @@
 &lt;pre&gt;&lt;code&gt;git tag -l &#39;v1.8.5*&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;显示标签详细信息&#34;&gt;显示标签详细信息&lt;/h3&gt;
+&lt;h3 id=&#34;显示标签信息&#34;&gt;显示标签信息&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;git show v1.5
 &lt;/code&gt;&lt;/pre&gt;
