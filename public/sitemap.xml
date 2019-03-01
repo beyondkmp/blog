@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/post/golang_json_marshal/</loc>
+    <lastmod>2019-03-01T11:14:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/post/git_commands/</loc>
     <lastmod>2019-02-28T15:07:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -605,7 +612,7 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-02-28T15:07:41+08:00</lastmod>
+    <lastmod>2019-03-01T11:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -709,15 +716,15 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/golang/</loc>
-    <lastmod>2017-01-08T00:00:00+08:00</lastmod>
+    <loc>https://beyondkmp.com/categories/golang/</loc>
+    <lastmod>2019-03-01T11:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/golang/</loc>
-    <lastmod>2019-01-15T01:10:20+08:00</lastmod>
+    <loc>https://beyondkmp.com/tags/golang/</loc>
+    <lastmod>2017-01-08T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -816,6 +823,13 @@
   <url>
     <loc>https://beyondkmp.com/tags/jetbraind/</loc>
     <lastmod>2015-05-07T00:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/json-marshal/</loc>
+    <lastmod>2019-03-01T11:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1010,14 +1024,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/scala/</loc>
+    <loc>https://beyondkmp.com/categories/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/scala/</loc>
+    <loc>https://beyondkmp.com/tags/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -1068,6 +1082,13 @@
   <url>
     <loc>https://beyondkmp.com/tags/vagrant/</loc>
     <lastmod>2018-10-22T10:50:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/var/</loc>
+    <lastmod>2019-03-01T11:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1192,14 +1213,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -1409,14 +1430,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/%E6%94%B6%E8%97%8F/</loc>
+    <loc>https://beyondkmp.com/categories/%E6%94%B6%E8%97%8F/</loc>
     <lastmod>2019-02-28T14:51:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/%E6%94%B6%E8%97%8F/</loc>
+    <loc>https://beyondkmp.com/tags/%E6%94%B6%E8%97%8F/</loc>
     <lastmod>2019-02-28T14:51:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>

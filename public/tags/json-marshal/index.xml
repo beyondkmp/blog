@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>golang on Kmp - beyondkmp&#39;s new hugo blog</title>
-    <link>https://beyondkmp.com/categories/golang/</link>
-    <description>Recent content in golang on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <title>json marshal on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/json-marshal/</link>
+    <description>Recent content in json marshal on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 01 Mar 2019 11:14:02 +0800</lastBuildDate>
     
-	<atom:link href="https://beyondkmp.com/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://beyondkmp.com/tags/json-marshal/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -72,46 +72,6 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Golang Channel</title>
-      <link>https://beyondkmp.com/post/channel/</link>
-      <pubDate>Tue, 15 Jan 2019 01:10:20 +0800</pubDate>
-      
-      <guid>https://beyondkmp.com/post/channel/</guid>
-      <description>&lt;h1 id=&#34;channel基础语法&#34;&gt;channel基础语法&lt;/h1&gt;
-
-&lt;h1 id=&#34;channel常见实例&#34;&gt;channel常见实例&lt;/h1&gt;
-
-&lt;h1 id=&#34;channel&#34;&gt;channel&lt;/h1&gt;</description>
-    </item>
-    
-    <item>
-      <title>glide使用总结</title>
-      <link>https://beyondkmp.com/post/glide%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Tue, 30 May 2017 00:00:00 +0800</pubDate>
-      
-      <guid>https://beyondkmp.com/post/glide%E4%BD%BF%E7%94%A8/</guid>
-      <description>当我们从github下载开源的go项目时，开源项目一般都会引入很多其它的开源库，这样我们直接去编译的时候就会提示缺少哪些库，然后一个一个用g</description>
-    </item>
-    
-    <item>
-      <title>golang时间格式转换</title>
-      <link>https://beyondkmp.com/post/golang-%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/</link>
-      <pubDate>Sun, 08 Jan 2017 00:00:00 +0800</pubDate>
-      
-      <guid>https://beyondkmp.com/post/golang-%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/</guid>
-      <description>将YYYYmmddHHDD类型的时间转化成unix时间戳 1 2 3 4 5 6 7 8 9 10 11 12 13 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;time&amp;#34; ) func main() { stringTime := &amp;#34;201601010000&amp;#34; tmpTime, _ := time.ParseInLocation(&amp;#34;200601021504&amp;#34;, stringTime, time.Local) unixTime := tmpTime.Unix() fmt.Printf(&amp;#34;The Unix time of %v is %v\n&amp;#34;,</description>
-    </item>
-    
-    <item>
-      <title>go语言中高效字符串拼接</title>
-      <link>https://beyondkmp.com/post/go%E8%AF%AD%E8%A8%80%E4%B8%AD%E9%AB%98%E6%95%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5/</link>
-      <pubDate>Sun, 06 Mar 2016 00:00:00 +0800</pubDate>
-      
-      <guid>https://beyondkmp.com/post/go%E8%AF%AD%E8%A8%80%E4%B8%AD%E9%AB%98%E6%95%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5/</guid>
-      <description>目前主要有三种方法： 直接用&amp;rdquo;+=&amp;ldquo;操作符，直接将多个字符串拼接。最直观的方法，不过当数据量非常大时用这种拼接访求是非</description>
     </item>
     
   </channel>
