@@ -26,3 +26,8 @@ author: "beyondkmp"
     go语言的文章非常多，而且非常的干活！
 
 <!--more-->
+
+2. [domac的菜园子 coder at work](https://lihaoquan.me/)
+
+    鹅厂程序员, 喜欢折腾Go、Linux、分布式存储等技术。
+
