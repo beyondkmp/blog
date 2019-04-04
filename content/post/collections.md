@@ -21,11 +21,12 @@ author: "beyondkmp"
 
 ## golang
 
+<!--more-->
+
 1. [Tony Bai 一个程序员的心路历程](https://tonybai.com/)
 
     go语言的文章非常多，而且非常的干活！
 
-<!--more-->
 
 2. [domac的菜园子 coder at work](https://lihaoquan.me/)
 
