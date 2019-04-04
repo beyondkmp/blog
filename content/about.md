@@ -7,4 +7,4 @@ weight: 50
 
 ---
 
-I am interesting in golang , python, macos, linux.
+I am interesting in golang, python, macos, linux.
