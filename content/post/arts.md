@@ -2,9 +2,9 @@
 title: "arts训练"
 date: 2019-04-08T20:17:01+0800
 lastmod: 2019-04-08T20:17:01+0800
-draft: true
+draft: false
 keywords: ["arts"]
-description: ""
+description: "arts训练"
 tags: ["arts"]
 categories: ["arts"]
 author: "beyondkmp"
