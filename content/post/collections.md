@@ -32,6 +32,10 @@ author: "beyondkmp"
 
     鹅厂程序员, 喜欢折腾Go、Linux、分布式存储等技术。
 
+3. [Ryan Armstrong's Blog](http://cavaliercoder.com/)
+
+    dropbox工程师，gohper
+
 ## 国外技术blog
 
 1. [medium](https://medium.com/)
