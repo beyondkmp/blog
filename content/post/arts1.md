@@ -49,8 +49,6 @@ return its bottom-up level order traversal as:
 ### solution
 
 ```go
-package main
-
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -86,6 +84,10 @@ func levelOrderBottom(root *TreeNode) [][]int {
 }
 
 ```
+
+## result
+
+![result](/imgs/arts/1/result.png)
 
 # Review
 
