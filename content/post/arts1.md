@@ -87,13 +87,30 @@ func levelOrderBottom(root *TreeNode) [][]int {
 
 [The junior developer’s guide to writing super clean and readable code](https://medium.freecodecamp.org/the-junior-developers-guide-to-writing-super-clean-and-readable-code-cd2568e08aae)
 
-1. clean code要像文章一样, 结构清晰，有标题，小标题，章节，这样就能很快的看清楚整个架构
+clean code要像文章一样, 结构清晰，有标题，小标题，章节，这样就能很快的看清楚整个架构。文章整个都是代码类比文章，写代码就像写文章一样，要有明确的标题，章节，格式统一。
 
-怎么做
+## 怎么做
+
 1. 格式统一
-2.   
+2. 使用清晰的变量和方法名
+3. 在必要的时候使用注释
+4. 记住DRY原则(Don't Repeat Yourself)
+5. 不要过度，提前clean代码
+
 
 # Tip
+
+## golang tips
+
+1. `` `raw-string` ``, 多行时可以直接使用，相当于python里面的`"""`
+
+## markdown
+
+1. backticks输出backticks
+
+    ```
+    `` `test` ``
+    ```
 
 # Share
 
@@ -101,4 +118,5 @@ func levelOrderBottom(root *TreeNode) [][]int {
 # 参考
 
 1. [Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)
+2. [How do I escape a backtick ` within in-line code in Markdown? `](https://meta.stackexchange.com/questions/82718/how-do-i-escape-a-backtick-within-in-line-code-in-markdown)
 
