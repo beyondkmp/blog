@@ -85,6 +85,18 @@ func levelOrderBottom(root *TreeNode) [][]int {
 
 # Review
 
+[The junior developer’s guide to writing super clean and readable code](https://medium.freecodecamp.org/the-junior-developers-guide-to-writing-super-clean-and-readable-code-cd2568e08aae)
+
+1. clean code要像文章一样, 结构清晰，有标题，小标题，章节，这样就能很快的看清楚整个架构
+
+怎么做
+1. 格式统一
+2.   
+
+# Tip
+
+# Share
+
 
 # 参考
 
