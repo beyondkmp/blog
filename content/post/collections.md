@@ -32,3 +32,13 @@ author: "beyondkmp"
 
     鹅厂程序员, 喜欢折腾Go、Linux、分布式存储等技术。
 
+## 国外技术blog
+
+1. [medium](https://medium.com/)
+
+    看上去非常清爽，技术内容也非常丰富
+
+2. [Netflix TechBlog](https://medium.com/netflix-techblog)
+
+    netflix公司的技术博客
+
