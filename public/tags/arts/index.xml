@@ -17,11 +17,11 @@
       <pubDate>Tue, 09 Apr 2019 15:12:14 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/arts1/</guid>
-      <description>&lt;h2 id=&#34;algorithm&#34;&gt;Algorithm&lt;/h2&gt;
+      <description>&lt;h1 id=&#34;algorithm&#34;&gt;Algorithm&lt;/h1&gt;
 
-&lt;h3 id=&#34;binary-tree-level-order-traversal-ii&#34;&gt;Binary Tree Level Order Traversal II&lt;/h3&gt;
+&lt;h2 id=&#34;binary-tree-level-order-traversal-ii&#34;&gt;Binary Tree Level Order Traversal II&lt;/h2&gt;
 
-&lt;h4 id=&#34;description&#34;&gt;description&lt;/h4&gt;
+&lt;h3 id=&#34;description&#34;&gt;description&lt;/h3&gt;
 
 &lt;p&gt;Given a binary tree, return the bottom-up level order traversal of its nodes&amp;rsquo; values. (ie, from left to right, level by level from leaf to root).&lt;/p&gt;
 

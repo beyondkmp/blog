@@ -11,11 +11,11 @@ author: "beyondkmp"
 
 ---
 
-## Algorithm 
+# Algorithm 
 
-### Binary Tree Level Order Traversal II
+## Binary Tree Level Order Traversal II
 
-#### description
+### description
 
 Given a binary tree, return the bottom-up level order traversal of its nodes' values. (ie, from left to right, level by level from leaf to root).
 
@@ -42,7 +42,7 @@ return its bottom-up level order traversal as:
 
 <!--more-->
 
-#### solution
+### solution
 
 ```go
 package main
@@ -82,4 +82,9 @@ func levelOrderBottom(root *TreeNode) [][]int {
 }
 
 ```
+
+
+# 参考
+
+1. [Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)
 
