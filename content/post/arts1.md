@@ -42,6 +42,10 @@ return its bottom-up level order traversal as:
 
 <!--more-->
 
+### thought
+
+使用bfs算法，每次递归的时候level+1, 这样相同层的节点就可以加到一起。golang这里有个小trick, 每次要判断下level是不是大于或等于len(result), 如果是就要添加一个新的数组。最后再将结果反转一下就是从底层到顶层的顺序。
+
 ### solution
 
 ```go
@@ -118,5 +122,5 @@ clean code要像文章一样, 结构清晰，有标题，小标题，章节，�
 # 参考
 
 1. [Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)
-2. [How do I escape a backtick ` within in-line code in Markdown? `](https://meta.stackexchange.com/questions/82718/how-do-i-escape-a-backtick-within-in-line-code-in-markdown)
+2. [How do I escape a backtick](https://meta.stackexchange.com/questions/82718/how-do-i-escape-a-backtick-within-in-line-code-in-markdown)
 

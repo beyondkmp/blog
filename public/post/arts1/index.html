@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-04-09T15:12:14&#43;08:00" />
 <meta itemprop="dateModified" content="2019-04-09T15:12:14&#43;08:00" />
-<meta itemprop="wordCount" content="455">
+<meta itemprop="wordCount" content="574">
 
 
 
@@ -146,6 +146,7 @@
 <li><a href="#binary-tree-level-order-traversal-ii">Binary Tree Level Order Traversal II</a>
 <ul>
 <li><a href="#description">description</a></li>
+<li><a href="#thought">thought</a></li>
 <li><a href="#solution">solution</a></li>
 </ul></li>
 </ul></li>
@@ -191,6 +192,10 @@ Given binary tree [3,9,20,null,null,15,7],</p>
   [3]
 ]
 </code></pre>
+
+<h3 id="thought">thought</h3>
+
+<p>使用bfs算法，每次递归的时候level+1, 这样相同层的节点就可以加到一起。golang这里有个小trick, 每次要判断下level是不是大于或等于len(result), 如果是就要添加一个新的数组。最后再将结果反转一下就是从底层到顶层的顺序。</p>
 
 <h3 id="solution">solution</h3>
 <div class="highlight"><div class="chroma">
@@ -308,7 +313,7 @@ Given binary tree [3,9,20,null,null,15,7],</p>
 
 <ol>
 <li><a href="https://leetcode.com/problems/binary-tree-level-order-traversal-ii/">Binary Tree Level Order Traversal II</a></li>
-<li><a href="https://meta.stackexchange.com/questions/82718/how-do-i-escape-a-backtick-within-in-line-code-in-markdown">How do I escape a backtick <code>within in-line code in Markdown?</code></a></li>
+<li><a href="https://meta.stackexchange.com/questions/82718/how-do-i-escape-a-backtick-within-in-line-code-in-markdown">How do I escape a backtick</a></li>
 </ol>
     </div>
 
