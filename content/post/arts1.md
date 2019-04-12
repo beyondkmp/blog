@@ -120,6 +120,7 @@ clean code要像文章一样, 结构清晰，有标题，小标题，章节，�
 
 # Share
 
+[使用nginx和uwsgi部署flask应用](https://github.com/beyondkmp/flask_deploy)
 
 # 参考
 
