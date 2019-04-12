@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-04-09T15:12:14&#43;08:00" />
 <meta itemprop="dateModified" content="2019-04-12T18:19:54&#43;08:00" />
-<meta itemprop="wordCount" content="593">
+<meta itemprop="wordCount" content="680">
 
 
 
@@ -199,78 +199,101 @@ Given binary tree [3,9,20,null,null,15,7],</p>
 <p>使用bfs算法，每次递归的时候level+1, 这样相同层的节点就可以加到一起。golang这里有个小trick, 每次要判断下level是不是大于或等于len(result), 如果是就要添加一个新的数组。最后再将结果反转一下就是从底层到顶层的顺序。</p>
 
 <h3 id="solution">solution</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="cm">/**
-</span><span class="cm"> * Definition for a binary tree node.
-</span><span class="cm"> * type TreeNode struct {
-</span><span class="cm"> *     Val int
-</span><span class="cm"> *     Left *TreeNode
-</span><span class="cm"> *     Right *TreeNode
-</span><span class="cm"> * }
-</span><span class="cm"> */</span>
-<span class="kd">func</span> <span class="nf">levelOrderBottom</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span> <span class="p">[][]</span><span class="kt">int</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">result</span> <span class="p">[][]</span><span class="kt">int</span>
-    <span class="kd">var</span> <span class="nx">traverse</span> <span class="kd">func</span><span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">,</span> <span class="nx">level</span> <span class="kt">int</span><span class="p">)</span>
 
-    <span class="nx">traverse</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">,</span> <span class="nx">level</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="nx">head</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-            <span class="k">return</span>
-        <span class="p">}</span>
+<ol>
+<li><p>递归版本</p>
 
-        <span class="k">if</span> <span class="nx">level</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">result</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{})</span>
-        <span class="p">}</span>
-        <span class="nx">result</span><span class="p">[</span><span class="nx">level</span><span class="p">]</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="nx">level</span><span class="p">],</span> <span class="nx">head</span><span class="p">.</span><span class="nx">Val</span><span class="p">)</span>
+<p>```go
+/**</p>
 
-        <span class="nf">traverse</span><span class="p">(</span><span class="nx">head</span><span class="p">.</span><span class="nx">Left</span><span class="p">,</span> <span class="nx">level</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="nf">traverse</span><span class="p">(</span><span class="nx">head</span><span class="p">.</span><span class="nx">Right</span><span class="p">,</span> <span class="nx">level</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="nf">traverse</span><span class="p">(</span><span class="nx">root</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>type TreeNode struct {</li>
+<li>Val int</li>
+<li>Left *TreeNode</li>
+<li>Right *TreeNode</li>
 
-    <span class="c1">//reverse  result
-</span><span class="c1"></span>    <span class="k">for</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">left</span> <span class="p">&lt;</span> <span class="nx">right</span><span class="p">;</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="p">=</span> <span class="nx">left</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nx">right</span><span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
-        <span class="nx">result</span><span class="p">[</span><span class="nx">left</span><span class="p">],</span> <span class="nx">result</span><span class="p">[</span><span class="nx">right</span><span class="p">]</span> <span class="p">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">right</span><span class="p">],</span> <span class="nx">result</span><span class="p">[</span><span class="nx">left</span><span class="p">]</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">result</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
+<li><p>}
+*/
+func levelOrderBottom(root *TreeNode) [][]int {
+var result [][]int
+var traverse func(head *TreeNode, level int)</p>
+
+<p>traverse = func(head *TreeNode, level int) {
+    if head == nil {
+        return
+    }</p>
+
+<pre><code>if level &gt;= len(result) {
+    result = append(result, []int{})
+}
+result[level] = append(result[level], head.Val)
+
+traverse(head.Left, level+1)
+traverse(head.Right, level+1)
+</code></pre>
+
+<p>}
+traverse(root, 0)</p>
+
+<p>//reverse  result
+for left, right := 0, len(result)-1; left &lt; right; left, right = left+1, right-1 {
+    result[left], result[right] = result[right], result[left]
+}
+return result
+}</p></li>
+</ul>
+
+<p>```</p></li>
+
+<li><p>使用queue实现非递归版本</p>
+
+<p>```go
+/**</p>
+
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>type TreeNode struct {</li>
+<li>Val int</li>
+<li>Left *TreeNode</li>
+<li>Right *TreeNode</li>
+
+<li><p>}
+*/
+func levelOrderBottom(root *TreeNode) [][]int {
+if root == nil{
+    return nil
+}</p>
+
+<p>var result [][]int
+queue := []*TreeNode{root}
+for len(queue) != 0{
+    var tmp []int
+    for _, v := range queue{
+        tmp = append(tmp, v.Val)
+        if v.Left != nil{
+            queue = append(queue, v.Left)
+        }</p>
+
+<pre><code>    if v.Right != nil{
+        queue = append(queue, v.Right)
+    }
+}
+result = append(result, tmp)
+queue = queue[len(tmp):]
+</code></pre>
+
+<p>}</p>
+
+<p>for left, right := 0, len(result)-1; left &lt; right; left, right = left+1, right-1{
+    result[left], result[right] = result[right], result[left]
+}
+return result
+}
+```</p></li>
+</ul></li>
+</ol>
+
 <h2 id="result">result</h2>
 
 <p><img src="/imgs/arts/1/result.png" alt="result" /></p>

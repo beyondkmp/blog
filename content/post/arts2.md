@@ -1,10 +1,10 @@
 ---
-title: "arts第一周"
-date: 2019-04-09T15:12:14+0800
+title: "arts第2周"
+date: 2019-04-12T15:12:14+0800
 lastmod: 2019-04-12T18:19:54+0800
-draft: false
-keywords: ["arts第一周"]
-description: "arts第一周"
+draft: true
+keywords: ["arts第2周"]
+description: "arts第2周"
 tags: ["arts"]
 categories: ["arts"]
 author: "beyondkmp"
@@ -48,86 +48,42 @@ return its bottom-up level order traversal as:
 
 ### solution
 
-1. 递归版本
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func levelOrderBottom(root *TreeNode) [][]int {
+    var result [][]int
+    var traverse func(head *TreeNode, level int)
 
-    ```go
-    /**
-     * Definition for a binary tree node.
-     * type TreeNode struct {
-     *     Val int
-     *     Left *TreeNode
-     *     Right *TreeNode
-     * }
-     */
-    func levelOrderBottom(root *TreeNode) [][]int {
-        var result [][]int
-        var traverse func(head *TreeNode, level int)
-
-        traverse = func(head *TreeNode, level int) {
-            if head == nil {
-                return
-            }
-
-            if level >= len(result) {
-                result = append(result, []int{})
-            }
-            result[level] = append(result[level], head.Val)
-
-            traverse(head.Left, level+1)
-            traverse(head.Right, level+1)
+    traverse = func(head *TreeNode, level int) {
+        if head == nil {
+            return
         }
-        traverse(root, 0)
 
-        //reverse  result
-        for left, right := 0, len(result)-1; left < right; left, right = left+1, right-1 {
-            result[left], result[right] = result[right], result[left]
+        if level >= len(result) {
+            result = append(result, []int{})
         }
-        return result
+        result[level] = append(result[level], head.Val)
+
+        traverse(head.Left, level+1)
+        traverse(head.Right, level+1)
     }
+    traverse(root, 0)
 
-    ```
+    //reverse  result
+    for left, right := 0, len(result)-1; left < right; left, right = left+1, right-1 {
+        result[left], result[right] = result[right], result[left]
+    }
+    return result
+}
 
-2. 使用queue实现非递归版本
-
-	```go
-	/**
-	 * Definition for a binary tree node.
-	 * type TreeNode struct {
-	 *     Val int
-	 *     Left *TreeNode
-	 *     Right *TreeNode
-	 * }
-	 */
-	func levelOrderBottom(root *TreeNode) [][]int {
-		if root == nil{
-			return nil
-		}
-
-		var result [][]int
-		queue := []*TreeNode{root}
-		for len(queue) != 0{
-			var tmp []int
-			for _, v := range queue{
-				tmp = append(tmp, v.Val)
-				if v.Left != nil{
-					queue = append(queue, v.Left)
-				}
-
-				if v.Right != nil{
-					queue = append(queue, v.Right)
-				}
-			}
-			result = append(result, tmp)
-			queue = queue[len(tmp):]
-		}
-
-		for left, right := 0, len(result)-1; left < right; left, right = left+1, right-1{
-			result[left], result[right] = result[right], result[left]
-		}
-		return result
-	}
-	```
-
+```
 
 ## result
 
