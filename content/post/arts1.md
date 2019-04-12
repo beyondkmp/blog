@@ -115,7 +115,13 @@ return its bottom-up level order traversal as:
 
 ## result
 
-![result](/imgs/arts/1/result.png)
+1. result1
+
+    ![result1](/imgs/arts/1/result.png)
+
+2. result2
+
+    ![result2](/imgs/arts/1/result2.png)
 
 # Review
 
