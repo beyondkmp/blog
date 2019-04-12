@@ -51,14 +51,6 @@ return its bottom-up level order traversal as:
 1. 递归版本
 
     ```go
-    /**
-     * Definition for a binary tree node.
-     * type TreeNode struct {
-     *     Val int
-     *     Left *TreeNode
-     *     Right *TreeNode
-     * }
-     */
     func levelOrderBottom(root *TreeNode) [][]int {
         var result [][]int
         var traverse func(head *TreeNode, level int)
@@ -90,14 +82,6 @@ return its bottom-up level order traversal as:
 2. 使用queue实现非递归版本
 
 	```go
-	/**
-	 * Definition for a binary tree node.
-	 * type TreeNode struct {
-	 *     Val int
-	 *     Left *TreeNode
-	 *     Right *TreeNode
-	 * }
-	 */
 	func levelOrderBottom(root *TreeNode) [][]int {
 		if root == nil{
 			return nil
