@@ -17,7 +17,58 @@
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
       <guid>https://beyondkmp.com/about/</guid>
-      <description>I am interesting in golang , python, macos, linux. 第一个csdn博客</description>
+      <description>I am interesting in golang, python, macos, linux.</description>
+    </item>
+    
+    <item>
+      <title>arts第一周</title>
+      <link>https://beyondkmp.com/post/arts1/</link>
+      <pubDate>Tue, 09 Apr 2019 15:12:14 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/arts1/</guid>
+      <description>&lt;h1 id=&#34;algorithm&#34;&gt;Algorithm&lt;/h1&gt;
+
+&lt;h2 id=&#34;binary-tree-level-order-traversal-ii-https-leetcode-com-problems-binary-tree-level-order-traversal-ii&#34;&gt;&lt;a href=&#34;https://leetcode.com/problems/binary-tree-level-order-traversal-ii/&#34;&gt;Binary Tree Level Order Traversal II&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;description&lt;/h3&gt;
+
+&lt;p&gt;Given a binary tree, return the bottom-up level order traversal of its nodes&amp;rsquo; values. (ie, from left to right, level by level from leaf to root).&lt;/p&gt;
+
+&lt;p&gt;For example:
+Given binary tree [3,9,20,null,null,15,7],&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    3
+   / \
+  9  20
+    /  \
+   15   7
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;return its bottom-up level order traversal as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[
+  [15,7],
+  [9,20],
+  [3]
+]
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>arts训练</title>
+      <link>https://beyondkmp.com/post/arts/</link>
+      <pubDate>Mon, 08 Apr 2019 20:17:01 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/arts/</guid>
+      <description>&lt;h2 id=&#34;高效学习&#34;&gt;高效学习&lt;/h2&gt;
+
+&lt;p&gt;其中，我还引用了一张学习金字塔我们可以看到，&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://beyondkmp.com/imgs/arts/pyramid.jpg&#34; alt=&#34;pyramid&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;你听别人讲，或是自己看书，或是让别人演示给你，这些都不能让你真正获得学习能力，因为你是在被别人灌输，在听别人说。只有你开始自己思考，开始自己总结和归纳，开始找人交流讨论，开始践行，并开始对外输出，你才会掌握到真正的学习能力。所以，学习不是努力读更多的书，盲目追求阅读的速度和数量，这会让人产生低层次的勤奋和成长的感觉，这只是在使蛮力。要思辨，要践行，要总结和归纳，否则，你只是在机械地重复某件事（记忆知识），而不会有质的成长的。&lt;/p&gt;
+
+&lt;h2 id=&#34;arts的初衷&#34;&gt;ARTS的初衷&lt;/h2&gt;</description>
     </item>
     
     <item>
@@ -125,13 +176,7 @@
 &lt;p&gt;k8s的原理讲的非常详细，并且付有详细的代码解释&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;golang&#34;&gt;golang&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://tonybai.com/&#34;&gt;Tony Bai 一个程序员的心路历程&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;go语言的文章非常多，而且非常的干活！&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;h2 id=&#34;golang&#34;&gt;golang&lt;/h2&gt;</description>
     </item>
     
     <item>

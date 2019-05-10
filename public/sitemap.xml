@@ -10,6 +10,20 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/post/arts1/</loc>
+    <lastmod>2019-04-12T18:19:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/post/arts/</loc>
+    <lastmod>2019-04-08T20:17:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/post/golang_json_marshal/</loc>
     <lastmod>2019-03-01T11:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -25,7 +39,7 @@
   
   <url>
     <loc>https://beyondkmp.com/post/collections/</loc>
-    <lastmod>2019-02-28T14:51:59+08:00</lastmod>
+    <lastmod>2019-04-09T17:56:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -612,7 +626,7 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-03-01T11:14:02+08:00</lastmod>
+    <lastmod>2019-04-12T18:19:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -646,8 +660,22 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/tags/arts/</loc>
+    <lastmod>2019-04-12T18:19:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/categories/arts/</loc>
+    <lastmod>2019-04-12T18:19:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/tags/blog/</loc>
-    <lastmod>2019-02-28T14:51:59+08:00</lastmod>
+    <lastmod>2019-04-09T17:56:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -1431,14 +1459,14 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/%E6%94%B6%E8%97%8F/</loc>
-    <lastmod>2019-02-28T14:51:59+08:00</lastmod>
+    <lastmod>2019-04-09T17:56:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/categories/%E6%94%B6%E8%97%8F/</loc>
-    <lastmod>2019-02-28T14:51:59+08:00</lastmod>
+    <lastmod>2019-04-09T17:56:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
