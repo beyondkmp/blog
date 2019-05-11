@@ -1,7 +1,7 @@
 ---
 title: "小米路由器3G安装padavan固件"
 date: 2018-10-23T20:27:39+08:00
-lastmod: 2018-10-23T20:27:39+08:00
+lastmod: 2019-05-11T18:57:17+0800
 draft: false
 keywords: ["小米路由器3G","padavan固件"]
 description: "在小米路由器3G上面安装padavan固件"
