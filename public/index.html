@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://beyondkmp.com/" />
 
-<meta property="og:updated_time" content="2019-04-09T15:12:14&#43;08:00"/>
+<meta property="og:updated_time" content="2019-05-13T17:02:38&#43;08:00"/>
 
 <meta itemprop="name" content="Kmp - beyondkmp&#39;s new hugo blog">
 <meta itemprop="description" content="beyondkmp&#39;s hugo blog">
@@ -117,6 +117,95 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/debian_compile_python3.7/">debian8编译安装python3</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-05-13 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="编译安装gcc8">编译安装gcc8</h2>
+
+<ol>
+<li><p>下载<a href="ftp://ftp.lip6.fr/pub/gcc/releases/gcc-8.3.0/gcc-8.3.0.tar.gz">源代码</a>, 并解压。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget ftp://ftp.lip6.fr/pub/gcc/releases/gcc-8.3.0/gcc-8.3.0.tar.gz
+tar -xvf gcc-8.3.0.tar.gz</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>安装相关依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> gcc-8.3.0
+./contrib/download_prerequisites
+sudo apt install texinfo bison flex</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>编译</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir build
+<span class="nb">cd</span> build
+../configure --prefix<span class="o">=</span>/usr/local/gcc --enable-bootstrap  --enable-checking<span class="o">=</span>release --enable-languages<span class="o">=</span>c,c++ --disable-multilib
+make -j4 <span class="o">(</span>4是我机器的cpu核心数<span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>编译安装并配置环境变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo make install
+<span class="nb">echo</span> <span class="s2">&#34;PATH=/usr/local/gcc/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span> &gt;&gt; ~/.zshrc
+<span class="nb">source</span> ~/.zshrc</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>查看版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">gcc -v</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+    </div>
+    <div class="read-more">
+      <a href="/post/debian_compile_python3.7/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/arts1/">arts第一周</a></h1>
@@ -430,40 +519,6 @@ $ git branch -D branch_name</code></pre></td></tr></table>
     </div>
     <div class="read-more">
       <a href="/post/git_delete_branch/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/macos_softwares/">推荐高效的macos软件</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-01-29 </span>
-      <div class="post-category">
-          <a href="/categories/mac/"> mac </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>个人已经使用macos快5年了，目前积累了不少高效软件。这些软件组合起来可以非常有效的提高工作效率。话不多说，直接上图吧，哈哈。</p>
-
-<h2 id="视频类">视频类</h2>
-
-<ol>
-<li><p><a href="https://iina.io/">IINA</a></p>
-
-<ul>
-<li>界面非常清爽，支持的格式非常多;取代了MPlayerX + vlc + macos自带的。</li>
-<li>支持在线字幕,不用再去下载</li>
-<li>开源，免费，基于mpv，专为现代macOS 而设计</li>
-<li>支持在线播放youtube, 这个太爽了。</li>
-</ul></li>
-</ol>
-    </div>
-    <div class="read-more">
-      <a href="/post/macos_softwares/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
