@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/post/centos7-ocser-config/" />
@@ -193,9 +193,11 @@ $ yum install ocserv</code></pre></td></tr></table>
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ mkdir anyconnect
 $ <span class="nb">cd</span> anyconnect</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>生成ca证书</p>
+</div>
+<ol>
+<li>生成ca证书
+<br /></li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
@@ -417,9 +419,11 @@ no-compression-limit <span class="o">=</span> <span class="m">256</span>
 <span class="nv">route</span> <span class="o">=</span> <span class="m">192</span>.168.1.0/255.255.255.0
 <span class="c1">#route = 192.168.5.0/255.255.255.0</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>建立用户</p>
+</div>
+<ol>
+<li>建立用户
+<br /></li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -497,9 +501,10 @@ service iptables save</code></pre></td></tr></table>
 <span class="c1">#修改为</span>
 <span class="nv">ExecStart</span><span class="o">=</span>/bin/sh -c <span class="s1">&#39;/usr/sbin/ocserv --pid-file /var/run/ocserv.pid --config /etc/ocserv/ocserv.conf -f &gt;&gt; /var/log/agent.log 2&gt;&amp;1&#39;</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>输出用户连接和断开的日志信息</p>
+</div>
+<ol>
+<li>输出用户连接和断开的日志信息</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
@@ -591,13 +596,17 @@ bindaddr *</code></pre></td></tr></table>
     
 192.168.5.5 radiustestsecretpassword 
 #Save and exit
-</code></pre></li>
+</code></pre>
 
-<li><p><strong>Security considerations and radcli configuration with TLS</strong></p>
+<ol>
+<li><strong>Security considerations and radcli configuration with TLS</strong></li>
+</ol>
 
-<p>如果安全考虑，使用adiusclient-tls.conf 和 servers-tls这两个配置设置tls.</p></li>
+<p>如果安全考虑，使用adiusclient-tls.conf 和 servers-tls这两个配置设置tls.</p>
 
-<li><p><strong>修改ocserv的认证方式</strong></p>
+<ol>
+<li><strong>修改ocserv的认证方式</strong></li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
@@ -677,11 +686,10 @@ bindaddr *</code></pre></td></tr></table>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">occtl -n show users</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>踢掉当前在线用户:</p>
-
+</div>
 <ol>
+<li>踢掉当前在线用户:</li>
+
 <li><p>通过用户名:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -690,9 +698,10 @@ bindaddr *</code></pre></td></tr></table>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">occtl disconnect user 【用户名】</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>通过id</p>
+</div>
+<ol>
+<li>通过id</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -701,7 +710,6 @@ bindaddr *</code></pre></td></tr></table>
 <pre class="chroma"><code class="language-bash" data-lang="bash">occtl disconnect id 【id号】</code></pre></td></tr></table>
 </div>
 </div></li>
-</ol></li>
 </ol>
 
 <h2 id="参考">参考</h2>
@@ -711,6 +719,7 @@ bindaddr *</code></pre></td></tr></table>
 <li><a href="http://ocserv.gitlab.io/www/manual.html">ocserv 0.12.1 manual</a></li>
 <li><a href="http://blog.kompaz.win/2016/09/29/CentOS%207.x%20ocserv%20+%20freeradius%E9%AA%8C%E8%AF%81%20+%20ssl/">CentOS 7.x ocserv + freeradius验证 + SSL</a></li>
 <li><a href="https://ocserv.gitlab.io/www/recipes-ocserv-authentication-radius-radcli.html">Ocserv Authentication - RADIUS (radcli)</a></li>
+</ol></li>
 </ol>
     </div>
 

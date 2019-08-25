@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/post/reverse-ssh-tunneling/" />
@@ -181,9 +181,11 @@
 <span class="c1"># -T: useful to disable pseudo-tty allocation, which is fitting if you are not trying to create an interactive shell.</span></code></pre></td></tr></table>
 </div>
 </div>
-<p><img src="/imgs/ssh-reverse.png" alt="ssh反向代理隧道" /></p></li>
+<p><img src="/imgs/ssh-reverse.png" alt="ssh反向代理隧道" /></p>
 
-<li><p>现在你可以从公网机器连接到内网机器了，使用以下命令,输入内网机器root用户的密码就可以远程操作了</p>
+<ol>
+<li>现在你可以从公网机器连接到内网机器了，使用以下命令,输入内网机器root用户的密码就可以远程操作了</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -213,14 +215,13 @@
 <span class="c1"># crontab</span>
 <span class="c1">#* * * * * /usr/local/bin/ssh-reverse.sh &amp;</span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
+</div>
 <h2 id="参考">参考</h2>
 
 <ol>
 <li><a href="https://blog.devolutions.net/2017/03/what-is-reverse-ssh-port-forwarding">What is Reverse SSH Port Forwarding</a></li>
 <li><a href="https://www.howtoforge.com/reverse-ssh-tunneling">Reverse SSH Tunneling</a></li>
+</ol></li>
 </ol>
     </div>
 

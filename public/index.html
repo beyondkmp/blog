@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/" />
@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://beyondkmp.com/" />
 
-<meta property="og:updated_time" content="2019-05-13T17:02:38&#43;08:00"/>
+<meta property="og:updated_time" content="2019-08-25T14:23:54&#43;08:00"/>
 
 <meta itemprop="name" content="Kmp - beyondkmp&#39;s new hugo blog">
 <meta itemprop="description" content="beyondkmp&#39;s hugo blog">
@@ -119,6 +119,323 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/golang_edns_example/">golang ends example</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-08-25 </span>
+      <div class="post-category">
+          <a href="/categories/golang/"> golang </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+        <span class="s">&#34;context&#34;</span>
+        <span class="s">&#34;flag&#34;</span>
+        <span class="s">&#34;fmt&#34;</span>
+        <span class="s">&#34;net&#34;</span>
+        <span class="s">&#34;time&#34;</span>
+
+        <span class="s">&#34;github.com/miekg/dns&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">var</span> <span class="p">(</span>
+        <span class="nx">MAINLANDIP</span> <span class="p">=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ParseIP</span><span class="p">(</span><span class="s">&#34;120.253.225.34&#34;</span><span class="p">)</span>
+        <span class="nx">OVERSEA</span>    <span class="p">=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ParseIP</span><span class="p">(</span><span class="s">&#34;38.143.9.29&#34;</span><span class="p">)</span>
+        <span class="nx">TIMEOUT</span>    <span class="p">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">edns</span> <span class="kd">struct</span> <span class="p">{</span>
+        <span class="nx">client</span>    <span class="o">*</span><span class="nx">dns</span><span class="p">.</span><span class="nx">Client</span>
+        <span class="nx">server</span>    <span class="kt">string</span>
+        <span class="nx">isOversea</span> <span class="kt">bool</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">NewEdns</span><span class="p">()</span> <span class="p">(</span><span class="o">*</span><span class="nx">edns</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">config</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">dns</span><span class="p">.</span><span class="nf">ClientConfigFromFile</span><span class="p">(</span><span class="s">&#34;/etc/resolv.conf&#34;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;cannot read config from /etc/resolv.conf&#34;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="nx">c</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">dns</span><span class="p">.</span><span class="nx">Client</span><span class="p">)</span>
+        <span class="nx">edns</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">edns</span><span class="p">{</span>
+                <span class="nx">client</span><span class="p">:</span> <span class="nx">c</span><span class="p">,</span>
+                <span class="nx">server</span><span class="p">:</span> <span class="nx">net</span><span class="p">.</span><span class="nf">JoinHostPort</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">Servers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">config</span><span class="p">.</span><span class="nx">Port</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">edns</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">edns</span><span class="p">)</span> <span class="nf">ednsMsg</span><span class="p">(</span><span class="nx">domain</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">clientIP</span> <span class="nx">net</span><span class="p">.</span><span class="nx">IP</span><span class="p">)</span> <span class="o">*</span><span class="nx">dns</span><span class="p">.</span><span class="nx">Msg</span> <span class="p">{</span>
+        <span class="nx">m</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">dns</span><span class="p">.</span><span class="nx">Msg</span><span class="p">)</span>
+        <span class="nx">m</span><span class="p">.</span><span class="nf">SetQuestion</span><span class="p">(</span><span class="nx">dns</span><span class="p">.</span><span class="nf">Fqdn</span><span class="p">(</span><span class="nx">domain</span><span class="p">),</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">TypeCNAME</span><span class="p">)</span>
+        <span class="nx">m</span><span class="p">.</span><span class="nx">RecursionDesired</span> <span class="p">=</span> <span class="kc">true</span>
+
+        <span class="nx">o</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">dns</span><span class="p">.</span><span class="nx">OPT</span><span class="p">{</span>
+                <span class="nx">Hdr</span><span class="p">:</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">RR_Header</span><span class="p">{</span>
+                        <span class="nx">Name</span><span class="p">:</span>   <span class="s">&#34;.&#34;</span><span class="p">,</span>
+                        <span class="nx">Rrtype</span><span class="p">:</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">TypeOPT</span><span class="p">,</span>
+                <span class="p">},</span>
+        <span class="p">}</span>
+
+        <span class="nx">ed</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">dns</span><span class="p">.</span><span class="nx">EDNS0_SUBNET</span><span class="p">{</span>
+                <span class="nx">Code</span><span class="p">:</span>          <span class="nx">dns</span><span class="p">.</span><span class="nx">EDNS0SUBNET</span><span class="p">,</span>
+                <span class="nx">Address</span><span class="p">:</span>       <span class="nx">clientIP</span><span class="p">,</span>
+                <span class="nx">Family</span><span class="p">:</span>        <span class="mi">1</span><span class="p">,</span>
+                <span class="nx">SourceNetmask</span><span class="p">:</span> <span class="nx">net</span><span class="p">.</span><span class="nx">IPv4len</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="nx">o</span><span class="p">.</span><span class="nx">Option</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">Option</span><span class="p">,</span> <span class="nx">ed</span><span class="p">)</span>
+        <span class="nx">m</span><span class="p">.</span><span class="nx">Extra</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">Extra</span><span class="p">,</span> <span class="nx">o</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nx">m</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">edns</span><span class="p">)</span> <span class="nf">QueryEqual</span><span class="p">(</span><span class="nx">domain</span><span class="p">,</span> <span class="nx">cname</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">isOversea</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">(</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ctx</span><span class="p">,</span> <span class="nx">cancle</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">WithTimeout</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">(),</span> <span class="nx">TIMEOUT</span><span class="p">)</span>
+        <span class="k">defer</span> <span class="nf">cancle</span><span class="p">()</span>
+
+        <span class="nx">clientIP</span> <span class="o">:=</span> <span class="nx">MAINLANDIP</span>
+        <span class="k">if</span> <span class="nx">isOversea</span> <span class="p">{</span>
+                <span class="nx">clientIP</span> <span class="p">=</span> <span class="nx">OVERSEA</span>
+        <span class="p">}</span>
+
+        <span class="nx">m</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nf">ednsMsg</span><span class="p">(</span><span class="nx">domain</span><span class="p">,</span> <span class="nx">clientIP</span><span class="p">)</span>
+        <span class="nx">r</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nf">ExchangeContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">server</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nx">r</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">err</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="nx">r</span><span class="p">.</span><span class="nx">Rcode</span> <span class="o">!=</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">RcodeSuccess</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;invalid answer name&#34;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">a</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">r</span><span class="p">.</span><span class="nx">Answer</span> <span class="p">{</span>
+                <span class="k">switch</span> <span class="nx">ans</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">case</span> <span class="o">*</span><span class="nx">dns</span><span class="p">.</span><span class="nx">CNAME</span><span class="p">:</span>
+                        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">ans</span><span class="p">.</span><span class="nx">Target</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="nx">ans</span><span class="p">.</span><span class="nx">Target</span> <span class="o">==</span> <span class="nx">cname</span><span class="o">+</span><span class="s">&#34;.&#34;</span> <span class="p">{</span>
+                                <span class="k">return</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">nil</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">domain</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;d&#34;</span><span class="p">,</span> <span class="s">&#34;www.baidu.com&#34;</span><span class="p">,</span> <span class="s">&#34;domain&#34;</span><span class="p">)</span>
+        <span class="nx">cname</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;www.a.shifen.com&#34;</span><span class="p">,</span> <span class="s">&#34;cname&#34;</span><span class="p">)</span>
+        <span class="nx">isOversea</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Bool</span><span class="p">(</span><span class="s">&#34;o&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;is oversea&#34;</span><span class="p">)</span>
+        <span class="nx">flag</span><span class="p">.</span><span class="nf">Parse</span><span class="p">()</span>
+
+        <span class="nx">ed</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">NewEdns</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="nx">equal</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ed</span><span class="p">.</span><span class="nf">QueryEqual</span><span class="p">(</span><span class="o">*</span><span class="nx">domain</span><span class="p">,</span> <span class="o">*</span><span class="nx">cname</span><span class="p">,</span> <span class="o">*</span><span class="nx">isOversea</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;domain: %s, cname: %s  equal: %v\n&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">domain</span><span class="p">,</span> <span class="o">*</span><span class="nx">cname</span><span class="p">,</span> <span class="nx">equal</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/post/golang_edns_example/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/golang_custom_json_marshalling/">Golang_custom_json_marshalling</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-08-11 </span>
+      <div class="post-category">
+          <a href="/categories/golang/"> golang </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      
+    </div>
+    <div class="read-more">
+      <a href="/post/golang_custom_json_marshalling/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/arts3/">arts第3周</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-05-17 </span>
+      <div class="post-category">
+          <a href="/categories/arts/"> arts </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h1 id="algorithm">Algorithm</h1>
+
+<h2 id="binary-tree-level-order-traversal-ii-https-leetcode-com-problems-binary-tree-level-order-traversal-ii"><a href="https://leetcode.com/problems/binary-tree-level-order-traversal-ii/">Binary Tree Level Order Traversal II</a></h2>
+
+<h3 id="description">description</h3>
+
+<p>Given a binary tree, return the bottom-up level order traversal of its nodes&rsquo; values. (ie, from left to right, level by level from leaf to root).</p>
+
+<p>For example:
+Given binary tree [3,9,20,null,null,15,7],</p>
+
+<pre><code>    3
+   / \
+  9  20
+    /  \
+   15   7
+</code></pre>
+
+<p>return its bottom-up level order traversal as:</p>
+
+<pre><code>[
+  [15,7],
+  [9,20],
+  [3]
+]
+</code></pre>
+    </div>
+    <div class="read-more">
+      <a href="/post/arts3/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/debian_compile_python3.7/">debian8编译安装python3</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-05-13 </span>
@@ -143,21 +460,15 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">wget ftp://ftp.lip6.fr/pub/gcc/releases/gcc-8.3.0/gcc-8.3.0.tar.gz
 tar -xvf gcc-8.3.0.tar.gz</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>安装相关依赖</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> gcc-8.3.0
-./contrib/download_prerequisites
-sudo apt install texinfo bison flex</code></pre></td></tr></table>
 </div>
-</div></li>
+<ol>
+<li>安装相关依赖
+<code>bash
+cd gcc-8.3.0
+./contrib/download_prerequisites
+sudo apt install texinfo bison flex
+</code></li>
+</ol></li>
 
 <li><p>编译</p>
 <div class="highlight"><div class="chroma">
@@ -173,9 +484,10 @@ sudo apt install texinfo bison flex</code></pre></td></tr></table>
 ../configure --prefix<span class="o">=</span>/usr/local/gcc --enable-bootstrap  --enable-checking<span class="o">=</span>release --enable-languages<span class="o">=</span>c,c++ --disable-multilib
 make -j4 <span class="o">(</span>4是我机器的cpu核心数<span class="o">)</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>编译安装并配置环境变量</p>
+</div>
+<ol>
+<li>编译安装并配置环境变量</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -197,8 +509,7 @@ make -j4 <span class="o">(</span>4是我机器的cpu核心数<span class="o">)</
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">gcc -v</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
+</div>
     </div>
     <div class="read-more">
       <a href="/post/debian_compile_python3.7/" class="read-more-link">Read more..</a>
@@ -388,137 +699,6 @@ Given binary tree [3,9,20,null,null,15,7],</p>
     </div>
     <div class="read-more">
       <a href="/post/git_commands/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/collections/">技术blog收藏</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-02-28 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%94%B6%E8%97%8F/"> 收藏 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <ol>
-<li><a href="http://mysql.taobao.org/monthly/">淘宝的数据库内核月报</a></li>
-</ol>
-
-<h2 id="kubernets">kubernets</h2>
-
-<ol>
-<li><p><a href="https://draveness.me/">面向信仰编程(Draveness&rsquo;s Blog)</a></p>
-
-<p>k8s的原理讲的非常详细，并且付有详细的代码解释</p></li>
-</ol>
-
-<h2 id="golang">golang</h2>
-    </div>
-    <div class="read-more">
-      <a href="/post/collections/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/nginx_https_hsts/">nginx配置参考</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-02-22 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="nginx编译安装">nginx编译安装</h2>
-
-<h3 id="下载源码">下载源码</h3>
-
-<ol>
-<li>下载官方nginx版本<a href="http://nginx.org/download/nginx-1.14.2.tar.gz">Stable version</a></li>
-<li>下载openssl1.1.1版本，支持tls1.3,<a href="https://www.openssl.org/source/openssl-1.1.1a.tar.gz">openssl-1.1.1a.tar.gz</a></li>
-</ol>
-
-<h3 id="编译安装">编译安装</h3>
-
-<p>在configure里面加上tls1.3, 开启httpv2模块</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">tar -xvf nginx-1.1.4.2.tar.gz
-tar -xvf openssl-1.1.1a.tar.gz
-<span class="nb">cd</span> nginx-1.1.4.2
-./configure  --prefix<span class="o">=</span>/usr/local/nginx <span class="se">\
-</span><span class="se"></span>--with-stream <span class="se">\
-</span><span class="se"></span>--with-stream_ssl_preread_module <span class="se">\
-</span><span class="se"></span>--with-http_v2_module <span class="se">\ </span>
---with-http_ssl_module  <span class="se">\
-</span><span class="se"></span>--with-pcre  <span class="se">\
-</span><span class="se"></span>--with-openssl<span class="o">=</span>/tmp/openssl-1.1.1a <span class="se">\
-</span><span class="se"></span>--with-openssl-opt<span class="o">=</span><span class="s1">&#39;enable-tls1_3&#39;</span>
-make -j <span class="m">4</span>
-make install</code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/nginx_https_hsts/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/git_delete_branch/">git删除分支</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-02-20 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="删除本地分支">删除本地分支</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ git branch -d branch_name
-$ git branch -D branch_name</code></pre></td></tr></table>
-</div>
-</div>
-<p>Note:</p>
-
-<p><code>-d</code>只能删除已经完全合并的分支，比如你在a分支上，要删除一个b分支，如果这个分支没有merge到a分支，这里用-d是删除不了的, 只能使用-D来强制删除。可以用<code>git branch --no-merged</code>来查看没有合并的分支，<code>git branch --merged</code>来查看合并的分支</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/git_delete_branch/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>

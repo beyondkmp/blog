@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/post/nginx_https_hsts/" />
@@ -313,9 +313,10 @@ chmod +x certbot-auto
 cp certbot-auto /usr/local/bin
 /usr/local/bin/certbot-auto certonly -d beyondkmp.com -d www.beyondkmp.com  --standalone</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>证书过期前手动运行下面命令更新证书</p>
+</div>
+<ol>
+<li>证书过期前手动运行下面命令更新证书</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -333,9 +334,7 @@ cp certbot-auto /usr/local/bin
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">0</span> <span class="m">9</span> <span class="m">1</span> * * systemctl stop nginx<span class="p">;</span> /usr/local/bin/certbot-auto renew --force-renewal<span class="p">;</span>systemctl start nginx</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
+</div>
 <h2 id="nginx中hsts配置">nginx中HSTS配置</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -344,7 +343,9 @@ cp certbot-auto /usr/local/bin
 <td class="lntd">
 <pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">add_header</span> <span class="s">Strict-Transport-Security</span> <span class="s">&#34;max-age=31557600</span><span class="p">;</span> <span class="k">includeSubDomains&#34;</span><span class="p">;</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ol>
+
 <h2 id="参考">参考</h2>
 
 <ol>

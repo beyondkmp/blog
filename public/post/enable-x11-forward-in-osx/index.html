@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/post/enable-x11-forward-in-osx/" />
@@ -183,9 +183,10 @@ X11UseLocalhost  yes
 X11DisplayOffset <span class="m">10</span>
 X11Forwarding  yes</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>重启sshd服务</p></li>
+</div>
+<ul>
+<li>重启sshd服务<br /></li>
+</ul></li>
 </ul></li>
 
 <li><p>在客户端可以用<code>-X</code>来连接服务器,或者将 <code>ForwardX11  yes</code> 加入到ssh配置中</p></li>
@@ -218,10 +219,10 @@ X11Forwarding  yes</code></pre></td></tr></table>
 <li><p>可以通过安装gvim或者安装vim-x11, 下面给出archlinux的安装方法</p>
 
 <ul>
-<li>方法一: 安装pacman
-<code>
-sudo pacman -S gvim
-</code></li>
+<li><p>方法一: 安装pacman</p>
+
+<pre><code>sudo pacman -S gvim
+</code></pre></li>
 
 <li><p>方法二: abs编译安装,见参考</p>
 

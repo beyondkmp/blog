@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.3 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/post/debian_compile_python3.7/" />
@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-05-13T17:02:38&#43;08:00" />
 <meta itemprop="dateModified" content="2019-05-13T17:02:38&#43;08:00" />
-<meta itemprop="wordCount" content="297">
+<meta itemprop="wordCount" content="295">
 
 
 
@@ -152,6 +152,11 @@
 </nav>
   </div>
 </div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p>[NOTE] Updated <span class="timeago" datetime="2019-05-13T17:02:38" title="May 13, 2019">May 13, 2019</span>. This article may have outdated content or subject matter.</p>
+    </div>
+  </div>
     <div class="post-content">
       <h2 id="编译安装gcc8">编译安装gcc8</h2>
 
@@ -166,21 +171,15 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">wget ftp://ftp.lip6.fr/pub/gcc/releases/gcc-8.3.0/gcc-8.3.0.tar.gz
 tar -xvf gcc-8.3.0.tar.gz</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>安装相关依赖</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> gcc-8.3.0
-./contrib/download_prerequisites
-sudo apt install texinfo bison flex</code></pre></td></tr></table>
 </div>
-</div></li>
+<ol>
+<li>安装相关依赖
+<code>bash
+cd gcc-8.3.0
+./contrib/download_prerequisites
+sudo apt install texinfo bison flex
+</code></li>
+</ol></li>
 
 <li><p>编译</p>
 <div class="highlight"><div class="chroma">
@@ -196,9 +195,10 @@ sudo apt install texinfo bison flex</code></pre></td></tr></table>
 ../configure --prefix<span class="o">=</span>/usr/local/gcc --enable-bootstrap  --enable-checking<span class="o">=</span>release --enable-languages<span class="o">=</span>c,c++ --disable-multilib
 make -j4 <span class="o">(</span>4是我机器的cpu核心数<span class="o">)</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>编译安装并配置环境变量</p>
+</div>
+<ol>
+<li>编译安装并配置环境变量</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -220,13 +220,12 @@ make -j4 <span class="o">(</span>4是我机器的cpu核心数<span class="o">)</
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">gcc -v</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
+</div>
 <h2 id="编译安装python3-7">编译安装python3.7</h2>
 
 <ol>
-<li><p>安装相关依赖</p>
+<li>安装相关依赖</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -248,9 +247,10 @@ sudo apt install libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev l
 <pre class="chroma"><code class="language-bash" data-lang="bash">wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
 tar -xvf Python-3.7.3.tgz</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>编译安装</p>
+</div>
+<ol>
+<li>编译安装</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -319,7 +319,11 @@ sudo make altinstall</code></pre></td></tr></table>
           <a href="/tags/python3.7/">python3.7</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/arts3/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">arts第3周</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/post/arts1/">
             <span class="next-text nav-default">arts第一周</span>
             <span class="next-text nav-mobile">Next</span>
