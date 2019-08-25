@@ -11,6 +11,10 @@ author: "beyondkmp"
 
 ---
 
+目前需要从不同的地方访问一个域名的CNAME, 比如从国内和海外两个不同的地方访问, 并查看这个CNAME是不是设置正确。
+
+<!--more-->
+
 ```go
 package main
 
@@ -125,4 +129,3 @@ func main() {
         fmt.Printf("domain: %s, cname: %s  equal: %v\n", *domain, *cname, equal)
 }
 ```
-<!--more-->
