@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.57.2 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/post/reverse-ssh-tunneling/" />
@@ -42,9 +42,8 @@
 <meta property="og:description" content="在没有外网的情况下，实现远程登录内网机器" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://beyondkmp.com/post/reverse-ssh-tunneling/" />
-<meta property="article:published_time" content="2018-08-17T21:52:53&#43;08:00"/>
-<meta property="article:modified_time" content="2018-08-17T21:52:53&#43;08:00"/>
-
+<meta property="article:published_time" content="2018-08-17T21:52:53+08:00" />
+<meta property="article:modified_time" content="2018-08-17T21:52:53+08:00" />
 <meta itemprop="name" content="反向ssh代理隧道">
 <meta itemprop="description" content="在没有外网的情况下，实现远程登录内网机器">
 
@@ -181,11 +180,9 @@
 <span class="c1"># -T: useful to disable pseudo-tty allocation, which is fitting if you are not trying to create an interactive shell.</span></code></pre></td></tr></table>
 </div>
 </div>
-<p><img src="/imgs/ssh-reverse.png" alt="ssh反向代理隧道" /></p>
+<p><img src="/imgs/ssh-reverse.png" alt="ssh反向代理隧道" /></p></li>
 
-<ol>
-<li>现在你可以从公网机器连接到内网机器了，使用以下命令,输入内网机器root用户的密码就可以远程操作了</li>
-</ol>
+<li><p>现在你可以从公网机器连接到内网机器了，使用以下命令,输入内网机器root用户的密码就可以远程操作了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -215,13 +212,14 @@
 <span class="c1"># crontab</span>
 <span class="c1">#* * * * * /usr/local/bin/ssh-reverse.sh &amp;</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ol>
+
 <h2 id="参考">参考</h2>
 
 <ol>
 <li><a href="https://blog.devolutions.net/2017/03/what-is-reverse-ssh-port-forwarding">What is Reverse SSH Port Forwarding</a></li>
 <li><a href="https://www.howtoforge.com/reverse-ssh-tunneling">Reverse SSH Tunneling</a></li>
-</ol></li>
 </ol>
     </div>
 

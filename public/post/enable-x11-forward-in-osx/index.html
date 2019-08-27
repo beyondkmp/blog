@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.57.2 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/post/enable-x11-forward-in-osx/" />
@@ -42,9 +42,8 @@
 <meta property="og:description" content="当远程连接服务器,并在vim里面编辑时总是不能愉快的copy和paste" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://beyondkmp.com/post/enable-x11-forward-in-osx/" />
-<meta property="article:published_time" content="2017-02-21T00:00:00&#43;08:00"/>
-<meta property="article:modified_time" content="2017-02-21T00:00:00&#43;08:00"/>
-
+<meta property="article:published_time" content="2017-02-21T00:00:00+08:00" />
+<meta property="article:modified_time" content="2017-02-21T00:00:00+08:00" />
 <meta itemprop="name" content="在mac osx安装XQuartz并配置x11 forwarding">
 <meta itemprop="description" content="当远程连接服务器,并在vim里面编辑时总是不能愉快的copy和paste">
 
@@ -183,10 +182,9 @@ X11UseLocalhost  yes
 X11DisplayOffset <span class="m">10</span>
 X11Forwarding  yes</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>重启sshd服务<br /></li>
-</ul></li>
+</div></li>
+
+<li><p>重启sshd服务</p></li>
 </ul></li>
 
 <li><p>在客户端可以用<code>-X</code>来连接服务器,或者将 <code>ForwardX11  yes</code> 加入到ssh配置中</p></li>

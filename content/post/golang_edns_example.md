@@ -1,9 +1,9 @@
 ---
-title: "golang ends example"
+title: "golang ends实战"
 date: 2019-08-25T14:23:54+0800
-lastmod: 2019-08-25T14:23:54+0800
+lastmod: 2019-08-27T11:00:42+0800
 draft: false
-keywords: ["golang","edns"]
+keywords: ["golang","edns","使用","miekg dns"]
 description: ""
 tags: ["golang","edns"]
 categories: ["golang"]

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.57.2 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/" />
@@ -45,8 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://beyondkmp.com/" />
 
-<meta property="og:updated_time" content="2019-08-25T14:23:54&#43;08:00"/>
-
+<meta property="og:updated_time" content="2019-08-25T14:23:54+08:00" />
 <meta itemprop="name" content="Kmp - beyondkmp&#39;s new hugo blog">
 <meta itemprop="description" content="beyondkmp&#39;s hugo blog">
 
@@ -119,7 +118,7 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang_edns_example/">golang ends example</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/golang_edns_example/">golang ends实战</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-08-25 </span>
       <div class="post-category">
@@ -231,15 +230,21 @@ Given binary tree [3,9,20,null,null,15,7],</p>
 <pre class="chroma"><code class="language-bash" data-lang="bash">wget ftp://ftp.lip6.fr/pub/gcc/releases/gcc-8.3.0/gcc-8.3.0.tar.gz
 tar -xvf gcc-8.3.0.tar.gz</code></pre></td></tr></table>
 </div>
-</div>
-<ol>
-<li>安装相关依赖
-<code>bash
-cd gcc-8.3.0
+</div></li>
+
+<li><p>安装相关依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> gcc-8.3.0
 ./contrib/download_prerequisites
-sudo apt install texinfo bison flex
-</code></li>
-</ol></li>
+sudo apt install texinfo bison flex</code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>编译</p>
 <div class="highlight"><div class="chroma">
@@ -255,10 +260,9 @@ sudo apt install texinfo bison flex
 ../configure --prefix<span class="o">=</span>/usr/local/gcc --enable-bootstrap  --enable-checking<span class="o">=</span>release --enable-languages<span class="o">=</span>c,c++ --disable-multilib
 make -j4 <span class="o">(</span>4是我机器的cpu核心数<span class="o">)</span></code></pre></td></tr></table>
 </div>
-</div>
-<ol>
-<li>编译安装并配置环境变量</li>
-</ol>
+</div></li>
+
+<li><p>编译安装并配置环境变量</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -280,7 +284,8 @@ make -j4 <span class="o">(</span>4是我机器的cpu核心数<span class="o">)</
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">gcc -v</code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ol>
     </div>
     <div class="read-more">
       <a href="/post/debian_compile_python3.7/" class="read-more-link">Read more..</a>
