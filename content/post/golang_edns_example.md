@@ -1,5 +1,5 @@
 ---
-title: "golang ends实战"
+title: "golang edns实战"
 date: 2019-08-25T14:23:54+0800
 lastmod: 2019-08-27T11:00:42+0800
 draft: false
