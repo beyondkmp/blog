@@ -1,7 +1,7 @@
 ---
-title: "[翻译]Golang custom json marshalling"
+title: "[翻译]Golang自定义json转化格式"
 date: 2019-08-11T13:06:23+0800
-lastmod: 2019-08-11T13:06:23+0800
+lastmod: 2019-08-27T12:19:46+0800
 draft: false
 keywords: ["golang","json","custom json marshalling"]
 description: "custom json marshalling of golang"

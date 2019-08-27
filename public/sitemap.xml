@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/</loc>
-    <lastmod>2019-08-27T11:00:42+08:00</lastmod>
+    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,14 +24,14 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/golang/</loc>
-    <lastmod>2019-08-27T11:00:42+08:00</lastmod>
+    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/golang/</loc>
-    <lastmod>2019-08-27T11:00:42+08:00</lastmod>
+    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -45,42 +45,42 @@
   
   <url>
     <loc>https://beyondkmp.com/</loc>
-    <lastmod>2019-08-27T11:00:42+08:00</lastmod>
+    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-08-27T11:00:42+08:00</lastmod>
+    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/</loc>
-    <lastmod>2019-08-27T11:00:42+08:00</lastmod>
+    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/post/golang_custom_json_marshalling/</loc>
-    <lastmod>2019-08-11T13:06:23+08:00</lastmod>
+    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/custom-json-marshalling/</loc>
-    <lastmod>2019-08-11T13:06:23+08:00</lastmod>
+    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/json/</loc>
-    <lastmod>2019-08-11T13:06:23+08:00</lastmod>
+    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
