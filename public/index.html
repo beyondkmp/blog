@@ -150,7 +150,51 @@
   
   <div class="post-content">
     <div class="post-summary">
-      Golang标准库里面有encoding/json可以非常方便的将结构体转化成json数据, 具体例子如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+      <p>Golang标准库里面有encoding/json可以非常方便的将结构体转化成json数据, 具体例子如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&#34;encoding/json&#34;</span>
+    <span class="s">&#34;os&#34;</span>
+    <span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">MyUser</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">ID</span>       <span class="kt">int64</span>     <span class="s">`json:&#34;id&#34;`</span>
+    <span class="nx">Name</span>     <span class="kt">string</span>    <span class="s">`json:&#34;name&#34;`</span>
+    <span class="nx">LastSeen</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span> <span class="s">`json:&#34;lastSeen&#34;`</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">_</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span>
+        <span class="o">&amp;</span><span class="nx">MyUser</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#34;Ken&#34;</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()},</span>
+    <span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
     <div class="read-more">
       <a href="/post/golang_custom_json_marshalling/" class="read-more-link">Read more..</a>

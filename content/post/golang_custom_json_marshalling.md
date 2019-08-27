@@ -35,6 +35,8 @@ func main() {
 }
 ```
 
+<!--more-->
+
 Output:
 
 ```json
