@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-08-25T14:23:54&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-27T11:00:42&#43;08:00" />
-<meta itemprop="wordCount" content="441">
+<meta itemprop="wordCount" content="408">
 
 
 
@@ -247,134 +247,117 @@
 </span><span class="lnt"> 98
 </span><span class="lnt"> 99
 </span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
-        <span class="s">&#34;context&#34;</span>
-        <span class="s">&#34;flag&#34;</span>
-        <span class="s">&#34;fmt&#34;</span>
-        <span class="s">&#34;net&#34;</span>
-        <span class="s">&#34;time&#34;</span>
+    <span class="s">&#34;context&#34;</span>
+    <span class="s">&#34;flag&#34;</span>
+    <span class="s">&#34;fmt&#34;</span>
+    <span class="s">&#34;net&#34;</span>
+    <span class="s">&#34;time&#34;</span>
 
-        <span class="s">&#34;github.com/miekg/dns&#34;</span>
+    <span class="s">&#34;github.com/miekg/dns&#34;</span>
 <span class="p">)</span>
 
 <span class="kd">var</span> <span class="p">(</span>
-        <span class="nx">MAINLANDIP</span> <span class="p">=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ParseIP</span><span class="p">(</span><span class="s">&#34;120.253.225.34&#34;</span><span class="p">)</span>
-        <span class="nx">OVERSEA</span>    <span class="p">=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ParseIP</span><span class="p">(</span><span class="s">&#34;38.143.9.29&#34;</span><span class="p">)</span>
-        <span class="nx">TIMEOUT</span>    <span class="p">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span>
+    <span class="nx">TIMEOUT</span> <span class="p">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span>
 <span class="p">)</span>
 
 <span class="kd">type</span> <span class="nx">edns</span> <span class="kd">struct</span> <span class="p">{</span>
-        <span class="nx">client</span>    <span class="o">*</span><span class="nx">dns</span><span class="p">.</span><span class="nx">Client</span>
-        <span class="nx">server</span>    <span class="kt">string</span>
-        <span class="nx">isOversea</span> <span class="kt">bool</span>
+    <span class="nx">client</span> <span class="o">*</span><span class="nx">dns</span><span class="p">.</span><span class="nx">Client</span>
+    <span class="nx">server</span> <span class="kt">string</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">NewEdns</span><span class="p">()</span> <span class="p">(</span><span class="o">*</span><span class="nx">edns</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">config</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">dns</span><span class="p">.</span><span class="nf">ClientConfigFromFile</span><span class="p">(</span><span class="s">&#34;/etc/resolv.conf&#34;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;cannot read config from /etc/resolv.conf&#34;</span><span class="p">)</span>
-        <span class="p">}</span>
+    <span class="nx">server</span> <span class="o">:=</span> <span class="s">&#34;223.5.5.5&#34;</span>
+    <span class="nx">port</span> <span class="o">:=</span> <span class="s">&#34;53&#34;</span>
 
-        <span class="nx">c</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">dns</span><span class="p">.</span><span class="nx">Client</span><span class="p">)</span>
-        <span class="nx">edns</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">edns</span><span class="p">{</span>
-                <span class="nx">client</span><span class="p">:</span> <span class="nx">c</span><span class="p">,</span>
-                <span class="nx">server</span><span class="p">:</span> <span class="nx">net</span><span class="p">.</span><span class="nf">JoinHostPort</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">Servers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">config</span><span class="p">.</span><span class="nx">Port</span><span class="p">),</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="nx">edns</span><span class="p">,</span> <span class="kc">nil</span>
+    <span class="nx">c</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">dns</span><span class="p">.</span><span class="nx">Client</span><span class="p">)</span>
+    <span class="nx">edns</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">edns</span><span class="p">{</span>
+        <span class="nx">client</span><span class="p">:</span> <span class="nx">c</span><span class="p">,</span>
+        <span class="nx">server</span><span class="p">:</span> <span class="nx">net</span><span class="p">.</span><span class="nf">JoinHostPort</span><span class="p">(</span><span class="nx">server</span><span class="p">,</span> <span class="nx">port</span><span class="p">),</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">edns</span><span class="p">,</span> <span class="kc">nil</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">edns</span><span class="p">)</span> <span class="nf">ednsMsg</span><span class="p">(</span><span class="nx">domain</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">clientIP</span> <span class="nx">net</span><span class="p">.</span><span class="nx">IP</span><span class="p">)</span> <span class="o">*</span><span class="nx">dns</span><span class="p">.</span><span class="nx">Msg</span> <span class="p">{</span>
-        <span class="nx">m</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">dns</span><span class="p">.</span><span class="nx">Msg</span><span class="p">)</span>
-        <span class="nx">m</span><span class="p">.</span><span class="nf">SetQuestion</span><span class="p">(</span><span class="nx">dns</span><span class="p">.</span><span class="nf">Fqdn</span><span class="p">(</span><span class="nx">domain</span><span class="p">),</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">TypeCNAME</span><span class="p">)</span>
-        <span class="nx">m</span><span class="p">.</span><span class="nx">RecursionDesired</span> <span class="p">=</span> <span class="kc">true</span>
+    <span class="nx">m</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">dns</span><span class="p">.</span><span class="nx">Msg</span><span class="p">)</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nf">SetQuestion</span><span class="p">(</span><span class="nx">dns</span><span class="p">.</span><span class="nf">Fqdn</span><span class="p">(</span><span class="nx">domain</span><span class="p">),</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">TypeCNAME</span><span class="p">)</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">RecursionDesired</span> <span class="p">=</span> <span class="kc">true</span>
 
-        <span class="nx">o</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">dns</span><span class="p">.</span><span class="nx">OPT</span><span class="p">{</span>
-                <span class="nx">Hdr</span><span class="p">:</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">RR_Header</span><span class="p">{</span>
-                        <span class="nx">Name</span><span class="p">:</span>   <span class="s">&#34;.&#34;</span><span class="p">,</span>
-                        <span class="nx">Rrtype</span><span class="p">:</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">TypeOPT</span><span class="p">,</span>
-                <span class="p">},</span>
-        <span class="p">}</span>
+    <span class="nx">o</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">dns</span><span class="p">.</span><span class="nx">OPT</span><span class="p">{</span>
+        <span class="nx">Hdr</span><span class="p">:</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">RR_Header</span><span class="p">{</span>
+            <span class="nx">Name</span><span class="p">:</span>   <span class="s">&#34;.&#34;</span><span class="p">,</span>
+            <span class="nx">Rrtype</span><span class="p">:</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">TypeOPT</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
 
-        <span class="nx">ed</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">dns</span><span class="p">.</span><span class="nx">EDNS0_SUBNET</span><span class="p">{</span>
-                <span class="nx">Code</span><span class="p">:</span>          <span class="nx">dns</span><span class="p">.</span><span class="nx">EDNS0SUBNET</span><span class="p">,</span>
-                <span class="nx">Address</span><span class="p">:</span>       <span class="nx">clientIP</span><span class="p">,</span>
-                <span class="nx">Family</span><span class="p">:</span>        <span class="mi">1</span><span class="p">,</span>
-                <span class="nx">SourceNetmask</span><span class="p">:</span> <span class="nx">net</span><span class="p">.</span><span class="nx">IPv4len</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span>
-        <span class="p">}</span>
+    <span class="nx">ed</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">dns</span><span class="p">.</span><span class="nx">EDNS0_SUBNET</span><span class="p">{</span>
+        <span class="nx">Code</span><span class="p">:</span>          <span class="nx">dns</span><span class="p">.</span><span class="nx">EDNS0SUBNET</span><span class="p">,</span>
+        <span class="nx">Address</span><span class="p">:</span>       <span class="nx">clientIP</span><span class="p">,</span>
+        <span class="nx">Family</span><span class="p">:</span>        <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">SourceNetmask</span><span class="p">:</span> <span class="nx">net</span><span class="p">.</span><span class="nx">IPv4len</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="p">}</span>
 
-        <span class="nx">o</span><span class="p">.</span><span class="nx">Option</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">Option</span><span class="p">,</span> <span class="nx">ed</span><span class="p">)</span>
-        <span class="nx">m</span><span class="p">.</span><span class="nx">Extra</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">Extra</span><span class="p">,</span> <span class="nx">o</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nx">m</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">Option</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">Option</span><span class="p">,</span> <span class="nx">ed</span><span class="p">)</span>
+    <span class="nx">m</span><span class="p">.</span><span class="nx">Extra</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">Extra</span><span class="p">,</span> <span class="nx">o</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">m</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">edns</span><span class="p">)</span> <span class="nf">QueryEqual</span><span class="p">(</span><span class="nx">domain</span><span class="p">,</span> <span class="nx">cname</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">isOversea</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">(</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">ctx</span><span class="p">,</span> <span class="nx">cancle</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">WithTimeout</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">(),</span> <span class="nx">TIMEOUT</span><span class="p">)</span>
-        <span class="k">defer</span> <span class="nf">cancle</span><span class="p">()</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">edns</span><span class="p">)</span> <span class="nf">Query</span><span class="p">(</span><span class="nx">domain</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">clientIP</span> <span class="nx">net</span><span class="p">.</span><span class="nx">IP</span><span class="p">)</span> <span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ctx</span><span class="p">,</span> <span class="nx">cancle</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">WithTimeout</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">(),</span> <span class="nx">TIMEOUT</span><span class="p">)</span>
+    <span class="k">defer</span> <span class="nf">cancle</span><span class="p">()</span>
 
-        <span class="nx">clientIP</span> <span class="o">:=</span> <span class="nx">MAINLANDIP</span>
-        <span class="k">if</span> <span class="nx">isOversea</span> <span class="p">{</span>
-                <span class="nx">clientIP</span> <span class="p">=</span> <span class="nx">OVERSEA</span>
+    <span class="nx">m</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nf">ednsMsg</span><span class="p">(</span><span class="nx">domain</span><span class="p">,</span> <span class="nx">clientIP</span><span class="p">)</span>
+    <span class="nx">r</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nf">ExchangeContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">server</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nx">r</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="nx">r</span><span class="p">.</span><span class="nx">Rcode</span> <span class="o">!=</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">RcodeSuccess</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;invalid answer name&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">result</span> <span class="p">[]</span><span class="kt">string</span>
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">a</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">r</span><span class="p">.</span><span class="nx">Answer</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="nx">ans</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">*</span><span class="nx">dns</span><span class="p">.</span><span class="nx">CNAME</span><span class="p">:</span>
+            <span class="nx">result</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">ans</span><span class="p">.</span><span class="nx">Target</span><span class="p">)</span>
         <span class="p">}</span>
-
-        <span class="nx">m</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nf">ednsMsg</span><span class="p">(</span><span class="nx">domain</span><span class="p">,</span> <span class="nx">clientIP</span><span class="p">)</span>
-        <span class="nx">r</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nf">ExchangeContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">server</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="nx">r</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">err</span>
-        <span class="p">}</span>
-
-        <span class="k">if</span> <span class="nx">r</span><span class="p">.</span><span class="nx">Rcode</span> <span class="o">!=</span> <span class="nx">dns</span><span class="p">.</span><span class="nx">RcodeSuccess</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;invalid answer name&#34;</span><span class="p">)</span>
-        <span class="p">}</span>
-
-        <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">a</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">r</span><span class="p">.</span><span class="nx">Answer</span> <span class="p">{</span>
-                <span class="k">switch</span> <span class="nx">ans</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">case</span> <span class="o">*</span><span class="nx">dns</span><span class="p">.</span><span class="nx">CNAME</span><span class="p">:</span>
-                        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">ans</span><span class="p">.</span><span class="nx">Target</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="nx">ans</span><span class="p">.</span><span class="nx">Target</span> <span class="o">==</span> <span class="nx">cname</span><span class="o">+</span><span class="s">&#34;.&#34;</span> <span class="p">{</span>
-                                <span class="k">return</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">nil</span>
-                        <span class="p">}</span>
-                <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">result</span><span class="p">,</span> <span class="kc">nil</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">domain</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;d&#34;</span><span class="p">,</span> <span class="s">&#34;www.baidu.com&#34;</span><span class="p">,</span> <span class="s">&#34;domain&#34;</span><span class="p">)</span>
-        <span class="nx">cname</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;www.a.shifen.com&#34;</span><span class="p">,</span> <span class="s">&#34;cname&#34;</span><span class="p">)</span>
-        <span class="nx">isOversea</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Bool</span><span class="p">(</span><span class="s">&#34;o&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;is oversea&#34;</span><span class="p">)</span>
-        <span class="nx">flag</span><span class="p">.</span><span class="nf">Parse</span><span class="p">()</span>
+    <span class="nx">domain</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;d&#34;</span><span class="p">,</span> <span class="s">&#34;www.baidu.com&#34;</span><span class="p">,</span> <span class="s">&#34;domain&#34;</span><span class="p">)</span>
+    <span class="nx">clientIP</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;38.143.9.29&#34;</span><span class="p">,</span> <span class="s">&#34;client ip&#34;</span><span class="p">)</span>
 
-        <span class="nx">ed</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">NewEdns</span><span class="p">()</span>
-        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-        <span class="p">}</span>
+    <span class="nx">flag</span><span class="p">.</span><span class="nf">Parse</span><span class="p">()</span>
 
-        <span class="nx">equal</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ed</span><span class="p">.</span><span class="nf">QueryEqual</span><span class="p">(</span><span class="o">*</span><span class="nx">domain</span><span class="p">,</span> <span class="o">*</span><span class="nx">cname</span><span class="p">,</span> <span class="o">*</span><span class="nx">isOversea</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-        <span class="p">}</span>
+    <span class="nx">ed</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">NewEdns</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
 
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;domain: %s, cname: %s  equal: %v\n&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">domain</span><span class="p">,</span> <span class="o">*</span><span class="nx">cname</span><span class="p">,</span> <span class="nx">equal</span><span class="p">)</span>
+    <span class="nx">cnames</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ed</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="o">*</span><span class="nx">domain</span><span class="p">,</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ParseIP</span><span class="p">(</span><span class="o">*</span><span class="nx">clientIP</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;domain: %s, cnames: %v\n&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">domain</span><span class="p">,</span> <span class="nx">cnames</span><span class="p">)</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
+<p>output:</p>
+
+<pre><code>$ ./dns -d  test.ictim2020.com -c 58.22.114.38
+domain: test.ictim2020.com, cnames: [www.baidu.com.]
+$ ./dns -d  test.ictim2020.com -c 1.1.1.1
+domain: test.ictim2020.com, cnames: [www.google.com.]
+</code></pre>
     </div>
 
     <div class="post-copyright">
