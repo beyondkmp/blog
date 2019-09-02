@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://beyondkmp.com/" />
 
-<meta property="og:updated_time" content="2019-08-25T14:23:54+08:00" />
+<meta property="og:updated_time" content="2019-08-29T14:15:17+08:00" />
 <meta itemprop="name" content="Kmp - beyondkmp&#39;s new hugo blog">
 <meta itemprop="description" content="beyondkmp&#39;s blog">
 
@@ -116,6 +116,41 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/golang_sorted_summarize/">golang排序实践</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-08-29 </span>
+      <div class="post-category">
+          <a href="/categories/golang/"> golang </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h1 id="对int-float64-string列表进行排序">对int, float64, string列表进行排序</h1>
+
+<p>可以直接使用库函数, 进行升序排序, 目前有以下三个库函数<code>sort.Ints</code>,<code>sort.Strings</code>,<code>sort.Float64s</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">a</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+<span class="nx">sort</span><span class="p">.</span><span class="nf">Ints</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/post/golang_sorted_summarize/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/golang_edns_example/">golang edns实战</a></h1>
@@ -483,42 +518,6 @@ Given binary tree [3,9,20,null,null,15,7],</p>
     </div>
     <div class="read-more">
       <a href="/post/golang_json_marshal/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/git_commands/">基础git命令收集</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-02-28 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="打标签">打标签</h2>
-
-<h3 id="列出所有标签">列出所有标签</h3>
-
-<pre><code>git tag
-</code></pre>
-
-<h3 id="列出特定标签">列出特定标签</h3>
-
-<pre><code>git tag -l 'v1.8.5*'
-</code></pre>
-
-<h3 id="显示标签信息">显示标签信息</h3>
-
-<pre><code>git show v1.5
-</code></pre>
-    </div>
-    <div class="read-more">
-      <a href="/post/git_commands/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>

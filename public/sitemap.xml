@@ -10,7 +10,56 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/</loc>
-    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
+    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/categories/golang/</loc>
+    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/golang-sorted/</loc>
+    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/post/golang_sorted_summarize/</loc>
+    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/</loc>
+    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/post/</loc>
+    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/sort-slice/</loc>
+    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/</loc>
+    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18,13 +67,6 @@
   <url>
     <loc>https://beyondkmp.com/tags/edns/</loc>
     <lastmod>2019-08-27T11:00:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/categories/golang/</loc>
-    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -39,27 +81,6 @@
   <url>
     <loc>https://beyondkmp.com/post/golang_edns_example/</loc>
     <lastmod>2019-08-27T11:00:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/</loc>
-    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/tags/</loc>
-    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -198,14 +219,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/%E6%94%B6%E8%97%8F/</loc>
+    <loc>https://beyondkmp.com/tags/%E6%94%B6%E8%97%8F/</loc>
     <lastmod>2019-04-09T17:56:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/%E6%94%B6%E8%97%8F/</loc>
+    <loc>https://beyondkmp.com/categories/%E6%94%B6%E8%97%8F/</loc>
     <lastmod>2019-04-09T17:56:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1605,14 +1626,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
