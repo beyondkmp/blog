@@ -114,6 +114,6 @@ func main() {
 }
 ```
 
-## 参考
+# 参考
 1. [The 3 ways to sort in Go](https://yourbasic.org/golang/how-to-sort-in-go/)
 
