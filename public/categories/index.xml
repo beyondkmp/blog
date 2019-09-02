@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 29 Aug 2019 14:15:17 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Sep 2019 17:13:50 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mac</title>
+      <link>https://beyondkmp.com/categories/mac/</link>
+      <pubDate>Mon, 02 Sep 2019 17:13:50 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/categories/mac/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>golang</title>
@@ -44,15 +53,6 @@
       <pubDate>Thu, 28 Feb 2019 14:51:59 +0800</pubDate>
       
       <guid>https://beyondkmp.com/categories/%E6%94%B6%E8%97%8F/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mac</title>
-      <link>https://beyondkmp.com/categories/mac/</link>
-      <pubDate>Tue, 29 Jan 2019 12:44:37 +0800</pubDate>
-      
-      <guid>https://beyondkmp.com/categories/mac/</guid>
       <description></description>
     </item>
     

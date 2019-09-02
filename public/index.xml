@@ -6,7 +6,7 @@
     <description>Recent content on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 29 Aug 2019 14:15:17 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Sep 2019 17:13:50 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,21 @@
       
       <guid>https://beyondkmp.com/about/</guid>
       <description>I am interesting in golang, python, macos, linux.</description>
+    </item>
+    
+    <item>
+      <title>Hammerspoon实战</title>
+      <link>https://beyondkmp.com/post/hammerspoon/</link>
+      <pubDate>Mon, 02 Sep 2019 17:13:50 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/hammerspoon/</guid>
+      <description>&lt;h1 id=&#34;hammerspoon简介&#34;&gt;hammerspoon简介&lt;/h1&gt;
+
+&lt;p&gt;这是一个OS X平台上的非常强大的自动化工具。Hammerspoon的核心是操作系统和lua脚本的桥梁引擎。用户可以通过Hammerspoon的提供一批接口, 实现很多强大的功能。&lt;/p&gt;
+
+&lt;h1 id=&#34;hammerspoon能做什么&#34;&gt;Hammerspoon能做什么&lt;/h1&gt;
+
+&lt;p&gt;你可以通过写lua脚本来与OS X的系统api进行交互，这些系统接口包括：应用，桌面，鼠标，文件系统，电池，屏幕，wifi等。&lt;/p&gt;</description>
     </item>
     
     <item>

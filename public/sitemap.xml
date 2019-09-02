@@ -10,7 +10,56 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/</loc>
-    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
+    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/hammerspoon/</loc>
+    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/post/hammerspoon/</loc>
+    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/</loc>
+    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/categories/mac/</loc>
+    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/post/</loc>
+    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/</loc>
+    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/%E8%87%AA%E5%8A%A8%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -37,28 +86,7 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/</loc>
-    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://beyondkmp.com/tags/sort-slice/</loc>
-    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/tags/</loc>
     <lastmod>2019-08-29T14:15:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -263,13 +291,6 @@
   <url>
     <loc>https://beyondkmp.com/post/git_delete_branch/</loc>
     <lastmod>2019-02-20T11:22:14+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/categories/mac/</loc>
-    <lastmod>2019-02-25T14:32:25+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
