@@ -114,6 +114,88 @@ func main() {
 }
 ```
 
+# 性能对比
+
+Slice vs Sorting Type (of Slice) with Sort implementation
+
+```go
+
+package main
+
+import (
+        "sort"
+        "testing"
+)
+
+type User struct {
+        Name string
+        Age  int
+}
+
+var TestCases = []User{
+        {"alice", 9},
+        {"james", 35},
+        {"wade", 15},
+        {"test", 51},
+        {"beyond", 25},
+        {"brand", 59},
+        {"bob", 10},
+        {"twitter", 15},
+        {"google", 22},
+        {"facebook", 91},
+}
+
+// Example One - Sorting Slice Directly
+// somehow - slowest way to sort it.
+func SortSlice(users []User) {
+        sort.Slice(users, func(i, j int) bool {
+                return users[i].Name < users[j].Name
+        })
+}
+
+func BenchmarkSlice(b *testing.B) {
+        tmp := make([]User, len(TestCases))
+        for i := 0; i < b.N; i++ {
+                copy(tmp, TestCases)
+                SortSlice(tmp)
+        }
+}
+
+// Example Two - Sorting Slice Directly
+// much faster performance
+type ByName []User
+
+// Sort interface implementation
+func (n ByName) Less(i, j int) bool { return n[i].Name < n[j].Name }
+func (n ByName) Len() int           { return len(n) }
+func (n ByName) Swap(i, j int)      { n[i], n[j] = n[j], n[i] }
+
+func SortStruct(users []User) {
+        sort.Sort(ByName(users))
+}
+
+func BenchmarkStruct(b *testing.B) {
+        tmp := make([]User, len(TestCases))
+        for i := 0; i < b.N; i++ {
+                copy(tmp, TestCases)
+                SortStruct(tmp)
+        }
+}
+```
+
+测试结果:
+
+```go
+$ go test -bench=.
+goos: linux
+goarch: amd64
+pkg: hello
+BenchmarkSlice-2         2000000               976 ns/op
+BenchmarkStruct-2        3000000               401 ns/op
+PASS
+ok      hello   4.564s
+```
+
 # 参考
 1. [The 3 ways to sort in Go](https://yourbasic.org/golang/how-to-sort-in-go/)
 

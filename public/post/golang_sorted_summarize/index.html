@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-08-29T14:15:17&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-29T14:15:17&#43;08:00" />
-<meta itemprop="wordCount" content="533">
+<meta itemprop="wordCount" content="817">
 
 
 
@@ -143,6 +143,7 @@
 <li><a href="#对int-float64-string列表进行排序">对int, float64, string列表进行排序</a></li>
 <li><a href="#使用自定义比较器">使用自定义比较器</a></li>
 <li><a href="#实现排序接口">实现排序接口</a></li>
+<li><a href="#性能对比">性能对比</a></li>
 <li><a href="#参考">参考</a></li>
 </ul>
 </nav>
@@ -338,6 +339,160 @@
 </div></li>
 </ol>
 
+<h1 id="性能对比">性能对比</h1>
+
+<p>Slice vs Sorting Type (of Slice) with Sort implementation</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+        <span class="s">&#34;sort&#34;</span>
+        <span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+        <span class="nx">Name</span> <span class="kt">string</span>
+        <span class="nx">Age</span>  <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">TestCases</span> <span class="p">=</span> <span class="p">[]</span><span class="nx">User</span><span class="p">{</span>
+        <span class="p">{</span><span class="s">&#34;alice&#34;</span><span class="p">,</span> <span class="mi">9</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#34;james&#34;</span><span class="p">,</span> <span class="mi">35</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#34;wade&#34;</span><span class="p">,</span> <span class="mi">15</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#34;test&#34;</span><span class="p">,</span> <span class="mi">51</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#34;beyond&#34;</span><span class="p">,</span> <span class="mi">25</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#34;brand&#34;</span><span class="p">,</span> <span class="mi">59</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#34;bob&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#34;twitter&#34;</span><span class="p">,</span> <span class="mi">15</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#34;google&#34;</span><span class="p">,</span> <span class="mi">22</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&#34;facebook&#34;</span><span class="p">,</span> <span class="mi">91</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1">// Example One - Sorting Slice Directly
+</span><span class="c1">// somehow - slowest way to sort it.
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">SortSlice</span><span class="p">(</span><span class="nx">users</span> <span class="p">[]</span><span class="nx">User</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">sort</span><span class="p">.</span><span class="nf">Slice</span><span class="p">(</span><span class="nx">users</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">users</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Name</span> <span class="p">&lt;</span> <span class="nx">users</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">Name</span>
+        <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">BenchmarkSlice</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">tmp</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">User</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">TestCases</span><span class="p">))</span>
+        <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+                <span class="nb">copy</span><span class="p">(</span><span class="nx">tmp</span><span class="p">,</span> <span class="nx">TestCases</span><span class="p">)</span>
+                <span class="nf">SortSlice</span><span class="p">(</span><span class="nx">tmp</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Example Two - Sorting Slice Directly
+</span><span class="c1">// much faster performance
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">ByName</span> <span class="p">[]</span><span class="nx">User</span>
+
+<span class="c1">// Sort interface implementation
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="nx">ByName</span><span class="p">)</span> <span class="nf">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">n</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Name</span> <span class="p">&lt;</span> <span class="nx">n</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">Name</span> <span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="nx">ByName</span><span class="p">)</span> <span class="nf">Len</span><span class="p">()</span> <span class="kt">int</span>           <span class="p">{</span> <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="nx">ByName</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span>      <span class="p">{</span> <span class="nx">n</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">n</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">n</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">n</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">SortStruct</span><span class="p">(</span><span class="nx">users</span> <span class="p">[]</span><span class="nx">User</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">sort</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nf">ByName</span><span class="p">(</span><span class="nx">users</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">BenchmarkStruct</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">tmp</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">User</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">TestCases</span><span class="p">))</span>
+        <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+                <span class="nb">copy</span><span class="p">(</span><span class="nx">tmp</span><span class="p">,</span> <span class="nx">TestCases</span><span class="p">)</span>
+                <span class="nf">SortStruct</span><span class="p">(</span><span class="nx">tmp</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>测试结果:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">$</span> <span class="k">go</span> <span class="nx">test</span> <span class="o">-</span><span class="nx">bench</span><span class="p">=.</span>
+<span class="nx">goos</span><span class="p">:</span> <span class="nx">linux</span>
+<span class="nx">goarch</span><span class="p">:</span> <span class="nx">amd64</span>
+<span class="nx">pkg</span><span class="p">:</span> <span class="nx">hello</span>
+<span class="nx">BenchmarkSlice</span><span class="o">-</span><span class="mi">2</span>         <span class="mi">2000000</span>               <span class="mi">976</span> <span class="nx">ns</span><span class="o">/</span><span class="nx">op</span>
+<span class="nx">BenchmarkStruct</span><span class="o">-</span><span class="mi">2</span>        <span class="mi">3000000</span>               <span class="mi">401</span> <span class="nx">ns</span><span class="o">/</span><span class="nx">op</span>
+<span class="nx">PASS</span>
+<span class="nx">ok</span>      <span class="nx">hello</span>   <span class="mf">4.564</span><span class="nx">s</span></code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="参考">参考</h1>
 
 <ol>
