@@ -1,7 +1,7 @@
 ---
 title: "小米路由器3G安装padavan固件"
 date: 2018-10-23T20:27:39+08:00
-lastmod: 2019-05-11T18:57:17+0800
+lastmod: 2019-09-08T00:34:55+0800
 draft: false
 keywords: ["小米路由器3G","padavan固件"]
 description: "在小米路由器3G上面安装padavan固件"
@@ -10,8 +10,6 @@ categories: ["运维人生"]
 author: "beyondkmp"
 
 ---
-
-# 获取路由器ssh权限
 
 从京东下一台小米3G路由器，很快就送到了。接下来就要搞事情了...
 
@@ -67,7 +65,7 @@ author: "beyondkmp"
 
 在breed界面有个环境变量设置，里面个ROM md5值验证，删除掉后，再重新刷入padavan就ok了。
 
-# 参考
+## 参考
 1. [小米路由器3G刷机教程——不死Breed后台+Padavan固件](https://www.bilibili.com/read/cv802996/)
 2. [小米路由器3G刷breed及老毛子Padavan固件教程](http://www.right.com.cn/forum/thread-257423-1-1.html)
 3. [老毛子Padavan固件MI-R3G_3.4.3.9-099.trx本站备份](/files/MI-R3G_3.4.3.9-099.trx)

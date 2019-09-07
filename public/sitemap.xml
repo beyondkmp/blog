@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/</loc>
-    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
+    <lastmod>2019-09-08T00:34:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -31,7 +31,7 @@
   
   <url>
     <loc>https://beyondkmp.com/</loc>
-    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
+    <lastmod>2019-09-08T00:34:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -45,14 +45,14 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
+    <lastmod>2019-09-08T00:34:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/</loc>
-    <lastmod>2019-09-02T17:13:50+08:00</lastmod>
+    <lastmod>2019-09-08T00:34:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -135,14 +135,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/arts/</loc>
+    <loc>https://beyondkmp.com/tags/arts/</loc>
     <lastmod>2019-05-17T12:49:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/arts/</loc>
+    <loc>https://beyondkmp.com/categories/arts/</loc>
     <lastmod>2019-05-17T12:49:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -178,7 +178,7 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/</loc>
-    <lastmod>2019-05-13T17:02:38+08:00</lastmod>
+    <lastmod>2019-09-08T00:34:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -458,21 +458,21 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/padavan%E5%9B%BA%E4%BB%B6/</loc>
-    <lastmod>2019-05-11T18:57:17+08:00</lastmod>
+    <lastmod>2019-09-08T00:34:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8/</loc>
-    <lastmod>2019-05-11T18:57:17+08:00</lastmod>
+    <lastmod>2019-09-08T00:34:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/post/xiaomi3g_padavan/</loc>
-    <lastmod>2019-05-11T18:57:17+08:00</lastmod>
+    <lastmod>2019-09-08T00:34:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
