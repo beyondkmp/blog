@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.57.2 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.3 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/" />
@@ -36,7 +36,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.60d135ec.min.css" rel="stylesheet">
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
@@ -118,358 +118,19 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/hammerspoon/">Hammerspoon实战</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/">Posts</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-09-02 </span>
-      <div class="post-category">
-          <a href="/categories/mac/"> mac </a>
-          </div>
+      
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      <h1 id="hammerspoon简介">hammerspoon简介</h1>
-
-<p>这是一个OS X平台上的非常强大的自动化工具。Hammerspoon的核心是操作系统和lua脚本的桥梁引擎。用户可以通过Hammerspoon的提供一批接口, 实现很多强大的功能。</p>
-
-<h1 id="hammerspoon能做什么">Hammerspoon能做什么</h1>
-
-<p>你可以通过写lua脚本来与OS X的系统api进行交互，这些系统接口包括：应用，桌面，鼠标，文件系统，电池，屏幕，wifi等。</p>
+      
     </div>
     <div class="read-more">
-      <a href="/post/hammerspoon/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang_sorted_summarize/">golang排序实践</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-08-29 </span>
-      <div class="post-category">
-          <a href="/categories/golang/"> golang </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h1 id="对int-float64-string列表进行排序">对int, float64, string列表进行排序</h1>
-
-<p>可以直接使用库函数, 进行升序排序, 目前有以下三个库函数<code>sort.Ints</code>,<code>sort.Strings</code>,<code>sort.Float64s</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">a</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
-<span class="nx">sort</span><span class="p">.</span><span class="nf">Ints</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span></code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/golang_sorted_summarize/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang_edns_example/">golang edns实战</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-08-25 </span>
-      <div class="post-category">
-          <a href="/categories/golang/"> golang </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>目前需要从不同的地方访问一个域名的CNAME, 比如从国内和海外两个不同的地方访问, 并查看这个CNAME是不是设置正确。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/golang_edns_example/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang_custom_json_marshalling/">[翻译]Golang自定义json转化格式</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-08-11 </span>
-      <div class="post-category">
-          <a href="/categories/golang/"> golang </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Golang标准库里面有encoding/json可以非常方便的将结构体转化成json数据, 具体例子如下:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-    <span class="s">&#34;encoding/json&#34;</span>
-    <span class="s">&#34;os&#34;</span>
-    <span class="s">&#34;time&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">type</span> <span class="nx">MyUser</span> <span class="kd">struct</span> <span class="p">{</span>
-    <span class="nx">ID</span>       <span class="kt">int64</span>     <span class="s">`json:&#34;id&#34;`</span>
-    <span class="nx">Name</span>     <span class="kt">string</span>    <span class="s">`json:&#34;name&#34;`</span>
-    <span class="nx">LastSeen</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span> <span class="s">`json:&#34;lastSeen&#34;`</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">_</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span>
-        <span class="o">&amp;</span><span class="nx">MyUser</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#34;Ken&#34;</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()},</span>
-    <span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/golang_custom_json_marshalling/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/arts3/">arts第3周</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-17 </span>
-      <div class="post-category">
-          <a href="/categories/arts/"> arts </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h1 id="algorithm">Algorithm</h1>
-
-<h2 id="binary-tree-level-order-traversal-ii-https-leetcode-com-problems-binary-tree-level-order-traversal-ii"><a href="https://leetcode.com/problems/binary-tree-level-order-traversal-ii/">Binary Tree Level Order Traversal II</a></h2>
-
-<h3 id="description">description</h3>
-
-<p>Given a binary tree, return the bottom-up level order traversal of its nodes&rsquo; values. (ie, from left to right, level by level from leaf to root).</p>
-
-<p>For example:
-Given binary tree [3,9,20,null,null,15,7],</p>
-
-<pre><code>    3
-   / \
-  9  20
-    /  \
-   15   7
-</code></pre>
-
-<p>return its bottom-up level order traversal as:</p>
-
-<pre><code>[
-  [15,7],
-  [9,20],
-  [3]
-]
-</code></pre>
-    </div>
-    <div class="read-more">
-      <a href="/post/arts3/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/debian_compile_python3.7/">debian8编译安装python3</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-13 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="编译安装gcc8">编译安装gcc8</h2>
-
-<ol>
-<li><p>下载<a href="ftp://ftp.lip6.fr/pub/gcc/releases/gcc-8.3.0/gcc-8.3.0.tar.gz">源代码</a>, 并解压。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">wget ftp://ftp.lip6.fr/pub/gcc/releases/gcc-8.3.0/gcc-8.3.0.tar.gz
-tar -xvf gcc-8.3.0.tar.gz</code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>安装相关依赖</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> gcc-8.3.0
-./contrib/download_prerequisites
-sudo apt install texinfo bison flex</code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>编译</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir build
-<span class="nb">cd</span> build
-../configure --prefix<span class="o">=</span>/usr/local/gcc --enable-bootstrap  --enable-checking<span class="o">=</span>release --enable-languages<span class="o">=</span>c,c++ --disable-multilib
-make -j4 <span class="o">(</span>4是我机器的cpu核心数<span class="o">)</span></code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>编译安装并配置环境变量</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo make install
-<span class="nb">echo</span> <span class="s2">&#34;PATH=/usr/local/gcc/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span> &gt;&gt; ~/.zshrc
-<span class="nb">source</span> ~/.zshrc</code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>查看版本</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">gcc -v</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-    </div>
-    <div class="read-more">
-      <a href="/post/debian_compile_python3.7/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/arts1/">arts第一周</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-09 </span>
-      <div class="post-category">
-          <a href="/categories/arts/"> arts </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h1 id="algorithm">Algorithm</h1>
-
-<h2 id="binary-tree-level-order-traversal-ii-https-leetcode-com-problems-binary-tree-level-order-traversal-ii"><a href="https://leetcode.com/problems/binary-tree-level-order-traversal-ii/">Binary Tree Level Order Traversal II</a></h2>
-
-<h3 id="description">description</h3>
-
-<p>Given a binary tree, return the bottom-up level order traversal of its nodes&rsquo; values. (ie, from left to right, level by level from leaf to root).</p>
-
-<p>For example:
-Given binary tree [3,9,20,null,null,15,7],</p>
-
-<pre><code>    3
-   / \
-  9  20
-    /  \
-   15   7
-</code></pre>
-
-<p>return its bottom-up level order traversal as:</p>
-
-<pre><code>[
-  [15,7],
-  [9,20],
-  [3]
-]
-</code></pre>
-    </div>
-    <div class="read-more">
-      <a href="/post/arts1/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/arts/">arts训练</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-08 </span>
-      <div class="post-category">
-          <a href="/categories/arts/"> arts </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="高效学习">高效学习</h2>
-
-<p>其中，我还引用了一张学习金字塔我们可以看到，</p>
-
-<p><img src="/imgs/arts/pyramid.jpg" alt="pyramid" /></p>
-
-<p>你听别人讲，或是自己看书，或是让别人演示给你，这些都不能让你真正获得学习能力，因为你是在被别人灌输，在听别人说。只有你开始自己思考，开始自己总结和归纳，开始找人交流讨论，开始践行，并开始对外输出，你才会掌握到真正的学习能力。所以，学习不是努力读更多的书，盲目追求阅读的速度和数量，这会让人产生低层次的勤奋和成长的感觉，这只是在使蛮力。要思辨，要践行，要总结和归纳，否则，你只是在机械地重复某件事（记忆知识），而不会有质的成长的。</p>
-
-<h2 id="arts的初衷">ARTS的初衷</h2>
-    </div>
-    <div class="read-more">
-      <a href="/post/arts/" class="read-more-link">Read more..</a>
+      <a href="/post/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
@@ -478,10 +139,7 @@ Given binary tree [3,9,20,null,null,15,7],</p>
   
   <nav class="pagination">
     
-    <a class="next" href="/page/2/">
-        <span class="next-text">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
+    
   </nav>
         </div>
         
