@@ -11,10 +11,6 @@ author: "beyondkmp"
 
 ---
 
-<!--more-->
-
-# tmux配置
-
 ## 编译安装
 
 ```shell
@@ -25,6 +21,9 @@ $ ./configure
 $ make
 $ make install
 ```
+
+<!--more-->
+
 ## install powerline
 tmux-powerline已经不维护了，所以转为使用powerline.
 ### 安装
