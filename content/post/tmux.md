@@ -11,7 +11,7 @@ author: "beyondkmp"
 
 ---
 
-## 编译安装
+# 编译安装
 
 ```shell
 $ wget  https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz
@@ -24,9 +24,12 @@ $ make install
 
 <!--more-->
 
-## install powerline
+# install powerline
+
 tmux-powerline已经不维护了，所以转为使用powerline.
-### 安装
+
+## 安装
+
 1. 方法1
 
     ```shell
@@ -38,7 +41,7 @@ tmux-powerline已经不维护了，所以转为使用powerline.
     pip install --user git+git://github.com/powerline/powerline
     ```
 
-### 查看powerline的安装位置
+## 查看powerline的安装位置
 
 ```shell
 $ pip3 show powerline-status
@@ -54,7 +57,7 @@ Requires:
 Required-by:
 ```
 
-## 安装nerd-font字体
+# 安装nerd-font字体
 
 ```shell
 brew tap homebrew/cask-fonts
@@ -71,11 +74,11 @@ iTerm2配置 --> Profiles --> Text --> Use a different font for non-ASCII Text
 
 安装完powerline后，找到对应的poweline.conf位置, 替换掉下面的配置
 
-```
+```shell
 if-shell 'test -f ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf' 'source-file ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf'
 ```
 
-## 配置文档
+# 配置文档
 
 ```shell
 #设置PREFIX为Ctrl-a
@@ -125,7 +128,8 @@ bind l selectp -R
 
 if-shell 'test -f ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf' 'source-file ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf'
 ```
-## 参考
+
+# 参考
 
 1. [Example tmux configuration](https://tony.github.io/tmux-config/)
 2. [让命令行更炫酷](https://al03.github.io/%E8%AE%A9%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9B%B4%E7%82%AB%E9%85%B7/)
