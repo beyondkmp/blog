@@ -30,12 +30,12 @@ tmux-powerline已经不维护了，所以转为使用powerline.
 
 ## 安装
 
-1. 方法1
+1. 安装pip源的版本，稳定版本
 
     ```shell
     pip install powerline-status
     ```
-2. 方法2
+2. 安装github上面的最新版本
 
     ```shell
     pip install --user git+git://github.com/powerline/powerline
