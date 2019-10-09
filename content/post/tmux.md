@@ -57,6 +57,12 @@ Requires:
 Required-by:
 ```
 
+如果是安装在用户目录的.local目录下面，要将下面的目录加入到PATH的环境变量中
+
+```shell
+export PATH=$PATH:$HOME/.local/bin
+```
+
 # 安装nerd-font字体
 
 ```shell
