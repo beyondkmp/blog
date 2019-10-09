@@ -10,21 +10,21 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/</loc>
-    <lastmod>2019-09-24T14:31:07+00:00</lastmod>
+    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/</loc>
-    <lastmod>2019-09-24T14:31:07+00:00</lastmod>
+    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-09-24T14:31:07+00:00</lastmod>
+    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,7 +38,7 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/</loc>
-    <lastmod>2019-09-24T14:31:07+00:00</lastmod>
+    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -94,7 +94,7 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/golang/</loc>
-    <lastmod>2019-08-29T14:15:17+08:00</lastmod>
+    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -129,7 +129,7 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/golang/</loc>
-    <lastmod>2019-08-27T12:19:46+08:00</lastmod>
+    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -268,14 +268,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/%E6%94%B6%E8%97%8F/</loc>
+    <loc>https://beyondkmp.com/tags/%E6%94%B6%E8%97%8F/</loc>
     <lastmod>2019-04-09T17:56:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/%E6%94%B6%E8%97%8F/</loc>
+    <loc>https://beyondkmp.com/categories/%E6%94%B6%E8%97%8F/</loc>
     <lastmod>2019-04-09T17:56:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -808,21 +808,21 @@
   
   <url>
     <loc>https://beyondkmp.com/post/go%E8%AF%AD%E8%A8%80%E4%B8%AD%E9%AB%98%E6%95%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5/</loc>
-    <lastmod>2016-03-06T00:00:00+08:00</lastmod>
+    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5/</loc>
-    <lastmod>2016-03-06T00:00:00+08:00</lastmod>
+    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/%E9%AB%98%E6%95%88/</loc>
-    <lastmod>2016-03-06T00:00:00+08:00</lastmod>
+    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1668,14 +1668,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

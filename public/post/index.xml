@@ -764,7 +764,7 @@ sudo make install
       <pubDate>Sun, 06 Mar 2016 00:00:00 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/go%E8%AF%AD%E8%A8%80%E4%B8%AD%E9%AB%98%E6%95%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5/</guid>
-      <description>目前主要有三种方法： 直接用&amp;rdquo;+=&amp;ldquo;操作符，直接将多个字符串拼接。最直观的方法，不过当数据量非常大时用这种拼接访求是非</description>
+      <description>目前主要有四种方法： 直接用&amp;rdquo;+=&amp;ldquo;操作符，直接将多个字符串拼接。最直观的方法，不过当数据量非常大时用这种拼接访求是非</description>
     </item>
     
     <item>
