@@ -1,7 +1,7 @@
 ---
 title: "在mac os x 下面使用szrz"
 date: 2016-05-21T00:00:00+0800
-lastmod: 2016-05-21T00:00:00+0800
+lastmod: 2019-10-10T01:30:34+0800
 draft: false
 keywords: ["os x","szrz"]
 tags:  ["os x","szrz"]
@@ -17,7 +17,7 @@ tags: ["os x","szrz"]
     ```
     brew install lrzsz
     ```
-2. 将<https://github.com/mmastrac/iterm2-zmodem>下载的 iterm2-send-zmodem.sh and iterm2-recv-zmodem.sh脚本保存到/usr/local/bin下面,并添加可执行权限
+2. 将<https://github.com/laggardkernel/iterm2-zmodem>下载的 iterm2-send-zmodem.sh and iterm2-recv-zmodem.sh脚本保存到/usr/local/bin下面,并添加可执行权限
 
 3. 在iTerm 2下面设置相应的Triggers,Triggers位于`Preferences->Profiles->Advanced->Triggers`,直接edit就会出现下面的界面:
 

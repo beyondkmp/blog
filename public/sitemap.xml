@@ -10,21 +10,21 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/</loc>
-    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
+    <lastmod>2019-10-10T01:30:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/</loc>
-    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
+    <lastmod>2019-10-10T01:30:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
+    <lastmod>2019-10-10T01:30:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,7 +38,7 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/</loc>
-    <lastmod>2019-10-10T00:55:33+08:00</lastmod>
+    <lastmod>2019-10-10T01:30:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -527,14 +527,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/scala/</loc>
+    <loc>https://beyondkmp.com/tags/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/scala/</loc>
+    <loc>https://beyondkmp.com/categories/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -605,7 +605,7 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2017-07-05T00:00:00+08:00</lastmod>
+    <lastmod>2019-10-10T01:30:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -745,21 +745,21 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/os-x/</loc>
-    <lastmod>2016-05-21T00:00:00+08:00</lastmod>
+    <lastmod>2019-10-10T01:30:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/szrz/</loc>
-    <lastmod>2016-05-21T00:00:00+08:00</lastmod>
+    <lastmod>2019-10-10T01:30:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/post/osx-szrz%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2016-05-21T00:00:00+08:00</lastmod>
+    <lastmod>2019-10-10T01:30:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1668,14 +1668,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
