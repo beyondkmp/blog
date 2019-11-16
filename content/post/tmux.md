@@ -13,6 +13,13 @@ author: "beyondkmp"
 
 # 编译安装
 
+## 安装依赖
+
+```shell
+apt-get install libevent-dev
+apt-get install libcurses-ocaml-dev
+```
+
 ```shell
 $ wget  https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz
 $ tar -xvf tmux-2.9a.tar.gz
