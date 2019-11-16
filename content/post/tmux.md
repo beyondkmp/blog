@@ -1,7 +1,7 @@
 ---
 title: "Tmux配置"
 date: 2019-09-24T14:31:07Z
-lastmod: 2019-09-24T14:31:07Z
+lastmod: 2019-11-16T17:41:20+0800
 draft: false
 keywords: ["tmux","powerline"]
 description: "个人常用的tmux配置"
