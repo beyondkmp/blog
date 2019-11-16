@@ -20,6 +20,8 @@ apt-get install libevent-dev
 apt-get install libcurses-ocaml-dev
 ```
 
+## 下载源码编译安装
+
 ```shell
 $ wget  https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz
 $ tar -xvf tmux-2.9a.tar.gz
