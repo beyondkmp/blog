@@ -11,7 +11,9 @@ author: "beyondkmp"
 
 ---
 
-freenom的域名是顶级域名，目前免费的有四种：tk, mk, ga, cf。官方网站是<https://www.freenom.com/zh/index.html?lang=zh>。
+freenom的域名是顶级域名，目前免费的有五种：tk, ml, ga, cf, gq, 最长免费使用时间是1年，不过过期后可以免费续期的。
+
+官方网站是<https://www.freenom.com/zh/index.html?lang=zh>。
 
 ## 申请
 
