@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://beyondkmp.com/" />
 
-<meta property="og:updated_time" content="2019-09-24T14:31:07+00:00" />
+<meta property="og:updated_time" content="2019-11-17T09:31:08+08:00" />
 <meta itemprop="name" content="Kmp - beyondkmp&#39;s new hugo blog">
 <meta itemprop="description" content="beyondkmp&#39;s blog">
 
@@ -116,6 +116,49 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/libfaketime_surge/">libfaketime改变软件的运行时间</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-01-27 </span>
+      <div class="post-category">
+          <a href="/categories/mac/"> mac </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="libfaketime">libfaketime</h2>
+
+<p><a href="https://github.com/wolfcw/libfaketime">libfaketime</a>:主要是拦截了程序调用获取当前时间的系统调用。然后会将你修改(假的)后的时间返回给这些程序。这样的话你可以单独修改一个程序的获取的时间，而不用修改整个系统的时间。</p>
+
+<h2 id="安装libfaketime">安装libfaketime</h2>
+
+<p>有两种方法安装，brew和编译源码安装. brew安装的版本有点老，在最新的macos系统已经不行了,运行时会报错。</p>
+
+<ol>
+<li><p>通过brew安装</p>
+
+<pre><code>brew install libfaketime coreutils
+</code></pre></li>
+
+<li><p>源码编译安装</p>
+
+<pre><code>git clone https://github.com/wolfcw/libfaketime.git
+make
+sudo make install
+</code></pre></li>
+</ol>
+
+<h2 id="使用faketime来运行surge">使用faketime来运行surge</h2>
+    </div>
+    <div class="read-more">
+      <a href="/post/libfaketime_surge/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/zsh_crash_xcode/">修复升级xcode后zsh崩溃</a></h1>
@@ -305,31 +348,6 @@
     </div>
     <div class="read-more">
       <a href="/post/k8s-vagrant-build-cluster/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/scala-resources/">Scala Resources</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-09-18 </span>
-      <div class="post-category">
-          <a href="/categories/scala/"> scala </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <ol>
-<li><a href="https://danielwestheide.com/blog/tags/scala/">Daniel Westheide scala</a></li>
-<li><a href="https://www.coursera.org/learn/progfun1/course-inbox">Coursera scala</a></li>
-<li><a href="https://twitter.github.io/scala_school/zh_cn/basics.html">twitter scala</a></li>
-</ol>
-    </div>
-    <div class="read-more">
-      <a href="/post/scala-resources/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
