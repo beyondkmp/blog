@@ -8,3 +8,7 @@ weight: 50
 ---
 
 I am interesting in golang, python, macos, linux.
+
+## public account
+
+![wechat-public-account](/imgs/wechat-public-account.jpg)
