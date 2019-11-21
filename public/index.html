@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://beyondkmp.com/" />
 
-<meta property="og:updated_time" content="2019-11-17T09:31:08+08:00" />
+<meta property="og:updated_time" content="2019-11-21T16:53:18+08:00" />
 <meta itemprop="name" content="Kmp - beyondkmp&#39;s new hugo blog">
 <meta itemprop="description" content="beyondkmp&#39;s blog">
 
@@ -116,6 +116,89 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/golang_http/">golang http的代码收集</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-11-21 </span>
+      <div class="post-category">
+          <a href="/categories/golang/"> golang </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h1 id="golang-http-post-with-json">golang http post with json</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="p">(</span>
+        <span class="s">&#34;bytes&#34;</span>
+        <span class="s">&#34;encoding/json&#34;</span>
+        <span class="s">&#34;io&#34;</span>
+        <span class="s">&#34;log&#34;</span>
+        <span class="s">&#34;net/http&#34;</span>
+        <span class="s">&#34;os&#34;</span>
+        <span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+        <span class="nx">Id</span>      <span class="kt">string</span> <span class="s">`json:&#34;id&#34;`</span>
+        <span class="nx">Balance</span> <span class="kt">uint64</span> <span class="s">`json:&#34;balance&#34;`</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">u</span> <span class="o">:=</span> <span class="nx">User</span><span class="p">{</span><span class="nx">Id</span><span class="p">:</span> <span class="s">&#34;US123&#34;</span><span class="p">,</span> <span class="nx">Balance</span><span class="p">:</span> <span class="mi">8</span><span class="p">}</span>
+        <span class="nx">b</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span><span class="p">)</span>
+        <span class="nx">json</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="nx">b</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">u</span><span class="p">)</span>
+        <span class="kd">var</span> <span class="nx">netClient</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">http</span><span class="p">.</span><span class="nx">Client</span><span class="p">{</span>
+                <span class="nx">Timeout</span><span class="p">:</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="nx">res</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">netClient</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">&#34;https://httpbin.org/post&#34;</span><span class="p">,</span> <span class="s">&#34;application/json; charset=utf-8&#34;</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="nx">io</span><span class="p">.</span><span class="nf">Copy</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span> <span class="nx">res</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/post/golang_http/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/freenom/">freenom申请免费域名</a></h1>
@@ -383,95 +466,6 @@ Given binary tree [3,9,20,null,null,15,7],</p>
     </div>
     <div class="read-more">
       <a href="/post/arts3/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/debian_compile_python3.7/">debian8编译安装python3</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-13 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="编译安装gcc8">编译安装gcc8</h2>
-
-<ol>
-<li><p>下载<a href="ftp://ftp.lip6.fr/pub/gcc/releases/gcc-8.3.0/gcc-8.3.0.tar.gz">源代码</a>, 并解压。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">wget ftp://ftp.lip6.fr/pub/gcc/releases/gcc-8.3.0/gcc-8.3.0.tar.gz
-tar -xvf gcc-8.3.0.tar.gz</code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>安装相关依赖</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> gcc-8.3.0
-./contrib/download_prerequisites
-sudo apt install texinfo bison flex</code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>编译</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir build
-<span class="nb">cd</span> build
-../configure --prefix<span class="o">=</span>/usr/local/gcc --enable-bootstrap  --enable-checking<span class="o">=</span>release --enable-languages<span class="o">=</span>c,c++ --disable-multilib
-make -j4 <span class="o">(</span>4是我机器的cpu核心数<span class="o">)</span></code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>编译安装并配置环境变量</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo make install
-<span class="nb">echo</span> <span class="s2">&#34;PATH=/usr/local/gcc/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span> &gt;&gt; ~/.zshrc
-<span class="nb">source</span> ~/.zshrc</code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>查看版本</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">gcc -v</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-    </div>
-    <div class="read-more">
-      <a href="/post/debian_compile_python3.7/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
