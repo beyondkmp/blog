@@ -14,7 +14,28 @@ author: "beyondkmp"
 # golang http server
 
 ```go
+package main
 
+import (
+        "fmt"
+        "io/ioutil"
+        "net/http"
+)
+
+func hello(w http.ResponseWriter, req *http.Request) {
+        body, err := ioutil.ReadAll(req.Body)
+        if err != nil {
+                panic(err)
+        }
+        fmt.Println(string(body))
+
+        fmt.Fprintf(w, "hello\n"+string(body))
+}
+
+func main() {
+        http.HandleFunc("/hello", hello)
+        http.ListenAndServe(":8090", nil)
+}
 ```
 
 # golang http post with json
@@ -67,3 +88,49 @@ func main() {
 ```
 
 <!--more-->
+
+# golang doing a GET request and building the Querystring
+
+```go
+package main
+
+import (
+        "fmt"
+        "io/ioutil"
+        "log"
+        "net/http"
+        "time"
+)
+
+func main() {
+        url := "http://127.0.0.1:8090/hello"
+        timeout := time.Duration(50 * time.Millisecond) //超时时间50ms
+        client := &http.Client{
+                Timeout: timeout,
+        }
+
+        req, err := http.NewRequest("GET", url, nil)
+        if err != nil {
+                log.Fatal(err)
+        }
+
+        req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+        req.Header.Set("Cookie", "name=zhang")
+
+        q := req.URL.Query()
+        q.Add("domain", "www.baidu.com")
+        req.URL.RawQuery = q.Encode()
+
+        response, err := client.Do(req)
+        if err != nil {
+                log.Fatal(err)
+        }
+        defer response.Body.Close()
+
+        body, err := ioutil.ReadAll(response.Body)
+        if err != nil {
+                log.Fatal(err)
+        }
+        fmt.Println(string(body))
+}
+```
