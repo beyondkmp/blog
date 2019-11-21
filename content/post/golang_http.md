@@ -13,6 +13,8 @@ author: "beyondkmp"
 
 # golang http server
 
+1.  golang http server
+
 ```go
 package main
 
@@ -38,7 +40,11 @@ func main() {
 }
 ```
 
-# golang http post with json
+<!--more-->
+
+# golang post and get request
+
+1. golang http post with json
 
 ```go
 package main
@@ -87,9 +93,8 @@ func main() {
 
 ```
 
-<!--more-->
 
-# golang doing a GET request and building the Querystring
+2. golang doing a GET request and building the Querystring
 
 ```go
 package main
