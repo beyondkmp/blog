@@ -46,39 +46,39 @@ cd nginx-1.16.1
             --builddir=nginx-1.16.1 \
             --with-select_module \
             --with-poll_module \
- 			--with-threads \
+            --with-threads \
             --with-file-aio \
             --with-http_ssl_module \
- 			--with-http_v2_module \
-			--with-http_realip_module \
-			--with-http_addition_module \
-			--with-http_xslt_module=dynamic \
-			--with-http_image_filter_module=dynamic \
-			--with-http_geoip_module=dynamic \
-			--with-http_sub_module \
-			--with-http_dav_module \
-			--with-http_gunzip_module \
-			--with-http_gzip_static_module \
-			--with-http_auth_request_module \
-			--with-http_random_index_module \
-			--with-http_secure_link_module \
-			--with-http_degradation_module \
-			--with-http_slice_module \
-			--with-http_stub_status_module \
-			--with-http_perl_module=dynamic \
-			--with-perl_modules_path=/usr/share/perl/5.26.1 \
-			--with-perl=/usr/bin/perl \
-			--with-stream=dynamic \
-			--with-stream_ssl_module \
-			--with-stream_realip_module \
-			--with-stream_geoip_module=dynamic \
-			--with-stream_ssl_preread_module \
-			--with-compat \
-			--with-pcre=../pcre-8.43 \
-			--with-pcre-jit \
-			--with-zlib=../zlib-1.2.11 \
-			--with-openssl=../openssl-1.1.1d \
-			--with-openssl-opt='enable-tls1_3'
+             --with-http_v2_module \
+            --with-http_realip_module \
+            --with-http_addition_module \
+            --with-http_xslt_module=dynamic \
+            --with-http_image_filter_module=dynamic \
+            --with-http_geoip_module=dynamic \
+            --with-http_sub_module \
+            --with-http_dav_module \
+            --with-http_gunzip_module \
+            --with-http_gzip_static_module \
+            --with-http_auth_request_module \
+            --with-http_random_index_module \
+            --with-http_secure_link_module \
+            --with-http_degradation_module \
+            --with-http_slice_module \
+            --with-http_stub_status_module \
+            --with-http_perl_module=dynamic \
+            --with-perl_modules_path=/usr/share/perl/5.26.1 \
+            --with-perl=/usr/bin/perl \
+            --with-stream=dynamic \
+            --with-stream_ssl_module \
+            --with-stream_realip_module \
+            --with-stream_geoip_module=dynamic \
+            --with-stream_ssl_preread_module \
+            --with-compat \
+            --with-pcre=../pcre-8.43 \
+            --with-pcre-jit \
+            --with-zlib=../zlib-1.2.11 \
+            --with-openssl=../openssl-1.1.1d \
+            --with-openssl-opt='enable-tls1_3'
 make
 make install
 useradd nginx
