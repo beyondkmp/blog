@@ -11,13 +11,13 @@ author: "beyondkmp"
 
 ---
 
-## freenom域名介绍
+## freenom优点
 
 * freenom的域名是顶级域名，有以下五种：tk, ml, ga, cf, gq.
 * 最长免费使用时间是1年，不过过期后可以免费续期的。
 * 一个邮箱可以注册很多个域名，我最多的时候注册过5个，并不是外面所说的一个邮箱只能注册一个域名。
 
-官方网站是<https://www.freenom.com/zh/index.html?lang=zh>。
+官方网站是<https://www.freenom.com/zh/index.html?lang=zh>
 
 ## 申请
 
