@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>iTerm2 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <title>iterm2 on Kmp - beyondkmp&#39;s new hugo blog</title>
     <link>https://beyondkmp.com/tags/iterm2/</link>
-    <description>Recent content in iTerm2 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <description>Recent content in iterm2 on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 23 Jan 2019 10:33:23 +0800</lastBuildDate>
@@ -25,6 +25,15 @@
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://beyondkmp.com/imgs/zsh_crash.jpg&#34; alt=&#34;zsh_crash&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>iterm2使用szrz</title>
+      <link>https://beyondkmp.com/post/osx-szrz%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 21 May 2016 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/osx-szrz%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>安装步骤 安装lrzsz软件 1 brew install lrzsz 将下面的iterm2-zmodem-recv和iterm2-zmodem-send脚本保存到/usr/lo</description>
     </item>
     
   </channel>

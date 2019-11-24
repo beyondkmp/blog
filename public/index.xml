@@ -945,12 +945,12 @@ sudo make install
     </item>
     
     <item>
-      <title>在mac os x 下面使用szrz</title>
+      <title>iterm2使用szrz</title>
       <link>https://beyondkmp.com/post/osx-szrz%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 21 May 2016 00:00:00 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/osx-szrz%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
-      <description>安装步骤 安装lrzsz软件 brew install lrzsz 将https://github.com/laggardkernel/iterm2-zmodem下载的 iterm2-send-zmodem.sh and it</description>
+      <description>安装步骤 安装lrzsz软件 1 brew install lrzsz 将下面的iterm2-zmodem-recv和iterm2-zmodem-send脚本保存到/usr/lo</description>
     </item>
     
     <item>

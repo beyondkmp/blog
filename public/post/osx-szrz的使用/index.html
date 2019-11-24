@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>在mac os x 下面使用szrz - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <title>iterm2使用szrz - Kmp - beyondkmp&#39;s new hugo blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="beyondkmp" /><meta name="description" content="经常要通过终端从服务器上传或下载文件,使用此命令可以方便很多" /><meta name="keywords" content="os x, szrz" />
+<meta name="author" content="beyondkmp" /><meta name="description" content="经常要通过终端从服务器上传或下载文件,使用rzsz会非常方便" /><meta name="keywords" content="macos, iterm2, szrz" />
 
 
 
@@ -38,26 +38,26 @@
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
-<meta property="og:title" content="在mac os x 下面使用szrz" />
-<meta property="og:description" content="经常要通过终端从服务器上传或下载文件,使用此命令可以方便很多" />
+<meta property="og:title" content="iterm2使用szrz" />
+<meta property="og:description" content="经常要通过终端从服务器上传或下载文件,使用rzsz会非常方便" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://beyondkmp.com/post/osx-szrz%E7%9A%84%E4%BD%BF%E7%94%A8/" />
 <meta property="article:published_time" content="2016-05-21T00:00:00+08:00" />
-<meta property="article:modified_time" content="2019-10-10T01:30:34+08:00" />
-<meta itemprop="name" content="在mac os x 下面使用szrz">
-<meta itemprop="description" content="经常要通过终端从服务器上传或下载文件,使用此命令可以方便很多">
+<meta property="article:modified_time" content="2019-11-24T23:59:58+08:00" />
+<meta itemprop="name" content="iterm2使用szrz">
+<meta itemprop="description" content="经常要通过终端从服务器上传或下载文件,使用rzsz会非常方便">
 
 
 <meta itemprop="datePublished" content="2016-05-21T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-10-10T01:30:34&#43;08:00" />
-<meta itemprop="wordCount" content="470">
+<meta itemprop="dateModified" content="2019-11-24T23:59:58&#43;08:00" />
+<meta itemprop="wordCount" content="664">
 
 
 
-<meta itemprop="keywords" content="os x,szrz," />
+<meta itemprop="keywords" content="macos,iterm2,szrz," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="在mac os x 下面使用szrz"/>
-<meta name="twitter:description" content="经常要通过终端从服务器上传或下载文件,使用此命令可以方便很多"/>
+<meta name="twitter:title" content="iterm2使用szrz"/>
+<meta name="twitter:description" content="经常要通过终端从服务器上传或下载文件,使用rzsz会非常方便"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -124,12 +124,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">在mac os x 下面使用szrz</h1>
+      <h1 class="post-title">iterm2使用szrz</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2016-05-21 </span>
         <div class="post-category">
-            <a href="/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/"> 常用技巧 </a>
+            <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
             </div>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -150,11 +150,6 @@
 </nav>
   </div>
 </div>
-  <div class="post-outdated">
-    <div class="hint">
-      <p>[NOTE] Updated <span class="timeago" datetime="2019-10-10T01:30:34" title="October 10, 2019">October 10, 2019</span>. This article may have outdated content or subject matter.</p>
-    </div>
-  </div>
     <div class="post-content">
       
 
@@ -162,11 +157,108 @@
 
 <ol>
 <li><p>安装lrzsz软件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">brew install lrzsz</code></pre></td></tr></table>
+</div>
+</div></li>
 
-<pre><code>brew install lrzsz
-</code></pre></li>
+<li><p>将下面的iterm2-zmodem-recv和iterm2-zmodem-send脚本保存到/usr/local/bin下面,并添加可执行权限(<code>chmod +x /usr/local/bin/iterm2-zmodem-*</code>)</p>
 
-<li><p>将<a href="https://github.com/laggardkernel/iterm2-zmodem">https://github.com/laggardkernel/iterm2-zmodem</a>下载的 iterm2-send-zmodem.sh and iterm2-recv-zmodem.sh脚本保存到/usr/local/bin下面,并添加可执行权限</p></li>
+<ul>
+<li><p>iterm2-zmodem-recv</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
+</span><span class="cp"></span><span class="c1"># vim: fdm=marker foldlevel=0 sw=2 ts=2 sts=2</span>
+
+<span class="nv">FILE</span><span class="o">=</span><span class="sb">`</span>osascript -e <span class="s1">&#39;tell application &#34;iTerm&#34; to activate&#39;</span> -e <span class="s1">&#39;tell application &#34;iTerm&#34; to set thefile to choose folder with prompt &#34;Choose a folder to place received files in&#34;&#39;</span> -e <span class="s2">&#34;do shell script (\&#34;echo \&#34;&amp;(quoted form of POSIX path of thefile as Unicode text)&amp;\&#34;\&#34;)&#34;</span><span class="sb">`</span>
+
+<span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$FILE</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34; Cancelled&#34;</span>
+  <span class="c1"># Send ZModem cancel</span>
+  <span class="nb">echo</span> -e <span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18
+  sleep <span class="m">1</span>
+  <span class="nb">echo</span>
+  <span class="nb">echo</span> <span class="s2">&#34; # Cancelled transfer&#34;</span>
+<span class="k">else</span>
+  <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$FILE</span><span class="s2">&#34;</span>
+  <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOMEBREW_PREFIX</span><span class="k">:-</span><span class="p">/usr/local</span><span class="si">}</span><span class="s2">/bin/rz&#34;</span> -E -e -b
+  sleep <span class="m">1</span>
+  <span class="nb">echo</span>
+  <span class="nb">echo</span> <span class="s2">&#34; # Sent -&gt; </span><span class="nv">$FILE</span><span class="s2">&#34;</span>
+<span class="k">fi</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>iterm2-zmodem-send</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/env bash
+</span><span class="cp"></span><span class="c1"># vim: fdm=marker foldlevel=0 sw=2 ts=2 sts=2</span>
+
+<span class="nv">FILE</span><span class="o">=</span><span class="sb">`</span>osascript -e <span class="s1">&#39;tell application &#34;iTerm&#34; to activate&#39;</span> -e <span class="s1">&#39;tell application &#34;iTerm&#34; to set thefile to choose file with prompt &#34;Choose a file to send&#34;&#39;</span> -e <span class="s2">&#34;do shell script (\&#34;echo \&#34;&amp;(quoted form of POSIX path of thefile as Unicode text)&amp;\&#34;\&#34;)&#34;</span><span class="sb">`</span>
+
+<span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$FILE</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34; Cancelled&#34;</span>
+  <span class="c1"># Send ZModem cancel</span>
+  <span class="nb">echo</span> -e <span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18
+  sleep <span class="m">1</span>
+  <span class="nb">echo</span>
+  <span class="nb">echo</span> <span class="s2">&#34; # Cancelled transfer&#34;</span>
+<span class="k">else</span>
+  <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOMEBREW_PREFIX</span><span class="k">:-</span><span class="p">/usr/local</span><span class="si">}</span><span class="s2">/bin/sz&#34;</span> <span class="s2">&#34;</span><span class="nv">$FILE</span><span class="s2">&#34;</span> -e -b
+  sleep <span class="m">1</span>
+  <span class="nb">echo</span>
+  <span class="nb">echo</span> <span class="s2">&#34; # Received </span><span class="nv">$FILE</span><span class="s2">&#34;</span>
+<span class="k">fi</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul></li>
 
 <li><p>在iTerm 2下面设置相应的Triggers,Triggers位于<code>Preferences-&gt;Profiles-&gt;Advanced-&gt;Triggers</code>,直接edit就会出现下面的界面:</p>
 
@@ -175,11 +267,11 @@
 <pre><code>具体的内容如下:
 Regular expression: rz waiting to receive.\*\*B0100
 Action: Run Silent Coprocess
-Parameters: /usr/local/bin/iterm2-send-zmodem.sh
+Parameters: /usr/local/bin/iterm2-zmodem-send
 
 Regular expression: \*\*B00000000000000
 Action: Run Silent Coprocess
-Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
+Parameters: /usr/local/bin/iterm2-zmodem-recv
 </code></pre></li>
 </ol>
 
@@ -218,7 +310,7 @@ Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2019-10-10
+        2019-11-24
         
     </span>
   </p>
@@ -239,7 +331,8 @@ Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/os-x/">os x</a>
+          <a href="/tags/macos/">macos</a>
+          <a href="/tags/iterm2/">iterm2</a>
           <a href="/tags/szrz/">szrz</a>
           </div>
       <nav class="post-nav">
@@ -263,7 +356,7 @@ Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
     <script type="text/javascript">
       var gitalk = new Gitalk({
         id: '2016-05-21 00:00:00 \x2b0800 CST',
-        title: '在mac os x 下面使用szrz',
+        title: 'iterm2使用szrz',
         clientID: '8c413eab333f8cafbd18',
         clientSecret: '050bd9a4697c830cddf6038327c616dea25d0a7f',
         repo: 'c',

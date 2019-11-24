@@ -273,7 +273,7 @@
     </item>
     
     <item>
-      <title>iTerm2</title>
+      <title>iterm2</title>
       <link>https://beyondkmp.com/tags/iterm2/</link>
       <pubDate>Wed, 23 Jan 2019 10:33:23 +0800</pubDate>
       
@@ -593,15 +593,6 @@
       <pubDate>Sun, 08 Jan 2017 00:00:00 +0800</pubDate>
       
       <guid>https://beyondkmp.com/tags/%E8%BD%AC%E6%8D%A2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>os x</title>
-      <link>https://beyondkmp.com/tags/os-x/</link>
-      <pubDate>Sat, 21 May 2016 00:00:00 +0800</pubDate>
-      
-      <guid>https://beyondkmp.com/tags/os-x/</guid>
       <description></description>
     </item>
     
@@ -1079,6 +1070,15 @@
       <pubDate>Mon, 13 Apr 2015 00:00:00 +0800</pubDate>
       
       <guid>https://beyondkmp.com/tags/.ds_store/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>os x</title>
+      <link>https://beyondkmp.com/tags/os-x/</link>
+      <pubDate>Mon, 13 Apr 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/os-x/</guid>
       <description></description>
     </item>
     
