@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://beyondkmp.com/" />
 
-<meta property="og:updated_time" content="2019-11-21T16:53:18+08:00" />
+<meta property="og:updated_time" content="2019-11-24T15:23:36+08:00" />
 <meta itemprop="name" content="Kmp - beyondkmp&#39;s new hugo blog">
 <meta itemprop="description" content="beyondkmp&#39;s blog">
 
@@ -116,6 +116,40 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git_delete_branch/">git删除分支</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-02-20 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="删除本地分支">删除本地分支</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git branch -d branch_name
+$ git branch -D branch_name</code></pre></td></tr></table>
+</div>
+</div>
+<p>Note:</p>
+
+<p><code>-d</code>只能删除已经完全合并的分支，比如你在a分支上，要删除一个b分支，如果这个分支没有merge到a分支，这里用-d是删除不了的, 只能使用-D来强制删除。可以用<code>git branch --no-merged</code>来查看没有合并的分支，<code>git branch --merged</code>来查看合并的分支</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/git_delete_branch/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/macos_softwares/">推荐高效的macos软件</a></h1>
@@ -324,35 +358,6 @@ sudo make install
     </div>
     <div class="read-more">
       <a href="/post/macos_squirrel_inputmethod/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/xiaomi3g_padavan/">小米路由器3G安装padavan固件</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-10-23 </span>
-      <div class="post-category">
-          <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>从京东下一台小米3G路由器，很快就送到了。接下来就要搞事情了&hellip;</p>
-
-<h2 id="工具准备">工具准备</h2>
-
-<ol>
-<li>mac电脑一台</li>
-<li>u盘一个，格式为FAT或者FAT32</li>
-<li>mac的usb网络转接口一个</li>
-</ol>
-    </div>
-    <div class="read-more">
-      <a href="/post/xiaomi3g_padavan/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

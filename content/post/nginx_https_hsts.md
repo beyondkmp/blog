@@ -1,7 +1,7 @@
 ---
 title: "nginx配置参考"
 date: 2019-02-22T21:19:44+0800
-lastmod: 2019-02-25T14:51:17+0800
+lastmod: 2019-11-24T22:43:10+0800
 draft: false
 keywords: ["nginx config","hsts"]
 description: "nginx常用配置"
@@ -39,6 +39,41 @@ make install
 ```
 
 <!--more-->
+
+## systemd管理nginx启动
+
+将下面内容写入`/lib/systemd/system/nginx.service`,
+
+```bash
+[Unit]
+Description=The NGINX HTTP and reverse proxy server
+After=syslog.target network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/usr/local/nginx/logs/nginx.pid
+ExecStartPre=/usr/local/nginx/sbin/nginx -t
+ExecStart=/usr/local/nginx/sbin/nginx
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+开机自启动并启动nginx服务
+
+```shell
+# 加载nginx service
+systemctl daemon-reload
+# 开机启动 
+systemctl enable nginx
+# 启动nginx服务
+systemctl start nginx
+```
+
 ## nginx中HTTPS配置
 
 ```nginx
