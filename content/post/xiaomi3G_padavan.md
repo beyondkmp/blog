@@ -1,7 +1,7 @@
 ---
 title: "小米路由器3G安装padavan固件"
 date: 2018-10-23T20:27:39+08:00
-lastmod: 2019-09-08T00:34:55+0800
+lastmod: 2019-11-24T23:32:48+0800
 draft: false
 keywords: ["小米路由器3G","padavan固件"]
 description: "在小米路由器3G上面安装padavan固件"
@@ -57,7 +57,7 @@ author: "beyondkmp"
 
 1. 拔下电源,按住路由器的reset键,再插上电源开机，等到路由的灯狂闪的时候，松开reset键
 2. 用网线将路由器和电脑连接，在电脑上在浏览器中输入192.168.1.1，进入不死breed的控制台
-3. 此选择固件更新，如下图，再选择下载好的[老毛子Padavan固件MI-R3G_3.4.3.9-099.trx](http://opt.cn2qq.com/padavan/MI-R3G_3.4.3.9-099.trx), 最好等待刷机完成，就会出现一个pdcn的wifi, 默认密码是1234567890; 网页地址: <http://192.168.123.1>, 账号密码：admin/admin
+3. 此选择固件更新，如下图，再选择下载好的[老毛子Padavan固件MI-R3G_3.4.3.9-099.trx](http://opt.cn2qq.com/padavan/MI-R3G_3.4.3.9-099.trx), 最后等待刷机完成，就会出现一个pdcn的wifi, 默认密码是1234567890; 网页地址: <http://192.168.123.1>, 账号密码：admin/admin
 
 ![breed固件更新](/imgs/breed.png)
 
