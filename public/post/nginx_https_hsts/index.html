@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-02-22T21:19:44&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-24T22:43:10&#43;08:00" />
-<meta itemprop="wordCount" content="607">
+<meta itemprop="wordCount" content="679">
 
 
 
@@ -145,6 +145,7 @@
 <li><a href="#nginx编译安装">nginx编译安装</a>
 <ul>
 <li><a href="#下载源码">下载源码</a></li>
+<li><a href="#安装依赖">安装依赖</a></li>
 <li><a href="#编译安装">编译安装</a></li>
 </ul></li>
 <li><a href="#systemd管理nginx启动">systemd管理nginx启动</a></li>
@@ -163,12 +164,29 @@
       <h2 id="nginx编译安装">nginx编译安装</h2>
 
 <h3 id="下载源码">下载源码</h3>
-
-<ol>
-<li>下载官方nginx版本<a href="http://nginx.org/download/nginx-1.14.2.tar.gz">Stable version</a></li>
-<li>下载openssl1.1.1版本，支持tls1.3,<a href="https://www.openssl.org/source/openssl-1.1.1a.tar.gz">openssl-1.1.1a.tar.gz</a></li>
-</ol>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">wget https://nginx.org/download/nginx-1.16.1.tar.gz
+wget https://www.openssl.org/source/openssl-1.1.1d.tar.gz
+wget https://www.zlib.net/zlib-1.2.11.tar.gz
+wget https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="安装依赖">安装依赖</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">apt install -y perl libperl-dev libgd3 libgd-dev libgeoip1 libgeoip-dev geoip-bin libxml2 libxml2-dev libxslt1.1 libxslt1-dev</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="编译安装">编译安装</h3>
 
 <p>在configure里面加上tls1.3, 开启httpv2模块</p>
@@ -187,21 +205,93 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">tar -xvf nginx-1.1.4.2.tar.gz
+<pre class="chroma"><code class="language-bash" data-lang="bash">tar -xvf nginx-1.16.1.tar.gz
 tar -xvf openssl-1.1.1a.tar.gz
-<span class="nb">cd</span> nginx-1.1.4.2
-./configure  --prefix<span class="o">=</span>/usr/local/nginx <span class="se">\
-</span><span class="se"></span>--with-stream <span class="se">\
-</span><span class="se"></span>--with-stream_ssl_preread_module <span class="se">\
-</span><span class="se"></span>--with-http_v2_module <span class="se">\ </span>
---with-http_ssl_module  <span class="se">\
-</span><span class="se"></span>--with-pcre  <span class="se">\
-</span><span class="se"></span>--with-openssl<span class="o">=</span>/tmp/openssl-1.1.1a <span class="se">\
-</span><span class="se"></span>--with-openssl-opt<span class="o">=</span><span class="s1">&#39;enable-tls1_3&#39;</span>
-make -j <span class="m">4</span>
-make install</code></pre></td></tr></table>
+tar -xvf zlib-1.2.11.tar.gz
+tar -xvf pcre-8.43.tar.gz
+
+<span class="nb">cd</span> nginx-1.16.1
+./configure --prefix<span class="o">=</span>/usr/local/nginx <span class="se">\
+</span><span class="se"></span>            --user<span class="o">=</span>nginx <span class="se">\
+</span><span class="se"></span>            --group<span class="o">=</span>nginx <span class="se">\
+</span><span class="se"></span>            --build<span class="o">=</span>Ubuntu <span class="se">\
+</span><span class="se"></span>            --builddir<span class="o">=</span>nginx-1.16.1 <span class="se">\
+</span><span class="se"></span>            --with-select_module <span class="se">\
+</span><span class="se"></span>            --with-poll_module <span class="se">\
+</span><span class="se"></span> 			--with-threads <span class="se">\
+</span><span class="se"></span>            --with-file-aio <span class="se">\
+</span><span class="se"></span>            --with-http_ssl_module <span class="se">\
+</span><span class="se"></span> 			--with-http_v2_module <span class="se">\
+</span><span class="se"></span>			--with-http_realip_module <span class="se">\
+</span><span class="se"></span>			--with-http_addition_module <span class="se">\
+</span><span class="se"></span>			--with-http_xslt_module<span class="o">=</span>dynamic <span class="se">\
+</span><span class="se"></span>			--with-http_image_filter_module<span class="o">=</span>dynamic <span class="se">\
+</span><span class="se"></span>			--with-http_geoip_module<span class="o">=</span>dynamic <span class="se">\
+</span><span class="se"></span>			--with-http_sub_module <span class="se">\
+</span><span class="se"></span>			--with-http_dav_module <span class="se">\
+</span><span class="se"></span>			--with-http_gunzip_module <span class="se">\
+</span><span class="se"></span>			--with-http_gzip_static_module <span class="se">\
+</span><span class="se"></span>			--with-http_auth_request_module <span class="se">\
+</span><span class="se"></span>			--with-http_random_index_module <span class="se">\
+</span><span class="se"></span>			--with-http_secure_link_module <span class="se">\
+</span><span class="se"></span>			--with-http_degradation_module <span class="se">\
+</span><span class="se"></span>			--with-http_slice_module <span class="se">\
+</span><span class="se"></span>			--with-http_stub_status_module <span class="se">\
+</span><span class="se"></span>			--with-http_perl_module<span class="o">=</span>dynamic <span class="se">\
+</span><span class="se"></span>			--with-perl_modules_path<span class="o">=</span>/usr/share/perl/5.26.1 <span class="se">\
+</span><span class="se"></span>			--with-perl<span class="o">=</span>/usr/bin/perl <span class="se">\
+</span><span class="se"></span>			--with-stream<span class="o">=</span>dynamic <span class="se">\
+</span><span class="se"></span>			--with-stream_ssl_module <span class="se">\
+</span><span class="se"></span>			--with-stream_realip_module <span class="se">\
+</span><span class="se"></span>			--with-stream_geoip_module<span class="o">=</span>dynamic <span class="se">\
+</span><span class="se"></span>			--with-stream_ssl_preread_module <span class="se">\
+</span><span class="se"></span>			--with-compat <span class="se">\
+</span><span class="se"></span>			--with-pcre<span class="o">=</span>../pcre-8.43 <span class="se">\
+</span><span class="se"></span>			--with-pcre-jit <span class="se">\
+</span><span class="se"></span>			--with-zlib<span class="o">=</span>../zlib-1.2.11 <span class="se">\
+</span><span class="se"></span>			--with-openssl<span class="o">=</span>../openssl-1.1.1d <span class="se">\
+</span><span class="se"></span>			--with-openssl-opt<span class="o">=</span><span class="s1">&#39;enable-tls1_3&#39;</span>
+make
+make install
+useradd nginx</code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="systemd管理nginx启动">systemd管理nginx启动</h2>

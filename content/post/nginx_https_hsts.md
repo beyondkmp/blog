@@ -15,27 +15,73 @@ author: "beyondkmp"
 
 ### 下载源码
 
-1. 下载官方nginx版本[Stable version](http://nginx.org/download/nginx-1.14.2.tar.gz)
-2. 下载openssl1.1.1版本，支持tls1.3,[openssl-1.1.1a.tar.gz](https://www.openssl.org/source/openssl-1.1.1a.tar.gz)
+```shell
+wget https://nginx.org/download/nginx-1.16.1.tar.gz
+wget https://www.openssl.org/source/openssl-1.1.1d.tar.gz
+wget https://www.zlib.net/zlib-1.2.11.tar.gz
+wget https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz
+```
+
+### 安装依赖
+
+```shell
+apt install -y perl libperl-dev libgd3 libgd-dev libgeoip1 libgeoip-dev geoip-bin libxml2 libxml2-dev libxslt1.1 libxslt1-dev
+```
 
 ### 编译安装
 
 在configure里面加上tls1.3, 开启httpv2模块
 
 ```bash
-tar -xvf nginx-1.1.4.2.tar.gz
+tar -xvf nginx-1.16.1.tar.gz
 tar -xvf openssl-1.1.1a.tar.gz
-cd nginx-1.1.4.2
-./configure  --prefix=/usr/local/nginx \
---with-stream \
---with-stream_ssl_preread_module \
---with-http_v2_module \ 
---with-http_ssl_module  \
---with-pcre  \
---with-openssl=/tmp/openssl-1.1.1a \
---with-openssl-opt='enable-tls1_3'
-make -j 4
+tar -xvf zlib-1.2.11.tar.gz
+tar -xvf pcre-8.43.tar.gz
+
+cd nginx-1.16.1
+./configure --prefix=/usr/local/nginx \
+            --user=nginx \
+            --group=nginx \
+            --build=Ubuntu \
+            --builddir=nginx-1.16.1 \
+            --with-select_module \
+            --with-poll_module \
+ 			--with-threads \
+            --with-file-aio \
+            --with-http_ssl_module \
+ 			--with-http_v2_module \
+			--with-http_realip_module \
+			--with-http_addition_module \
+			--with-http_xslt_module=dynamic \
+			--with-http_image_filter_module=dynamic \
+			--with-http_geoip_module=dynamic \
+			--with-http_sub_module \
+			--with-http_dav_module \
+			--with-http_gunzip_module \
+			--with-http_gzip_static_module \
+			--with-http_auth_request_module \
+			--with-http_random_index_module \
+			--with-http_secure_link_module \
+			--with-http_degradation_module \
+			--with-http_slice_module \
+			--with-http_stub_status_module \
+			--with-http_perl_module=dynamic \
+			--with-perl_modules_path=/usr/share/perl/5.26.1 \
+			--with-perl=/usr/bin/perl \
+			--with-stream=dynamic \
+			--with-stream_ssl_module \
+			--with-stream_realip_module \
+			--with-stream_geoip_module=dynamic \
+			--with-stream_ssl_preread_module \
+			--with-compat \
+			--with-pcre=../pcre-8.43 \
+			--with-pcre-jit \
+			--with-zlib=../zlib-1.2.11 \
+			--with-openssl=../openssl-1.1.1d \
+			--with-openssl-opt='enable-tls1_3'
+make
 make install
+useradd nginx
 ```
 
 <!--more-->
