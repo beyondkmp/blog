@@ -1,7 +1,7 @@
 ---
 title: "freenom申请免费域名"
 date: 2019-11-17T09:31:08+0800
-lastmod: 2019-11-17T09:31:08+0800
+lastmod: 2019-11-24T23:23:18+0800
 draft: false
 keywords: ["freenom","免费域名"]
 description: "freenom申请免费的顶级域名"
@@ -11,7 +11,7 @@ author: "beyondkmp"
 
 ---
 
-freenom的域名是顶级域名，目前免费的有五种：tk, ml, ga, cf, gq, 最长免费使用时间是1年，不过过期后可以免费续期的。
+freenom的域名是顶级域名，目前免费的有五种：tk, ml, ga, cf, gq. 最长免费使用时间是1年，不过过期后可以免费续期的。一个邮箱可以注册很多个域名，我最多的时候注册过5个，并不是外面所说的一个邮箱只能注册一个域名。
 
 官方网站是<https://www.freenom.com/zh/index.html?lang=zh>。
 
