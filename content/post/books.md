@@ -15,10 +15,12 @@ author: "beyondkmp"
 
 ## golang
 
-1. [The Go Programming Language](/books/The.Go.Programming.Language.pdf)
+1. [The Go Programming Language](/books/golang/The.Go.Programming.Language.pdf)
+2. [Go in Action](/books/golang/Manning.Go.In.Action.pdf)
+3. [Network Programming with Go: Essential Skills for Using and Securing Networks](/books/golang/Network.Programming.With.Go.pdf)
 
+<!--more-->
 # kindle收集
 
 ## golang
 
-<!--more-->
