@@ -61,14 +61,15 @@ sudo make install
 
 ## 配置
 
-**配置输入法的的外观和特性的几个文件**:
+### 定制化配置
 
-* squirrel.custom.yaml ，自定义皮肤；
-* default.custom.yaml ，设定备选词数量，定义输入方案；
-* luna_pinyin_simp.custom.yaml ，定义扩充词库、加载符号库、模糊拼音。明月拼音·简化字的输入方案配置文件，明月拼音对应的文件就是 luna_pinyin.custom.yaml；
-* installation.yaml，定义配置文件保存到 Dropbox 文件夹
+目前要定制化自己的特殊配置，都要以`.custom.yaml`结尾，这样在输入法升级或者重新部署的时候都不会直接覆盖这些文件。 这些配置文件里面都要以`patch`开头，以打补丁的方式来实现个性化定制。
 
->以上几个以 .custom.yaml 作为后缀的文件，意味着是以补丁的方式来实现个性化定制的，输入法后续升级不会覆盖这些文件。所以自定义的文件配置中起始部分都会有patch:的字段，每个配置文件中有且只需要一行这个代码段。
+* squirrel.custom.yaml: 自定义皮肤、鼠须管外观、ascii 模式;
+* default.custom.yaml:设定备选词数量，定义输入方案；
+* luna_pinyin_simp.custom.yaml: 定义扩充词库、加载符号库、模糊拼音;
+* wubi_pinyin.custom.yaml: 定义扩充词库、加载符号库;
+* installation.yaml: 同步和备份
 
 ### 界面配置
 
