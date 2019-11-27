@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T17:22:07&#43;08:00" />
-<meta itemprop="wordCount" content="3202">
+<meta itemprop="wordCount" content="3472">
 
 
 
@@ -251,7 +251,7 @@ sudo make install</code></pre></td></tr></table>
 
 <h3 id="界面配置">界面配置</h3>
 
-<p>界面的配置文件是squirrel.custom.yaml, 目前我最喜欢的界面如下，自己修改了一些，还有就是目前不能对单个style进行patch，试了很多配置都没有解决。索性直接自己完整的写个color theme</p>
+<p>界面的配置文件是squirrel.custom.yaml,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
@@ -268,10 +268,33 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml">patch<span class="p">:</span><span class="w">
 </span><span class="w">  </span>show_notifications_when<span class="p">:</span><span class="w"> </span>appropriate<span class="w"> </span><span class="c"># 状态通知，适当，也可设为全开（always）全关（never）</span><span class="w">
+</span><span class="w">  </span>us_keyboard_layout<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">
 </span><span class="w">  </span>style<span class="p">:</span><span class="w">
 </span><span class="w">    </span>color_scheme<span class="p">:</span><span class="w"> </span>psionics<span class="w">
 </span><span class="w">    </span>horizontal<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                                   </span><span class="c"># 水平排列</span><span class="w">
@@ -283,7 +306,26 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="w">    </span>font_face<span class="p">:</span><span class="w"> </span><span class="s2">&#34;PingFangSC-Regular,HanaMinB&#34;</span><span class="w">           </span><span class="c"># 候选词字体</span><span class="w">
 </span><span class="w">    </span>font_point<span class="p">:</span><span class="w"> </span><span class="m">18</span><span class="w">                                     </span><span class="c"># 候选字词大小</span><span class="w">
 </span><span class="w">    </span>label_font_face<span class="p">:</span><span class="w"> </span><span class="s2">&#34;STHeitiSC-Light&#34;</span><span class="w">                 </span><span class="c"># 候选词编号字体</span><span class="w">
-</span><span class="w">    </span>label_font_point<span class="p">:</span><span class="w"> </span><span class="m">16</span><span class="w">                               </span><span class="c"># 候选编号大小</span></code></pre></td></tr></table>
+</span><span class="w">    </span>label_font_point<span class="p">:</span><span class="w"> </span><span class="m">16</span><span class="w">                               </span><span class="c"># 候选编号大小</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="c"># app默認</span><span class="w">
+</span><span class="w">  </span>app_options<span class="p">:</span><span class="w">
+</span><span class="w">    </span>com.apple.dt.Xcode<span class="p">:</span><span class="w">
+</span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>com.runningwithcrayons.Alfred<span class="m">-3</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>com.googlecode.iterm2<span class="p">:</span><span class="w">
+</span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>com.apple.finder<span class="p">:</span><span class="w">
+</span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>com.apple.appstore<span class="p">:</span><span class="w">
+</span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>com.apple.systempreferences<span class="p">:</span><span class="w">
+</span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span>com.apple.keychainaccess<span class="p">:</span><span class="w">
+</span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span><span class="c"># com.apple.Safari:</span><span class="w">
+</span><span class="w">    </span><span class="c">#   ascii_mode: true</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>界面效果如下:</p>
@@ -512,6 +554,7 @@ sudo make install</code></pre></td></tr></table>
 <li><a href="https://placeless.net/blog/my-rime-squirrel-config">我的鼠须管配置</a></li>
 <li><a href="https://placeless.net/blog/my-rime-squirrel-config">安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel)</a></li>
 <li><a href="https://github.com/rime/home/wiki/RimeWithSchemata">RimeWithSchemata</a></li>
+<li><a href="https://scomper.me/gtd/shu-xu-guan-shu-ru-fa-de-xin-pei-se">鼠须管输入法的新配色</a></li>
 </ol>
     </div>
 

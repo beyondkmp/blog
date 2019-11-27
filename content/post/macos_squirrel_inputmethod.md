@@ -73,11 +73,13 @@ sudo make install
 
 ### 界面配置
 
-界面的配置文件是squirrel.custom.yaml, 目前我最喜欢的界面如下，自己修改了一些，还有就是目前不能对单个style进行patch，试了很多配置都没有解决。索性直接自己完整的写个color theme
+界面的配置文件是squirrel.custom.yaml,
 
 ```yaml
 patch:
   show_notifications_when: appropriate # 状态通知，适当，也可设为全开（always）全关（never）
+  us_keyboard_layout: true
+
   style:
     color_scheme: psionics
     horizontal: true                                   # 水平排列
@@ -90,6 +92,25 @@ patch:
     font_point: 18                                     # 候选字词大小
     label_font_face: "STHeitiSC-Light"                 # 候选词编号字体
     label_font_point: 16                               # 候选编号大小
+
+  # app默認
+  app_options:
+    com.apple.dt.Xcode:
+      ascii_mode: true
+    com.runningwithcrayons.Alfred-3:
+      ascii_mode: true
+    com.googlecode.iterm2:
+      ascii_mode: true
+    com.apple.finder:
+      ascii_mode: true
+    com.apple.appstore:
+      ascii_mode: true
+    com.apple.systempreferences:
+      ascii_mode: true
+    com.apple.keychainaccess:
+      ascii_mode: true
+    # com.apple.Safari:
+    #   ascii_mode: true
 ```
 
 界面效果如下:
@@ -216,3 +237,4 @@ patch:
 3. [我的鼠须管配置](https://placeless.net/blog/my-rime-squirrel-config)
 4. [安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel)](https://placeless.net/blog/my-rime-squirrel-config)
 5. [RimeWithSchemata](https://github.com/rime/home/wiki/RimeWithSchemata)
+6. [鼠须管输入法的新配色](https://scomper.me/gtd/shu-xu-guan-shu-ru-fa-de-xin-pei-se)
