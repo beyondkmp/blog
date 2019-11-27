@@ -97,12 +97,16 @@ wget https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz&lt;/code&gt;&lt;/pre&gt;&lt;
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;tar -xvf nginx-1.16.1.tar.gz
 tar -xvf openssl-1.1.1a.tar.gz
 tar -xvf zlib-1.2.11.tar.gz
 tar -xvf pcre-8.43.tar.gz
+
+useradd nginx
 
 &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; nginx-1.16.1
 ./configure --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/nginx &lt;span class=&#34;se&#34;&gt;\

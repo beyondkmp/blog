@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.0-DEV with theme even" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/" />
@@ -36,7 +36,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.5f53e811.min.css" rel="stylesheet">
+<link href="/dist/even.79daa291.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
@@ -563,12 +563,16 @@ wget https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz</code></pre></td></tr></tabl
 </span><span class="lnt">47
 </span><span class="lnt">48
 </span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">tar -xvf nginx-1.16.1.tar.gz
 tar -xvf openssl-1.1.1a.tar.gz
 tar -xvf zlib-1.2.11.tar.gz
 tar -xvf pcre-8.43.tar.gz
+
+useradd nginx
 
 <span class="nb">cd</span> nginx-1.16.1
 ./configure --prefix<span class="o">=</span>/usr/local/nginx <span class="se">\

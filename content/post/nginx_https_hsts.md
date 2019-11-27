@@ -38,6 +38,8 @@ tar -xvf openssl-1.1.1a.tar.gz
 tar -xvf zlib-1.2.11.tar.gz
 tar -xvf pcre-8.43.tar.gz
 
+useradd nginx
+
 cd nginx-1.16.1
 ./configure --prefix=/usr/local/nginx \
             --user=nginx \
