@@ -1,7 +1,7 @@
 ---
 title: "macos上的神级输入法squirrel"
 date: 2018-12-22T17:10:35+0800
-lastmod: 2019-11-27T17:22:07+0800
+lastmod: 2019-11-28T03:15:25+0800
 draft: false
 keywords: ["macos输入法","五笔","squirrel","rime"]
 description: "macos上的神级输入法"
