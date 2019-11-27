@@ -65,21 +65,21 @@ sudo make install
 
 目前要定制化自己的特殊配置，都要以`.custom.yaml`结尾，这样在输入法升级或者重新部署的时候都不会直接覆盖这些文件。 这些配置文件里面都要以`patch`开头，以打补丁的方式来实现个性化定制。
 
-* squirrel.custom.yaml: 自定义皮肤、鼠须管外观、ascii 模式;
-* default.custom.yaml:设定备选词数量，定义输入方案；
-* luna_pinyin_simp.custom.yaml: 定义扩充词库、加载符号库、模糊拼音;
+* squirrel.custom.yaml: 自定义皮肤, 鼠须管外观,地 ascii 模式;
+* default.custom.yaml: 设定备选词数量，定义输入方案, 快捷键的设置;
+* luna_pinyin_simp.custom.yaml: 定义扩充词库，加载符号库、模糊拼音;
 * wubi_pinyin.custom.yaml: 定义扩充词库、加载符号库;
 * installation.yaml: 同步和备份
 
-### 界面配置
+### 输入法界面设置
 
 界面的配置squirrel.custom.yaml, 目前主要设置了通知方式、皮肤和某些app的默认输入方式。
+
+这里要说一下`vim_mode`, 在使用vim快捷方式app中有用，按esc键会自动把中文模式切换成英文模式，而不用先按shift切换英文再按esc.
 
 ```yaml
 patch:
   show_notifications_when: appropriate # 状态通知，适当，也可设为全开（always）全关（never）
-  us_keyboard_layout: true
-
   style:
     color_scheme: psionics
     horizontal: true                                   # 水平排列
@@ -94,13 +94,18 @@ patch:
     label_font_point: 16                               # 候选编号大小
 
   # 默认使用ascii输入，不用中文输入
+  # app的名字可以在/Applications/的app目录中的Info.plist里面查找
   app_options:
     com.apple.dt.Xcode:
       ascii_mode: true
-    com.runningwithcrayons.Alfred-3:
+    com.runningwithcrayons.Alfred:
       ascii_mode: true
     com.googlecode.iterm2:
       ascii_mode: true
+      vim_mode: true                                   # vim mode, 按esc键会自动切换成英文
+    com.microsoft.VSCode:
+      ascii_mode: true
+      vim_mode: true
     com.apple.finder:
       ascii_mode: true
     com.apple.appstore:
@@ -111,9 +116,11 @@ patch:
       ascii_mode: true
     # com.apple.Safari:
     #   ascii_mode: true
+
+  us_keyboard_layout: true
 ```
 
-界面效果如下:
+效果如下:
 
 ![界面](/imgs/squirrel_interface.png)
 
