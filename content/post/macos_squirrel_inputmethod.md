@@ -401,3 +401,4 @@ patch:
 4. [安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel)](https://www.dreamxu.com/install-config-squirrel/)
 5. [RimeWithSchemata](https://github.com/rime/home/wiki/RimeWithSchemata)
 6. [鼠须管输入法的新配色](https://scomper.me/gtd/shu-xu-guan-shu-ru-fa-de-xin-pei-se)
+7. [致第一次安装RIME的你](https://www.zybuluo.com/eternity/note/81763)
