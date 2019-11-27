@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T17:22:07&#43;08:00" />
-<meta itemprop="wordCount" content="3838">
+<meta itemprop="wordCount" content="6130">
 
 
 
@@ -153,6 +153,7 @@
 <li><a href="#squirrel设置">squirrel设置</a></li>
 <li><a href="#全局配置">全局配置</a></li>
 <li><a href="#五笔配置">五笔配置</a></li>
+<li><a href="#拼音配置">拼音配置</a></li>
 </ul></li>
 <li><a href="#参考">参考</a></li>
 </ul></li>
@@ -409,6 +410,8 @@ sudo make install</code></pre></td></tr></table>
 </ol>
 
 <h3 id="五笔配置">五笔配置</h3>
+
+<p>配置文件为<code>wubi_pinyin.custom.yaml</code>, 主要定义五笔输入法里面的操作，字符串。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
@@ -565,6 +568,299 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="s2">    enable_sentence: false
 </span><span class="s2">    initial_quality: 1
 </span><span class="s2">  &#34;</span>engine/translators/@<span class="m">4</span>&#34;<span class="p">:</span><span class="w"> </span>table_translator@custom_phrase</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="拼音配置">拼音配置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># luna_pinyin.custom.yaml</span><span class="w">
+</span><span class="w"></span><span class="c">#</span><span class="w">
+</span><span class="w"></span><span class="c"># 補靪功能：將朙月拼音的詞庫修改爲朙月拼音擴充詞庫</span><span class="w">
+</span><span class="w"></span><span class="c">#</span><span class="w">
+</span><span class="w"></span><span class="c"># 作者：瑾昀 &lt;cokunhui@gmail.com&gt;</span><span class="w">
+</span><span class="w"></span><span class="c">#</span><span class="w">
+</span><span class="w"></span><span class="c"># 部署位置：</span><span class="w">
+</span><span class="w"></span><span class="c"># ~/.config/ibus/rime  (Linux)</span><span class="w">
+</span><span class="w"></span><span class="c"># ~/Library/Rime  (Mac OS)</span><span class="w">
+</span><span class="w"></span><span class="c"># %APPDATA%\Rime  (Windows)</span><span class="w">
+</span><span class="w"></span><span class="c">#</span><span class="w">
+</span><span class="w"></span><span class="c"># 於重新部署後生效</span><span class="w">
+</span><span class="w"></span><span class="c">#</span><span class="w">
+</span><span class="w"></span><span class="c">#</span><span class="w">
+</span><span class="w"></span><span class="c"># 注意：本補靪適用於所有朙月拼音系列方案（「朙月拼音」、「朙月拼音·简化字」、「朙月拼音·臺灣正體」、「朙月拼音·語句流」）。</span><span class="w">
+</span><span class="w"></span><span class="c"># 只須將本 custom.yaml 的前面名字改爲對應的輸入方案名字然後放入用戶文件夾重新部署即可。如 luna_pinyin_simp.custom.yaml。</span><span class="w">
+</span><span class="w"></span><span class="c"># 雙拼用戶請使用 double_pinyin.custom.yaml。</span><span class="w">
+</span><span class="w"></span><span class="c">#</span><span class="w">
+</span><span class="w"></span><span class="c">#</span><span class="w">
+</span><span class="w"></span><span class="c"># 附朙月拼音系列方案與其對應的 id 一覽表：</span><span class="w">
+</span><span class="w"></span><span class="c"># 輸入方案	id</span><span class="w">
+</span><span class="w"></span><span class="c"># 朙月拼音	luna_pinyin</span><span class="w">
+</span><span class="w"></span><span class="c"># 朙月拼音·简化字	luna_pinyin_simp</span><span class="w">
+</span><span class="w"></span><span class="c"># 朙月拼音·臺灣正體	luna_pinyin_tw</span><span class="w">
+</span><span class="w"></span><span class="c"># 朙月拼音·語句流	luna_pinyin_fluency</span><span class="w">
+</span><span class="w"></span><span class="c">#</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>patch<span class="p">:</span><span class="w">
+</span><span class="w">  </span>switches<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>ascii_mode<span class="w">
+</span><span class="w">      </span>reset<span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">      </span>states<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;中文&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;西文&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>full_shape<span class="w">
+</span><span class="w">      </span>states<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;半角&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;全角&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>simplification<span class="w">
+</span><span class="w">      </span>reset<span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">      </span>states<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;漢字&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;汉字&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="w">    
+</span><span class="w"> </span><span class="c">#  加載 easy_en 依賴</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;schema/dependencies/@1&#34;</span><span class="p">:</span><span class="w"> </span>easy_en<span class="w">
+</span><span class="w">  </span><span class="c"># 載入翻譯英文的碼表翻譯器，取名爲 english〔方案选单〕</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;engine/translators/@4&#34;</span><span class="p">:</span><span class="w"> </span>table_translator@english<span class="w">
+</span><span class="w">  </span><span class="c"># english 翻譯器的設定項</span><span class="w">
+</span><span class="w">  </span>english<span class="p">:</span><span class="w">
+</span><span class="w">    </span>dictionary<span class="p">:</span><span class="w"> </span>easy_en<span class="w">
+</span><span class="w">    </span>spelling_hints<span class="p">:</span><span class="w"> </span><span class="m">9</span><span class="w">
+</span><span class="w">    </span>enable_completion<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">    </span>enable_sentence<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">    </span>initial_quality<span class="p">:</span><span class="w"> </span>-<span class="m">2</span><span class="w">
+</span><span class="w">
+</span><span class="w"> </span><span class="c">#  載入朙月拼音擴充詞庫</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;translator/dictionary&#34;</span><span class="p">:</span><span class="w"> </span>luna_pinyin.extended<span class="w">
+</span><span class="w">  </span><span class="c"># 改寫拼寫運算，使得含西文的詞彙（位於 luna_pinyin.cn_en.dict.yaml 中）不影響簡拼功能（注意，此功能只適用於朙月拼音系列方案，不適用於各類雙拼方案）</span><span class="w">
+</span><span class="w">  </span><span class="c"># 本條補靪只在「小狼毫 0.9.30」、「鼠鬚管 0.9.25 」、「Rime-1.2」及更高的版本中起作用。</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;speller/algebra/@before 0&#34;</span><span class="p">:</span><span class="w"> </span>xform/^(<span class="p">[</span>b-df-hj-np-tv-z<span class="p">]</span>)$/$1_/<span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="w"> </span><span class="c">#  符号快速输入和部分符号的快速上屏</span><span class="w">
+</span><span class="w">  </span>punctuator<span class="p">:</span><span class="w">
+</span><span class="w">    </span>import_preset<span class="p">:</span><span class="w"> </span>symbols<span class="w">
+</span><span class="w">    </span>symbols<span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/fs&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>½<span class="p">,</span><span class="w"> </span>‰<span class="p">,</span><span class="w"> </span>¼<span class="p">,</span><span class="w"> </span>⅓<span class="p">,</span><span class="w"> </span>⅔<span class="p">,</span><span class="w"> </span>¾<span class="p">,</span><span class="w"> </span>⅒<span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/bq&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>😂️<span class="p">,</span><span class="w"> </span>😅️<span class="p">,</span><span class="w"> </span>☺️<span class="p">,</span><span class="w"> </span>😱️<span class="p">,</span><span class="w"> </span>😭️<span class="p">,</span><span class="w"> </span>😇️<span class="p">,</span><span class="w"> </span>🙃️<span class="p">,</span><span class="w"> </span>🤔️<span class="p">,</span><span class="w"> </span>💊️<span class="p">,</span><span class="w"> </span>💯️<span class="p">,</span><span class="w"> </span>👍️<span class="p">,</span><span class="w"> </span>🙈️<span class="p">,</span><span class="w"> </span>💩️<span class="p">,</span><span class="w"> </span>😈️<span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/dn&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>⌘<span class="p">,</span><span class="w"> </span>⌥<span class="p">,</span><span class="w"> </span>⇧<span class="p">,</span><span class="w"> </span>⌃<span class="p">,</span><span class="w"> </span>⎋<span class="p">,</span><span class="w"> </span>⇪<span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span>⌫<span class="p">,</span><span class="w"> </span>⌦<span class="p">,</span><span class="w"> </span>↩︎<span class="p">,</span><span class="w"> </span>⏎<span class="p">,</span><span class="w"> </span>↑<span class="p">,</span><span class="w"> </span>↓<span class="p">,</span><span class="w"> </span>←<span class="p">,</span><span class="w"> </span>→<span class="p">,</span><span class="w"> </span>↖<span class="p">,</span><span class="w"> </span>↘<span class="p">,</span><span class="w"> </span>⇟<span class="p">,</span><span class="w"> </span>⇞<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/fh&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>©<span class="p">,</span><span class="w"> </span>®<span class="p">,</span><span class="w"> </span>℗<span class="p">,</span><span class="w"> </span>℠<span class="p">,</span><span class="w"> </span>™<span class="p">,</span><span class="w"> </span>℡<span class="p">,</span><span class="w"> </span>ⓘ<span class="p">,</span><span class="w"> </span>♂<span class="p">,</span><span class="w"> </span>♀<span class="p">,</span><span class="w"> </span>☉<span class="p">,</span><span class="w"> </span>☊<span class="p">,</span><span class="w"> </span>☋<span class="p">,</span><span class="w"> </span>☌<span class="p">,</span><span class="w"> </span>☍<span class="p">,</span><span class="w"> </span>☐<span class="p">,</span><span class="w"> </span>☑︎<span class="p">,</span><span class="w"> </span>☒<span class="p">,</span><span class="w"> </span>☜<span class="p">,</span><span class="w"> </span>☝<span class="p">,</span><span class="w"> </span>☞<span class="p">,</span><span class="w"> </span>☟<span class="p">,</span><span class="w"> </span>✎<span class="p">,</span><span class="w"> </span>✄<span class="p">,</span><span class="w"> </span>♲<span class="p">,</span><span class="w"> </span>♻<span class="p">,</span><span class="w"> </span>⚐<span class="p">,</span><span class="w"> </span>⚑<span class="p">,</span><span class="w"> </span>⚠<span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/xh&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>＊<span class="p">,</span><span class="w"> </span>×<span class="p">,</span><span class="w"> </span>✱<span class="p">,</span><span class="w"> </span>★<span class="p">,</span><span class="w"> </span>☆<span class="p">,</span><span class="w"> </span>✩<span class="p">,</span><span class="w"> </span>✧<span class="p">,</span><span class="w"> </span>❋<span class="p">,</span><span class="w"> </span>❊<span class="p">,</span><span class="w"> </span>❉<span class="p">,</span><span class="w"> </span>❈<span class="p">,</span><span class="w"> </span>❅<span class="p">,</span><span class="w"> </span>✿<span class="p">,</span><span class="w"> </span>✲<span class="p">]</span><span class="w">
+</span><span class="w">    </span>half_shape<span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;#&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;#&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;*&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;`&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;`&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;~&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;~&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;@&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;@&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;=&#34;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;=&#34;</span><span class="w">
+</span><span class="w">      </span><span class="s2">&#34;/&#34;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;/&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;÷&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">      </span><span class="s1">&#39;\&#39;: &#34;、&#34;
+</span><span class="s1">      &#34;_&#34; : &#34;──&#34;
+</span><span class="s1">      &#34;&#39;</span><span class="s2">&#34;: {pair: [&#34;</span>「<span class="s2">&#34;, &#34;</span>」<span class="s2">&#34;]}
+</span><span class="s2">      &#34;</span><span class="p">[</span><span class="s2">&#34;: [&#34;</span>【<span class="s2">&#34;, &#34;</span><span class="p">[</span><span class="s2">&#34;]
+</span><span class="s2">      &#34;</span><span class="p">]</span><span class="s2">&#34;: [&#34;</span>】<span class="s2">&#34;, &#34;</span><span class="p">]</span><span class="s2">&#34;]
+</span><span class="s2">      &#34;</span>$<span class="s2">&#34;: [&#34;</span>¥<span class="s2">&#34;, &#34;</span>$<span class="s2">&#34;, &#34;</span>€<span class="s2">&#34;, &#34;</span>£<span class="s2">&#34;, &#34;</span>¢<span class="s2">&#34;, &#34;</span>¤<span class="s2">&#34;]
+</span><span class="s2">      &#34;</span>&lt;<span class="s2">&#34;: [&#34;</span>《<span class="s2">&#34;, &#34;</span>〈<span class="s2">&#34;, &#34;</span>«<span class="s2">&#34;, &#34;</span>&lt;<span class="s2">&#34;]
+</span><span class="s2">      &#34;</span>&gt;<span class="s2">&#34;: [&#34;</span>》<span class="s2">&#34;, &#34;</span>〉<span class="s2">&#34;, &#34;</span>»<span class="s2">&#34;, &#34;</span>&gt;<span class="s2">&#34;]
+</span><span class="s2">  recognizer/patterns/punct: &#34;</span>^/(<span class="p">[</span>a-z<span class="p">]</span>+|<span class="p">[</span><span class="m">0-9</span><span class="p">]</span><span class="m">0</span><span class="p">?</span>)$<span class="s2">&#34;
+</span><span class="s2">  
+</span><span class="s2"> # 模糊拼音
+</span><span class="s2">  &#39;speller/algebra&#39;:
+</span><span class="s2">    - erase/^xx$/                      # 第一行保留
+</span><span class="s2">
+</span><span class="s2">    # 模糊音定義
+</span><span class="s2">    # 需要哪組就刪去行首的 # 號，單雙向任選
+</span><span class="s2">    #- derive/^([zcs])h/$1/             # zh, ch, sh =&gt; z, c, s
+</span><span class="s2">    #- derive/^([zcs])([^h])/$1h$2/     # z, c, s =&gt; zh, ch, sh
+</span><span class="s2">
+</span><span class="s2">    #- derive/^n/l/                     # n =&gt; l
+</span><span class="s2">    #- derive/^l/n/                     # l =&gt; n
+</span><span class="s2">
+</span><span class="s2">    # 這兩組一般是單向的
+</span><span class="s2">    #- derive/^r/l/                     # r =&gt; l
+</span><span class="s2">
+</span><span class="s2">    #- derive/^ren/yin/                 # ren =&gt; yin, reng =&gt; ying
+</span><span class="s2">    #- derive/^r/y/                     # r =&gt; y
+</span><span class="s2">
+</span><span class="s2">    # 下面 hu &lt;=&gt; f 這組寫法複雜一些，分情況討論
+</span><span class="s2">    #- derive/^hu$/fu/                  # hu =&gt; fu
+</span><span class="s2">    #- derive/^hong$/feng/              # hong =&gt; feng
+</span><span class="s2">    #- derive/^hu([in])$/fe$1/          # hui =&gt; fei, hun =&gt; fen
+</span><span class="s2">    #- derive/^hu([ao])/f$1/            # hua =&gt; fa, ...
+</span><span class="s2">
+</span><span class="s2">    #- derive/^fu$/hu/                  # fu =&gt; hu
+</span><span class="s2">    #- derive/^feng$/hong/              # feng =&gt; hong
+</span><span class="s2">    #- derive/^fe([in])$/hu$1/          # fei =&gt; hui, fen =&gt; hun
+</span><span class="s2">    #- derive/^f([ao])/hu$1/            # fa =&gt; hua, ...
+</span><span class="s2">
+</span><span class="s2">    # 韻母部份
+</span><span class="s2">    #- derive/^([bpmf])eng$/$1ong/      # meng = mong, ...
+</span><span class="s2">    #- derive/([ei])n$/$1ng/            # en =&gt; eng, in =&gt; ing
+</span><span class="s2">    #- derive/([ei])ng$/$1n/            # eng =&gt; en, ing =&gt; in
+</span><span class="s2">
+</span><span class="s2">    # 樣例足夠了，其他請自己總結……
+</span><span class="s2">
+</span><span class="s2">    # 模糊音定義先於簡拼定義，方可令簡拼支持以上模糊音
+</span><span class="s2">    #- abbrev/^([a-z]).+$/$1/           # 簡拼（首字母）
+</span><span class="s2">    #- abbrev/^([zcs]h).+$/$1/          # 簡拼（zh, ch, sh）
+</span><span class="s2">
+</span><span class="s2">    # 以下是一組容錯拼寫，《漢語拼音》方案以前者爲正
+</span><span class="s2">    - derive/^([nl])ve$/$1ue/          # nve = nue, lve = lue
+</span><span class="s2">    - derive/^([jqxy])u/$1v/           # ju = jv,
+</span><span class="s2">    - derive/un$/uen/                  # gun = guen,
+</span><span class="s2">    - derive/ui$/uei/                  # gui = guei,
+</span><span class="s2">    - derive/iu$/iou/                  # jiu = jiou,
+</span><span class="s2">
+</span><span class="s2">    # 自動糾正一些常見的按鍵錯誤
+</span><span class="s2">    - derive/([aeiou])ng$/$1gn/        # dagn =&gt; dang 
+</span><span class="s2">    - derive/([dtngkhrzcs])o(u|ng)$/$1o/  # zho =&gt; zhong|zhou
+</span><span class="s2">    - derive/ong$/on/                  # zhonguo =&gt; zhong guo
+</span><span class="s2">    - derive/ao$/oa/                   # hoa =&gt; hao
+</span><span class="s2">    - derive/([iu])a(o|ng?)$/a$1$2/    # tain =&gt; tian
+</span><span class="s2">
+</span><span class="s2">  # 分尖團後 v =&gt; ü 的改寫條件也要相應地擴充：
+</span><span class="s2">  #&#39;translator/preedit_format&#39;:
+</span><span class="s2">  #  - &#34;</span>xform/(<span class="p">[</span>nljqxyzcs<span class="p">]</span>)v/$1ü/&#34;</code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="参考">参考</h2>
