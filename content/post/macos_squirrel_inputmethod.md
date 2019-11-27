@@ -3,9 +3,9 @@ title: "macos上的神级输入法squirrel"
 date: 2018-12-22T17:10:35+0800
 lastmod: 2019-11-27T17:22:07+0800
 draft: false
-keywords: ["macos输入法","五笔","squirrel"]
+keywords: ["macos输入法","五笔","squirrel","rime"]
 description: "macos上的神级输入法"
-tags: ["macos输入法","五笔","squirrel"]
+tags: ["macos输入法","五笔","squirrel","rime"]
 categories: ["mac"]
 author: "beyondkmp"
 
@@ -14,10 +14,10 @@ squirrel输入法是一个比较极客范的输入法，定制化与可玩性非
 
 squirrel目前的优势：
 
-1. 配置相当丰富, 可定制性高
-2. 输入速度快，兼容性好，兼容的系统版本非常多
-3. 五笔支持的非常好
-4. 不收集用户数据，这是我最看重的。
+* 配置相当丰富, 可定制性高
+* 输入速度快，兼容性好，兼容的系统版本非常多
+* 五笔支持的非常好
+* 不收集用户数据，这是我最看重的。
 
 <!--more-->
 
@@ -80,11 +80,13 @@ patch:
   show_notifications_when: appropriate # 状态通知，适当，也可设为全开（always）全关（never）
   "app_options/com.runningwithcrayons.Alfred-3/ascii_mode": true
 
-  style/color_scheme: beyondkmp             # 方案命名，不能有空格
+  style:
+    color_scheme: beyond                                 # 选择配色方案
+
   preset_color_schemes:
-    beyondkmp:
-      name: 幽能／Psionics
-      author: 雨過之後、佛振
+    beyond:
+      name: "beyondkmp" 
+      author: "beyondkmp<beyondkmp@gmail.com>" 
 
       horizontal: true                                   # 水平排列
       inline_preedit: true                               # 单行显示，false双行显示
@@ -93,7 +95,7 @@ patch:
       corner_radius: 5                                   # 候选条圆角
       border_height: 6                                   # 窗口边界高度，大于圆角半径才生效
       border_width: 6                                    # 窗口边界宽度，大于圆角半径才生效
-      font_face: "PingFangSC-Regular,HanaMinB"      # 候选词字体
+      font_face: "PingFangSC-Regular,HanaMinB"           # 候选词字体
       font_point: 18                                     # 候选字词大小
       label_font_face: "STHeitiSC-Light"                 # 候选词编号字体
       label_font_point: 16                               # 候选编号大小
@@ -108,8 +110,7 @@ patch:
       hilited_candidate_text_color: 0xfafafa             # 第一候选项文字颜色
       hilited_candidate_back_color: 0xd8bf00             # 第一候选项背景背景色
       hilited_candidate_label_color: 0xfafafa            # 第一候选项编号颜色
-      hilited_comment_text_color: 0x444444               # 注解文字高亮
-
+      hilited_comment_text_color: 0x444444
 ```
 
 界面效果如下:

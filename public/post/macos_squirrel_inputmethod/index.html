@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="beyondkmp" /><meta name="description" content="macos上的神级输入法" /><meta name="keywords" content="macos输入法, 五笔, squirrel" />
+<meta name="author" content="beyondkmp" /><meta name="description" content="macos上的神级输入法" /><meta name="keywords" content="macos输入法, 五笔, squirrel, rime" />
 
 
 
@@ -50,11 +50,11 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T17:22:07&#43;08:00" />
-<meta itemprop="wordCount" content="3820">
+<meta itemprop="wordCount" content="3852">
 
 
 
-<meta itemprop="keywords" content="macos输入法,五笔,squirrel," />
+<meta itemprop="keywords" content="macos输入法,五笔,squirrel,rime," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="macos上的神级输入法squirrel"/>
 <meta name="twitter:description" content="macos上的神级输入法"/>
@@ -165,12 +165,12 @@
 
 <p>squirrel目前的优势：</p>
 
-<ol>
+<ul>
 <li>配置相当丰富, 可定制性高</li>
 <li>输入速度快，兼容性好，兼容的系统版本非常多</li>
 <li>五笔支持的非常好</li>
 <li>不收集用户数据，这是我最看重的。</li>
-</ol>
+</ul>
 
 <h2 id="安装">安装</h2>
 
@@ -287,17 +287,21 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="lnt">31
 </span><span class="lnt">32
 </span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml">patch<span class="p">:</span><span class="w">
 </span><span class="w">  </span>show_notifications_when<span class="p">:</span><span class="w"> </span>appropriate<span class="w"> </span><span class="c"># 状态通知，适当，也可设为全开（always）全关（never）</span><span class="w">
 </span><span class="w">  </span><span class="s2">&#34;app_options/com.runningwithcrayons.Alfred-3/ascii_mode&#34;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">
-</span><span class="w">  </span>style/color_scheme<span class="p">:</span><span class="w"> </span>beyondkmp<span class="w">             </span><span class="c"># 方案命名，不能有空格</span><span class="w">
+</span><span class="w">  </span>style<span class="p">:</span><span class="w">
+</span><span class="w">    </span>color_scheme<span class="p">:</span><span class="w"> </span>beyond<span class="w">                                 </span><span class="c"># 选择配色方案</span><span class="w">
+</span><span class="w">
 </span><span class="w">  </span>preset_color_schemes<span class="p">:</span><span class="w">
-</span><span class="w">    </span>beyondkmp<span class="p">:</span><span class="w">
-</span><span class="w">      </span>name<span class="p">:</span><span class="w"> </span>幽能／Psionics<span class="w">
-</span><span class="w">      </span>author<span class="p">:</span><span class="w"> </span>雨過之後、佛振<span class="w">
+</span><span class="w">    </span>beyond<span class="p">:</span><span class="w">
+</span><span class="w">      </span>name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;beyondkmp&#34;</span><span class="w"> 
+</span><span class="w">      </span>author<span class="p">:</span><span class="w"> </span><span class="s2">&#34;beyondkmp&lt;beyondkmp@gmail.com&gt;&#34;</span><span class="w"> 
 </span><span class="w">
 </span><span class="w">      </span>horizontal<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                                   </span><span class="c"># 水平排列</span><span class="w">
 </span><span class="w">      </span>inline_preedit<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                               </span><span class="c"># 单行显示，false双行显示</span><span class="w">
@@ -306,7 +310,7 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="w">      </span>corner_radius<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">                                   </span><span class="c"># 候选条圆角</span><span class="w">
 </span><span class="w">      </span>border_height<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">                                   </span><span class="c"># 窗口边界高度，大于圆角半径才生效</span><span class="w">
 </span><span class="w">      </span>border_width<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">                                    </span><span class="c"># 窗口边界宽度，大于圆角半径才生效</span><span class="w">
-</span><span class="w">      </span>font_face<span class="p">:</span><span class="w"> </span><span class="s2">&#34;PingFangSC-Regular,HanaMinB&#34;</span><span class="w">      </span><span class="c"># 候选词字体</span><span class="w">
+</span><span class="w">      </span>font_face<span class="p">:</span><span class="w"> </span><span class="s2">&#34;PingFangSC-Regular,HanaMinB&#34;</span><span class="w">           </span><span class="c"># 候选词字体</span><span class="w">
 </span><span class="w">      </span>font_point<span class="p">:</span><span class="w"> </span><span class="m">18</span><span class="w">                                     </span><span class="c"># 候选字词大小</span><span class="w">
 </span><span class="w">      </span>label_font_face<span class="p">:</span><span class="w"> </span><span class="s2">&#34;STHeitiSC-Light&#34;</span><span class="w">                 </span><span class="c"># 候选词编号字体</span><span class="w">
 </span><span class="w">      </span>label_font_point<span class="p">:</span><span class="w"> </span><span class="m">16</span><span class="w">                               </span><span class="c"># 候选编号大小</span><span class="w">
@@ -321,7 +325,7 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="w">      </span>hilited_candidate_text_color<span class="p">:</span><span class="w"> </span><span class="m">0xfafafa</span><span class="w">             </span><span class="c"># 第一候选项文字颜色</span><span class="w">
 </span><span class="w">      </span>hilited_candidate_back_color<span class="p">:</span><span class="w"> </span><span class="m">0xd8bf00</span><span class="w">             </span><span class="c"># 第一候选项背景背景色</span><span class="w">
 </span><span class="w">      </span>hilited_candidate_label_color<span class="p">:</span><span class="w"> </span><span class="m">0xfafafa</span><span class="w">            </span><span class="c"># 第一候选项编号颜色</span><span class="w">
-</span><span class="w">      </span>hilited_comment_text_color<span class="p">:</span><span class="w"> </span><span class="m">0x444444</span><span class="w">               </span><span class="c"># 注解文字高亮</span></code></pre></td></tr></table>
+</span><span class="w">      </span>hilited_comment_text_color<span class="p">:</span><span class="w"> </span><span class="m">0x444444</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>界面效果如下:</p>
@@ -585,6 +589,7 @@ sudo make install</code></pre></td></tr></table>
           <a href="/tags/macos%E8%BE%93%E5%85%A5%E6%B3%95/">macos输入法</a>
           <a href="/tags/%E4%BA%94%E7%AC%94/">五笔</a>
           <a href="/tags/squirrel/">squirrel</a>
+          <a href="/tags/rime/">rime</a>
           </div>
       <nav class="post-nav">
         <a class="prev" href="/post/channel/">

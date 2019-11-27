@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>五笔 on Kmp - beyondkmp&#39;s new hugo blog</title>
-    <link>https://beyondkmp.com/tags/%E4%BA%94%E7%AC%94/</link>
-    <description>Recent content in 五笔 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <title>rime on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/rime/</link>
+    <description>Recent content in rime on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 22 Dec 2018 17:10:35 +0800</lastBuildDate>
     
-	<atom:link href="https://beyondkmp.com/tags/%E4%BA%94%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://beyondkmp.com/tags/rime/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -27,15 +27,6 @@
 &lt;li&gt;五笔支持的非常好&lt;/li&gt;
 &lt;li&gt;不收集用户数据，这是我最看重的。&lt;/li&gt;
 &lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>OSX下好用的输入法rime</title>
-      <link>https://beyondkmp.com/post/osx%E4%B8%8B%E5%A5%BD%E7%94%A8%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95rime/</link>
-      <pubDate>Sun, 17 Jan 2016 00:00:00 +0800</pubDate>
-      
-      <guid>https://beyondkmp.com/post/osx%E4%B8%8B%E5%A5%BD%E7%94%A8%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95rime/</guid>
-      <description>由于本人用五笔输入法，在linux下用过一段时间fcitx五笔，还是非常不错的，基本的功能需求都能达到。但是到mac下来，发现目前用的比较多</description>
     </item>
     
   </channel>
