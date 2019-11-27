@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T17:22:07&#43;08:00" />
-<meta itemprop="wordCount" content="3809">
+<meta itemprop="wordCount" content="3827">
 
 
 
@@ -160,13 +160,13 @@
   </div>
 </div>
     <div class="post-content">
-      <p>squirrel输入法真是极客最想要的输入法，然而大多数国产输入法，都在忙着收集用户的输入数据，却没有把精力投入到输入法的核心功能。</p>
+      <p>squirrel输入法是一个比较极客范的输入法，定制化与可玩性非常高, 由此带来的配置就比较复杂，而且没有界面，所以把常用配置记录下来方便直接使用。</p>
 
 <p>squirrel目前的优势：</p>
 
 <ol>
-<li>配置相当丰富，可定制性，可玩性都非常高</li>
-<li>输入速度是非常快</li>
+<li>配置相当丰富, 可定制性高</li>
+<li>输入速度快，兼容性好，兼容的系统版本非常多</li>
 <li>五笔支持的非常好</li>
 <li>不收集用户数据，这是我最看重的。</li>
 </ol>
@@ -176,7 +176,7 @@
 <h3 id="编译安装">编译安装</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt"> 1
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -198,9 +198,11 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#安装Xcode的工具,运行下面的命令</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#安装Xcode的工具,运行下面的命令</span>
 
 xcode-select --install
 
@@ -214,6 +216,8 @@ brew install boost
 <span class="c1">#下载源代码</span>
 git clone --recursive https://github.com/rime/squirrel.git
 
+<span class="nb">cd</span> squirrel
+
 <span class="c1">#编译依赖库</span>
 make deps
 
@@ -226,7 +230,7 @@ sudo make install</code></pre></td></tr></table>
 </div>
 <h3 id="官方下载">官方下载</h3>
 
-<p>官方已经更新版本，之前一直没有更新安装版本。最近官方已经更新到<code>0.14.0 (2019-06-23)</code>, 所以可以直接官方下载安装。</p>
+<p>官方最近终于更新版本，之前一直14年版本，有点太老了。官方已经更新到<a href="https://bintray.com/rime/squirrel/release">0.14.0 (2019-06-23)</a>, 可以直接官方下载安装。</p>
 
 <h2 id="配置">配置</h2>
 
