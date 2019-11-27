@@ -23,13 +23,17 @@ squirrel目前的优势：
 
 ## 安装
 
-### 官方下载
+### 稳定版下载
 
 官方最近终于更新版本，之前一直14年版本，有点太老了。官方已经更新到[0.14.0 (2019-06-23)](https://bintray.com/rime/squirrel/release), 可以直接官方下载安装。
 
+### 最新版本下载
+
+如果想尝试最新功能，可以下载squirrel测试版本 <https://bintray.com/rime/squirrel/testing/0.14.0%2Bgit08ed4f4>。最近新加了`vim_mode`功能，我就下载了最新版本。
+
 ### 编译安装
 
-如果想尝试最新版本的功能，可以直接自己下载官方最新代码编译安装。具体的编译方法如下:
+想自己修改一些功能的，或者使用最最新的功能，可以自己编译安装。具体的编译方法如下:
 
 ``` bash
 #安装Xcode的工具,运行下面的命令
@@ -61,8 +65,6 @@ sudo make install
 
 ## 配置
 
-### 定制化配置
-
 目前要定制化自己的特殊配置，都要以`.custom.yaml`结尾，这样在输入法升级或者重新部署的时候都不会直接覆盖这些文件。 这些配置文件里面都要以`patch`开头，以打补丁的方式来实现个性化定制。
 
 * squirrel.custom.yaml: 自定义皮肤, 鼠须管外观,地 ascii 模式;
@@ -71,7 +73,7 @@ sudo make install
 * wubi_pinyin.custom.yaml: 定义扩充词库、加载符号库;
 * installation.yaml: 同步和备份
 
-### 输入法界面设置
+### 界面设置
 
 界面的配置squirrel.custom.yaml, 目前主要设置了通知方式、皮肤和某些app的默认输入方式。
 

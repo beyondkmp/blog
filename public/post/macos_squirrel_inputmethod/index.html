@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T17:22:07&#43;08:00" />
-<meta itemprop="wordCount" content="3673">
+<meta itemprop="wordCount" content="3785">
 
 
 
@@ -144,13 +144,13 @@
 <ul>
 <li><a href="#安装">安装</a>
 <ul>
-<li><a href="#官方下载">官方下载</a></li>
+<li><a href="#稳定版下载">稳定版下载</a></li>
+<li><a href="#最新版本下载">最新版本下载</a></li>
 <li><a href="#编译安装">编译安装</a></li>
 </ul></li>
 <li><a href="#配置">配置</a>
 <ul>
-<li><a href="#定制化配置">定制化配置</a></li>
-<li><a href="#输入法界面设置">输入法界面设置</a></li>
+<li><a href="#界面设置">界面设置</a></li>
 <li><a href="#自定义配置">自定义配置</a></li>
 <li><a href="#五笔配置">五笔配置</a></li>
 </ul></li>
@@ -174,13 +174,17 @@
 
 <h2 id="安装">安装</h2>
 
-<h3 id="官方下载">官方下载</h3>
+<h3 id="稳定版下载">稳定版下载</h3>
 
 <p>官方最近终于更新版本，之前一直14年版本，有点太老了。官方已经更新到<a href="https://bintray.com/rime/squirrel/release">0.14.0 (2019-06-23)</a>, 可以直接官方下载安装。</p>
 
+<h3 id="最新版本下载">最新版本下载</h3>
+
+<p>如果想尝试最新功能，可以下载squirrel测试版本 <a href="https://bintray.com/rime/squirrel/testing/0.14.0%2Bgit08ed4f4">https://bintray.com/rime/squirrel/testing/0.14.0%2Bgit08ed4f4</a>。最近新加了<code>vim_mode</code>功能，我就下载了最新版本。</p>
+
 <h3 id="编译安装">编译安装</h3>
 
-<p>如果想尝试最新版本的功能，可以直接自己下载官方最新代码编译安装。具体的编译方法如下:</p>
+<p>想自己修改一些功能的，或者使用最最新的功能，可以自己编译安装。具体的编译方法如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
@@ -237,8 +241,6 @@ sudo make install</code></pre></td></tr></table>
 </div>
 <h2 id="配置">配置</h2>
 
-<h3 id="定制化配置">定制化配置</h3>
-
 <p>目前要定制化自己的特殊配置，都要以<code>.custom.yaml</code>结尾，这样在输入法升级或者重新部署的时候都不会直接覆盖这些文件。 这些配置文件里面都要以<code>patch</code>开头，以打补丁的方式来实现个性化定制。</p>
 
 <ul>
@@ -249,7 +251,7 @@ sudo make install</code></pre></td></tr></table>
 <li>installation.yaml: 同步和备份</li>
 </ul>
 
-<h3 id="输入法界面设置">输入法界面设置</h3>
+<h3 id="界面设置">界面设置</h3>
 
 <p>界面的配置squirrel.custom.yaml, 目前主要设置了通知方式、皮肤和某些app的默认输入方式。</p>
 
