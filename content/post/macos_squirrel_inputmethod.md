@@ -73,7 +73,7 @@ sudo make install
 * wubi_pinyin.custom.yaml: 定义扩充词库、加载符号库;
 * installation.yaml: 同步和备份
 
-### 界面设置
+### squirrel设置
 
 界面的配置squirrel.custom.yaml, 目前主要设置了通知方式、皮肤和某些app的默认输入方式。
 
@@ -128,9 +128,12 @@ patch:
 
 ### 全局配置
 
-配置文件为`default.custom.yaml`,目前的配置如下:
+配置文件为`default.custom.yaml`。 全局配置里面，可以定义输入方案、候选词数量和快捷键的设置。
 
-目前主要用luna_pinyin_simp和wubi_pinyin两种输入法
+1. 输入方案: 朙月拼音简化字和五笔拼音混合输入
+2. 候选词设置为6个
+3. 候选词换页的按键修改为: `[` 和 `]`
+4. 修改shift_L为切所中英文(个人习惯)
 
 ```yaml
 patch:
@@ -144,7 +147,7 @@ patch:
     - when: paging # [ -> 上一页
       accept: bracketleft
       send: Page_Up
-    - when: has_menu #] -下一页
+    - when: has_menu # ] -> 下一页
       accept: bracketright
       send: Page_Down
 

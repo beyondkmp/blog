@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T17:22:07&#43;08:00" />
-<meta itemprop="wordCount" content="3784">
+<meta itemprop="wordCount" content="3838">
 
 
 
@@ -150,7 +150,7 @@
 </ul></li>
 <li><a href="#配置">配置</a>
 <ul>
-<li><a href="#界面设置">界面设置</a></li>
+<li><a href="#squirrel设置">squirrel设置</a></li>
 <li><a href="#全局配置">全局配置</a></li>
 <li><a href="#五笔配置">五笔配置</a></li>
 </ul></li>
@@ -251,7 +251,7 @@ sudo make install</code></pre></td></tr></table>
 <li>installation.yaml: 同步和备份</li>
 </ul>
 
-<h3 id="界面设置">界面设置</h3>
+<h3 id="squirrel设置">squirrel设置</h3>
 
 <p>界面的配置squirrel.custom.yaml, 目前主要设置了通知方式、皮肤和某些app的默认输入方式。</p>
 
@@ -348,9 +348,14 @@ sudo make install</code></pre></td></tr></table>
 
 <h3 id="全局配置">全局配置</h3>
 
-<p>配置文件为<code>default.custom.yaml</code>,目前的配置如下:</p>
+<p>配置文件为<code>default.custom.yaml</code>。 全局配置里面，可以定义输入方案、候选词数量和快捷键的设置。</p>
 
-<p>目前主要用luna_pinyin_simp和wubi_pinyin两种输入法</p>
+<ol>
+<li>输入方案: 朙月拼音简化字和五笔拼音混合输入</li>
+<li>候选词设置为6个</li>
+<li>候选词换页的按键修改为: <code>[</code> 和 <code>]</code></li>
+
+<li><p>修改shift_L为切所中英文(个人习惯)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
@@ -378,29 +383,31 @@ sudo make install</code></pre></td></tr></table>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml">patch<span class="p">:</span><span class="w">
-</span><span class="w">  </span>menu<span class="p">:</span><span class="w">
-</span><span class="w">    </span>page_size<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">  </span><span class="c"># 候选词的长度</span><span class="w">
-</span><span class="w">  </span>schema_list<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>schema<span class="p">:</span><span class="w"> </span>luna_pinyin_simp<span class="w">      </span><span class="c"># 朙月拼音 简化字</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>schema<span class="p">:</span><span class="w"> </span>wubi_pinyin<span class="w">           </span><span class="c"># 五笔拼音混合輸入</span><span class="w">
+</span><span class="w"></span>menu<span class="p">:</span><span class="w">
+</span><span class="w"></span>page_size<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">  </span><span class="c"># 候选词的长度</span><span class="w">
+</span><span class="w"></span>schema_list<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>schema<span class="p">:</span><span class="w"> </span>luna_pinyin_simp<span class="w">      </span><span class="c"># 朙月拼音 简化字</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>schema<span class="p">:</span><span class="w"> </span>wubi_pinyin<span class="w">           </span><span class="c"># 五笔拼音混合輸入</span><span class="w">
 </span><span class="w">
-</span><span class="w">  </span>key_binder/bindings<span class="p">:</span><span class="w">  </span><span class="c"># 以方括号换页</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>paging<span class="w"> </span><span class="c"># [ -&gt; 上一页</span><span class="w">
-</span><span class="w">      </span>accept<span class="p">:</span><span class="w"> </span>bracketleft<span class="w">
-</span><span class="w">      </span>send<span class="p">:</span><span class="w"> </span>Page_Up<span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>has_menu<span class="w"> </span><span class="c">#] -下一页</span><span class="w">
-</span><span class="w">      </span>accept<span class="p">:</span><span class="w"> </span>bracketright<span class="w">
-</span><span class="w">      </span>send<span class="p">:</span><span class="w"> </span>Page_Down<span class="w">
+</span><span class="w"></span>key_binder/bindings<span class="p">:</span><span class="w">  </span><span class="c"># 以方括号换页</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>paging<span class="w"> </span><span class="c"># [ -&gt; 上一页</span><span class="w">
+</span><span class="w">  </span>accept<span class="p">:</span><span class="w"> </span>bracketleft<span class="w">
+</span><span class="w">  </span>send<span class="p">:</span><span class="w"> </span>Page_Up<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>has_menu<span class="w"> </span><span class="c"># ] -&gt; 下一页</span><span class="w">
+</span><span class="w">  </span>accept<span class="p">:</span><span class="w"> </span>bracketright<span class="w">
+</span><span class="w">  </span>send<span class="p">:</span><span class="w"> </span>Page_Down<span class="w">
 </span><span class="w">
-</span><span class="w">  </span>ascii_composer/switch_key<span class="p">:</span><span class="w">
-</span><span class="w">    </span>Caps_Lock<span class="p">:</span><span class="w"> </span>noop<span class="w">
-</span><span class="w">    </span>Control_L<span class="p">:</span><span class="w"> </span>noop<span class="w">
-</span><span class="w">    </span>Control_R<span class="p">:</span><span class="w"> </span>noop<span class="w">
-</span><span class="w">    </span>Eisu_toggle<span class="p">:</span><span class="w"> </span>clear<span class="w">
-</span><span class="w">    </span>Shift_L<span class="p">:</span><span class="w"> </span>commit_code<span class="w"> </span><span class="c"># 配置后，可以直接用shift上屏英文字母,就是打了一段编码后直接以这段编码上屏</span><span class="w">
-</span><span class="w">    </span>Shift_R<span class="p">:</span><span class="w"> </span>noop</code></pre></td></tr></table>
+</span><span class="w"></span>ascii_composer/switch_key<span class="p">:</span><span class="w">
+</span><span class="w"></span>Caps_Lock<span class="p">:</span><span class="w"> </span>noop<span class="w">
+</span><span class="w"></span>Control_L<span class="p">:</span><span class="w"> </span>noop<span class="w">
+</span><span class="w"></span>Control_R<span class="p">:</span><span class="w"> </span>noop<span class="w">
+</span><span class="w"></span>Eisu_toggle<span class="p">:</span><span class="w"> </span>clear<span class="w">
+</span><span class="w"></span>Shift_L<span class="p">:</span><span class="w"> </span>commit_code<span class="w"> </span><span class="c"># 配置后，可以直接用shift上屏英文字母,就是打了一段编码后直接以这段编码上屏</span><span class="w">
+</span><span class="w"></span>Shift_R<span class="p">:</span><span class="w"> </span>noop</code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ol>
+
 <h3 id="五笔配置">五笔配置</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
