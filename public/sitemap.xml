@@ -597,14 +597,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/scala/</loc>
+    <loc>https://beyondkmp.com/categories/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/scala/</loc>
+    <loc>https://beyondkmp.com/tags/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -921,27 +921,6 @@
   <url>
     <loc>https://beyondkmp.com/tags/%E5%8A%A0%E9%94%81/</loc>
     <lastmod>2016-02-04T00:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/tags/osx/</loc>
-    <lastmod>2016-01-17T00:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/post/osx%E4%B8%8B%E5%A5%BD%E7%94%A8%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95rime/</loc>
-    <lastmod>2016-01-17T00:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</loc>
-    <lastmod>2016-01-17T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
