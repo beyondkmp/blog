@@ -25,7 +25,7 @@ wget https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz
 ### 安装依赖
 
 ```shell
-apt install -y gcc perl libperl-dev libgd3 libgd-dev libgeoip1 libgeoip-dev geoip-bin libxml2 libxml2-dev libxslt1.1 libxslt1-dev
+apt install -y g++ cmake gcc perl libperl-dev libgd3 libgd-dev libgeoip1 libgeoip-dev geoip-bin libxml2 libxml2-dev libxslt1.1 libxslt1-dev
 ```
 
 ### 编译安装
