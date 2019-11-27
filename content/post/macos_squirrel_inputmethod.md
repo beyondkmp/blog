@@ -126,7 +126,7 @@ patch:
 
 ![界面](/imgs/squirrel_interface.png)
 
-### 自定义配置
+### 全局配置
 
 配置文件为`default.custom.yaml`,目前的配置如下:
 
@@ -244,6 +244,6 @@ patch:
 1. [How to Rime with Squirrel](https://github.com/rime/squirrel/blob/master/INSTALL.md)
 2. [「鼠须管」的调教笔记](https://scomper.me/gtd/-shu-xu-guan-de-diao-jiao-bi-ji)
 3. [我的鼠须管配置](https://placeless.net/blog/my-rime-squirrel-config)
-4. [安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel)](https://placeless.net/blog/my-rime-squirrel-config)
+4. [安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel)](https://www.dreamxu.com/install-config-squirrel/)
 5. [RimeWithSchemata](https://github.com/rime/home/wiki/RimeWithSchemata)
 6. [鼠须管输入法的新配色](https://scomper.me/gtd/shu-xu-guan-shu-ru-fa-de-xin-pei-se)
