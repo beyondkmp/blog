@@ -73,7 +73,7 @@ sudo make install
 
 ### 界面配置
 
-界面的配置文件是squirrel.custom.yaml,
+界面的配置squirrel.custom.yaml, 目前主要设置了通知方式、皮肤和某些app的默认输入方式。
 
 ```yaml
 patch:
@@ -93,7 +93,7 @@ patch:
     label_font_face: "STHeitiSC-Light"                 # 候选词编号字体
     label_font_point: 16                               # 候选编号大小
 
-  # app默認
+  # 默认使用ascii输入，不用中文输入
   app_options:
     com.apple.dt.Xcode:
       ascii_mode: true
