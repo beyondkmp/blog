@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T17:22:07&#43;08:00" />
-<meta itemprop="wordCount" content="6174">
+<meta itemprop="wordCount" content="6424">
 
 
 
@@ -155,6 +155,7 @@
 <li><a href="#五笔配置">五笔配置</a></li>
 <li><a href="#拼音配置">拼音配置</a></li>
 </ul></li>
+<li><a href="#快速配置">快速配置</a></li>
 <li><a href="#参考">参考</a></li>
 </ul></li>
 </ul>
@@ -351,12 +352,15 @@ sudo make install</code></pre></td></tr></table>
 
 <p>配置文件为<code>default.custom.yaml</code>。 全局配置里面，可以定义输入方案、候选词数量和快捷键的设置。</p>
 
-<ol>
+<ul>
 <li>输入方案: 朙月拼音简化字和五笔拼音混合输入;</li>
-<li>候选词设置为6个;</li>
-<li>候选词换页的按键修改为: <code>[</code> 和 <code>]</code>;</li>
+<li>候选词的个数设置为6个;</li>
+<li>候选词换页的按键修改为方括号;</li>
+<li>使用;和&rsquo;来选择第二和三个候选词;</li>
+<li>修改shift_L为切所中英文(个人习惯);</li>
+</ul>
 
-<li><p>修改shift_L为切所中英文(个人习惯);</p>
+<p><code>default.custom.yaml</code>具体配置如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
@@ -381,34 +385,46 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml">patch<span class="p">:</span><span class="w">
-</span><span class="w"></span>menu<span class="p">:</span><span class="w">
-</span><span class="w"></span>page_size<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">  </span><span class="c"># 候选词的长度</span><span class="w">
-</span><span class="w"></span>schema_list<span class="p">:</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>schema<span class="p">:</span><span class="w"> </span>luna_pinyin_simp<span class="w">      </span><span class="c"># 朙月拼音 简化字</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>schema<span class="p">:</span><span class="w"> </span>wubi_pinyin<span class="w">           </span><span class="c"># 五笔拼音混合輸入</span><span class="w">
+</span><span class="w">  </span>menu<span class="p">:</span><span class="w">
+</span><span class="w">    </span>page_size<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="c"># 候选词的个数</span><span class="w">
+</span><span class="w">  </span>schema_list<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>schema<span class="p">:</span><span class="w"> </span>wubi_pinyin<span class="w">           </span><span class="c"># 五笔拼音混合輸入</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>schema<span class="p">:</span><span class="w"> </span>luna_pinyin_simp<span class="w">      </span><span class="c"># 朙月拼音 简化字</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>key_binder/bindings<span class="p">:</span><span class="w">  </span><span class="c"># 以方括号换页</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>paging<span class="w"> </span><span class="c"># [ -&gt; 上一页</span><span class="w">
-</span><span class="w">  </span>accept<span class="p">:</span><span class="w"> </span>bracketleft<span class="w">
-</span><span class="w">  </span>send<span class="p">:</span><span class="w"> </span>Page_Up<span class="w">
-</span><span class="w"></span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>has_menu<span class="w"> </span><span class="c"># ] -&gt; 下一页</span><span class="w">
-</span><span class="w">  </span>accept<span class="p">:</span><span class="w"> </span>bracketright<span class="w">
-</span><span class="w">  </span>send<span class="p">:</span><span class="w"> </span>Page_Down<span class="w">
+</span><span class="w">  </span>key_binder/bindings<span class="p">:</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>paging<span class="w"> </span><span class="c"># [ -&gt; 上一页</span><span class="w">
+</span><span class="w">      </span>accept<span class="p">:</span><span class="w"> </span>bracketleft<span class="w">
+</span><span class="w">      </span>send<span class="p">:</span><span class="w"> </span>Page_Up<span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>has_menu<span class="w"> </span><span class="c"># ] -&gt; 下一页</span><span class="w">
+</span><span class="w">      </span>accept<span class="p">:</span><span class="w"> </span>bracketright<span class="w">
+</span><span class="w">      </span>send<span class="p">:</span><span class="w"> </span>Page_Down<span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>has_menu<span class="w"> </span><span class="c"># 按;选择第二个候选词</span><span class="w">
+</span><span class="w">      </span>accept<span class="p">:</span><span class="w"> </span>semicolon<span class="w">
+</span><span class="w">      </span>send<span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>has_menu<span class="w"> </span><span class="c"># 按&#39;选择第三个候选词</span><span class="w">
+</span><span class="w">      </span>accept<span class="p">:</span><span class="w"> </span>apostrophe<span class="w">
+</span><span class="w">      </span>send<span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>ascii_composer/switch_key<span class="p">:</span><span class="w">
-</span><span class="w"></span>Caps_Lock<span class="p">:</span><span class="w"> </span>noop<span class="w">
-</span><span class="w"></span>Control_L<span class="p">:</span><span class="w"> </span>noop<span class="w">
-</span><span class="w"></span>Control_R<span class="p">:</span><span class="w"> </span>noop<span class="w">
-</span><span class="w"></span>Eisu_toggle<span class="p">:</span><span class="w"> </span>clear<span class="w">
-</span><span class="w"></span>Shift_L<span class="p">:</span><span class="w"> </span>commit_code<span class="w"> </span><span class="c"># 配置后，可以直接用shift上屏英文字母,就是打了一段编码后直接以这段编码上屏</span><span class="w">
-</span><span class="w"></span>Shift_R<span class="p">:</span><span class="w"> </span>noop</code></pre></td></tr></table>
+</span><span class="w">  </span>ascii_composer/switch_key<span class="p">:</span><span class="w">
+</span><span class="w">    </span>Caps_Lock<span class="p">:</span><span class="w"> </span>noop<span class="w">
+</span><span class="w">    </span>Control_L<span class="p">:</span><span class="w"> </span>noop<span class="w">
+</span><span class="w">    </span>Control_R<span class="p">:</span><span class="w"> </span>noop<span class="w">
+</span><span class="w">    </span>Eisu_toggle<span class="p">:</span><span class="w"> </span>clear<span class="w">
+</span><span class="w">    </span><span class="c"># 按下左 shift 英文字符直接上屏，不需要再次回车，输入法保持英文状态</span><span class="w">
+</span><span class="w">    </span>Shift_L<span class="p">:</span><span class="w"> </span>commit_code<span class="w">
+</span><span class="w">    </span>shift_R<span class="p">:</span><span class="w"> </span>noop</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
+</div>
 <h3 id="五笔配置">五笔配置</h3>
 
 <p>配置文件为<code>wubi_pinyin.custom.yaml</code>, 主要定义五笔输入法里面的操作，字符串。</p>
@@ -490,6 +506,11 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="lnt">74
 </span><span class="lnt">75
 </span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Rime schema settings</span><span class="w">
@@ -505,14 +526,12 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>simplification<span class="w">
 </span><span class="w">      </span>reset<span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
 </span><span class="w">      </span>states<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;汉字&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;漢字&#34;</span><span class="p">]</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>ascii_punct<span class="w">
-</span><span class="w">      </span>states<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;。，&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;．，&#34;</span><span class="p">]</span><span class="w">
 </span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>show_emoji<span class="w">
 </span><span class="w">      </span>reset<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="w">      </span>states<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;🈚️️\uFE0E&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;🈶️️\uFE0F&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
 </span><span class="w">
 </span><span class="w">  </span>simplifier<span class="p">:</span><span class="w">
-</span><span class="w">      </span>opencc_config<span class="p">:</span><span class="w"> </span>simp2trad.json<span class="w">  </span><span class="c"># 简入繁出</span><span class="w">
+</span><span class="w">      </span>opencc_config<span class="p">:</span><span class="w"> </span>s2t.json<span class="w">  </span><span class="c"># 简入繁出</span><span class="w">
 </span><span class="w">
 </span><span class="w">  </span>engine/filters<span class="p">:</span><span class="w">
 </span><span class="w">    </span>-<span class="w"> </span>simplifier<span class="w">
@@ -525,11 +544,18 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="w">    </span>tags<span class="p">:</span><span class="w"> </span>abc<span class="w">
 </span><span class="w">
 </span><span class="w">
-</span><span class="w">  </span><span class="s2">&#34;speller/max_code_length&#34;</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="c">#最长4码</span><span class="w">
-</span><span class="w">  </span><span class="s2">&#34;speller/auto_select&#34;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c">#顶字上屏</span><span class="w">
-</span><span class="w">  </span><span class="s2">&#34;speller/auto_select_unique_candidate&#34;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c">#无重码自动上屏</span><span class="w">
+</span><span class="w">  </span>speller<span class="p">:</span><span class="w">
+</span><span class="w">    </span>max_code_length<span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="c">#最长4码</span><span class="w">
+</span><span class="w">    </span>auto_select<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c">#顶字上屏</span><span class="w">
+</span><span class="w">    </span>auto_select_unique_candidate<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c">#无重码自动上屏</span><span class="w">
+</span><span class="w">  </span>translator<span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="c"># 开启自动造词相关设置</span><span class="w">
+</span><span class="w">    </span>enable_sentence<span class="p">:</span><span class="w"> </span>ture<span class="w">                </span><span class="c"># 是否开启自动造词</span><span class="w">
+</span><span class="w">    </span>enable_user_dict<span class="p">:</span><span class="w"> </span>ture<span class="w">               </span><span class="c"># 是否开启用户词典（用户词典记录动态字词频，用 户词）</span><span class="w">
+</span><span class="w">    </span>enable_encoder<span class="p">:</span><span class="w"> </span>ture<span class="w">                 </span><span class="c"># 自动造词</span><span class="w">
+</span><span class="w">    </span>encode_commit_history<span class="p">:</span><span class="w"> </span>ture<span class="w">          </span><span class="c"># 是否对已上屏的词自动造词</span><span class="w">
+</span><span class="w">    </span>dictionary<span class="p">:</span><span class="w"> </span>wubi86<span class="w">                   </span><span class="c"># 加载五笔词库</span><span class="w">
 </span><span class="w">
-</span><span class="w">  </span><span class="s2">&#34;translator/dictionary&#34;</span><span class="p">:</span><span class="w"> </span>wubi86<span class="w"> </span><span class="c">#加载五笔词库</span><span class="w">
 </span><span class="w">  </span><span class="s2">&#34;reverse_lookup/comment_format/@1&#34;</span><span class="p">:</span><span class="w"> </span>xform/^(\w+).<span class="cp">*/$1/</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">#  符号快速输入和部分符号的快速上屏</span><span class="w">
@@ -559,7 +585,7 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="s2">      &#34;</span>&gt;<span class="s2">&#34;: [&#34;</span>》<span class="s2">&#34;, &#34;</span>〉<span class="s2">&#34;, &#34;</span>»<span class="s2">&#34;, &#34;</span>&gt;<span class="s2">&#34;]
 </span><span class="s2">  recognizer/patterns/punct: &#34;</span>^/(<span class="p">[</span>a-z<span class="p">]</span>+|<span class="p">[</span><span class="m">0-9</span><span class="p">]</span><span class="m">0</span><span class="p">?</span>)$<span class="s2">&#34;
 </span><span class="s2">
-</span><span class="s2"># 使用自定义词典 custom_phrase.txt
+</span><span class="s2">  # 使用自定义词典 custom_phrase.txt
 </span><span class="s2">  custom_phrase:
 </span><span class="s2">    dictionary: &#34;&#34;
 </span><span class="s2">    user_dict: custom_phrase
@@ -865,6 +891,20 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="s2">  #  - &#34;</span>xform/(<span class="p">[</span>nljqxyzcs<span class="p">]</span>)v/$1ü/&#34;</code></pre></td></tr></table>
 </div>
 </div>
+<h2 id="快速配置">快速配置</h2>
+
+<ol>
+<li><p>打开用户设定, 找到用户配置文件夹。</p>
+
+<p><img src="/imgs/rime/config.png" alt="config" /></p></li>
+
+<li><p>将之前的用户配置删除，然后将<a href="https://github.com/beyondkmp/Rime">github</a>的配置下载到用户配置文件夹中。</p></li>
+
+<li><p>重新加载就大功告成了。</p>
+
+<p><img src="/imgs/rime/reset.png" alt="reset" /></p></li>
+</ol>
+
 <h2 id="参考">参考</h2>
 
 <ol>

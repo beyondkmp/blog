@@ -130,36 +130,44 @@ patch:
 
 配置文件为`default.custom.yaml`。 全局配置里面，可以定义输入方案、候选词数量和快捷键的设置。
 
-1. 输入方案: 朙月拼音简化字和五笔拼音混合输入;
-2. 候选词设置为6个;
-3. 候选词换页的按键修改为: `[` 和 `]`;
-4. 修改shift_L为切所中英文(个人习惯);
+* 输入方案: 朙月拼音简化字和五笔拼音混合输入;
+* 候选词的个数设置为6个;
+* 候选词换页的按键修改为方括号;
+* 使用;和'来选择第二和三个候选词;
+* 修改shift_L为切所中英文(个人习惯);
 
-
+`default.custom.yaml`具体配置如下
 
 ```yaml
 patch:
   menu:
-    page_size: 6  # 候选词的长度
+    page_size: 6 # 候选词的个数
   schema_list:
-    - schema: luna_pinyin_simp      # 朙月拼音 简化字
     - schema: wubi_pinyin           # 五笔拼音混合輸入
+    - schema: luna_pinyin_simp      # 朙月拼音 简化字
 
-  key_binder/bindings:  # 以方括号换页
+  key_binder/bindings:
     - when: paging # [ -> 上一页
       accept: bracketleft
       send: Page_Up
     - when: has_menu # ] -> 下一页
       accept: bracketright
       send: Page_Down
+    - when: has_menu # 按;选择第二个候选词
+      accept: semicolon
+      send: 2
+    - when: has_menu # 按'选择第三个候选词
+      accept: apostrophe
+      send: 3
 
   ascii_composer/switch_key:
     Caps_Lock: noop
     Control_L: noop
     Control_R: noop
     Eisu_toggle: clear
-    Shift_L: commit_code # 配置后，可以直接用shift上屏英文字母,就是打了一段编码后直接以这段编码上屏
-    Shift_R: noop
+    # 按下左 shift 英文字符直接上屏，不需要再次回车，输入法保持英文状态
+    Shift_L: commit_code
+    shift_R: noop
 ```
 
 ### 五笔配置
@@ -180,14 +188,12 @@ patch:
     - name: simplification
       reset: 0
       states: ["汉字", "漢字"]
-    - name: ascii_punct
-      states: ["。，", "．，"]
     - name: show_emoji
       reset: 1
       states: [ "🈚️️\uFE0E", "🈶️️\uFE0F" ]
 
   simplifier:
-      opencc_config: simp2trad.json  # 简入繁出
+      opencc_config: s2t.json  # 简入繁出
 
   engine/filters:
     - simplifier
@@ -200,11 +206,18 @@ patch:
     tags: abc
 
 
-  "speller/max_code_length": 4 #最长4码
-  "speller/auto_select": false #顶字上屏
-  "speller/auto_select_unique_candidate": false #无重码自动上屏
+  speller:
+    max_code_length: 4 #最长4码
+    auto_select: false #顶字上屏
+    auto_select_unique_candidate: false #无重码自动上屏
+  translator:
+    # 开启自动造词相关设置
+    enable_sentence: ture                # 是否开启自动造词
+    enable_user_dict: ture               # 是否开启用户词典（用户词典记录动态字词频，用 户词）
+    enable_encoder: ture                 # 自动造词
+    encode_commit_history: ture          # 是否对已上屏的词自动造词
+    dictionary: wubi86                   # 加载五笔词库
 
-  "translator/dictionary": wubi86 #加载五笔词库
   "reverse_lookup/comment_format/@1": xform/^(\w+).*/$1/
 
 #  符号快速输入和部分符号的快速上屏
@@ -234,7 +247,7 @@ patch:
       ">": ["》", "〉", "»", ">"]
   recognizer/patterns/punct: "^/([a-z]+|[0-9]0?)$"
 
-# 使用自定义词典 custom_phrase.txt
+  # 使用自定义词典 custom_phrase.txt
   custom_phrase:
     dictionary: ""
     user_dict: custom_phrase
@@ -243,6 +256,7 @@ patch:
     enable_sentence: false
     initial_quality: 1
   "engine/translators/@4": table_translator@custom_phrase
+
 ```
 
 ### 拼音配置
@@ -396,6 +410,15 @@ patch:
 
 ```
 
+## 快速配置
+
+1. 打开用户设定, 找到用户配置文件夹。
+
+    ![config](/imgs/rime/config.png)
+2. 将之前的用户配置删除，然后将[github](https://github.com/beyondkmp/Rime)的配置下载到用户配置文件夹中。
+3. 重新加载就大功告成了。
+
+    ![reset](/imgs/rime/reset.png)
 
 ## 参考
 
