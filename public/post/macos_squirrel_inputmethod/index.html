@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T17:22:07&#43;08:00" />
-<meta itemprop="wordCount" content="3510">
+<meta itemprop="wordCount" content="3673">
 
 
 
@@ -150,7 +150,7 @@
 <li><a href="#配置">配置</a>
 <ul>
 <li><a href="#定制化配置">定制化配置</a></li>
-<li><a href="#界面配置">界面配置</a></li>
+<li><a href="#输入法界面设置">输入法界面设置</a></li>
 <li><a href="#自定义配置">自定义配置</a></li>
 <li><a href="#五笔配置">五笔配置</a></li>
 </ul></li>
@@ -242,16 +242,18 @@ sudo make install</code></pre></td></tr></table>
 <p>目前要定制化自己的特殊配置，都要以<code>.custom.yaml</code>结尾，这样在输入法升级或者重新部署的时候都不会直接覆盖这些文件。 这些配置文件里面都要以<code>patch</code>开头，以打补丁的方式来实现个性化定制。</p>
 
 <ul>
-<li>squirrel.custom.yaml: 自定义皮肤、鼠须管外观、ascii 模式;</li>
-<li>default.custom.yaml:设定备选词数量，定义输入方案；</li>
-<li>luna_pinyin_simp.custom.yaml: 定义扩充词库、加载符号库、模糊拼音;</li>
+<li>squirrel.custom.yaml: 自定义皮肤, 鼠须管外观,地 ascii 模式;</li>
+<li>default.custom.yaml: 设定备选词数量，定义输入方案, 快捷键的设置;</li>
+<li>luna_pinyin_simp.custom.yaml: 定义扩充词库，加载符号库、模糊拼音;</li>
 <li>wubi_pinyin.custom.yaml: 定义扩充词库、加载符号库;</li>
 <li>installation.yaml: 同步和备份</li>
 </ul>
 
-<h3 id="界面配置">界面配置</h3>
+<h3 id="输入法界面设置">输入法界面设置</h3>
 
 <p>界面的配置squirrel.custom.yaml, 目前主要设置了通知方式、皮肤和某些app的默认输入方式。</p>
+
+<p>这里要说一下<code>vim_mode</code>, 在使用vim快捷方式app中有用，按esc键会自动把中文模式切换成英文模式，而不用先按shift切换英文再按esc.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
@@ -289,12 +291,15 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="lnt">33
 </span><span class="lnt">34
 </span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml">patch<span class="p">:</span><span class="w">
 </span><span class="w">  </span>show_notifications_when<span class="p">:</span><span class="w"> </span>appropriate<span class="w"> </span><span class="c"># 状态通知，适当，也可设为全开（always）全关（never）</span><span class="w">
-</span><span class="w">  </span>us_keyboard_layout<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">
 </span><span class="w">  </span>style<span class="p">:</span><span class="w">
 </span><span class="w">    </span>color_scheme<span class="p">:</span><span class="w"> </span>psionics<span class="w">
 </span><span class="w">    </span>horizontal<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                                   </span><span class="c"># 水平排列</span><span class="w">
@@ -309,13 +314,18 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="w">    </span>label_font_point<span class="p">:</span><span class="w"> </span><span class="m">16</span><span class="w">                               </span><span class="c"># 候选编号大小</span><span class="w">
 </span><span class="w">
 </span><span class="w">  </span><span class="c"># 默认使用ascii输入，不用中文输入</span><span class="w">
+</span><span class="w">  </span><span class="c"># app的名字可以在/Applications/的app目录中的Info.plist里面查找</span><span class="w">
 </span><span class="w">  </span>app_options<span class="p">:</span><span class="w">
 </span><span class="w">    </span>com.apple.dt.Xcode<span class="p">:</span><span class="w">
 </span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">    </span>com.runningwithcrayons.Alfred<span class="m">-3</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>com.runningwithcrayons.Alfred<span class="p">:</span><span class="w">
 </span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">    </span>com.googlecode.iterm2<span class="p">:</span><span class="w">
 </span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span>vim_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                                   </span><span class="c"># vim mode, 按esc键会自动切换成英文</span><span class="w">
+</span><span class="w">    </span>com.microsoft.VSCode<span class="p">:</span><span class="w">
+</span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span>vim_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">    </span>com.apple.finder<span class="p">:</span><span class="w">
 </span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">    </span>com.apple.appstore<span class="p">:</span><span class="w">
@@ -325,10 +335,12 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="w">    </span>com.apple.keychainaccess<span class="p">:</span><span class="w">
 </span><span class="w">      </span>ascii_mode<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">    </span><span class="c"># com.apple.Safari:</span><span class="w">
-</span><span class="w">    </span><span class="c">#   ascii_mode: true</span></code></pre></td></tr></table>
+</span><span class="w">    </span><span class="c">#   ascii_mode: true</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span>us_keyboard_layout<span class="p">:</span><span class="w"> </span><span class="kc">true</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>界面效果如下:</p>
+<p>效果如下:</p>
 
 <p><img src="/imgs/squirrel_interface.png" alt="界面" /></p>
 
