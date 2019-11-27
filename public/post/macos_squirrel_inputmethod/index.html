@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T17:22:07&#43;08:00" />
-<meta itemprop="wordCount" content="3852">
+<meta itemprop="wordCount" content="3202">
 
 
 
@@ -268,64 +268,22 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml">patch<span class="p">:</span><span class="w">
 </span><span class="w">  </span>show_notifications_when<span class="p">:</span><span class="w"> </span>appropriate<span class="w"> </span><span class="c"># 状态通知，适当，也可设为全开（always）全关（never）</span><span class="w">
-</span><span class="w">  </span><span class="s2">&#34;app_options/com.runningwithcrayons.Alfred-3/ascii_mode&#34;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">
 </span><span class="w">  </span>style<span class="p">:</span><span class="w">
-</span><span class="w">    </span>color_scheme<span class="p">:</span><span class="w"> </span>beyond<span class="w">                                 </span><span class="c"># 选择配色方案</span><span class="w">
-</span><span class="w">
-</span><span class="w">  </span>preset_color_schemes<span class="p">:</span><span class="w">
-</span><span class="w">    </span>beyond<span class="p">:</span><span class="w">
-</span><span class="w">      </span>name<span class="p">:</span><span class="w"> </span><span class="s2">&#34;beyondkmp&#34;</span><span class="w"> 
-</span><span class="w">      </span>author<span class="p">:</span><span class="w"> </span><span class="s2">&#34;beyondkmp&lt;beyondkmp@gmail.com&gt;&#34;</span><span class="w"> 
-</span><span class="w">
-</span><span class="w">      </span>horizontal<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                                   </span><span class="c"># 水平排列</span><span class="w">
-</span><span class="w">      </span>inline_preedit<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                               </span><span class="c"># 单行显示，false双行显示</span><span class="w">
-</span><span class="w">      </span>candidate_format<span class="p">:</span><span class="w"> </span><span class="s2">&#34;%c\u2005%@ \u2005 \u2005&#34;</span><span class="w">       </span><span class="c"># 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>corner_radius<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">                                   </span><span class="c"># 候选条圆角</span><span class="w">
-</span><span class="w">      </span>border_height<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">                                   </span><span class="c"># 窗口边界高度，大于圆角半径才生效</span><span class="w">
-</span><span class="w">      </span>border_width<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">                                    </span><span class="c"># 窗口边界宽度，大于圆角半径才生效</span><span class="w">
-</span><span class="w">      </span>font_face<span class="p">:</span><span class="w"> </span><span class="s2">&#34;PingFangSC-Regular,HanaMinB&#34;</span><span class="w">           </span><span class="c"># 候选词字体</span><span class="w">
-</span><span class="w">      </span>font_point<span class="p">:</span><span class="w"> </span><span class="m">18</span><span class="w">                                     </span><span class="c"># 候选字词大小</span><span class="w">
-</span><span class="w">      </span>label_font_face<span class="p">:</span><span class="w"> </span><span class="s2">&#34;STHeitiSC-Light&#34;</span><span class="w">                 </span><span class="c"># 候选词编号字体</span><span class="w">
-</span><span class="w">      </span>label_font_point<span class="p">:</span><span class="w"> </span><span class="m">16</span><span class="w">                               </span><span class="c"># 候选编号大小</span><span class="w">
-</span><span class="w">      </span>text_color<span class="p">:</span><span class="w"> </span><span class="m">0xc2c2c2</span><span class="w">                               </span><span class="c"># 拼音行文字颜色，24位色值，16进制，BGR顺序</span><span class="w">
-</span><span class="w">      </span>back_color<span class="p">:</span><span class="w"> </span><span class="m">0x444444</span><span class="w">                               </span><span class="c"># 候选条背景色</span><span class="w">
-</span><span class="w">      </span>border_color<span class="p">:</span><span class="w"> </span>0xE0B693<span class="w">                             </span><span class="c"># 边框色</span><span class="w">
-</span><span class="w">      </span>label_color<span class="p">:</span><span class="w"> </span><span class="m">0x9e9e9e</span><span class="w">                              </span><span class="c"># 预选栏编号颜色</span><span class="w">
-</span><span class="w">      </span>candidate_text_color<span class="p">:</span><span class="w"> </span><span class="m">0xeeeeee</span><span class="w">                     </span><span class="c"># 预选项文字颜色</span><span class="w">
-</span><span class="w">      </span>comment_text_color<span class="p">:</span><span class="w"> </span><span class="m">0x808080</span><span class="w">                       </span><span class="c"># 拼音等提示文字颜色</span><span class="w">
-</span><span class="w">      </span>hilited_text_color<span class="p">:</span><span class="w"> </span><span class="m">0xeeeeee</span><span class="w">                       </span><span class="c"># 高亮拼音 (需要开启内嵌编码)</span><span class="w">
-</span><span class="w">      </span>hilited_back_color<span class="p">:</span><span class="w"> </span><span class="m">0x444444</span><span class="w">                       </span><span class="c"># 高亮背景色</span><span class="w">
-</span><span class="w">      </span>hilited_candidate_text_color<span class="p">:</span><span class="w"> </span><span class="m">0xfafafa</span><span class="w">             </span><span class="c"># 第一候选项文字颜色</span><span class="w">
-</span><span class="w">      </span>hilited_candidate_back_color<span class="p">:</span><span class="w"> </span><span class="m">0xd8bf00</span><span class="w">             </span><span class="c"># 第一候选项背景背景色</span><span class="w">
-</span><span class="w">      </span>hilited_candidate_label_color<span class="p">:</span><span class="w"> </span><span class="m">0xfafafa</span><span class="w">            </span><span class="c"># 第一候选项编号颜色</span><span class="w">
-</span><span class="w">      </span>hilited_comment_text_color<span class="p">:</span><span class="w"> </span><span class="m">0x444444</span></code></pre></td></tr></table>
+</span><span class="w">    </span>color_scheme<span class="p">:</span><span class="w"> </span>psionics<span class="w">
+</span><span class="w">    </span>horizontal<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                                   </span><span class="c"># 水平排列</span><span class="w">
+</span><span class="w">    </span>inline_preedit<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                               </span><span class="c"># 单行显示，false双行显示</span><span class="w">
+</span><span class="w">    </span>candidate_format<span class="p">:</span><span class="w"> </span><span class="s2">&#34;%c\u2005%@ \u2005 \u2005&#34;</span><span class="w">       </span><span class="c"># 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。</span><span class="w">
+</span><span class="w">    </span>corner_radius<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">                                   </span><span class="c"># 候选条圆角</span><span class="w">
+</span><span class="w">    </span>border_height<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">                                   </span><span class="c"># 窗口边界高度，大于圆角半径才生效</span><span class="w">
+</span><span class="w">    </span>border_width<span class="p">:</span><span class="w"> </span><span class="m">6</span><span class="w">                                    </span><span class="c"># 窗口边界宽度，大于圆角半径才生效</span><span class="w">
+</span><span class="w">    </span>font_face<span class="p">:</span><span class="w"> </span><span class="s2">&#34;PingFangSC-Regular,HanaMinB&#34;</span><span class="w">           </span><span class="c"># 候选词字体</span><span class="w">
+</span><span class="w">    </span>font_point<span class="p">:</span><span class="w"> </span><span class="m">18</span><span class="w">                                     </span><span class="c"># 候选字词大小</span><span class="w">
+</span><span class="w">    </span>label_font_face<span class="p">:</span><span class="w"> </span><span class="s2">&#34;STHeitiSC-Light&#34;</span><span class="w">                 </span><span class="c"># 候选词编号字体</span><span class="w">
+</span><span class="w">    </span>label_font_point<span class="p">:</span><span class="w"> </span><span class="m">16</span><span class="w">                               </span><span class="c"># 候选编号大小</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>界面效果如下:</p>
