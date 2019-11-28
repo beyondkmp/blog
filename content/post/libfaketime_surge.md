@@ -3,7 +3,7 @@ title: "libfaketime改变软件的运行时间"
 date: 2019-01-27T16:40:07+0800
 lastmod: 2019-11-28T12:03:36+0800
 draft: false
-keywords: ["libfaketime","surge","修改时间"]
+keywords: ["libfaketime","surge","修改软件时间"]
 description: "libfaketime改变软件的运行时间"
 tags: ["libfaketime","surge"]
 categories: ["mac"]
