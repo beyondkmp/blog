@@ -111,7 +111,7 @@ $ yum install ocserv
 
 ## ocserv配置
 
-1. 配置 ocserv, 配置文件`/etc/ocserv/ocserv.conf`**
+1. 配置 ocserv, 配置文件`/etc/ocserv/ocserv.conf`
 
     ```ini
     #ocserv支持多种认证方式，这是自带的密码认证，使用ocpasswd创建密码文件
