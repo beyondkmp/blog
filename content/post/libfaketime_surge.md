@@ -1,9 +1,9 @@
 ---
 title: "libfaketime改变软件的运行时间"
 date: 2019-01-27T16:40:07+0800
-lastmod: 2019-11-07T00:19:10+0800
+lastmod: 2019-11-28T12:03:36+0800
 draft: false
-keywords: ["libfaketime","surge"]
+keywords: ["libfaketime","surge","修改时间"]
 description: "libfaketime改变软件的运行时间"
 tags: ["libfaketime","surge"]
 categories: ["mac"]
@@ -20,12 +20,12 @@ author: "beyondkmp"
 
 1. 通过brew安装
 
-    ```
+    ```bash
     brew install libfaketime coreutils
     ```
 2. 源码编译安装
 
-    ```
+    ```bash
     git clone https://github.com/wolfcw/libfaketime.git
     make
     sudo make install
@@ -45,14 +45,14 @@ author: "beyondkmp"
 1. 先打开试用，更新配置，关闭软件的自动更新。正常使用后，退出软件。
 2. 使用下面命令，通过faketime启动surge
 
-    ```
+    ```bash
     $ faketime '@2007-01-01 00:00:00' /Applications/Surge.app/Contents/MacOS/Surge &
     ```
 
     不过如果直接用上面的命令的运行，faketime的cpu占用非常大,让电脑一直发热。我们设置`FAKETIME_STOP_AFTER_SECONDS=10`, 就让它运行10s后自动关闭，因为软件只是在启动的时候检测一下时间，运行后退出libfaketime节省cpu。
 
 
-    ```
+    ```bash
     $ FAKETIME_STOP_AFTER_SECONDS=10 faketime -f '@2007-01-01 00:00:00' /Applications/Surge.app/Contents/MacOS/Surge &
     ```
 
