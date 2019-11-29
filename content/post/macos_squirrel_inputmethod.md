@@ -206,18 +206,11 @@ patch:
     tags: abc
 
 
-  speller:
-    max_code_length: 4 #最长4码
-    auto_select: false #顶字上屏
-    auto_select_unique_candidate: false #无重码自动上屏
-  translator:
-    # 开启自动造词相关设置
-    enable_sentence: ture                # 是否开启自动造词
-    enable_user_dict: ture               # 是否开启用户词典（用户词典记录动态字词频，用 户词）
-    enable_encoder: ture                 # 自动造词
-    encode_commit_history: ture          # 是否对已上屏的词自动造词
-    dictionary: wubi86                   # 加载五笔词库
+  "speller/max_code_length": 4 #最长4码
+  "speller/auto_select": true #顶字上屏
+  "speller/auto_select_unique_candidate": true #无重码自动上屏
 
+  "translator/dictionary": wubi86 #加载五笔词库
   "reverse_lookup/comment_format/@1": xform/^(\w+).*/$1/
 
 #  符号快速输入和部分符号的快速上屏

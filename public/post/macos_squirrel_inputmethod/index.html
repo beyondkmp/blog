@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2018-12-22T17:10:35&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-28T03:15:25&#43;08:00" />
-<meta itemprop="wordCount" content="6424">
+<meta itemprop="wordCount" content="6321">
 
 
 
@@ -504,13 +504,6 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="lnt">72
 </span><span class="lnt">73
 </span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Rime schema settings</span><span class="w">
@@ -544,18 +537,11 @@ sudo make install</code></pre></td></tr></table>
 </span><span class="w">    </span>tags<span class="p">:</span><span class="w"> </span>abc<span class="w">
 </span><span class="w">
 </span><span class="w">
-</span><span class="w">  </span>speller<span class="p">:</span><span class="w">
-</span><span class="w">    </span>max_code_length<span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="c">#最长4码</span><span class="w">
-</span><span class="w">    </span>auto_select<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c">#顶字上屏</span><span class="w">
-</span><span class="w">    </span>auto_select_unique_candidate<span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c">#无重码自动上屏</span><span class="w">
-</span><span class="w">  </span>translator<span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="c"># 开启自动造词相关设置</span><span class="w">
-</span><span class="w">    </span>enable_sentence<span class="p">:</span><span class="w"> </span>ture<span class="w">                </span><span class="c"># 是否开启自动造词</span><span class="w">
-</span><span class="w">    </span>enable_user_dict<span class="p">:</span><span class="w"> </span>ture<span class="w">               </span><span class="c"># 是否开启用户词典（用户词典记录动态字词频，用 户词）</span><span class="w">
-</span><span class="w">    </span>enable_encoder<span class="p">:</span><span class="w"> </span>ture<span class="w">                 </span><span class="c"># 自动造词</span><span class="w">
-</span><span class="w">    </span>encode_commit_history<span class="p">:</span><span class="w"> </span>ture<span class="w">          </span><span class="c"># 是否对已上屏的词自动造词</span><span class="w">
-</span><span class="w">    </span>dictionary<span class="p">:</span><span class="w"> </span>wubi86<span class="w">                   </span><span class="c"># 加载五笔词库</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;speller/max_code_length&#34;</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="c">#最长4码</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;speller/auto_select&#34;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c">#顶字上屏</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;speller/auto_select_unique_candidate&#34;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c">#无重码自动上屏</span><span class="w">
 </span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;translator/dictionary&#34;</span><span class="p">:</span><span class="w"> </span>wubi86<span class="w"> </span><span class="c">#加载五笔词库</span><span class="w">
 </span><span class="w">  </span><span class="s2">&#34;reverse_lookup/comment_format/@1&#34;</span><span class="p">:</span><span class="w"> </span>xform/^(\w+).<span class="cp">*/$1/</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">#  符号快速输入和部分符号的快速上屏</span><span class="w">
