@@ -77,7 +77,7 @@ plugins=(z git zsh-autosuggestions zsh-syntax-highlighting ruby python gem pip g
 
 1. 安装`zsh-autosuggestions`,直接git下载，并在.zshrc的plugins里面加下`zsh-autosuggestions`。此插件可以自动补全提示，从历史命令从获取的。具体效果如下图
 
-    ![]()
+    ![autosuggestions](/imgs/zsh/autosuggestions.png)
 
     ```bash
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -128,6 +128,8 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 2. 安装monaco font patched with extra nerd glyphs, 在[monaco-nerd-fonts](https://github.com/beyondkmp/monaco-nerd-fonts)下载字体，然后双击安装就完成了。
 
 3. 安装完成后，要对`iterm2`进行字体修改
+
+    ![iterm2](/imgs/zsh/iterm2.png)
 
     ```bash
     iTerm2配置 –> Profiles –> Text –> Use a different font for non-ASCII Text
