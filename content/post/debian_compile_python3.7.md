@@ -57,7 +57,7 @@ author: "beyondkmp"
     sudo apt update
     sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
     ```
-2. 下载源码并解码
+2. 下载源码并解压
 
     ```bash
     wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
@@ -66,12 +66,23 @@ author: "beyondkmp"
 3. 编译安装
 
     ```bash
+    # 如果编译安装了gcc就要使用下面的export, debian8版本需要
     export LD_LIBRARY_PATH=/usr/local/gcc/lib/:/usr/local/gcc/lib64:$LD_LIBRARY_PATH
     cd Python-3.7.1
     ./configure --enable-optimizations
     make -j 4
     # 不会直接覆盖原来的python3版本
     sudo make altinstall
+    ```
+
+4. 新建软链接, 使系统默认使用python3
+
+    ```bash
+    rm /usr/local/bin/pip
+    rm /usr/local/bin/python
+    ln -s /usr/local/bin/python3.7 /usr/local/bin/python
+    ln -s /usr/local/bin/pip3 /usr/local/bin/pip
+
     ```
 
 ## 注意

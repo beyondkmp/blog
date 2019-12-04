@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-05-13T17:02:38&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-04T13:17:32&#43;08:00" />
-<meta itemprop="wordCount" content="421">
+<meta itemprop="wordCount" content="494">
 
 
 
@@ -239,7 +239,7 @@ sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-
 </div>
 </div></li>
 
-<li><p>下载源码并解码</p>
+<li><p>下载源码并解压</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -260,14 +260,32 @@ tar -xvf Python-3.7.3.tgz</code></pre></td></tr></table>
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/local/gcc/lib/:/usr/local/gcc/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 如果编译安装了gcc就要使用下面的export, debian8版本需要</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/local/gcc/lib/:/usr/local/gcc/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
 <span class="nb">cd</span> Python-3.7.1
 ./configure --enable-optimizations
 make -j <span class="m">4</span>
 <span class="c1"># 不会直接覆盖原来的python3版本</span>
 sudo make altinstall</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>新建软链接, 使系统默认使用python3</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">rm /usr/local/bin/pip
+rm /usr/local/bin/python
+ln -s /usr/local/bin/python3.7 /usr/local/bin/python
+ln -s /usr/local/bin/pip3 /usr/local/bin/pip</code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
