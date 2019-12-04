@@ -59,5 +59,15 @@ export SHELL=`which zsh`
 [ -f "$SHELL" ] && exec "$SHELL" -l
 ```
 
+## 配置
+
+[Oh-my-zsh](https://ohmyz.sh/)是一个完整的配置框架, 已经包含了非常的功能，也集成了非常多的插件，还可以定制化自己的一些插件。
+
+```bash
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+
+
 ## 参考
 1. [Building Zsh from Source and Configuring It on CentOS](https://jdhao.github.io/2018/10/13/centos_zsh_install_use/)

@@ -60,7 +60,7 @@
 
 <meta itemprop="datePublished" content="2019-12-04T14:49:48&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-04T14:49:48&#43;08:00" />
-<meta itemprop="wordCount" content="604">
+<meta itemprop="wordCount" content="668">
 
 
 
@@ -164,6 +164,7 @@
 <li><a href="#编译安装zsh">编译安装zsh</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#配置">配置</a></li>
 <li><a href="#参考">参考</a></li>
 </ul></li>
 </ul>
@@ -236,6 +237,17 @@ make -j <span class="o">&amp;&amp;</span> make install</code></pre></td></tr></t
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/local/bin:<span class="nv">$PATH</span>
 <span class="nb">export</span> <span class="nv">SHELL</span><span class="o">=</span><span class="sb">`</span>which zsh<span class="sb">`</span>
 <span class="o">[</span> -f <span class="s2">&#34;</span><span class="nv">$SHELL</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> <span class="s2">&#34;</span><span class="nv">$SHELL</span><span class="s2">&#34;</span> -l</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="配置">配置</h2>
+
+<p><a href="https://ohmyz.sh/">Oh-my-zsh</a>是一个完整的配置框架, 已经包含了非常的功能，也集成了非常多的插件，还可以定制化自己的一些插件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="参考">参考</h2>
