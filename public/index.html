@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://beyondkmp.com/" />
 
-<meta property="og:updated_time" content="2019-11-24T15:23:36+08:00" />
+<meta property="og:updated_time" content="2019-12-04T14:49:48+08:00" />
 <meta itemprop="name" content="Kmp - beyondkmp&#39;s new hugo blog">
 <meta itemprop="description" content="beyondkmp&#39;s blog">
 
@@ -116,6 +116,31 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ohmyzsh/">配置高效的zsh</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-12-04 </span>
+      <div class="post-category">
+          <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>Zsh是一个非常强大的shell, 拥有更好的自动补全和更加丰富的功能。zsh还有非常多的插件，可以帮助我们更加高效的使用命令行。在这个文章里面，我会介绍如果安装与配置一个高效的zsh环境。</p>
+
+<h2 id="安装zsh">安装zsh</h2>
+
+<p>各个平台的安装，参考<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">Installing ZSH</a>, 版本一定要5.1.1以上，如果版本低了，有些功能会不正常的。在centos7一些老的系统上面可能要自己编译安装zsh版本。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/ohmyzsh/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/books/">电子书收集</a></h1>
@@ -382,71 +407,6 @@ $ make install</code></pre></td></tr></table>
     </div>
     <div class="read-more">
       <a href="/post/golang_edns_example/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang_custom_json_marshalling/">[翻译]Golang自定义json转化格式</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-08-11 </span>
-      <div class="post-category">
-          <a href="/categories/golang/"> golang </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Golang标准库里面有encoding/json可以非常方便的将结构体转化成json数据, 具体例子如下:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-    <span class="s">&#34;encoding/json&#34;</span>
-    <span class="s">&#34;os&#34;</span>
-    <span class="s">&#34;time&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">type</span> <span class="nx">MyUser</span> <span class="kd">struct</span> <span class="p">{</span>
-    <span class="nx">ID</span>       <span class="kt">int64</span>     <span class="s">`json:&#34;id&#34;`</span>
-    <span class="nx">Name</span>     <span class="kt">string</span>    <span class="s">`json:&#34;name&#34;`</span>
-    <span class="nx">LastSeen</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span> <span class="s">`json:&#34;lastSeen&#34;`</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">_</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span>
-        <span class="o">&amp;</span><span class="nx">MyUser</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#34;Ken&#34;</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()},</span>
-    <span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/golang_custom_json_marshalling/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
