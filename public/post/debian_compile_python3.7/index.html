@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>debian8编译安装python3 - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <title>debian编译安装python3 - Kmp - beyondkmp&#39;s new hugo blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="beyondkmp" /><meta name="description" content="debian8编译安装python3" /><meta name="keywords" content="debian8, python3.7" />
+<meta name="author" content="beyondkmp" /><meta name="description" content="debian8编译安装python3" /><meta name="keywords" content="debian, python3.7, 编译安装" />
 
 
 
@@ -38,25 +38,25 @@
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
-<meta property="og:title" content="debian8编译安装python3" />
+<meta property="og:title" content="debian编译安装python3" />
 <meta property="og:description" content="debian8编译安装python3" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://beyondkmp.com/post/debian_compile_python3.7/" />
 <meta property="article:published_time" content="2019-05-13T17:02:38+08:00" />
-<meta property="article:modified_time" content="2019-05-13T17:02:38+08:00" />
-<meta itemprop="name" content="debian8编译安装python3">
+<meta property="article:modified_time" content="2019-12-04T13:17:32+08:00" />
+<meta itemprop="name" content="debian编译安装python3">
 <meta itemprop="description" content="debian8编译安装python3">
 
 
 <meta itemprop="datePublished" content="2019-05-13T17:02:38&#43;08:00" />
-<meta itemprop="dateModified" content="2019-05-13T17:02:38&#43;08:00" />
-<meta itemprop="wordCount" content="297">
+<meta itemprop="dateModified" content="2019-12-04T13:17:32&#43;08:00" />
+<meta itemprop="wordCount" content="421">
 
 
 
-<meta itemprop="keywords" content="debian8,python3.7," />
+<meta itemprop="keywords" content="debian8,python3.7,编译安装," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="debian8编译安装python3"/>
+<meta name="twitter:title" content="debian编译安装python3"/>
 <meta name="twitter:description" content="debian8编译安装python3"/>
 
 <!--[if lte IE 9]>
@@ -124,7 +124,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">debian8编译安装python3</h1>
+      <h1 class="post-title">debian编译安装python3</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-05-13 </span>
@@ -151,11 +151,6 @@
 </nav>
   </div>
 </div>
-  <div class="post-outdated">
-    <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2019-05-13T17:02:38" title="May 13, 2019">May 13, 2019</span>. This article may have outdated content or subject matter.</p>
-    </div>
-  </div>
     <div class="post-content">
       <h2 id="编译安装gcc8">编译安装gcc8</h2>
 
@@ -193,12 +188,14 @@ sudo apt install texinfo bison flex</code></pre></td></tr></table>
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">mkdir build
 <span class="nb">cd</span> build
 ../configure --prefix<span class="o">=</span>/usr/local/gcc --enable-bootstrap  --enable-checking<span class="o">=</span>release --enable-languages<span class="o">=</span>c,c++ --disable-multilib
-make -j4 <span class="o">(</span>4是我机器的cpu核心数<span class="o">)</span></code></pre></td></tr></table>
+<span class="c1">#4是我机器的cpu核心数</span>
+make -j4</code></pre></td></tr></table>
 </div>
 </div></li>
 
@@ -237,8 +234,8 @@ make -j4 <span class="o">(</span>4是我机器的cpu核心数<span class="o">)</
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev
-sudo apt install libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt update
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget</code></pre></td></tr></table>
 </div>
 </div></li>
 
@@ -262,12 +259,14 @@ tar -xvf Python-3.7.3.tgz</code></pre></td></tr></table>
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/local/gcc/lib/:/usr/local/gcc/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
 <span class="nb">cd</span> Python-3.7.1
 ./configure --enable-optimizations
 make -j <span class="m">4</span>
+<span class="c1"># 不会直接覆盖原来的python3版本</span>
 sudo make altinstall</code></pre></td></tr></table>
 </div>
 </div></li>
@@ -276,7 +275,8 @@ sudo make altinstall</code></pre></td></tr></table>
 <h2 id="注意">注意</h2>
 
 <ol>
-<li>开启&ndash;enable-optimizations时编译会报下面错误<code>SystemError: &lt;built-in function compile&gt; returned NULL without setting an error</code>, 主要是gcc版本太低导致的。所以要编译安装gcc8</li>
+<li>开启&ndash;enable-optimizations时编译会报下面错误<code>SystemError: &lt;built-in function compile&gt; returned NULL without setting an error</code>, 如果是debian8的话, 由于gcc版本太低导致的。所以要编译安装gcc8</li>
+<li>pip安装软件时报错<code>ModuleNotFoundError: No module named '_ctypes'</code>, 这个问题主要是要安装libffi-dev依赖，如果没有安装的话，要先安装，再重新编译安装一次python.</li>
 </ol>
 
 <h2 id="参考">参考</h2>
@@ -285,6 +285,7 @@ sudo make altinstall</code></pre></td></tr></table>
 <li><a href="https://solarianprogrammer.com/2017/06/30/building-python-ubuntu-wsl-debian/">Building Python 3.7 from source on Ubuntu and Debian Linux</a></li>
 <li><a href="https://www.wolfoot.com/index.php/archives/9/">Ubuntu16.04 编译安装gcc8.2.0</a></li>
 <li><a href="ihttps://bugs.python.org/issue34112">SystemError: <built-in function compile> returned NULL without setting an error</a></li>
+<li><a href="https://linuxize.com/post/how-to-install-python-3-7-on-debian-9/">How to Install Python 3.7 on Debian 9</a></li>
 </ol>
     </div>
 
@@ -296,7 +297,7 @@ sudo make altinstall</code></pre></td></tr></table>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2019-05-13
+        2019-12-04
         
     </span>
   </p>
@@ -319,6 +320,7 @@ sudo make altinstall</code></pre></td></tr></table>
       <div class="post-tags">
           <a href="/tags/debian8/">debian8</a>
           <a href="/tags/python3.7/">python3.7</a>
+          <a href="/tags/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/">编译安装</a>
           </div>
       <nav class="post-nav">
         <a class="prev" href="/post/arts3/">
@@ -341,7 +343,7 @@ sudo make altinstall</code></pre></td></tr></table>
     <script type="text/javascript">
       var gitalk = new Gitalk({
         id: '2019-05-13 17:02:38 \x2b0800 CST',
-        title: 'debian8编译安装python3',
+        title: 'debian编译安装python3',
         clientID: '8c413eab333f8cafbd18',
         clientSecret: '050bd9a4697c830cddf6038327c616dea25d0a7f',
         repo: 'c',

@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>debian8编译安装python3</title>
+      <title>debian编译安装python3</title>
       <link>https://beyondkmp.com/post/debian_compile_python3.7/</link>
       <pubDate>Mon, 13 May 2019 17:02:38 +0800</pubDate>
       
@@ -53,12 +53,14 @@ sudo apt install texinfo bison flex&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&g
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;mkdir build
 &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; build
 ../configure --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/gcc --enable-bootstrap  --enable-checking&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;release --enable-languages&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;c,c++ --disable-multilib
-make -j4 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;4是我机器的cpu核心数&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;span class=&#34;c1&#34;&gt;#4是我机器的cpu核心数&lt;/span&gt;
+make -j4&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 

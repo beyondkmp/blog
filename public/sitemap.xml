@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/</loc>
-    <lastmod>2019-11-28T12:03:36+08:00</lastmod>
+    <lastmod>2019-12-04T13:17:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,7 +24,7 @@
   
   <url>
     <loc>https://beyondkmp.com/</loc>
-    <lastmod>2019-11-28T12:03:36+08:00</lastmod>
+    <lastmod>2019-12-04T13:17:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,14 +38,14 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-11-28T12:03:36+08:00</lastmod>
+    <lastmod>2019-12-04T13:17:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/</loc>
-    <lastmod>2019-11-28T12:03:36+08:00</lastmod>
+    <lastmod>2019-12-04T13:17:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -115,7 +115,7 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/</loc>
-    <lastmod>2019-11-28T11:53:43+08:00</lastmod>
+    <lastmod>2019-12-04T13:17:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -233,14 +233,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/arts/</loc>
+    <loc>https://beyondkmp.com/categories/arts/</loc>
     <lastmod>2019-05-17T12:49:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/arts/</loc>
+    <loc>https://beyondkmp.com/tags/arts/</loc>
     <lastmod>2019-05-17T12:49:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -255,21 +255,28 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/debian8/</loc>
-    <lastmod>2019-05-13T17:02:38+08:00</lastmod>
+    <lastmod>2019-12-04T13:17:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/post/debian_compile_python3.7/</loc>
-    <lastmod>2019-05-13T17:02:38+08:00</lastmod>
+    <lastmod>2019-12-04T13:17:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/python3.7/</loc>
-    <lastmod>2019-05-13T17:02:38+08:00</lastmod>
+    <lastmod>2019-12-04T13:17:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2019-12-04T13:17:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -597,14 +604,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/scala/</loc>
+    <loc>https://beyondkmp.com/categories/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/scala/</loc>
+    <loc>https://beyondkmp.com/tags/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1717,14 +1724,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
