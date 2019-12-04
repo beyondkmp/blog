@@ -67,6 +67,38 @@ export SHELL=`which zsh`
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+oh-my-zsh自带了非常多的插件用来提高我们使用zsh的效率，可以在.zshrc的通过下面配置开启对应的插件
+
+```bash
+plugins=(z git zsh-autosuggestions zsh-syntax-highlighting ruby python gem pip go)
+```
+
+### 安装第三方插件
+
+1. 安装`zsh-autosuggestions`,直接git下载，并在.zshrc的plugins里面加下`zsh-autosuggestions`。此插件可以自动补全提示，从历史命令从获取的。具体效果如下图
+
+    ![]()
+
+    ```bash
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    ```
+
+2. 安装`zsh-syntax-highlighting`, 安装方法如1一样。此插件可以高亮命令，看起来更加的舒服。
+
+    ```bash
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+    ```
+
+### 配置主题
+
+#### 安装Powerlevel9k
+
+#### 安装nerd font
+
+
+
+
+
 
 
 ## 参考

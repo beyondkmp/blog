@@ -60,7 +60,7 @@
 
 <meta itemprop="datePublished" content="2019-12-04T14:49:48&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-04T14:49:48&#43;08:00" />
-<meta itemprop="wordCount" content="668">
+<meta itemprop="wordCount" content="930">
 
 
 
@@ -164,7 +164,15 @@
 <li><a href="#编译安装zsh">编译安装zsh</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#配置">配置</a></li>
+<li><a href="#配置">配置</a>
+<ul>
+<li><a href="#安装第三方插件">安装第三方插件</a></li>
+<li><a href="#配置主题">配置主题</a>
+<ul>
+<li><a href="#安装powerlevel9k">安装Powerlevel9k</a></li>
+<li><a href="#安装nerd-font">安装nerd font</a></li>
+</ul></li>
+</ul></li>
 <li><a href="#参考">参考</a></li>
 </ul></li>
 </ul>
@@ -250,6 +258,47 @@ make -j <span class="o">&amp;&amp;</span> make install</code></pre></td></tr></t
 <pre class="chroma"><code class="language-bash" data-lang="bash">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span></code></pre></td></tr></table>
 </div>
 </div>
+<p>oh-my-zsh自带了非常多的插件用来提高我们使用zsh的效率，可以在.zshrc的通过下面配置开启对应的插件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">plugins</span><span class="o">=(</span>z git zsh-autosuggestions zsh-syntax-highlighting ruby python gem pip go<span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="安装第三方插件">安装第三方插件</h3>
+
+<ol>
+<li><p>安装<code>zsh-autosuggestions</code>,直接git下载，并在.zshrc的plugins里面加下<code>zsh-autosuggestions</code>。此插件可以自动补全提示，从历史命令从获取的。具体效果如下图</p>
+
+<p>![]()</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/zsh-users/zsh-autosuggestions <span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="p">~/.oh-my-zsh/custom</span><span class="si">}</span>/plugins/zsh-autosuggestions</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>安装<code>zsh-syntax-highlighting</code>, 安装方法如1一样。此插件可以高亮命令，看起来更加的舒服。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="nv">$ZSH_CUSTOM</span>/plugins/zsh-syntax-highlighting</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<h3 id="配置主题">配置主题</h3>
+
+<h4 id="安装powerlevel9k">安装Powerlevel9k</h4>
+
+<h4 id="安装nerd-font">安装nerd font</h4>
+
 <h2 id="参考">参考</h2>
 
 <ol>
