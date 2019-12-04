@@ -134,7 +134,11 @@ POWERLEVEL9K_MODE='nerdfont-complete'
     将Font设置为 Monaco Nerd Font
     将Non-ASCII Font设置为 Hack Nerd Font
     ```
+4. 配合powerlevel9k主题，添加下面的配置
 
+    ```bash
+    POWERLEVEL9K_MODE='nerdfont-complete'
+    ```
 
 ## 参考
 1. [Building Zsh from Source and Configuring It on CentOS](https://jdhao.github.io/2018/10/13/centos_zsh_install_use/)
