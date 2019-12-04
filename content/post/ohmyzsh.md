@@ -142,9 +142,13 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 
 ## 常用技巧
 
+### 补全
+
+一般的命令都由上面介绍的插件来补全，比如要git补全，就添加git, 如果新加了npm就可以添加npm。 可以直接从oh-my-zsh的[插件管理](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)获取详细的信息。
+
 ### z命令
 
-### fzf
+z命令是一个快速到达对应的文件夹的命令，比如你的项目在非常深的目录，不用`cd xxx/yyyy/zzz`,可以直接`z zzz` 。 z可以自动补全，自动匹配，并且会记录历史,对访问最多的匹配度越高。
 
 ## 参考
 1. [Building Zsh from Source and Configuring It on CentOS](https://jdhao.github.io/2018/10/13/centos_zsh_install_use/)
