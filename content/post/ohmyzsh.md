@@ -140,5 +140,11 @@ POWERLEVEL9K_MODE='nerdfont-complete'
     POWERLEVEL9K_MODE='nerdfont-complete'
     ```
 
+## 常用技巧
+
+### z命令
+
+### fzf
+
 ## 参考
 1. [Building Zsh from Source and Configuring It on CentOS](https://jdhao.github.io/2018/10/13/centos_zsh_install_use/)
