@@ -17,16 +17,18 @@ author: "beyondkmp"
 
 1. [IINA](https://iina.io/)
 
+    ![iina](https://iina.io/images/sc-sky.png)
+
     * 支持在线字幕,不用再去下载
     * 开源，免费，基于mpv，专为现代macOS 而设计
     * 支持在线播放youtube, 这个太爽了。
+    * 界面非常清爽，支持的格式非常多;取代了MPlayerX + vlc + macos自带的。
 
 
 2. [tinycal](https://apps.apple.com/cn/app/%E5%B0%8F%E5%8E%86-%E5%B0%8F%E8%80%8C%E7%BE%8E%E7%9A%84%E6%97%A5%E5%8E%86/id1031088612)
 
     ![tinycal](/imgs/softwares/tinycal.png)
 
-    * 界面非常清爽，支持的格式非常多;取代了MPlayerX + vlc + macos自带的。
     * 小而美
     * 支持农历，节假日查询，节气查询
     * 支持提醒
