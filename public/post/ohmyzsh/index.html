@@ -60,7 +60,7 @@
 
 <meta itemprop="datePublished" content="2019-12-04T14:49:48&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-04T14:49:48&#43;08:00" />
-<meta itemprop="wordCount" content="930">
+<meta itemprop="wordCount" content="1192">
 
 
 
@@ -296,8 +296,78 @@ make -j <span class="o">&amp;&amp;</span> make install</code></pre></td></tr></t
 <h3 id="配置主题">配置主题</h3>
 
 <h4 id="安装powerlevel9k">安装Powerlevel9k</h4>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k</code></pre></td></tr></table>
+</div>
+</div>
+<p>在.zshrc里面启用此主题，并进行定制，配置如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&#34;powerlevel9k/powerlevel9k&#34;</span>
+<span class="nv">POWERLEVEL9K_MODE</span><span class="o">=</span><span class="s2">&#34;awesome-fontconfig&#34;</span>
+<span class="nv">POWERLEVEL9K_SHORTEN_DIR_LENGTH</span><span class="o">=</span><span class="m">3</span>
+<span class="c1">#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir vcs)</span>
+<span class="nv">POWERLEVEL9K_CUSTOM_NAME</span><span class="o">=</span><span class="s2">&#34;echo dev&#34;</span>
+<span class="nv">POWERLEVEL9K_LEFT_PROMPT_ELEMENTS</span><span class="o">=(</span>status custom_name dir dir_writable vcs<span class="o">)</span>
+<span class="nv">POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS</span><span class="o">=()</span>
+<span class="nv">POWERLEVEL9K_STATUS_VERBOSE</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">POWERLEVEL9K_MODE</span><span class="o">=</span><span class="s1">&#39;awesome-fontconfig&#39;</span>
+<span class="nv">POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER</span><span class="o">=</span><span class="nb">true</span>
+<span class="nv">POWERLEVEL9K_DIR_PATH_SEPARATOR</span><span class="o">=</span><span class="s1">$&#39; \uE0B1 &#39;</span>
+<span class="nv">POWERLEVEL9K_MODE</span><span class="o">=</span><span class="s1">&#39;nerdfont-complete&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
 <h4 id="安装nerd-font">安装nerd font</h4>
+
+<ol>
+<li><p>安装hack nerd font</p>
+
+<p><a href="https://github.com/ryanoasis/nerd-fonts">Nerd Fonts</a>拥有很多编程字体并且自带了非常多符号，美观且实用。下面是mac osx的安装方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">brew tap homebrew/cask-fonts
+brew cask install font-hack-nerd-font</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>安装monaco font patched with extra nerd glyphs, 在<a href="https://github.com/beyondkmp/monaco-nerd-fonts">monaco-nerd-fonts</a>下载字体，然后双击安装就完成了。</p></li>
+
+<li><p>安装完成后，要对<code>iterm2</code>进行字体修改</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">iTerm2配置 –&gt; Profiles –&gt; Text –&gt; Use a different font <span class="k">for</span> non-ASCII Text
+将Font设置为 Monaco Nerd Font
+将Non-ASCII Font设置为 Hack Nerd Font</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
 
 <h2 id="参考">参考</h2>
 

@@ -93,12 +93,47 @@ plugins=(z git zsh-autosuggestions zsh-syntax-highlighting ruby python gem pip g
 
 #### 安装Powerlevel9k
 
+```bash
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+```
+
+在.zshrc里面启用此主题，并进行定制，配置如下:
+
+```zsh
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_MODE="awesome-fontconfig"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir vcs)
+POWERLEVEL9K_CUSTOM_NAME="echo dev"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status custom_name dir dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+POWERLEVEL9K_STATUS_VERBOSE=false
+POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=true
+POWERLEVEL9K_DIR_PATH_SEPARATOR=$' \uE0B1 '
+POWERLEVEL9K_MODE='nerdfont-complete'
+```
+
 #### 安装nerd font
 
+1. 安装hack nerd font
 
+    [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)拥有很多编程字体并且自带了非常多符号，美观且实用。下面是mac osx的安装方法。
 
+    ```bash
+    brew tap homebrew/cask-fonts
+    brew cask install font-hack-nerd-font
+    ```
 
+2. 安装monaco font patched with extra nerd glyphs, 在[monaco-nerd-fonts](https://github.com/beyondkmp/monaco-nerd-fonts)下载字体，然后双击安装就完成了。
 
+3. 安装完成后，要对`iterm2`进行字体修改
+
+    ```bash
+    iTerm2配置 –> Profiles –> Text –> Use a different font for non-ASCII Text
+    将Font设置为 Monaco Nerd Font
+    将Non-ASCII Font设置为 Hack Nerd Font
+    ```
 
 
 ## 参考
