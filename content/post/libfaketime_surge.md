@@ -1,7 +1,7 @@
 ---
 title: "libfaketime改变软件的运行时间"
 date: 2019-01-27T16:40:07+0800
-lastmod: 2019-11-28T12:03:36+0800
+lastmod: 2019-12-05T19:08:26+0800
 draft: false
 keywords: ["libfaketime","surge","修改软件时间"]
 description: "libfaketime改变软件的运行时间"
@@ -12,9 +12,10 @@ author: "beyondkmp"
 ---
 
 ## libfaketime
+
 [libfaketime](https://github.com/wolfcw/libfaketime):主要是拦截了程序调用获取当前时间的系统调用。然后会将你修改(假的)后的时间返回给这些程序。这样的话你可以单独修改一个程序的获取的时间，而不用修改整个系统的时间。
 
-## 安装libfaketime
+## 安装
 
 有两种方法安装，brew和编译源码安装. brew安装的版本有点老，在最新的macos系统已经不行了,运行时会报错。
 
@@ -31,16 +32,16 @@ author: "beyondkmp"
     sudo make install
     ```
 
-## 使用faketime来运行surge
+## 运行试用版surge
 <!--more-->
 
 ### 下载surge
 
 前提是surge在你电脑上面没有过试用期，过了试用期就没有办法了. 已经有了正版的序列号的也不要用这种方法，可能会被拉黑了.
 
-先下载surge, 目前只能下载[Surge-2.5.1-528.zip](/files/Surge-2.5.1-528.zip)这个版本及以前版本，不能从官网下载，官网的所有版本都更新了相应的机制来预防libfaketime。
+先下载surge, 只能下载[Surge-2.5.1-528.zip](/files/Surge-2.5.1-528.zip)这个版本及以前版本，不能从官网下载，官网的所有版本都更新了相应的机制来预防libfaketime。
 
-### 安装surge并运行
+### 运行surge
 
 1. 先打开试用，更新配置，关闭软件的自动更新。正常使用后，退出软件。
 2. 使用下面命令，通过faketime启动surge
