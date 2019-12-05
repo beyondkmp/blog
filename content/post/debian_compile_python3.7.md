@@ -1,11 +1,11 @@
 ---
-title: "debian8编译安装python3"
+title: "debian编译安装python3"
 date: 2019-05-13T17:02:38+0800
-lastmod: 2019-05-13T17:02:38+0800
+lastmod: 2019-12-04T13:17:32+0800
 draft: false
-keywords: ["debian8","python3.7"]
+keywords: ["debian","python3.7","编译安装"]
 description: "debian8编译安装python3"
-tags: ["debian8","python3.7"]
+tags: ["debian8","python3.7","编译安装"]
 categories: ["运维人生"]
 author: "beyondkmp"
 
@@ -31,7 +31,8 @@ author: "beyondkmp"
     mkdir build
     cd build
     ../configure --prefix=/usr/local/gcc --enable-bootstrap  --enable-checking=release --enable-languages=c,c++ --disable-multilib
-    make -j4 (4是我机器的cpu核心数)
+    #4是我机器的cpu核心数
+    make -j4
     ```
 4. 编译安装并配置环境变量
 
@@ -53,10 +54,10 @@ author: "beyondkmp"
 1. 安装相关依赖
 
     ```bash
-    sudo apt install libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev
-    sudo apt install libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev
+    sudo apt update
+    sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
     ```
-2. 下载源码并解码
+2. 下载源码并解压
 
     ```bash
     wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
@@ -65,15 +66,28 @@ author: "beyondkmp"
 3. 编译安装
 
     ```bash
+    # 如果编译安装了gcc就要使用下面的export, debian8版本需要
     export LD_LIBRARY_PATH=/usr/local/gcc/lib/:/usr/local/gcc/lib64:$LD_LIBRARY_PATH
     cd Python-3.7.1
     ./configure --enable-optimizations
     make -j 4
+    # 不会直接覆盖原来的python3版本
     sudo make altinstall
     ```
 
+4. 新建软链接, 使系统默认使用python3
+
+    ```bash
+    rm /usr/local/bin/pip
+    rm /usr/local/bin/python
+    ln -s /usr/local/bin/python3.7 /usr/local/bin/python
+    ln -s /usr/local/bin/pip3 /usr/local/bin/pip
+
+    ```
+
 ## 注意
-1. 开启--enable-optimizations时编译会报下面错误`SystemError: <built-in function compile> returned NULL without setting an error`, 主要是gcc版本太低导致的。所以要编译安装gcc8
+1. 开启--enable-optimizations时编译会报下面错误`SystemError: <built-in function compile> returned NULL without setting an error`, 如果是debian8的话, 由于gcc版本太低导致的。所以要编译安装gcc8
+2. pip安装软件时报错`ModuleNotFoundError: No module named '_ctypes'`, 这个问题主要是要安装libffi-dev依赖，如果没有安装的话，要先安装，再重新编译安装一次python.
 
 
 ## 参考
@@ -81,3 +95,4 @@ author: "beyondkmp"
 1. [Building Python 3.7 from source on Ubuntu and Debian Linux](https://solarianprogrammer.com/2017/06/30/building-python-ubuntu-wsl-debian/)
 2. [Ubuntu16.04 编译安装gcc8.2.0](https://www.wolfoot.com/index.php/archives/9/)
 3. [SystemError: <built-in function compile> returned NULL without setting an error](ihttps://bugs.python.org/issue34112)
+4. [How to Install Python 3.7 on Debian 9](https://linuxize.com/post/how-to-install-python-3-7-on-debian-9/)

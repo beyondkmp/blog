@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>item2 on Kmp - beyondkmp&#39;s new hugo blog</title>
+    <link>https://beyondkmp.com/tags/item2/</link>
+    <description>Recent content in item2 on Kmp - beyondkmp&#39;s new hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 04 Dec 2019 14:49:48 +0800</lastBuildDate>
+    
+	<atom:link href="https://beyondkmp.com/tags/item2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>配置高效的zsh</title>
+      <link>https://beyondkmp.com/post/ohmyzsh/</link>
+      <pubDate>Wed, 04 Dec 2019 14:49:48 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/ohmyzsh/</guid>
+      <description>&lt;p&gt;Zsh是一个非常强大的shell, 拥有更好的自动补全和更加丰富的功能。zsh还有非常多的插件，可以帮助我们更加高效的使用命令行。在这个文章里面，我会介绍如果安装与配置一个高效的zsh环境。&lt;/p&gt;
+
+&lt;h2 id=&#34;安装zsh&#34;&gt;安装zsh&lt;/h2&gt;
+
+&lt;p&gt;各个平台的安装，参考&lt;a href=&#34;https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH&#34;&gt;Installing ZSH&lt;/a&gt;, 版本一定要5.1.1以上，如果版本低了，有些功能会不正常的。在centos7一些老的系统上面可能要自己编译安装zsh版本。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

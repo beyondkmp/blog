@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>配置高效的zsh - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="Zsh是一个非常强大的shell, 拥有更好的自动补全和更加丰富的功能。zsh还有非常多的插件，可以帮助我们更加高效的使用命令行。在这个文章里面，我会介绍如果安装与配置一个高效的zsh环境。
+安装zsh 各个平台的安装，参考Installing ZSH, 版本一定要5.1.1以上，如果版本低了，有些功能会不正常的。在centos7一些老的系统上面可能要自己编译安装zsh版本。
+" /><meta name="keywords" content="zsh, item2, macos" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.60.0-DEV with theme even" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/ohmyzsh/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.79daa291.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="配置高效的zsh" />
+<meta property="og:description" content="Zsh是一个非常强大的shell, 拥有更好的自动补全和更加丰富的功能。zsh还有非常多的插件，可以帮助我们更加高效的使用命令行。在这个文章里面，我会介绍如果安装与配置一个高效的zsh环境。
+
+安装zsh
+
+各个平台的安装，参考Installing ZSH, 版本一定要5.1.1以上，如果版本低了，有些功能会不正常的。在centos7一些老的系统上面可能要自己编译安装zsh版本。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/ohmyzsh/" />
+<meta property="article:published_time" content="2019-12-04T14:49:48+08:00" />
+<meta property="article:modified_time" content="2019-12-04T14:49:48+08:00" />
+<meta itemprop="name" content="配置高效的zsh">
+<meta itemprop="description" content="Zsh是一个非常强大的shell, 拥有更好的自动补全和更加丰富的功能。zsh还有非常多的插件，可以帮助我们更加高效的使用命令行。在这个文章里面，我会介绍如果安装与配置一个高效的zsh环境。
+
+安装zsh
+
+各个平台的安装，参考Installing ZSH, 版本一定要5.1.1以上，如果版本低了，有些功能会不正常的。在centos7一些老的系统上面可能要自己编译安装zsh版本。">
+
+
+<meta itemprop="datePublished" content="2019-12-04T14:49:48&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-04T14:49:48&#43;08:00" />
+<meta itemprop="wordCount" content="1395">
+
+
+
+<meta itemprop="keywords" content="zsh,item2,macos," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="配置高效的zsh"/>
+<meta name="twitter:description" content="Zsh是一个非常强大的shell, 拥有更好的自动补全和更加丰富的功能。zsh还有非常多的插件，可以帮助我们更加高效的使用命令行。在这个文章里面，我会介绍如果安装与配置一个高效的zsh环境。
+
+安装zsh
+
+各个平台的安装，参考Installing ZSH, 版本一定要5.1.1以上，如果版本低了，有些功能会不正常的。在centos7一些老的系统上面可能要自己编译安装zsh版本。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">配置高效的zsh</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-12-04 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安装zsh">安装zsh</a>
+<ul>
+<li><a href="#编译安装">编译安装</a>
+<ul>
+<li><a href="#安装ncurese">安装ncurese</a></li>
+<li><a href="#编译安装zsh">编译安装zsh</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#配置">配置</a>
+<ul>
+<li><a href="#安装第三方插件">安装第三方插件</a></li>
+<li><a href="#配置主题">配置主题</a>
+<ul>
+<li><a href="#安装powerlevel9k">安装Powerlevel9k</a></li>
+<li><a href="#安装nerd-font">安装nerd font</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#常用技巧">常用技巧</a>
+<ul>
+<li><a href="#补全">补全</a></li>
+<li><a href="#z命令">z命令</a></li>
+</ul></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Zsh是一个非常强大的shell, 拥有更好的自动补全和更加丰富的功能。zsh还有非常多的插件，可以帮助我们更加高效的使用命令行。在这个文章里面，我会介绍如果安装与配置一个高效的zsh环境。</p>
+
+<h2 id="安装zsh">安装zsh</h2>
+
+<p>各个平台的安装，参考<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">Installing ZSH</a>, 版本一定要5.1.1以上，如果版本低了，有些功能会不正常的。在centos7一些老的系统上面可能要自己编译安装zsh版本。</p>
+
+<h3 id="编译安装">编译安装</h3>
+
+<h4 id="安装ncurese">安装ncurese</h4>
+
+<p>zsh的编译安装依赖于ncurses库，如果你有root权限，可以直接安装, 安装ncurses-devel就行。如果没有的话，就要先编译安装ncurese库.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget ftp://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz
+tar xvf ncurses-6.1.tar.gz
+<span class="nb">cd</span> ncurses-6.1
+<span class="c1"># 如果有root权限，可以安装到/usr/local下面</span>
+./configure --prefix<span class="o">=</span><span class="nv">$HOME</span>/local <span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&#34;-fPIC&#34;</span> <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&#34;-fPIC&#34;</span>
+make -j <span class="o">&amp;&amp;</span> make install</code></pre></td></tr></table>
+</div>
+</div>
+<p>编译的时候要带上 <code>CXXFLAGS=&quot;-fPIC&quot; CFLAGS=&quot;-fPIC&quot;</code>这些标志，如果没有加上的话，后面编译安装zsh的时候会遇到很多问题。具体的原因在<a href="https://unix.stackexchange.com/questions/123597/building-zsh-without-admin-priv-no-terminal-handling-library-found">这里</a></p>
+
+<h4 id="编译安装zsh">编译安装zsh</h4>
+
+<p>官方的下载地址为<a href="https://github.com/zsh-users/zsh">github</a> 或者<a href="https://sourceforge.net/projects/zsh/files/latest/download">sourceforge</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
+tar xf zsh.tar.xz
+<span class="nb">cd</span> zsh
+./configure --prefix<span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/local&#34;</span> <span class="se">\
+</span><span class="se"></span>    <span class="nv">CPPFLAGS</span><span class="o">=</span><span class="s2">&#34;-I</span><span class="nv">$HOME</span><span class="s2">/local/include&#34;</span> <span class="se">\
+</span><span class="se"></span>    <span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&#34;-L</span><span class="nv">$HOME</span><span class="s2">/local/lib&#34;</span>
+make -j <span class="o">&amp;&amp;</span> make install</code></pre></td></tr></table>
+</div>
+</div>
+<p>如果没有root权限，那就改不了登录的时的默认shell, 一般默认登录是bash，我们可以在bash的配置里面添加配置，登录后自动转到zsh， 具体将下面的配置添加到<code>.bash_profile</code>里面就可以。如果有root权限就不用这么做了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/local/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">SHELL</span><span class="o">=</span><span class="sb">`</span>which zsh<span class="sb">`</span>
+<span class="o">[</span> -f <span class="s2">&#34;</span><span class="nv">$SHELL</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> <span class="s2">&#34;</span><span class="nv">$SHELL</span><span class="s2">&#34;</span> -l</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="配置">配置</h2>
+
+<p><a href="https://ohmyz.sh/">Oh-my-zsh</a>是一个完整的配置框架, 已经包含了非常的功能，也集成了非常多的插件，还可以定制化自己的一些插件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>oh-my-zsh自带了非常多的插件用来提高我们使用zsh的效率，可以在.zshrc的通过下面配置开启对应的插件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">plugins</span><span class="o">=(</span>z git zsh-autosuggestions zsh-syntax-highlighting ruby python gem pip go<span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="安装第三方插件">安装第三方插件</h3>
+
+<ol>
+<li><p>安装<code>zsh-autosuggestions</code>,直接git下载，并在.zshrc的plugins里面加下<code>zsh-autosuggestions</code>。此插件可以自动补全提示，从历史命令从获取的。具体效果如下图</p>
+
+<p><img src="/imgs/zsh/autosuggestions.png" alt="autosuggestions" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/zsh-users/zsh-autosuggestions <span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="p">~/.oh-my-zsh/custom</span><span class="si">}</span>/plugins/zsh-autosuggestions</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>安装<code>zsh-syntax-highlighting</code>, 安装方法如1一样。此插件可以高亮命令，看起来更加的舒服。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="nv">$ZSH_CUSTOM</span>/plugins/zsh-syntax-highlighting</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<h3 id="配置主题">配置主题</h3>
+
+<h4 id="安装powerlevel9k">安装Powerlevel9k</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k</code></pre></td></tr></table>
+</div>
+</div>
+<p>在.zshrc里面启用此主题，并进行定制，配置如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&#34;powerlevel9k/powerlevel9k&#34;</span>
+<span class="nv">POWERLEVEL9K_MODE</span><span class="o">=</span><span class="s2">&#34;awesome-fontconfig&#34;</span>
+<span class="nv">POWERLEVEL9K_SHORTEN_DIR_LENGTH</span><span class="o">=</span><span class="m">3</span>
+<span class="c1">#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir vcs)</span>
+<span class="nv">POWERLEVEL9K_CUSTOM_NAME</span><span class="o">=</span><span class="s2">&#34;echo dev&#34;</span>
+<span class="nv">POWERLEVEL9K_LEFT_PROMPT_ELEMENTS</span><span class="o">=(</span>status custom_name dir dir_writable vcs<span class="o">)</span>
+<span class="nv">POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS</span><span class="o">=()</span>
+<span class="nv">POWERLEVEL9K_STATUS_VERBOSE</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">POWERLEVEL9K_MODE</span><span class="o">=</span><span class="s1">&#39;awesome-fontconfig&#39;</span>
+<span class="nv">POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER</span><span class="o">=</span><span class="nb">true</span>
+<span class="nv">POWERLEVEL9K_DIR_PATH_SEPARATOR</span><span class="o">=</span><span class="s1">$&#39; \uE0B1 &#39;</span>
+<span class="nv">POWERLEVEL9K_MODE</span><span class="o">=</span><span class="s1">&#39;nerdfont-complete&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="安装nerd-font">安装nerd font</h4>
+
+<ol>
+<li><p>安装hack nerd font</p>
+
+<p><a href="https://github.com/ryanoasis/nerd-fonts">Nerd Fonts</a>拥有很多编程字体并且自带了非常多符号，美观且实用。下面是mac osx的安装方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">brew tap homebrew/cask-fonts
+brew cask install font-hack-nerd-font</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>安装monaco font patched with extra nerd glyphs, 在<a href="https://github.com/beyondkmp/monaco-nerd-fonts">monaco-nerd-fonts</a>下载字体，然后双击安装就完成了。</p></li>
+
+<li><p>安装完成后，要对<code>iterm2</code>进行字体修改</p>
+
+<p><img src="/imgs/zsh/iterm2.png" alt="iterm2" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">iTerm2配置 –&gt; Profiles –&gt; Text –&gt; Use a different font <span class="k">for</span> non-ASCII Text
+将Font设置为 Monaco Nerd Font
+将Non-ASCII Font设置为 Hack Nerd Font</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>配合powerlevel9k主题，添加下面的配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">POWERLEVEL9K_MODE</span><span class="o">=</span><span class="s1">&#39;nerdfont-complete&#39;</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<h2 id="常用技巧">常用技巧</h2>
+
+<h3 id="补全">补全</h3>
+
+<p>一般的命令都由上面介绍的插件来补全，比如要git补全，就添加git, 如果新加了npm就可以添加npm。 可以直接从oh-my-zsh的<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">插件管理</a>获取详细的信息。</p>
+
+<h3 id="z命令">z命令</h3>
+
+<p>z命令是一个快速到达对应的文件夹的命令，比如你的项目在非常深的目录，不用<code>cd xxx/yyyy/zzz</code>,可以直接<code>z zzz</code> 。 z可以自动补全，自动匹配，并且会记录历史,对访问最多的匹配度越高。</p>
+
+<h2 id="参考">参考</h2>
+
+<ol>
+<li><a href="https://jdhao.github.io/2018/10/13/centos_zsh_install_use/">Building Zsh from Source and Configuring It on CentOS</a></li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-12-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>wechat</span>
+      </label>
+    
+  </div>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/zsh/">zsh</a>
+          <a href="/tags/item2/">item2</a>
+          <a href="/tags/macos/">macos</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/books/">
+            <span class="next-text nav-default">电子书收集</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2019-12-04 14:49:48 \x2b0800 CST',
+        title: '配置高效的zsh',
+        clientID: '8c413eab333f8cafbd18',
+        clientSecret: '050bd9a4697c830cddf6038327c616dea25d0a7f',
+        repo: 'c',
+        owner: 'kmpccc',
+        admin: ['kmpccc'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+    <script type="text/javascript" src="/lib/timeago/timeago-3.0.2.min.js"></script>
+    <script type="text/javascript" src="/lib/timeago/timeago.locales-3.0.2.min.js"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

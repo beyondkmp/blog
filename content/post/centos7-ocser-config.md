@@ -1,7 +1,7 @@
 ---
 title: "在CentOS 7 上搭建ocserv"
 date: 2018-08-16T19:25:21+08:00
-lastmod: 2018-08-16T19:25:21+08:00
+lastmod: 2019-11-28T11:53:43+0800
 draft: false
 keywords: ["centos7","ocserv","config"]
 description: "Install Ocserv in Centos7"
@@ -29,13 +29,13 @@ $ yum install ocserv
 [官方文档](http://ocserv.gitlab.io/www/manual.html),具体步骤如下
 
 1. 创建工作文件夹
-    
+
     ```bash
     $ mkdir anyconnect
     $ cd anyconnect
     ```
 2. 生成ca证书
-    
+
     ```bash
     $ certtool --generate-privkey --outfile ca-key.pem
     $ cat >ca.tmpl <<EOF
@@ -55,7 +55,7 @@ $ yum install ocserv
     ```
 3. 生成服务器证书
 
-    ```
+    ```bash
     $ certtool --generate-privkey --outfile server-key.pem
     $ cat >server.tmpl <<EOF
     cn = "www.beyondkmp.com"
@@ -66,7 +66,7 @@ $ yum install ocserv
     signing_key
     tls_www_server
     EOF
-    
+
     $ certtool --generate-certificate --load-privkey server-key.pem \
     --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem \
     --template server.tmpl --outfile server-cert.pem
@@ -95,7 +95,6 @@ $ yum install ocserv
     certtool --generate-certificate --load-privkey $USER-key.pem --load-ca-certificate $CA_DIR/ca-cert.pem --load-ca-privkey $CA_DIR/ca-key.pem --template user.tmpl --outfile $USER-cert.pem
 
     openssl pkcs12 -export -inkey $USER-key.pem -in $USER-cert.pem -name "$USER VPN Client Cert" -certfile $CA_DIR/ca-cert.pem -out $USER.p12
-EOF 
     ```
 
     创建用户文件夹并调用 gen-client-cert.sh 生成证书
@@ -112,9 +111,9 @@ EOF
 
 ## ocserv配置
 
-1. 配置 ocserv, 配置文件`/etc/ocserv/ocserv.conf`**
+1. 配置 ocserv, 配置文件`/etc/ocserv/ocserv.conf`
 
-    ```bash
+    ```ini
     #ocserv支持多种认证方式，这是自带的密码认证，使用ocpasswd创建密码文件
     #ocserv还支持证书认证，可以通过Pluggable Authentication Modules (PAM)使用radius等认证方式
     auth = "plain[passwd=/etc/ocserv/ocpasswd]"
@@ -127,60 +126,50 @@ EOF
     ca-cert = /etc/ocserv/ca-cert.pem
     #从证书中提取用户名的方式，这里提取的是证书中的 CN 字段作为用户名
     cert-user-oid = 2.5.4.3
-        
     #最大用户数量
     max-clients = 16
-        
     #同一个用户最多同时登陆数
     max-same-clients = 10
-        
     #tcp和udp端口
     tcp-port = 4433
     udp-port = 4433
-        
     #运行用户和组
     run-as-user = ocserv
     run-as-group = ocserv
-        
     #虚拟设备名称
     device = vpns
-        
     #分配给VPN客户端的IP段
     ipv4-network = 10.12.0.0
     ipv4-netmask = 255.255.255.0
-        
     #DNS
     dns = 114.114.114.114
     dns = 8.8.8.8
-        
     #压缩，提高效率
     compression = true
     no-compression-limit = 256
-        
     #注释掉route的字段，这样表示所有流量都通过 VPN 
     # route配置表示这个网段会经过vpn,这个网段一般是客户的内网网段
     route = 192.168.1.0/255.255.255.0
     #route = 192.168.5.0/255.255.255.0
     ```
-    
+
 2. 建立用户
-    
+
     ```bash
     #username为你要添加的用户名
     $ sudo ocpasswd -c /etc/ocserv/ocpasswd username
     ```
-    
 3. 系统配置
 
     1. 开启内核转发
-    
-        ```
+
+        ```bash
         $ echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
         $ sysctl -p /etc/sysctl.conf
         ```
-        
-    1. 配置防火墙规则
-        
+
+    2. 配置防火墙规则
+
         ```bash
         #使用firewalled
         firewall-cmd --permanent --add-port=4433/tcp
@@ -188,7 +177,7 @@ EOF
         # Allow firewall to forward
         firewall-cmd --permanent --add-masquerade
         firewall-cmd --reload
-        
+
         # 使用iptables,vpnnetwork为配置中的内网网址，此配置为10.12.0.0/24,eth为公网ip
         iptables -I INPUT -p tcp --dport 4433 -j ACCEPT
         iptables -I INPUT -p udp --dport 4433 -j ACCEPT
@@ -198,12 +187,11 @@ EOF
         #iptables -t nat -A POSTROUTING -j MASQUERADE
         service iptables save
         ```
-        
-    
+
 ## 日志输出
 
 1. 修改systemctl的标准输出与错误输出
-    
+
     ```bash
     vim /usr/lib/systemd/system/ocserv.service
     ExecStart=/usr/sbin/ocserv --pid-file /var/run/ocserv.pid --config /etc/ocserv/ocserv.conf -f
@@ -219,7 +207,7 @@ EOF
     disconnect-script = /etc/ocserv/connect-script
     cert-user-oid = 2.5.4.3
     cert-group-oid = 2.5.4.11
-    
+
     vim /etc/ocserv/connect-script
     # 输入下面内容，可以自己定制
     #!/bin/sh
@@ -235,10 +223,10 @@ EOF
     esac
     exit 0
     ```
-        
+
 ## radius cli配置
+
 1. **Radcli installation，目前yum 安装ocserv时会自动安装radcli**
-    
 2. **radcli configuration (No TLS)**
 
     ```bash
@@ -256,12 +244,11 @@ EOF
     ```
 
     配置servers的密码
-    
-    ```
+
+    ```bash
     vim servers
     # 根据radius server的配置来设置servers的密码
-    
-    192.168.5.5 radiustestsecretpassword 
+    192.168.5.5 radiustestsecretpassword
     #Save and exit
     ```
 
@@ -292,36 +279,36 @@ EOF
 
 1. 添加用户
 
-    ```
+    ```bash
     ocpasswd -c /etc/ocserv/ocpasswd 【用户名】
     ```
 
 1. 添加用户至某个分组
 
-    ```
+    ```bash
     ocpasswd -c /etc/ocserv/ocpasswd -g 【分组名称】 【用户名】
     ```
 1. 锁定用户
 
-    ```
+    ```bash
     ocpasswd -c /etc/ocserv/ocpasswd -l 【用户名】
     ```
 1. 解锁用户
 
-    ```
+    ```bash
     ocpasswd -c /etc/ocserv/ocpasswd -u 【用户名】
     ```
 
 1. 删除用户
 
-    ```
+    ```bash
     ocpasswd -c /etc/ocserv/ocpasswd -d 【用户名】
     ```
-    
+
 ### 查看当前状态:
 1. 查看当前服务运行状态
 
-    ```
+    ```bash
     occtl -n show status
     ```
 

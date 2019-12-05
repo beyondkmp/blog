@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="beyondkmp" /><meta name="description" content="libfaketime改变软件的运行时间" /><meta name="keywords" content="libfaketime, surge" />
+<meta name="author" content="beyondkmp" /><meta name="description" content="libfaketime改变软件的运行时间" /><meta name="keywords" content="libfaketime, surge, 修改软件时间" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.0-DEV with theme even" />
 
 
 <link rel="canonical" href="https://beyondkmp.com/post/libfaketime_surge/" />
@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.5f53e811.min.css" rel="stylesheet">
+<link href="/dist/even.79daa291.min.css" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
@@ -43,14 +43,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://beyondkmp.com/post/libfaketime_surge/" />
 <meta property="article:published_time" content="2019-01-27T16:40:07+08:00" />
-<meta property="article:modified_time" content="2019-11-07T00:19:10+08:00" />
+<meta property="article:modified_time" content="2019-12-05T19:08:26+08:00" />
 <meta itemprop="name" content="libfaketime改变软件的运行时间">
 <meta itemprop="description" content="libfaketime改变软件的运行时间">
 
 
 <meta itemprop="datePublished" content="2019-01-27T16:40:07&#43;08:00" />
-<meta itemprop="dateModified" content="2019-11-07T00:19:10&#43;08:00" />
-<meta itemprop="wordCount" content="704">
+<meta itemprop="dateModified" content="2019-12-05T19:08:26&#43;08:00" />
+<meta itemprop="wordCount" content="686">
 
 
 
@@ -143,11 +143,11 @@
 <li>
 <ul>
 <li><a href="#libfaketime">libfaketime</a></li>
-<li><a href="#安装libfaketime">安装libfaketime</a></li>
-<li><a href="#使用faketime来运行surge">使用faketime来运行surge</a>
+<li><a href="#安装">安装</a></li>
+<li><a href="#运行试用版surge">运行试用版surge</a>
 <ul>
 <li><a href="#下载surge">下载surge</a></li>
-<li><a href="#安装surge并运行">安装surge并运行</a></li>
+<li><a href="#运行surge">运行surge</a></li>
 </ul></li>
 <li><a href="#alfred启动">Alfred启动</a></li>
 </ul></li>
@@ -160,46 +160,67 @@
 
 <p><a href="https://github.com/wolfcw/libfaketime">libfaketime</a>:主要是拦截了程序调用获取当前时间的系统调用。然后会将你修改(假的)后的时间返回给这些程序。这样的话你可以单独修改一个程序的获取的时间，而不用修改整个系统的时间。</p>
 
-<h2 id="安装libfaketime">安装libfaketime</h2>
+<h2 id="安装">安装</h2>
 
 <p>有两种方法安装，brew和编译源码安装. brew安装的版本有点老，在最新的macos系统已经不行了,运行时会报错。</p>
 
 <ol>
 <li><p>通过brew安装</p>
-
-<pre><code>brew install libfaketime coreutils
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">brew install libfaketime coreutils</code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>源码编译安装</p>
-
-<pre><code>git clone https://github.com/wolfcw/libfaketime.git
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/wolfcw/libfaketime.git
 make
-sudo make install
-</code></pre></li>
+sudo make install</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
-<h2 id="使用faketime来运行surge">使用faketime来运行surge</h2>
+<h2 id="运行试用版surge">运行试用版surge</h2>
 
 <h3 id="下载surge">下载surge</h3>
 
 <p>前提是surge在你电脑上面没有过试用期，过了试用期就没有办法了. 已经有了正版的序列号的也不要用这种方法，可能会被拉黑了.</p>
 
-<p>先下载surge, 目前只能下载<a href="/files/Surge-2.5.1-528.zip">Surge-2.5.1-528.zip</a>这个版本及以前版本，不能从官网下载，官网的所有版本都更新了相应的机制来预防libfaketime。</p>
+<p>先下载surge, 只能下载<a href="/files/Surge-2.5.1-528.zip">Surge-2.5.1-528.zip</a>这个版本及以前版本，不能从官网下载，官网的所有版本都更新了相应的机制来预防libfaketime。</p>
 
-<h3 id="安装surge并运行">安装surge并运行</h3>
+<h3 id="运行surge">运行surge</h3>
 
 <ol>
 <li>先打开试用，更新配置，关闭软件的自动更新。正常使用后，退出软件。</li>
 
 <li><p>使用下面命令，通过faketime启动surge</p>
-
-<pre><code>$ faketime '@2007-01-01 00:00:00' /Applications/Surge.app/Contents/MacOS/Surge &amp;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ faketime <span class="s1">&#39;@2007-01-01 00:00:00&#39;</span> /Applications/Surge.app/Contents/MacOS/Surge <span class="p">&amp;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>不过如果直接用上面的命令的运行，faketime的cpu占用非常大,让电脑一直发热。我们设置<code>FAKETIME_STOP_AFTER_SECONDS=10</code>, 就让它运行10s后自动关闭，因为软件只是在启动的时候检测一下时间，运行后退出libfaketime节省cpu。</p>
-
-<pre><code>$ FAKETIME_STOP_AFTER_SECONDS=10 faketime -f '@2007-01-01 00:00:00' /Applications/Surge.app/Contents/MacOS/Surge &amp;
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nv">FAKETIME_STOP_AFTER_SECONDS</span><span class="o">=</span><span class="m">10</span> faketime -f <span class="s1">&#39;@2007-01-01 00:00:00&#39;</span> /Applications/Surge.app/Contents/MacOS/Surge <span class="p">&amp;</span></code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>关闭终端</p></li>
 </ol>
@@ -221,7 +242,7 @@ sudo make install
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2019-11-07
+        2019-12-05
         
     </span>
   </p>
@@ -239,7 +260,8 @@ sudo make install
       </label>
     
   </div>
-</div><footer class="post-footer">
+</div>
+<footer class="post-footer">
       <div class="post-tags">
           <a href="/tags/libfaketime/">libfaketime</a>
           <a href="/tags/surge/">surge</a>
@@ -247,7 +269,7 @@ sudo make install
       <nav class="post-nav">
         <a class="prev" href="/post/macos_softwares/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">推荐高效的macos软件</span>
+            <span class="prev-text nav-default">高效的macos软件</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/zsh_crash_xcode/">
