@@ -15,11 +15,13 @@ author: "beyondkmp"
 
 官网连接，使用英文填写基本信息，不用非常详细，下面是一个示例
 
-[register](/imgs/Oreilly_online_learning/ACM Quick Join Application Form.pdf)
+![register](/imgs/Oreilly_online_learning/ACM Quick Join Application Form.pdf)
 
 点击continue后会跳转到付费页面，这个只能使用paypal或者双币信用卡
 
 ![checkout](/imgs/Oreilly_online_learning/checkout.png)
+
+<!--more-->
 
 ## 邮件激活
 
@@ -56,7 +58,8 @@ author: "beyondkmp"
 ![oreilly_app2](/imgs/Oreilly_online_learning/oreilly_app2.png)
 
 
+## 参考
+
+1. [O'RRILLY Safari Learning Platform 国内优惠注册](https://www.todayios.com/safaribook-online-preferential-policy/)
 
 
-
-<!--more-->
