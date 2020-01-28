@@ -9,8 +9,57 @@
   </url>
   
   <url>
+    <loc>https://beyondkmp.com/tags/acm%E4%BC%9A%E5%91%98/</loc>
+    <lastmod>2020-01-28T16:17:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://beyondkmp.com/categories/</loc>
-    <lastmod>2019-12-05T19:08:26+08:00</lastmod>
+    <lastmod>2020-01-28T16:17:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/</loc>
+    <lastmod>2020-01-28T16:17:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/oreilly-online-learning/</loc>
+    <lastmod>2020-01-28T16:17:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/post/</loc>
+    <lastmod>2020-01-28T16:17:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/tags/</loc>
+    <lastmod>2020-01-28T16:17:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2020-01-28T16:17:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://beyondkmp.com/post/oreilly_online_learning/</loc>
+    <lastmod>2020-01-28T16:17:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -23,29 +72,8 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/</loc>
-    <lastmod>2019-12-05T19:08:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://beyondkmp.com/tags/macos/</loc>
     <lastmod>2019-12-04T18:54:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2019-12-05T19:08:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/tags/</loc>
-    <lastmod>2019-12-05T19:08:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -261,14 +289,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/arts/</loc>
+    <loc>https://beyondkmp.com/tags/arts/</loc>
     <lastmod>2019-05-17T12:49:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/arts/</loc>
+    <loc>https://beyondkmp.com/categories/arts/</loc>
     <lastmod>2019-05-17T12:49:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -625,14 +653,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/scala/</loc>
+    <loc>https://beyondkmp.com/tags/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/scala/</loc>
+    <loc>https://beyondkmp.com/categories/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -696,13 +724,6 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/%E5%A4%A7%E6%96%87%E4%BB%B6%E5%A4%B9/</loc>
-    <lastmod>2017-07-05T00:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://beyondkmp.com/categories/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2017-07-05T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

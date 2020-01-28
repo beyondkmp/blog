@@ -2,7 +2,7 @@
 title: "注册acm基础会员和使用oreilly online learning"
 date: 2020-01-28T16:17:05+0800
 lastmod: 2020-01-28T16:17:05+0800
-draft: true
+draft: false
 keywords: ["acm会员","oreilly online learning"]
 description: "通过100元acm会员学习300美元的oreilly online learning"
 tags: ["acm会员","oreilly online learning"]
