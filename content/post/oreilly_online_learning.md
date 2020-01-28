@@ -61,5 +61,6 @@ author: "beyondkmp"
 ## 参考
 
 1. [O'RRILLY Safari Learning Platform 国内优惠注册](https://www.todayios.com/safaribook-online-preferential-policy/)
+2. [如何以 100 元的价格合规订阅原价 399 刀的全球最大的计算机图书电子书库](https://www.douban.com/note/698877663/)
 
 
