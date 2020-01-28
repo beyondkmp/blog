@@ -11,7 +11,7 @@ author: "beyondkmp"
 
 ---
 
-acm基础会员对于中国会员只需要15美元(100元人民币), 有些会员后可以直接使用 oreilly online learning上面的书籍，oreilly的年会员是399美元。相当于省了2600多人民币。
+acm基础会员对于中国会员只需要15美元(100元人民币), 有acm会员后可以直接看 oreilly online learning上面的书籍，oreilly的年会员是399美元, 相当于省了2600多人民币。
 
 ## 官网注册基础会员
 
