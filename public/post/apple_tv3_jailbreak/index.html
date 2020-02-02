@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2020-02-02T11:46:42&#43;08:00" />
 <meta itemprop="dateModified" content="2020-02-02T11:46:42&#43;08:00" />
-<meta itemprop="wordCount" content="798">
+<meta itemprop="wordCount" content="891">
 
 
 
@@ -194,6 +194,25 @@ password: alpine
 dpkg -i /var/root/untether.deb
 </code></pre></li>
 </ol>
+
+<p>我已经成功了，具体的证明如下：</p>
+
+<pre><code>$ ssh root@192.168.123.215
+ root@192.168.123.215's password:
+ Apple-TV:~ root# ls
+ Library/  Media/  untether.deb
+ Apple-TV:~ root# un
+ unalias     uname       uncompress  unexpand    uniq        unlink      unlzma      unset       until       unzip       unzipsfx
+ Apple-TV:~ root# uname -a
+ Darwin Apple-TV 14.0.0 Darwin Kernel Version 14.0.0: Wed Sep 11 19:15:24 PDT 2019; root:xnu-2784.40.6~86/MarijuanARM_S5L8947X AppleTV3,1 arm J33AP Darwin
+ Apple-TV:~ root# df -h
+ Filesystem      Size  Used Avail Use% Mounted on
+ /dev/disk0s1s1  1.4G  1.1G  219M  84% /
+ devfs            27K   27K     0 100% /dev
+ /dev/disk0s1s2  6.1G  210M  5.9G   4% /private/var
+ Apple-TV:~ root#
+
+</code></pre>
 
 <p>越狱完成后，在主界面不会添加新的app icon. 这种越狱方法支持 AppleTV3,2 (released in 2013, A1469 for Rev A) and AppleTV3,1 (released in 2012, A1427).</p>
 
