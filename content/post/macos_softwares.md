@@ -34,12 +34,12 @@ author: "beyondkmp"
     * 支持提醒
     * 最重要的是在系统栏展示，并点击能查看当月的整个月的日历，非常方便做计划
 
-3. [Keka]()
+3. [Keka](https://www.keka.io/en/)
 
     * 免费的压缩与解压软件
     * 
 
-4. [AppCleaner]()
+4. [AppCleaner](https://freemacsoft.net/appcleaner/)
 
     * 免费的删除软件的软件
     * 
