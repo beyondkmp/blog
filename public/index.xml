@@ -40,7 +40,9 @@ public account </description>
 &lt;li&gt;选择 设置 -&amp;gt; 通用 -&amp;gt; 网络 -&amp;gt; Wi-Fi&lt;/li&gt;
 &lt;li&gt;选择你连接的网络，并点击进去&lt;/li&gt;
 &lt;li&gt;点击设置DNS, 选择手动，然后再DNS修改成 46.166.144.59（046.166.144.059)&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;/ol&gt;
+
+&lt;p&gt;![dns1][/imgs/appletv3/dns1.png]&lt;/p&gt;</description>
     </item>
     
     <item>

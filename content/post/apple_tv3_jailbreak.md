@@ -24,21 +24,32 @@ author: "beyondkmp"
 3. 选择你连接的网络，并点击进去
 4. 点击设置DNS, 选择手动，然后再DNS修改成 46.166.144.59（046.166.144.059)
 
+![dns1][/imgs/appletv3/dns1.png]
+
+
 <!--more-->
+
+![dns2][/imgs/appletv3/dns2.png]
 
 ## 添加配置文件
 
 1. 选择 设置 -> 通用
 2. 选择 发送数据到苹果
 3. 双击摇控器上面的play按钮(一定要双击，才会出来添加界面)
-4. 点击添加配置文件，并将下面的连接填入`http://trailers.apple.com/trailers.cer`(一定要仔细核对，不要写错了)
+4. 点击添加描述文件，并将下面的连接填入`http://trailers.apple.com/trailers.cer`(一定要仔细核对，不要写错了)
 5. 点击提交完成
+
+![profile][/imgs/appletv3/profile.png]
 
 ## 越狱
 
 1. 回到主界面
 2. 选择预告片，你将会看到`etasonATV`
+    ![etasonATV1][/imgs/appletv3/etasonATV1.png]
+
 3. 单击 #etason, 这样会下载工具，将自动进行越狱(这里要等待几分钟，或者更长时间，请耐心等等)
+    ![etasonATV2][/imgs/appletv3/etasonATV2.png]
+
 4. 越狱成功后，apple tv3会自动重启，然后我们再将dns设置回自动
 5. ssh登录apple tv,通过网络配置查看自身ip, 然后安装untether(这个一定要安装下)
 
