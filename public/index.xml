@@ -27,11 +27,11 @@ public account </description>
       <pubDate>Sun, 02 Feb 2020 11:46:42 +0800</pubDate>
       
       <guid>https://beyondkmp.com/post/apple_tv3_jailbreak/</guid>
-      <description>&lt;p&gt;7年过去了，apple tv3终于可以完美越狱了。在这里由衷的感谢@tihmstar。可以在最新的apple tvos 7.4(ios8)上面进行完美越狱，在不久的将来，像NitoV, iOS emulators, kodi等app应该会推出iOS8的定制版本。到时候apple tv3会有更多的玩法。&lt;/p&gt;
+      <description>&lt;p&gt;7年过去了，apple tv3终于可以完美越狱了。在这里由衷的感谢@tihmstar。可以在最新的apple tvos 7.4(ios8)上面进行完美越狱。在不久的将来，像NitoV, iOS emulators, kodi等app应该会推出iOS8的定制版本, 到时候apple tv3会有更多的玩法。&lt;/p&gt;
 
 &lt;h2 id=&#34;完美越狱的步骤&#34;&gt;完美越狱的步骤&lt;/h2&gt;
 
-&lt;p&gt;@tihmstar 提供了一种方法，可以完美越狱所有的运行最新的tvos7.4(iOS 8.4.3)系统的apple tv3。进行下面步骤前：1. 先升级系统并恢复出厂设置(不是适用所有人，我的apple tv3没有做这两个就没有成功), 2. 关闭系统自动更新。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/tihmstar&#34;&gt;@tihmstar&lt;/a&gt; 提供了一种方法，可以完美越狱所有的运行最新的tvos7.4(iOS 8.4.3)系统的apple tv3。进行下面步骤前：1. 先升级系统并恢复出厂设置(不是适用所有人，我的apple tv3没有做这两个就没有成功), 2. 关闭系统自动更新。&lt;/p&gt;
 
 &lt;h2 id=&#34;设置dns&#34;&gt;设置DNS&lt;/h2&gt;
 

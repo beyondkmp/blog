@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2020-02-02T11:46:42&#43;08:00" />
 <meta itemprop="dateModified" content="2020-02-02T11:46:42&#43;08:00" />
-<meta itemprop="wordCount" content="780">
+<meta itemprop="wordCount" content="798">
 
 
 
@@ -144,7 +144,7 @@
 <ul>
 <li><a href="#完美越狱的步骤">完美越狱的步骤</a></li>
 <li><a href="#设置dns">设置DNS</a></li>
-<li><a href="#添加证书">添加证书</a></li>
+<li><a href="#添加配置文件">添加配置文件</a></li>
 <li><a href="#越狱">越狱</a></li>
 <li><a href="#参考">参考</a></li>
 </ul></li>
@@ -153,11 +153,11 @@
   </div>
 </div>
     <div class="post-content">
-      <p>7年过去了，apple tv3终于可以完美越狱了。在这里由衷的感谢@tihmstar。可以在最新的apple tvos 7.4(ios8)上面进行完美越狱，在不久的将来，像NitoV, iOS emulators, kodi等app应该会推出iOS8的定制版本。到时候apple tv3会有更多的玩法。</p>
+      <p>7年过去了，apple tv3终于可以完美越狱了。在这里由衷的感谢@tihmstar。可以在最新的apple tvos 7.4(ios8)上面进行完美越狱。在不久的将来，像NitoV, iOS emulators, kodi等app应该会推出iOS8的定制版本, 到时候apple tv3会有更多的玩法。</p>
 
 <h2 id="完美越狱的步骤">完美越狱的步骤</h2>
 
-<p>@tihmstar 提供了一种方法，可以完美越狱所有的运行最新的tvos7.4(iOS 8.4.3)系统的apple tv3。进行下面步骤前：1. 先升级系统并恢复出厂设置(不是适用所有人，我的apple tv3没有做这两个就没有成功), 2. 关闭系统自动更新。</p>
+<p><a href="https://twitter.com/tihmstar">@tihmstar</a> 提供了一种方法，可以完美越狱所有的运行最新的tvos7.4(iOS 8.4.3)系统的apple tv3。进行下面步骤前：1. 先升级系统并恢复出厂设置(不是适用所有人，我的apple tv3没有做这两个就没有成功), 2. 关闭系统自动更新。</p>
 
 <h2 id="设置dns">设置DNS</h2>
 
@@ -168,7 +168,7 @@
 <li>点击设置DNS, 选择手动，然后再DNS修改成 46.166.144.59（046.166.144.059)</li>
 </ol>
 
-<h2 id="添加证书">添加证书</h2>
+<h2 id="添加配置文件">添加配置文件</h2>
 
 <ol>
 <li>选择 设置 -&gt; 通用</li>
@@ -186,7 +186,7 @@
 <li>单击 #etason, 这样会下载工具，将自动进行越狱(这里要等待几分钟，或者更长时间，请耐心等等)</li>
 <li>越狱成功后，apple tv3会自动重启，然后我们再将dns设置回自动</li>
 
-<li><p>ssh登录apple tv, 并安装untether(这个一定要安装下)</p>
+<li><p>ssh登录apple tv,通过网络配置查看自身ip, 然后安装untether(这个一定要安装下)</p>
 
 <pre><code>ssh root@192.186.0.1
 password: alpine
