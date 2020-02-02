@@ -53,7 +53,7 @@ author: "beyondkmp"
 4. 越狱成功后，apple tv3会自动重启，然后我们再将dns设置回自动
 5. ssh登录apple tv,通过网络配置查看自身ip, 然后安装untether(这个一定要安装下)
 
-    ```
+    ```bash
     ssh root@192.186.0.1
     password: alpine
 
@@ -62,7 +62,7 @@ author: "beyondkmp"
 
 我已经成功了，具体的证明如下：
 
-```
+```bash
 $ ssh root@192.168.123.215
  root@192.168.123.215's password:
  Apple-TV:~ root# ls
