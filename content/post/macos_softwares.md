@@ -36,8 +36,11 @@ author: "beyondkmp"
 
 3. [Keka](https://www.keka.io/en/)
 
+    ![keka](/imgs/softwares/keka.png)
+
     * 免费的压缩与解压软件
-    * 
+    * 比系统自带的解压软件支持更多的格式
+    * 支持加密压缩，更加安全
 
 4. [AppCleaner](https://freemacsoft.net/appcleaner/)
 
