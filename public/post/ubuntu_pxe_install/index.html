@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>通过网络启动安装ubuntu - Kmp - beyondkmp&#39;s new hugo blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="beyondkmp" /><meta name="description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&amp;rdquo;unable to find a medium containing a live file system&amp;rdquo;,网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
+nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安装了，于是有了下面的pxe安装教程。
+在win10创建空白压缩盘 在Windows10下直接进入磁盘管理器找到有足够空间的磁盘，通过压缩卷压缩出一部分空白分区，分区大小依据个人需求，这个大小是未来第二个系统所有的可用空间，直接给了个30G
+" /><meta name="keywords" content="pxe, netboot, ubuntu, linux" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.60.0-DEV with theme even" />
+
+
+<link rel="canonical" href="https://beyondkmp.com/post/ubuntu_pxe_install/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.873dfbba.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="通过网络启动安装ubuntu" />
+<meta property="og:description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;,网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
+
+nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安装了，于是有了下面的pxe安装教程。
+
+在win10创建空白压缩盘
+
+在Windows10下直接进入磁盘管理器找到有足够空间的磁盘，通过压缩卷压缩出一部分空白分区，分区大小依据个人需求，这个大小是未来第二个系统所有的可用空间，直接给了个30G" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://beyondkmp.com/post/ubuntu_pxe_install/" />
+<meta property="article:published_time" content="2020-05-13T17:37:05+08:00" />
+<meta property="article:modified_time" content="2020-05-13T17:37:05+08:00" />
+<meta itemprop="name" content="通过网络启动安装ubuntu">
+<meta itemprop="description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;,网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
+
+nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安装了，于是有了下面的pxe安装教程。
+
+在win10创建空白压缩盘
+
+在Windows10下直接进入磁盘管理器找到有足够空间的磁盘，通过压缩卷压缩出一部分空白分区，分区大小依据个人需求，这个大小是未来第二个系统所有的可用空间，直接给了个30G">
+
+
+<meta itemprop="datePublished" content="2020-05-13T17:37:05&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-13T17:37:05&#43;08:00" />
+<meta itemprop="wordCount" content="873">
+
+
+
+<meta itemprop="keywords" content="pxe,netboot,ubuntu,linux," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="通过网络启动安装ubuntu"/>
+<meta name="twitter:description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;,网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
+
+nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安装了，于是有了下面的pxe安装教程。
+
+在win10创建空白压缩盘
+
+在Windows10下直接进入磁盘管理器找到有足够空间的磁盘，通过压缩卷压缩出一部分空白分区，分区大小依据个人需求，这个大小是未来第二个系统所有的可用空间，直接给了个30G"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Kmp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Kmp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">通过网络启动安装ubuntu</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-13 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%BF%90%E7%BB%B4%E4%BA%BA%E7%94%9F/"> 运维人生 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#在win10创建空白压缩盘">在win10创建空白压缩盘</a></li>
+<li><a href="#树莓派设置">树莓派设置</a>
+<ul>
+<li><a href="#下载ubuntu启动文件">下载ubuntu启动文件</a></li>
+<li><a href="#设置grub">设置grub</a></li>
+<li><a href="#安装tftp和dhcp服务器">安装tftp和dhcp服务器</a></li>
+</ul></li>
+<li><a href="#设置路由器">设置路由器</a></li>
+<li><a href="#安装">安装</a></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;,网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。</p>
+
+<p>nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安装了，于是有了下面的pxe安装教程。</p>
+
+<h2 id="在win10创建空白压缩盘">在win10创建空白压缩盘</h2>
+
+<p>在Windows10下直接进入磁盘管理器找到有足够空间的磁盘，通过压缩卷压缩出一部分空白分区，分区大小依据个人需求，这个大小是未来第二个系统所有的可用空间，直接给了个30G</p>
+
+<h2 id="树莓派设置">树莓派设置</h2>
+
+<h3 id="下载ubuntu启动文件">下载ubuntu启动文件</h3>
+
+<ol>
+<li><p>下载UEFI签名的grup启动文件到/srv/tftp. <a href="http://archive.ubuntu.com/ubuntu/dists/trusty/main/uefi/grub2-amd64/current/grubnetx64.efi.signed">http://archive.ubuntu.com/ubuntu/dists/trusty/main/uefi/grub2-amd64/current/grubnetx64.efi.signed</a></p></li>
+
+<li><p>下载正确的ubtuntu的网络启动iso，这里我选择的是18.04的服务器版本。&lt; <a href="http://cdimage.ubuntu.com/netboot/&gt;">http://cdimage.ubuntu.com/netboot/&gt;</a></p></li>
+
+<li><p>解压 netboot.tar.gz 到/srv/tftp/</p></li>
+</ol>
+
+<h3 id="设置grub">设置grub</h3>
+
+<ol>
+<li>先创建文件<code>/srv/tftp/grub/grub.cfg</code></li>
+
+<li><p>将下面的内容复制到grub.cfg里面</p>
+
+<p>menuentry &ldquo;Install Ubuntu&rdquo; {
+set gfxpayload=keep
+linux /ubuntu-installer/amd64/linux gfxpayload=800x600x16,800x600 live-installer/net-image=$PATH_TO_FILESYSTEM_SQUASHFS &mdash; quiet
+initrd /ubuntu-installer/amd64/initrd.gz
+}</p></li>
+</ol>
+
+<h3 id="安装tftp和dhcp服务器">安装tftp和dhcp服务器</h3>
+
+<ol>
+<li><p>Install dnsmasq:</p>
+
+<p>sudo apt-get install dnsmasq</p></li>
+
+<li><p>将电脑设置成静态ip(一般路由器下面也不会变ip可以不用设置)</p></li>
+</ol>
+
+<p>3.将下面的内容复制到<code>/etc/dnsmasq.conf</code></p>
+
+<pre><code>    listen-address=127.0.0.1
+    listen-address=192.168.50.2
+    # DHCP options
+    dhcp-range=192.168.50.100,192.168.50.249,12h
+    dhcp-lease-max=100
+    dhcp-option=option:router,192.168.50.1
+    dhcp-option=option:dns-server,192.168.50.2
+    dhcp-option=option:netmask,255.255.255.0
+
+    dhcp-boot=grubnetx64.efi.signed
+    enable-tftp
+    tftp-root=/srv/tftp/
+</code></pre>
+
+<ol>
+<li><p>dnsmasq reload</p>
+
+<p>sudo service dnsmasq restart</p></li>
+</ol>
+
+<h2 id="设置路由器">设置路由器</h2>
+
+<ol>
+<li>将网关设置路由器192.168.50.2，这样当nuc网络启动的时候会把树莓派当成网关，就可以网络启动安装了。</li>
+
+<li><p>因为路由器把网关设置成192.168.50.2, 这样在树莓上面的默认路由会指向自己，是不正确的，用下面的命令删除掉</p>
+
+<p>ip route delete default via 198.168.50.2
+ip route add default via 198.168.50.2</p></li>
+</ol>
+
+<h2 id="安装">安装</h2>
+
+<ol>
+<li>重启nuc, 将按F10,选择pxe启动</li>
+<li>进入界面进行安装</li>
+</ol>
+
+<h2 id="参考">参考</h2>
+
+<ol>
+<li><a href="https://wiki.ubuntu.com/UEFI/PXE-netboot-install">PXE-netboot-install</a></li>
+<li><a href="https://linuxhint.com/pxe_boot_ubuntu_server/">Configuring PXE Network Boot Server on Ubuntu 18.04 LTS</a></li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">beyondkmp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-05-13
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechat-qr-code.png">
+        <span>wechat</span>
+      </label>
+    
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/pxe/">pxe</a>
+          <a href="/tags/netboot/">netboot</a>
+          <a href="/tags/ubuntu/">ubuntu</a>
+          <a href="/tags/linux/">linux</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/apple_tv3_jailbreak/">
+            <span class="next-text nav-default">apple tv3完美越狱</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2020-05-13 17:37:05 \x2b0800 CST',
+        title: '通过网络启动安装ubuntu',
+        clientID: '8c413eab333f8cafbd18',
+        clientSecret: '050bd9a4697c830cddf6038327c616dea25d0a7f',
+        repo: 'c',
+        owner: 'kmpccc',
+        admin: ['kmpccc'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:beyondkmp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/4652054/beyondkmp" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/beyondkmp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/beyondkmp" class="iconfont icon-github" title="github"></a>
+  <a href="https://beyondkmp.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">beyondkmp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+    <script type="text/javascript" src="/lib/timeago/timeago-3.0.2.min.js"></script>
+    <script type="text/javascript" src="/lib/timeago/timeago.locales-3.0.2.min.js"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://beyondkmp.com/" />
 
-<meta property="og:updated_time" content="2020-02-02T11:46:42+08:00" />
+<meta property="og:updated_time" content="2020-05-13T17:37:05+08:00" />
 <meta itemprop="name" content="Kmp - beyondkmp&#39;s new hugo blog">
 <meta itemprop="description" content="beyondkmp&#39;s blog">
 
@@ -116,6 +116,33 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/hammerspoon/">Hammerspoon实战</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-09-02 </span>
+      <div class="post-category">
+          <a href="/categories/mac/"> mac </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h1 id="hammerspoon简介">hammerspoon简介</h1>
+
+<p>这是一个OS X平台上的非常强大的自动化工具。Hammerspoon的核心是操作系统和lua脚本的桥梁引擎。用户可以通过Hammerspoon的提供一批接口, 实现很多强大的功能。</p>
+
+<h1 id="hammerspoon能做什么">Hammerspoon能做什么</h1>
+
+<p>你可以通过写lua脚本来与OS X的系统api进行交互，这些系统接口包括：应用，桌面，鼠标，文件系统，电池，屏幕，wifi等。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/hammerspoon/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/golang_sorted_summarize/">golang排序实践</a></h1>
@@ -445,81 +472,6 @@ Given binary tree [3,9,20,null,null,15,7],</p>
     </div>
     <div class="read-more">
       <a href="/post/arts/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang_json_marshal/">json.Marshal 返回不同值: var vs := vs make</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-03-01 </span>
-      <div class="post-category">
-          <a href="/categories/golang/"> golang </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="问题">问题</h2>
-
-<blockquote>
-<p><code>var</code>, <code>:=</code>两个定义的slice, 经过json.Marshal输出不同的值。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-        <span class="s">&#34;encoding/json&#34;</span>
-        <span class="s">&#34;fmt&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">u1</span> <span class="p">[]</span><span class="kt">int</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;var define&#34;</span><span class="p">)</span>
-        <span class="nx">j1</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">u1</span><span class="p">)</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;origin:&#34;</span><span class="p">,</span> <span class="nx">u1</span><span class="p">)</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;json:&#34;</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">j1</span><span class="p">))</span>
-
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
-
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;:= define&#34;</span><span class="p">)</span>
-        <span class="nx">u2</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{}</span>
-        <span class="nx">j2</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">u2</span><span class="p">)</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;origin:&#34;</span><span class="p">,</span> <span class="nx">u2</span><span class="p">)</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;json:&#34;</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">j2</span><span class="p">))</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/golang_json_marshal/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

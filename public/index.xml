@@ -6,7 +6,7 @@
     <description>Recent content on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Feb 2020 11:46:42 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2020 17:37:05 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,21 @@
       <guid>https://beyondkmp.com/about/</guid>
       <description> porfile I am interesting in golang, python, macos, linux.
 public account </description>
+    </item>
+    
+    <item>
+      <title>通过网络启动安装ubuntu</title>
+      <link>https://beyondkmp.com/post/ubuntu_pxe_install/</link>
+      <pubDate>Wed, 13 May 2020 17:37:05 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/ubuntu_pxe_install/</guid>
+      <description>&lt;p&gt;最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&amp;rdquo;unable to find a medium containing a live file system&amp;rdquo;,网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。&lt;/p&gt;
+
+&lt;p&gt;nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安装了，于是有了下面的pxe安装教程。&lt;/p&gt;
+
+&lt;h2 id=&#34;在win10创建空白压缩盘&#34;&gt;在win10创建空白压缩盘&lt;/h2&gt;
+
+&lt;p&gt;在Windows10下直接进入磁盘管理器找到有足够空间的磁盘，通过压缩卷压缩出一部分空白分区，分区大小依据个人需求，这个大小是未来第二个系统所有的可用空间，直接给了个30G&lt;/p&gt;</description>
     </item>
     
     <item>

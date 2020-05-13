@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Feb 2020 11:46:42 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2020 17:37:05 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux</title>
+      <link>https://beyondkmp.com/tags/linux/</link>
+      <pubDate>Wed, 13 May 2020 17:37:05 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>netboot</title>
+      <link>https://beyondkmp.com/tags/netboot/</link>
+      <pubDate>Wed, 13 May 2020 17:37:05 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/netboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pxe</title>
+      <link>https://beyondkmp.com/tags/pxe/</link>
+      <pubDate>Wed, 13 May 2020 17:37:05 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/pxe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://beyondkmp.com/tags/ubuntu/</link>
+      <pubDate>Wed, 13 May 2020 17:37:05 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/ubuntu/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>apple tv3</title>
@@ -836,15 +872,6 @@
       <pubDate>Wed, 18 Nov 2015 00:00:00 +0800</pubDate>
       
       <guid>https://beyondkmp.com/tags/1%E7%9A%84%E4%B8%AA%E6%95%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://beyondkmp.com/tags/linux/</link>
-      <pubDate>Sat, 24 Oct 2015 00:00:00 +0800</pubDate>
-      
-      <guid>https://beyondkmp.com/tags/linux/</guid>
       <description></description>
     </item>
     
