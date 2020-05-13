@@ -1,7 +1,7 @@
 ---
 title: "注册acm基础会员和使用oreilly online learning"
 date: 2020-01-28T16:17:05+0800
-lastmod: 2020-01-28T16:17:05+0800
+lastmod: 2020-05-13T17:30:46+0800
 draft: false
 keywords: ["acm会员","oreilly online learning"]
 description: "通过100元acm会员学习300美元的oreilly online learning"
@@ -17,7 +17,7 @@ acm基础会员对于中国会员只需要15美元(100元人民币), 有acm会�
 
 官网连接，使用英文填写基本信息，不用非常详细，下面是一个示例
 
-![register](/imgs/Oreilly_online_learning/ACM Quick Join Application Form.pdf)
+[register示例，单击预览](/imgs/Oreilly_online_learning/ACM Quick Join Application Form.pdf)
 
 点击continue后会跳转到付费页面，这个只能使用paypal或者双币信用卡
 
