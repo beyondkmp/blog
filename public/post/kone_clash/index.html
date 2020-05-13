@@ -43,14 +43,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://beyondkmp.com/post/kone_clash/" />
 <meta property="article:published_time" content="2019-01-18T22:52:13+08:00" />
-<meta property="article:modified_time" content="2019-01-19T02:01:00+08:00" />
+<meta property="article:modified_time" content="2020-05-13T19:13:46+08:00" />
 <meta itemprop="name" content="clash与树莓派组成旁路由">
 <meta itemprop="description" content="使用clash的tun模式，将树莓派变成强大的旁路由">
 
 
 <meta itemprop="datePublished" content="2019-01-18T22:52:13&#43;08:00" />
-<meta itemprop="dateModified" content="2019-01-19T02:01:00&#43;08:00" />
-<meta itemprop="wordCount" content="1500">
+<meta itemprop="dateModified" content="2020-05-13T19:13:46&#43;08:00" />
+<meta itemprop="wordCount" content="1527">
 
 
 
@@ -160,11 +160,6 @@
 </nav>
   </div>
 </div>
-  <div class="post-outdated">
-    <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2019-01-19T02:01:00" title="January 19, 2019">January 19, 2019</span>. This article may have outdated content or subject matter.</p>
-    </div>
-  </div>
     <div class="post-content">
       <h2 id="硬件需求">硬件需求</h2>
 
@@ -276,37 +271,66 @@ iface eth0 inet static
 <p>到github下载对应的二进制可运行文件,<a href="https://github.com/Dreamacro/clash/releases/tag/premium">https://github.com/Dreamacro/clash/releases/tag/premium</a>,树莓派对应的clash-linux-armv7-2020.05.08.gz</p>
 
 <h3 id="clash配置">clash配置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">port: <span class="m">7890</span>
+socks-port: <span class="m">7891</span>
+<span class="c1">#redir-port: 7892</span>
 
-<pre><code>port: 7890
-socks-port: 7891
-#redir-port: 7892
-
-allow-lan: true
+allow-lan: <span class="nb">true</span>
 mode: Rule
 log-level: info
 external-controller: :80
 external-ui: dashboard
-secret: &quot;xxxx&quot;
+secret: <span class="s2">&#34;xxxx&#34;</span>
 
 dns:
-    enable: true
+    enable: <span class="nb">true</span>
     listen: :53
     enhanced-mode: fake-ip
-    ipv6: false
+    ipv6: <span class="nb">false</span>
     nameserver:
-      - &quot;192.168.50.1&quot;
-      - &quot;119.29.29.29&quot;
-      - &quot;114.114.114.114&quot;
-      - &quot;223.5.5.5&quot;
+      - <span class="s2">&#34;192.168.50.1&#34;</span>
+      - <span class="s2">&#34;119.29.29.29&#34;</span>
+      - <span class="s2">&#34;114.114.114.114&#34;</span>
+      - <span class="s2">&#34;223.5.5.5&#34;</span>
 
 experimental:
   interface-name: eth0
 tun:
-  enable: true
-  stack: system
-
-</code></pre>
-
+  enable: <span class="nb">true</span>
+  stack: system</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="配置路由">配置路由</h3>
 
 <p>如果没有通过域名导流，而是ip的静态路由导到树莓派，这样是不会到tun网卡上来的，现在需要做的就是要氢所有ip类型的通过添加路由导到tun上面。</p>
@@ -547,7 +571,7 @@ ip route add default via <span class="m">198</span>.18.0.1 dev utun table <span 
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2019-01-19
+        2020-05-13
         
     </span>
   </p>

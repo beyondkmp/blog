@@ -1,7 +1,7 @@
 ---
 title: "clash与树莓派组成旁路由"
 date: 2019-01-18T22:52:13+0800
-lastmod: 2020-05-13T19:12:07+0800
+lastmod: 2020-05-13T19:13:46+0800
 draft: false
 keywords: ["树莓派","网关","fake-ip", "旁路由","clash"]
 description: "使用clash的tun模式，将树莓派变成强大的旁路由"
