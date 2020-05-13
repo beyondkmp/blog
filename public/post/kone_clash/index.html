@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-01-18T22:52:13&#43;08:00" />
 <meta itemprop="dateModified" content="2020-05-13T19:13:46&#43;08:00" />
-<meta itemprop="wordCount" content="1527">
+<meta itemprop="wordCount" content="1533">
 
 
 
@@ -220,7 +220,7 @@ iface eth0 inet static
 
 <li><p>修改默认dns</p>
 
-<p>把路由器的默认dns修改为：10.192.0.1</p>
+<p>把路由器的默认dns修改为：192.168.123.2</p>
 
 <p><img src="/imgs/dns.png" alt="dns" /></p>
 
@@ -231,7 +231,7 @@ iface eth0 inet static
 
 <h3 id="测试">测试</h3>
 
-<p>断开wifi重新连接，查看dns默认dns是不是10.192.0.1, 并<code>ping www.github.com</code>看下连接地址是不是10.192.x.x, 或者使用dig命令。</p>
+<p>断开wifi重新连接，查看dns默认dns是不是192.168.123.2, 并<code>ping www.github.com</code>看下连接地址是不是192.18.x.x, 或者使用dig命令。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
@@ -250,14 +250,14 @@ iface eth0 inet static
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"> $ ping www.github.com
- PING www.github.com <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
- <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.70 ms
- <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.96 ms
- <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.82 ms
- <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">4</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.05 ms
- <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">5</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.98 ms
- <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">6</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.81 ms
- <span class="m">64</span> bytes from <span class="m">10</span>.192.47.177 <span class="o">(</span><span class="m">10</span>.192.47.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">7</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.23 ms
+ PING www.github.com <span class="o">(</span><span class="m">192</span>.168.123.177<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
+ <span class="m">64</span> bytes from <span class="m">192</span>.168.123.177 <span class="o">(</span><span class="m">192</span>.168.123.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.70 ms
+ <span class="m">64</span> bytes from <span class="m">192</span>.168.123.177 <span class="o">(</span><span class="m">192</span>.168.123.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.96 ms
+ <span class="m">64</span> bytes from <span class="m">192</span>.168.123.177 <span class="o">(</span><span class="m">192</span>.168.123.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.82 ms
+ <span class="m">64</span> bytes from <span class="m">192</span>.168.123.177 <span class="o">(</span><span class="m">192</span>.168.123.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">4</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.05 ms
+ <span class="m">64</span> bytes from <span class="m">192</span>.168.123.177 <span class="o">(</span><span class="m">192</span>.168.123.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">5</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">1</span>.98 ms
+ <span class="m">64</span> bytes from <span class="m">192</span>.168.123.177 <span class="o">(</span><span class="m">192</span>.168.123.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">6</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.81 ms
+ <span class="m">64</span> bytes from <span class="m">192</span>.168.123.177 <span class="o">(</span><span class="m">192</span>.168.123.177<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">7</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">63</span> <span class="nv">time</span><span class="o">=</span><span class="m">2</span>.23 ms
  ^C
  --- www.github.com ping statistics ---
  <span class="m">7</span> packets transmitted, <span class="m">7</span> received, <span class="m">0</span>% packet loss, <span class="nb">time</span> 18ms

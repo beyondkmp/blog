@@ -52,7 +52,7 @@ author: "beyondkmp"
 
 * 修改默认dns
 
-    把路由器的默认dns修改为：10.192.0.1
+    把路由器的默认dns修改为：192.168.123.2
 
     ![dns](/imgs/dns.png)
 
@@ -62,18 +62,18 @@ author: "beyondkmp"
 
 ### 测试
 
-断开wifi重新连接，查看dns默认dns是不是10.192.0.1, 并`ping www.github.com`看下连接地址是不是10.192.x.x, 或者使用dig命令。
+断开wifi重新连接，查看dns默认dns是不是192.168.123.2, 并`ping www.github.com`看下连接地址是不是192.18.x.x, 或者使用dig命令。
 
 ```bash
  $ ping www.github.com
- PING www.github.com (10.192.47.177) 56(84) bytes of data.
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=1 ttl=63 time=1.70 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=2 ttl=63 time=1.96 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=3 ttl=63 time=1.82 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=4 ttl=63 time=2.05 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=5 ttl=63 time=1.98 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=6 ttl=63 time=2.81 ms
- 64 bytes from 10.192.47.177 (10.192.47.177): icmp_seq=7 ttl=63 time=2.23 ms
+ PING www.github.com (192.168.123.177) 56(84) bytes of data.
+ 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=1 ttl=63 time=1.70 ms
+ 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=2 ttl=63 time=1.96 ms
+ 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=3 ttl=63 time=1.82 ms
+ 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=4 ttl=63 time=2.05 ms
+ 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=5 ttl=63 time=1.98 ms
+ 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=6 ttl=63 time=2.81 ms
+ 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=7 ttl=63 time=2.23 ms
  ^C
  --- www.github.com ping statistics ---
  7 packets transmitted, 7 received, 0% packet loss, time 18ms
