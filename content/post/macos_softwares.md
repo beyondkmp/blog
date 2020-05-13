@@ -15,7 +15,9 @@ author: "beyondkmp"
 
 <!--more-->
 
-1. [IINA](https://iina.io/)
+# 免费高质量软件
+
+## [IINA](https://iina.io/)
 
     ![iina](https://iina.io/images/sc-sky.png)
 
@@ -25,7 +27,7 @@ author: "beyondkmp"
     * 界面非常清爽，支持的格式非常多;取代了MPlayerX + vlc + macos自带的。
 
 
-2. [tinycal](https://apps.apple.com/cn/app/%E5%B0%8F%E5%8E%86-%E5%B0%8F%E8%80%8C%E7%BE%8E%E7%9A%84%E6%97%A5%E5%8E%86/id1031088612)
+## [tinycal](https://apps.apple.com/cn/app/%E5%B0%8F%E5%8E%86-%E5%B0%8F%E8%80%8C%E7%BE%8E%E7%9A%84%E6%97%A5%E5%8E%86/id1031088612)
 
     ![tinycal](/imgs/softwares/tinycal.png)
 
@@ -34,7 +36,7 @@ author: "beyondkmp"
     * 支持提醒
     * 最重要的是在系统栏展示，并点击能查看当月的整个月的日历，非常方便做计划
 
-3. [Keka](https://www.keka.io/en/)
+## [Keka](https://www.keka.io/en/)
 
     ![keka](/imgs/softwares/keka.png)
 
@@ -42,7 +44,7 @@ author: "beyondkmp"
     * 比系统自带的解压软件支持更多的格式
     * 支持加密压缩，更加安全
 
-4. [AppCleaner](https://freemacsoft.net/appcleaner/)
+## [AppCleaner](https://freemacsoft.net/appcleaner/)
 
     ![AppCleaner](/imgs/softwares/appcleaner.png)
 
@@ -51,17 +53,4 @@ author: "beyondkmp"
     * 可以删除正在运行与系统的软件
     * 可以拖拽软件删除
 
-4. [Dash]()
-
-    * 免费的删除软件的软件
-    * 
-
-5. [Sequel Pro]()
-
-    * 免费的删除软件的软件
-    * 
-
-6. [Karabiner-Elements]()
-
-    * 免费的删除软件的软件
-    * 
+# 高效终端软件
