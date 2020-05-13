@@ -1,11 +1,11 @@
 ---
-title: "在树莓派上使用kone和clash"
+title: "clash与树莓派组成旁路由"
 date: 2019-01-18T22:52:13+0800
-lastmod: 2019-01-19T02:01:00+0800
+lastmod: 2020-05-13T19:12:07+0800
 draft: false
-keywords: ["树莓派","kone","clash"]
-description: "在树莓派上使用kone和clash"
-tags: ["树莓派","kone","clash"]
+keywords: ["树莓派","网关","fake-ip", "旁路由","clash"]
+description: "使用clash的tun模式，将树莓派变成强大的旁路由"
+tags: ["树莓派","网关","fake-ip", "旁路由","clash"]
 categories: ["运维人生"]
 author: "beyondkmp"
 
@@ -21,22 +21,6 @@ author: "beyondkmp"
 * 树莓派可以正常使用互联网
 
 <!--more-->
-
-## 安装kone
-
-kone完全基于go语言开发,实现了tun2socks和fakeip功能。fakeip非常方便，可以接管你配置的域名流量.
-
-### 编译kone
-
-kone官方直接在树莓派上面安装go，通过go来安装kone。不是非常喜欢，主要是太慢了，下载东西也慢。可以直接在我们自己电脑上面进行交叉编译。
-
-```bash
-go get github.com/xjdrew/kone
-cd $GOPATH/src/github.com/xjdrew/kone
-GOARCH=arm GOOS=linux GOARM=7 CGO_ENABLED=0 go build -ldflags '-w -s'
-#上传到pi上
-scp kone pi@192.168.123.2:/tmp
-```
 
 ### 配置树莓派
 
@@ -57,41 +41,6 @@ scp kone pi@192.168.123.2:/tmp
         gateway 192.168.123.1
         dns-nameservers 114.114.114.114
 	```
-
-### 管理并启动kone
-
-* 修改kone的配置文件
-
-    在代码目录[misc/example/example.ini](https://github.com/xjdrew/kone/blob/master/misc/example/example.ini)，提供了一份默认配置文件。
-    为了简化问题，只需要把默认配置文件拷贝到合适的目录，命名为`my.ini`，然后把`[proxy "A"]`配置项下的url改成你拥有的代理，目前支持http, socks5代理。
-
-    ```bash
-    [proxy "A"]
-    url = socks5://127.0.0.1:7891
-    default = yes
-    ```
-
-    其他配置选项的含义，参考配置文件里面的说明,直接用default配置就可以.
-
-* 启动kone
-
-    目前使用supervisor管理，配置文件`/etc/supervisor/conf.d/kone.conf `
-
-    ```bash
-    [program:kone]
-	user=root
-	command =/home/pi/kone/kone /home/pi/kone/my.ini
-	autostart = true
-	startsecs = 5
-	autorestart = true
-	startretries = 1024
-	redirect_stderr = true
-	stdout_logfile_maxbytes = 10MB
-	stdout_logfile_backups = 10
-	stdout_logfile = /tmp/kone.log
-    ```
-
-    配置完成后`supervisorctl update`下就可以。
 
 ### 配置路由器
 
@@ -136,25 +85,99 @@ scp kone pi@192.168.123.2:/tmp
 
 clash完全基于go语言开发,实现了完善的规则分流，自动和主备等多种选路策略。
 
-###  交叉编译
+到github下载对应的二进制可运行文件,<https://github.com/Dreamacro/clash/releases/tag/premium>,树莓派对应的clash-linux-armv7-2020.05.08.gz
 
-具体的命令如下:
+### clash配置
 
 ```bash
-git clone https://github.com/Dreamacro/clash.git
-cd clash
-GOARCH=arm GOOS=linux GOARM=7 CGO_ENABLED=0 go build -ldflags '-w -s'
-scp clash pi@192.168.123.1:/tmp
+port: 7890
+socks-port: 7891
+#redir-port: 7892
+
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: :80
+external-ui: dashboard
+secret: "xxxx"
+
+dns:
+    enable: true
+    listen: :53
+    enhanced-mode: fake-ip
+    ipv6: false
+    nameserver:
+      - "192.168.50.1"
+      - "119.29.29.29"
+      - "114.114.114.114"
+      - "223.5.5.5"
+
+experimental:
+  interface-name: eth0
+tun:
+  enable: true
+  stack: system
+
 ```
 
-### 管理并启动clash
+### 配置路由
 
-配置clash, 具体的clash配置可以从网上下载. supervisor的配置文件`/etc/supervisor/conf.d/clash.conf`
+如果没有通过域名导流，而是ip的静态路由导到树莓派，这样是不会到tun网卡上来的，现在需要做的就是要氢所有ip类型的通过添加路由导到tun上面。
+
+1. 使用netmask计算子网
+
+    ```bash
+    pi@raspberrypi:~/clash $ netmask 192.168.123.3:192.168.123.255
+      192.168.123.3/32
+      192.168.123.4/30
+      192.168.123.8/29
+     192.168.123.16/28
+     192.168.123.32/27
+     192.168.123.64/26
+    192.168.123.128/25
+    ```
+2. 添加路由
+
+    ```bash
+    ip rule add from 192.168.123.3/32 table 100
+    ip rule add from 192.168.123.4/30 table 101
+    ip rule add from 192.168.123.8/29 table 102
+    ip rule add from 192.168.123.16/28 table 103
+    ip rule add from 192.168.123.32/27 table 104
+    ip rule add from 192.168.123.64/26 table 105
+    ip rule add from 192.168.123.128/25 table 106
+
+    ip route add default via 198.18.0.1 dev utun table 100
+    ip route add default via 198.18.0.1 dev utun table 101
+    ip route add default via 198.18.0.1 dev utun table 102
+    ip route add default via 198.18.0.1 dev utun table 103
+    ip route add default via 198.18.0.1 dev utun table 104
+    ip route add default via 198.18.0.1 dev utun table 105
+    ip route add default via 198.18.0.1 dev utun table 106
+    ```
+
+3. 如果需要删除使用下面的命令
+
+    ```bash
+    ip rule del from 192.168.50.3/32 table 100
+    ip rule del from 192.168.50.4/30 table 101
+    ip rule del from 192.168.50.8/29 table 102
+    ip rule del from 192.168.50.16/28 table 103
+    ip rule del from 192.168.50.32/27 table 104
+    ip rule del from 192.168.50.64/26 table 105
+    ip rule del from 192.168.50.128/25 table 106
+    ```
+
+### 使用supervisor管理
 
 ```bash
-[program:clash]
+[group:clash]
+programs=main,add-rule
+
+[program:main]
 user=root
 command =/home/pi/clash/clash -d /home/pi/clash
+priority=1
 autostart = true
 startsecs = 5
 autorestart = true
@@ -163,14 +186,56 @@ redirect_stderr = true
 stdout_logfile_maxbytes = 10MB
 stdout_logfile_backups = 10
 stdout_logfile = /var/log/clash.log
+
+[program:add-rule]
+user=root
+command = /home/pi/clash/clash.sh
+#command = /home/pi/clash/redir/set-redir-iptables.sh
+priority=2
+startsecs = 0
+autorestart = false
+startretries = 1
 ```
 
-### clash配置说明
+```bash
+#!/bin/bash
+# clash.sh
 
-1. clash不需要开dns的enhance mode
-2. 也不用配置iptables导流
-3. 下载clash-dashboard，放到配置文件夹中，直接使用<http://192.168.123.2:9090/ui/#/proxies>管理.
+for (( ; ; ))
+do
+    sleep 3
+    ip address | grep 198.18.0.1
+    a=$?
+    if [ ${a} -eq 0 ];then
+        break;
+    fi
+done
 
+ip rule del from 192.168.50.3/32 table 100
+ip rule del from 192.168.50.4/30 table 101
+ip rule del from 192.168.50.8/29 table 102
+ip rule del from 192.168.50.16/28 table 103
+ip rule del from 192.168.50.32/27 table 104
+ip rule del from 192.168.50.64/26 table 105
+ip rule del from 192.168.50.128/25 table 106
+
+
+ip rule add from 192.168.50.3/32 table 100
+ip rule add from 192.168.50.4/30 table 101
+ip rule add from 192.168.50.8/29 table 102
+ip rule add from 192.168.50.16/28 table 103
+ip rule add from 192.168.50.32/27 table 104
+ip rule add from 192.168.50.64/26 table 105
+ip rule add from 192.168.50.128/25 table 106
+
+ip route add default via 198.18.0.1 dev utun table 100
+ip route add default via 198.18.0.1 dev utun table 101
+ip route add default via 198.18.0.1 dev utun table 102
+ip route add default via 198.18.0.1 dev utun table 103
+ip route add default via 198.18.0.1 dev utun table 104
+ip route add default via 198.18.0.1 dev utun table 105
+ip route add default via 198.18.0.1 dev utun table 106
+```
 
 ## 参考
 
