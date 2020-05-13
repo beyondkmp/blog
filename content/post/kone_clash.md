@@ -107,7 +107,7 @@ dns:
     enhanced-mode: fake-ip
     ipv6: false
     nameserver:
-      - "192.168.50.1"
+      - "192.168.123.1"
       - "119.29.29.29"
       - "114.114.114.114"
       - "223.5.5.5"
@@ -159,13 +159,13 @@ tun:
 3. 如果需要删除使用下面的命令
 
     ```bash
-    ip rule del from 192.168.50.3/32 table 100
-    ip rule del from 192.168.50.4/30 table 101
-    ip rule del from 192.168.50.8/29 table 102
-    ip rule del from 192.168.50.16/28 table 103
-    ip rule del from 192.168.50.32/27 table 104
-    ip rule del from 192.168.50.64/26 table 105
-    ip rule del from 192.168.50.128/25 table 106
+    ip rule del from 192.168.123.3/32 table 100
+    ip rule del from 192.168.123.4/30 table 101
+    ip rule del from 192.168.123.8/29 table 102
+    ip rule del from 192.168.123.16/28 table 103
+    ip rule del from 192.168.123.32/27 table 104
+    ip rule del from 192.168.123.64/26 table 105
+    ip rule del from 192.168.123.128/25 table 106
     ```
 
 ### 使用supervisor管理
@@ -211,22 +211,22 @@ do
     fi
 done
 
-ip rule del from 192.168.50.3/32 table 100
-ip rule del from 192.168.50.4/30 table 101
-ip rule del from 192.168.50.8/29 table 102
-ip rule del from 192.168.50.16/28 table 103
-ip rule del from 192.168.50.32/27 table 104
-ip rule del from 192.168.50.64/26 table 105
-ip rule del from 192.168.50.128/25 table 106
+ip rule del from 192.168.123.3/32 table 100
+ip rule del from 192.168.123.4/30 table 101
+ip rule del from 192.168.123.8/29 table 102
+ip rule del from 192.168.123.16/28 table 103
+ip rule del from 192.168.123.32/27 table 104
+ip rule del from 192.168.123.64/26 table 105
+ip rule del from 192.168.123.128/25 table 106
 
 
-ip rule add from 192.168.50.3/32 table 100
-ip rule add from 192.168.50.4/30 table 101
-ip rule add from 192.168.50.8/29 table 102
-ip rule add from 192.168.50.16/28 table 103
-ip rule add from 192.168.50.32/27 table 104
-ip rule add from 192.168.50.64/26 table 105
-ip rule add from 192.168.50.128/25 table 106
+ip rule add from 192.168.123.3/32 table 100
+ip rule add from 192.168.123.4/30 table 101
+ip rule add from 192.168.123.8/29 table 102
+ip rule add from 192.168.123.16/28 table 103
+ip rule add from 192.168.123.32/27 table 104
+ip rule add from 192.168.123.64/26 table 105
+ip rule add from 192.168.123.128/25 table 106
 
 ip route add default via 198.18.0.1 dev utun table 100
 ip route add default via 198.18.0.1 dev utun table 101

@@ -319,7 +319,7 @@ dns:
     enhanced-mode: fake-ip
     ipv6: <span class="nb">false</span>
     nameserver:
-      - <span class="s2">&#34;192.168.50.1&#34;</span>
+      - <span class="s2">&#34;192.168.123.1&#34;</span>
       - <span class="s2">&#34;119.29.29.29&#34;</span>
       - <span class="s2">&#34;114.114.114.114&#34;</span>
       - <span class="s2">&#34;223.5.5.5&#34;</span>
@@ -410,13 +410,13 @@ ip route add default via <span class="m">198</span>.18.0.1 dev utun table <span 
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">ip rule del from <span class="m">192</span>.168.50.3/32 table <span class="m">100</span>
-ip rule del from <span class="m">192</span>.168.50.4/30 table <span class="m">101</span>
-ip rule del from <span class="m">192</span>.168.50.8/29 table <span class="m">102</span>
-ip rule del from <span class="m">192</span>.168.50.16/28 table <span class="m">103</span>
-ip rule del from <span class="m">192</span>.168.50.32/27 table <span class="m">104</span>
-ip rule del from <span class="m">192</span>.168.50.64/26 table <span class="m">105</span>
-ip rule del from <span class="m">192</span>.168.50.128/25 table <span class="m">106</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">ip rule del from <span class="m">192</span>.168.123.3/32 table <span class="m">100</span>
+ip rule del from <span class="m">192</span>.168.123.4/30 table <span class="m">101</span>
+ip rule del from <span class="m">192</span>.168.123.8/29 table <span class="m">102</span>
+ip rule del from <span class="m">192</span>.168.123.16/28 table <span class="m">103</span>
+ip rule del from <span class="m">192</span>.168.123.32/27 table <span class="m">104</span>
+ip rule del from <span class="m">192</span>.168.123.64/26 table <span class="m">105</span>
+ip rule del from <span class="m">192</span>.168.123.128/25 table <span class="m">106</span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -529,22 +529,22 @@ ip rule del from <span class="m">192</span>.168.50.128/25 table <span class="m">
     <span class="k">fi</span>
 <span class="k">done</span>
 
-ip rule del from <span class="m">192</span>.168.50.3/32 table <span class="m">100</span>
-ip rule del from <span class="m">192</span>.168.50.4/30 table <span class="m">101</span>
-ip rule del from <span class="m">192</span>.168.50.8/29 table <span class="m">102</span>
-ip rule del from <span class="m">192</span>.168.50.16/28 table <span class="m">103</span>
-ip rule del from <span class="m">192</span>.168.50.32/27 table <span class="m">104</span>
-ip rule del from <span class="m">192</span>.168.50.64/26 table <span class="m">105</span>
-ip rule del from <span class="m">192</span>.168.50.128/25 table <span class="m">106</span>
+ip rule del from <span class="m">192</span>.168.123.3/32 table <span class="m">100</span>
+ip rule del from <span class="m">192</span>.168.123.4/30 table <span class="m">101</span>
+ip rule del from <span class="m">192</span>.168.123.8/29 table <span class="m">102</span>
+ip rule del from <span class="m">192</span>.168.123.16/28 table <span class="m">103</span>
+ip rule del from <span class="m">192</span>.168.123.32/27 table <span class="m">104</span>
+ip rule del from <span class="m">192</span>.168.123.64/26 table <span class="m">105</span>
+ip rule del from <span class="m">192</span>.168.123.128/25 table <span class="m">106</span>
 
 
-ip rule add from <span class="m">192</span>.168.50.3/32 table <span class="m">100</span>
-ip rule add from <span class="m">192</span>.168.50.4/30 table <span class="m">101</span>
-ip rule add from <span class="m">192</span>.168.50.8/29 table <span class="m">102</span>
-ip rule add from <span class="m">192</span>.168.50.16/28 table <span class="m">103</span>
-ip rule add from <span class="m">192</span>.168.50.32/27 table <span class="m">104</span>
-ip rule add from <span class="m">192</span>.168.50.64/26 table <span class="m">105</span>
-ip rule add from <span class="m">192</span>.168.50.128/25 table <span class="m">106</span>
+ip rule add from <span class="m">192</span>.168.123.3/32 table <span class="m">100</span>
+ip rule add from <span class="m">192</span>.168.123.4/30 table <span class="m">101</span>
+ip rule add from <span class="m">192</span>.168.123.8/29 table <span class="m">102</span>
+ip rule add from <span class="m">192</span>.168.123.16/28 table <span class="m">103</span>
+ip rule add from <span class="m">192</span>.168.123.32/27 table <span class="m">104</span>
+ip rule add from <span class="m">192</span>.168.123.64/26 table <span class="m">105</span>
+ip rule add from <span class="m">192</span>.168.123.128/25 table <span class="m">106</span>
 
 ip route add default via <span class="m">198</span>.18.0.1 dev utun table <span class="m">100</span>
 ip route add default via <span class="m">198</span>.18.0.1 dev utun table <span class="m">101</span>
