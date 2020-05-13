@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="beyondkmp" /><meta name="description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&amp;rdquo;unable to find a medium containing a live file system&amp;rdquo;,网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
+<meta name="author" content="beyondkmp" /><meta name="description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&amp;rdquo;unable to find a medium containing a live file system&amp;rdquo;.
+网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
 nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安装了，于是有了下面的pxe安装教程。
 在win10创建空白压缩盘 在Windows10下直接进入磁盘管理器找到有足够空间的磁盘，通过压缩卷压缩出一部分空白分区，分区大小依据个人需求，这个大小是未来第二个系统所有的可用空间，直接给了个30G
 " /><meta name="keywords" content="pxe, netboot, ubuntu, linux" />
@@ -42,7 +43,9 @@ nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安�
 
 
 <meta property="og:title" content="通过网络启动安装ubuntu" />
-<meta property="og:description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;,网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
+<meta property="og:description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;.
+
+网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
 
 nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安装了，于是有了下面的pxe安装教程。
 
@@ -54,7 +57,9 @@ nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安�
 <meta property="article:published_time" content="2020-05-13T17:37:05+08:00" />
 <meta property="article:modified_time" content="2020-05-13T17:37:05+08:00" />
 <meta itemprop="name" content="通过网络启动安装ubuntu">
-<meta itemprop="description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;,网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
+<meta itemprop="description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;.
+
+网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
 
 nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安装了，于是有了下面的pxe安装教程。
 
@@ -65,14 +70,16 @@ nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安�
 
 <meta itemprop="datePublished" content="2020-05-13T17:37:05&#43;08:00" />
 <meta itemprop="dateModified" content="2020-05-13T17:37:05&#43;08:00" />
-<meta itemprop="wordCount" content="873">
+<meta itemprop="wordCount" content="899">
 
 
 
 <meta itemprop="keywords" content="pxe,netboot,ubuntu,linux," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通过网络启动安装ubuntu"/>
-<meta name="twitter:description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;,网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
+<meta name="twitter:description" content="最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;.
+
+网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。
 
 nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安装了，于是有了下面的pxe安装教程。
 
@@ -179,7 +186,9 @@ nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安�
   </div>
 </div>
     <div class="post-content">
-      <p>最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;,网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。</p>
+      <p>最近折腾nuc,默认系统是win10。一直想安装一个linux，结果开始动手安装后，真的是累啊。之前安装linux都是直接使用dd命令制作一个启动u盘，然后bios设置成u盘启动，就可以点下一步就可以安装完成了，不过这次nuc不知道为什么就是启动不成功，一直报&rdquo;unable to find a medium containing a live file system&rdquo;.</p>
+
+<p>网上有很多方法，没有一个有用的。改过bios，不使用uefi启动，系统启动盘也用其它的软件制作过，还有更加牛逼的方法：就是进入到ubuntu界面，拨出u盘再插上。我怀疑是我的usb3.0u盘的问题，不过手头没有2.0的u盘也没有办法证实了。</p>
 
 <p>nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安装了，于是有了下面的pxe安装教程。</p>
 
@@ -194,7 +203,7 @@ nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安�
 <ol>
 <li><p>下载UEFI签名的grup启动文件到/srv/tftp. <a href="http://archive.ubuntu.com/ubuntu/dists/trusty/main/uefi/grub2-amd64/current/grubnetx64.efi.signed">http://archive.ubuntu.com/ubuntu/dists/trusty/main/uefi/grub2-amd64/current/grubnetx64.efi.signed</a></p></li>
 
-<li><p>下载正确的ubtuntu的网络启动iso，这里我选择的是18.04的服务器版本。&lt; <a href="http://cdimage.ubuntu.com/netboot/&gt;">http://cdimage.ubuntu.com/netboot/&gt;</a></p></li>
+<li><p>下载正确的ubtuntu的网络启动iso，这里我选择的是18.04的服务器版本。<a href="http://cdimage.ubuntu.com/netboot/">http://cdimage.ubuntu.com/netboot/</a></p></li>
 
 <li><p>解压 netboot.tar.gz 到/srv/tftp/</p></li>
 </ol>
@@ -205,12 +214,22 @@ nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安�
 <li>先创建文件<code>/srv/tftp/grub/grub.cfg</code></li>
 
 <li><p>将下面的内容复制到grub.cfg里面</p>
-
-<p>menuentry &ldquo;Install Ubuntu&rdquo; {
-set gfxpayload=keep
-linux /ubuntu-installer/amd64/linux gfxpayload=800x600x16,800x600 live-installer/net-image=$PATH_TO_FILESYSTEM_SQUASHFS &mdash; quiet
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">menuentry <span class="s2">&#34;Install Ubuntu&#34;</span> <span class="o">{</span>
+<span class="nb">set</span> <span class="nv">gfxpayload</span><span class="o">=</span>keep
+linux /ubuntu-installer/amd64/linux <span class="nv">gfxpayload</span><span class="o">=</span>800x600x16,800x600 live-installer/net-image<span class="o">=</span><span class="nv">$PATH_TO_FILESYSTEM_SQUASHFS</span> --- quiet
 initrd /ubuntu-installer/amd64/initrd.gz
-}</p></li>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
 <h3 id="安装tftp和dhcp服务器">安装tftp和dhcp服务器</h3>
@@ -225,7 +244,8 @@ initrd /ubuntu-installer/amd64/initrd.gz
 
 <p>3.将下面的内容复制到<code>/etc/dnsmasq.conf</code></p>
 
-<pre><code>    listen-address=127.0.0.1
+<pre><code>    ```bash
+    listen-address=127.0.0.1
     listen-address=192.168.50.2
     # DHCP options
     dhcp-range=192.168.50.100,192.168.50.249,12h
@@ -237,12 +257,19 @@ initrd /ubuntu-installer/amd64/initrd.gz
     dhcp-boot=grubnetx64.efi.signed
     enable-tftp
     tftp-root=/srv/tftp/
+    ```
 </code></pre>
 
 <ol>
 <li><p>dnsmasq reload</p>
-
-<p>sudo service dnsmasq restart</p></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo service dnsmasq restart</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
 <h2 id="设置路由器">设置路由器</h2>
@@ -251,9 +278,16 @@ initrd /ubuntu-installer/amd64/initrd.gz
 <li>将网关设置路由器192.168.50.2，这样当nuc网络启动的时候会把树莓派当成网关，就可以网络启动安装了。</li>
 
 <li><p>因为路由器把网关设置成192.168.50.2, 这样在树莓上面的默认路由会指向自己，是不正确的，用下面的命令删除掉</p>
-
-<p>ip route delete default via 198.168.50.2
-ip route add default via 198.168.50.2</p></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ip route delete default via <span class="m">198</span>.168.50.2
+ip route add default via <span class="m">198</span>.168.50.2</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
 <h2 id="安装">安装</h2>
