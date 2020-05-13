@@ -28,7 +28,7 @@ nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安�
 ### 下载ubuntu启动文件
 
 1. 下载UEFI签名的grup启动文件到/srv/tftp. <http://archive.ubuntu.com/ubuntu/dists/trusty/main/uefi/grub2-amd64/current/grubnetx64.efi.signed>
-2. 下载正确的ubtuntu的网络启动iso，这里我选择的是18.04的服务器版本。<http://cdimage.ubuntu.com/netboot/>
+2. 下载正确的ubtuntu的网络启动iso，这里我选择的是18.04的服务器版本。<http://cdimage.ubuntu.com/netboot/focal/>
 3. 解压 netboot.tar.gz 到/srv/tftp/
 
 ### 设置grub
