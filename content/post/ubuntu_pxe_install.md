@@ -28,9 +28,7 @@ nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安�
 ### 下载ubuntu启动文件
 
 1. 下载UEFI签名的grup启动文件到/srv/tftp. <http://archive.ubuntu.com/ubuntu/dists/trusty/main/uefi/grub2-amd64/current/grubnetx64.efi.signed>
-
 2. 下载正确的ubtuntu的网络启动iso，这里我选择的是18.04的服务器版本。<http://cdimage.ubuntu.com/netboot/>
-
 3. 解压 netboot.tar.gz 到/srv/tftp/
 
 ### 设置grub
@@ -50,26 +48,26 @@ nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安�
 
 1. Install dnsmasq:
 
+    ```bash
     sudo apt-get install dnsmasq
-
+    ```
 2. 将电脑设置成静态ip(一般路由器下面也不会变ip可以不用设置)
+3. 将下面的内容复制到`/etc/dnsmasq.conf`
 
-3.将下面的内容复制到`/etc/dnsmasq.conf`
+    ```bash
+    listen-address=127.0.0.1
+    listen-address=192.168.50.2
+# DHCP options
+    dhcp-range=192.168.50.100,192.168.50.249,12h
+    dhcp-lease-max=100
+    dhcp-option=option:router,192.168.50.1
+    dhcp-option=option:dns-server,192.168.50.2
+    dhcp-option=option:netmask,255.255.255.0
 
-        ```bash
-        listen-address=127.0.0.1
-        listen-address=192.168.50.2
-        # DHCP options
-        dhcp-range=192.168.50.100,192.168.50.249,12h
-        dhcp-lease-max=100
-        dhcp-option=option:router,192.168.50.1
-        dhcp-option=option:dns-server,192.168.50.2
-        dhcp-option=option:netmask,255.255.255.0
-
-        dhcp-boot=grubnetx64.efi.signed
-        enable-tftp
-        tftp-root=/srv/tftp/
-        ```
+    dhcp-boot=grubnetx64.efi.signed
+    enable-tftp
+    tftp-root=/srv/tftp/
+    ```
 
 4. dnsmasq reload
 

@@ -70,7 +70,7 @@ nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安�
 
 <meta itemprop="datePublished" content="2020-05-13T17:37:05&#43;08:00" />
 <meta itemprop="dateModified" content="2020-05-13T17:37:05&#43;08:00" />
-<meta itemprop="wordCount" content="899">
+<meta itemprop="wordCount" content="908">
 
 
 
@@ -201,11 +201,9 @@ nuc又没有光驱，现在剩下的唯一方法就是pxe通过网络启动安�
 <h3 id="下载ubuntu启动文件">下载ubuntu启动文件</h3>
 
 <ol>
-<li><p>下载UEFI签名的grup启动文件到/srv/tftp. <a href="http://archive.ubuntu.com/ubuntu/dists/trusty/main/uefi/grub2-amd64/current/grubnetx64.efi.signed">http://archive.ubuntu.com/ubuntu/dists/trusty/main/uefi/grub2-amd64/current/grubnetx64.efi.signed</a></p></li>
-
-<li><p>下载正确的ubtuntu的网络启动iso，这里我选择的是18.04的服务器版本。<a href="http://cdimage.ubuntu.com/netboot/">http://cdimage.ubuntu.com/netboot/</a></p></li>
-
-<li><p>解压 netboot.tar.gz 到/srv/tftp/</p></li>
+<li>下载UEFI签名的grup启动文件到/srv/tftp. <a href="http://archive.ubuntu.com/ubuntu/dists/trusty/main/uefi/grub2-amd64/current/grubnetx64.efi.signed">http://archive.ubuntu.com/ubuntu/dists/trusty/main/uefi/grub2-amd64/current/grubnetx64.efi.signed</a></li>
+<li>下载正确的ubtuntu的网络启动iso，这里我选择的是18.04的服务器版本。<a href="http://cdimage.ubuntu.com/netboot/">http://cdimage.ubuntu.com/netboot/</a></li>
+<li>解压 netboot.tar.gz 到/srv/tftp/</li>
 </ol>
 
 <h3 id="设置grub">设置grub</h3>
@@ -236,31 +234,49 @@ initrd /ubuntu-installer/amd64/initrd.gz
 
 <ol>
 <li><p>Install dnsmasq:</p>
-
-<p>sudo apt-get install dnsmasq</p></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install dnsmasq</code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>将电脑设置成静态ip(一般路由器下面也不会变ip可以不用设置)</p></li>
-</ol>
 
-<p>3.将下面的内容复制到<code>/etc/dnsmasq.conf</code></p>
+<li><p>将下面的内容复制到<code>/etc/dnsmasq.conf</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">listen-address<span class="o">=</span><span class="m">127</span>.0.0.1
+listen-address<span class="o">=</span><span class="m">192</span>.168.50.2
+<span class="c1"># DHCP options</span>
+dhcp-range<span class="o">=</span><span class="m">192</span>.168.50.100,192.168.50.249,12h
+dhcp-lease-max<span class="o">=</span><span class="m">100</span>
+dhcp-option<span class="o">=</span>option:router,192.168.50.1
+dhcp-option<span class="o">=</span>option:dns-server,192.168.50.2
+dhcp-option<span class="o">=</span>option:netmask,255.255.255.0
 
-<pre><code>    ```bash
-    listen-address=127.0.0.1
-    listen-address=192.168.50.2
-    # DHCP options
-    dhcp-range=192.168.50.100,192.168.50.249,12h
-    dhcp-lease-max=100
-    dhcp-option=option:router,192.168.50.1
-    dhcp-option=option:dns-server,192.168.50.2
-    dhcp-option=option:netmask,255.255.255.0
+dhcp-boot<span class="o">=</span>grubnetx64.efi.signed
+enable-tftp
+tftp-root<span class="o">=</span>/srv/tftp/</code></pre></td></tr></table>
+</div>
+</div></li>
 
-    dhcp-boot=grubnetx64.efi.signed
-    enable-tftp
-    tftp-root=/srv/tftp/
-    ```
-</code></pre>
-
-<ol>
 <li><p>dnsmasq reload</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
