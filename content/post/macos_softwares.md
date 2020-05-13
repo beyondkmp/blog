@@ -44,8 +44,12 @@ author: "beyondkmp"
 
 4. [AppCleaner](https://freemacsoft.net/appcleaner/)
 
+    ![AppCleaner](/imgs/softwares/appcleaner.png)
+
     * 免费的删除软件的软件
-    * 
+    * 稳定高效，可以将软件的对应的配置都删除干净
+    * 可以删除正在运行与系统的软件
+    * 可以拖拽软件删除
 
 4. [Dash]()
 
