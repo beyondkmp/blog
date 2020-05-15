@@ -36,9 +36,9 @@ author: "beyondkmp"
     # 在 /etc/network/interfaces,修改eth0配置
     auto eth0
     iface eth0 inet static
-        address 192.168.123.2
+        address 192.168.50.2
         netmask 255.255.255.0
-        gateway 192.168.123.1
+        gateway 192.168.50.1
         dns-nameservers 114.114.114.114
 	```
 
@@ -48,13 +48,13 @@ author: "beyondkmp"
 
     在路由器上添加多条静态路由：
 
-    ![static route](/imgs/static_route.png)
+    ![static route](/imgs/clash/static_route.png)
 
 * 修改默认dns
 
-    把路由器的默认dns修改为：192.168.123.2
+    把路由器的默认dns修改为：192.168.50.2
 
-    ![dns](/imgs/dns.png)
+    ![dns](/imgs/clash/dns.png)
 
     tp-link 路由器的修改参考这里：<http://service.tp-link.com.cn/detail_article_575.html>
 
@@ -62,18 +62,18 @@ author: "beyondkmp"
 
 ### 测试
 
-断开wifi重新连接，查看dns默认dns是不是192.168.123.2, 并`ping www.github.com`看下连接地址是不是192.18.x.x, 或者使用dig命令。
+断开wifi重新连接，查看dns默认dns是不是192.168.50.2, 并`ping www.github.com`看下连接地址是不是192.18.x.x, 或者使用dig命令。
 
 ```bash
  $ ping www.github.com
- PING www.github.com (192.168.123.177) 56(84) bytes of data.
- 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=1 ttl=63 time=1.70 ms
- 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=2 ttl=63 time=1.96 ms
- 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=3 ttl=63 time=1.82 ms
- 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=4 ttl=63 time=2.05 ms
- 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=5 ttl=63 time=1.98 ms
- 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=6 ttl=63 time=2.81 ms
- 64 bytes from 192.168.123.177 (192.168.123.177): icmp_seq=7 ttl=63 time=2.23 ms
+ PING www.github.com (192.18.1.46) 56(84) bytes of data.
+ 64 bytes from 192.18.1.46 (192.18.1.46): icmp_seq=1 ttl=63 time=1.70 ms
+ 64 bytes from 192.18.1.46 (192.18.1.46): icmp_seq=2 ttl=63 time=1.96 ms
+ 64 bytes from 192.18.1.46 (192.18.1.46): icmp_seq=3 ttl=63 time=1.82 ms
+ 64 bytes from 192.18.1.46 (192.18.1.46): icmp_seq=4 ttl=63 time=2.05 ms
+ 64 bytes from 192.18.1.46 (192.18.1.46): icmp_seq=5 ttl=63 time=1.98 ms
+ 64 bytes from 192.18.1.46 (192.18.1.46): icmp_seq=6 ttl=63 time=2.81 ms
+ 64 bytes from 192.18.1.46 (192.18.1.46): icmp_seq=7 ttl=63 time=2.23 ms
  ^C
  --- www.github.com ping statistics ---
  7 packets transmitted, 7 received, 0% packet loss, time 18ms
@@ -107,7 +107,7 @@ dns:
     enhanced-mode: fake-ip
     ipv6: false
     nameserver:
-      - "192.168.123.1"
+      - "192.168.50.1"
       - "119.29.29.29"
       - "114.114.114.114"
       - "223.5.5.5"
@@ -127,25 +127,25 @@ tun:
 1. 使用netmask计算子网
 
     ```bash
-    pi@raspberrypi:~/clash $ netmask 192.168.123.3:192.168.123.255
-      192.168.123.3/32
-      192.168.123.4/30
-      192.168.123.8/29
-     192.168.123.16/28
-     192.168.123.32/27
-     192.168.123.64/26
-    192.168.123.128/25
+    pi@raspberrypi:~/clash $ netmask 192.168.50.3:192.168.50.255
+      192.168.50.3/32
+      192.168.50.4/30
+      192.168.50.8/29
+     192.168.50.16/28
+     192.168.50.32/27
+     192.168.50.64/26
+    192.168.50.128/25
     ```
 2. 添加路由
 
     ```bash
-    ip rule add from 192.168.123.3/32 table 100
-    ip rule add from 192.168.123.4/30 table 101
-    ip rule add from 192.168.123.8/29 table 102
-    ip rule add from 192.168.123.16/28 table 103
-    ip rule add from 192.168.123.32/27 table 104
-    ip rule add from 192.168.123.64/26 table 105
-    ip rule add from 192.168.123.128/25 table 106
+    ip rule add from 192.168.50.3/32 table 100
+    ip rule add from 192.168.50.4/30 table 101
+    ip rule add from 192.168.50.8/29 table 102
+    ip rule add from 192.168.50.16/28 table 103
+    ip rule add from 192.168.50.32/27 table 104
+    ip rule add from 192.168.50.64/26 table 105
+    ip rule add from 192.168.50.128/25 table 106
 
     ip route add default via 198.18.0.1 dev utun table 100
     ip route add default via 198.18.0.1 dev utun table 101
@@ -159,13 +159,13 @@ tun:
 3. 如果需要删除使用下面的命令
 
     ```bash
-    ip rule del from 192.168.123.3/32 table 100
-    ip rule del from 192.168.123.4/30 table 101
-    ip rule del from 192.168.123.8/29 table 102
-    ip rule del from 192.168.123.16/28 table 103
-    ip rule del from 192.168.123.32/27 table 104
-    ip rule del from 192.168.123.64/26 table 105
-    ip rule del from 192.168.123.128/25 table 106
+    ip rule del from 192.168.50.3/32 table 100
+    ip rule del from 192.168.50.4/30 table 101
+    ip rule del from 192.168.50.8/29 table 102
+    ip rule del from 192.168.50.16/28 table 103
+    ip rule del from 192.168.50.32/27 table 104
+    ip rule del from 192.168.50.64/26 table 105
+    ip rule del from 192.168.50.128/25 table 106
     ```
 
 ### 使用supervisor管理
@@ -211,22 +211,22 @@ do
     fi
 done
 
-ip rule del from 192.168.123.3/32 table 100
-ip rule del from 192.168.123.4/30 table 101
-ip rule del from 192.168.123.8/29 table 102
-ip rule del from 192.168.123.16/28 table 103
-ip rule del from 192.168.123.32/27 table 104
-ip rule del from 192.168.123.64/26 table 105
-ip rule del from 192.168.123.128/25 table 106
+ip rule del from 192.168.50.3/32 table 100
+ip rule del from 192.168.50.4/30 table 101
+ip rule del from 192.168.50.8/29 table 102
+ip rule del from 192.168.50.16/28 table 103
+ip rule del from 192.168.50.32/27 table 104
+ip rule del from 192.168.50.64/26 table 105
+ip rule del from 192.168.50.128/25 table 106
 
 
-ip rule add from 192.168.123.3/32 table 100
-ip rule add from 192.168.123.4/30 table 101
-ip rule add from 192.168.123.8/29 table 102
-ip rule add from 192.168.123.16/28 table 103
-ip rule add from 192.168.123.32/27 table 104
-ip rule add from 192.168.123.64/26 table 105
-ip rule add from 192.168.123.128/25 table 106
+ip rule add from 192.168.50.3/32 table 100
+ip rule add from 192.168.50.4/30 table 101
+ip rule add from 192.168.50.8/29 table 102
+ip rule add from 192.168.50.16/28 table 103
+ip rule add from 192.168.50.32/27 table 104
+ip rule add from 192.168.50.64/26 table 105
+ip rule add from 192.168.50.128/25 table 106
 
 ip route add default via 198.18.0.1 dev utun table 100
 ip route add default via 198.18.0.1 dev utun table 101
