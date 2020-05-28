@@ -25,6 +25,16 @@ author: "beyondkmp"
 * 针对选中的文件，直接使用vscode打开
 * 快速复制当前目录的路径，终端用户的救星
 
+## [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements)
+
+![Karabiner-Elements](/imgs/softwares/Karabiner-Elements.png)
+
+* mac上的改键神器
+* cap大写键改成esc和ctrl，终端用户的福音
+* 可以不同的键盘不现的改法
+* 很多自定义的玩法
+
+
 ## [IINA](https://iina.io/)
 
 ![iina](https://iina.io/images/sc-sky.png)
