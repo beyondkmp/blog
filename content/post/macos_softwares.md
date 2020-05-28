@@ -23,6 +23,7 @@ author: "beyondkmp"
 
 * 针对当前目录，快速在终端打开进行
 * 针对选中的文件，直接使用vscode打开
+* 快速复制当前目录的路径，终端用户的救星
 
 ## [IINA](https://iina.io/)
 
