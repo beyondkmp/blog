@@ -1,7 +1,7 @@
 ---
 title: "高效的macos软件"
 date: 2019-01-29T12:44:37+0800
-lastmod: 2020-05-13T10:11:54+0800
+lastmod: 2020-05-28T22:51:00+0800
 draft: false
 keywords: ["macos","高效软件"]
 description: ""
