@@ -17,6 +17,13 @@ author: "beyondkmp"
 
 # 免费高质量软件
 
+## [OpenInTerminal](https://github.com/Ji4n1ng/OpenInTerminal)
+
+![OpenInTerminal](/imgs/softwares/OpenInTerminal.gif)
+
+* 针对当前目录，快速在终端打开进行
+* 针对选中的文件，直接使用vscode打开
+
 ## [IINA](https://iina.io/)
 
 ![iina](https://iina.io/images/sc-sky.png)
