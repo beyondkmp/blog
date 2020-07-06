@@ -10,14 +10,14 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/</loc>
-    <lastmod>2020-05-29T13:46:54+08:00</lastmod>
+    <lastmod>2020-07-06T09:19:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/</loc>
-    <lastmod>2020-05-29T13:46:54+08:00</lastmod>
+    <lastmod>2020-07-06T09:19:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,7 +38,7 @@
   
   <url>
     <loc>https://beyondkmp.com/post/</loc>
-    <lastmod>2020-05-29T13:46:54+08:00</lastmod>
+    <lastmod>2020-07-06T09:19:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -52,7 +52,7 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/</loc>
-    <lastmod>2020-05-29T13:46:54+08:00</lastmod>
+    <lastmod>2020-07-06T09:19:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -276,7 +276,7 @@
   
   <url>
     <loc>https://beyondkmp.com/categories/mac/</loc>
-    <lastmod>2020-05-28T22:51:00+08:00</lastmod>
+    <lastmod>2020-07-06T09:19:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -521,21 +521,21 @@
   
   <url>
     <loc>https://beyondkmp.com/tags/libfaketime/</loc>
-    <lastmod>2019-12-05T19:08:26+08:00</lastmod>
+    <lastmod>2020-07-06T09:19:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/post/libfaketime_surge/</loc>
-    <lastmod>2019-12-05T19:08:26+08:00</lastmod>
+    <lastmod>2020-07-06T09:19:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://beyondkmp.com/tags/surge/</loc>
-    <lastmod>2019-12-05T19:08:26+08:00</lastmod>
+    <lastmod>2020-07-06T09:19:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -730,14 +730,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/scala/</loc>
+    <loc>https://beyondkmp.com/tags/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/scala/</loc>
+    <loc>https://beyondkmp.com/categories/scala/</loc>
     <lastmod>2018-09-18T16:37:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1836,14 +1836,14 @@
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://beyondkmp.com/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://beyondkmp.com/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2015-01-19T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

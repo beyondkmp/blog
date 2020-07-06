@@ -1,7 +1,7 @@
 ---
 title: "libfaketime改变软件的运行时间"
 date: 2019-01-27T16:40:07+0800
-lastmod: 2019-12-05T19:08:26+0800
+lastmod: 2020-07-06T09:19:30+0800
 draft: false
 keywords: ["libfaketime","surge","修改软件时间"]
 description: "libfaketime改变软件的运行时间"
@@ -66,3 +66,7 @@ author: "beyondkmp"
 ![fakesurge](/imgs/alfred_surge.png)
 
 我已经把这个workflow导出来了，直接下载[fakesurge](/files/surge_faketime.alfredworkflow), 双击安装即可。
+
+## 建议
+
+surge2版本已经太老了，有很多功能都没有跟上，建议使用[clashx pro](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public )。支持协议更加全面，功能也更加丰富，值的更换。
