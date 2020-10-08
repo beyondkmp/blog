@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 13 May 2020 17:37:05 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2020 16:22:12 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>webrtc资源收集</title>
+      <link>https://beyondkmp.com/post/webrtc_blogs/</link>
+      <pubDate>Thu, 08 Oct 2020 16:22:12 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/post/webrtc_blogs/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://webrtcbydralex.com/&#34;&gt;WebRTC by Dr Alex&lt;/a&gt;: 国外一个大佬的webrtc的博客&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
     
     <item>
       <title>通过网络启动安装ubuntu</title>

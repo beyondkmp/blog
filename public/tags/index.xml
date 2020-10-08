@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Kmp - beyondkmp&#39;s new hugo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 13 May 2020 17:37:05 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2020 16:22:12 +0800</lastBuildDate>
     
 	<atom:link href="https://beyondkmp.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>blog</title>
+      <link>https://beyondkmp.com/tags/blog/</link>
+      <pubDate>Thu, 08 Oct 2020 16:22:12 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webrtc</title>
+      <link>https://beyondkmp.com/tags/webrtc/</link>
+      <pubDate>Thu, 08 Oct 2020 16:22:12 +0800</pubDate>
+      
+      <guid>https://beyondkmp.com/tags/webrtc/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Linux</title>
@@ -323,15 +341,6 @@
       <pubDate>Thu, 28 Feb 2019 15:07:41 +0800</pubDate>
       
       <guid>https://beyondkmp.com/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blog</title>
-      <link>https://beyondkmp.com/tags/blog/</link>
-      <pubDate>Thu, 28 Feb 2019 14:51:59 +0800</pubDate>
-      
-      <guid>https://beyondkmp.com/tags/blog/</guid>
       <description></description>
     </item>
     
