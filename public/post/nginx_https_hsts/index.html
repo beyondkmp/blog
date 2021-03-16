@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-02-22T21:19:44&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-24T22:43:10&#43;08:00" />
-<meta itemprop="wordCount" content="686">
+<meta itemprop="wordCount" content="892">
 
 
 
@@ -456,14 +456,10 @@ systemctl start nginx</code></pre></td></tr></table>
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">wget https://raw.githubusercontent.com/certbot/certbot/master/certbot-auto
-chmod +x certbot-auto
-cp certbot-auto /usr/local/bin
-/usr/local/bin/certbot-auto certonly -d beyondkmp.com -d www.beyondkmp.com  --standalone</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">apt install certbot
+certbot certonly -d beyondkmp.com -d www.beyondkmp.com  --standalone</code></pre></td></tr></table>
 </div>
 </div></li>
 
@@ -473,7 +469,7 @@ cp certbot-auto /usr/local/bin
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">/usr/local/bin/certbot-auto renew --force-renewal</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">certbot renew --force-renewal</code></pre></td></tr></table>
 </div>
 </div></li>
 
@@ -483,9 +479,28 @@ cp certbot-auto /usr/local/bin
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">0</span> <span class="m">9</span> <span class="m">1</span> * * systemctl stop nginx<span class="p">;</span> /usr/local/bin/certbot-auto renew --force-renewal<span class="p">;</span>systemctl start nginx</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">0</span> <span class="m">9</span> <span class="m">1</span> * * systemctl stop nginx<span class="p">;</span> certbot renew --force-renewal<span class="p">;</span>systemctl start nginx</code></pre></td></tr></table>
 </div>
 </div></li>
+
+<li><p>删除证书</p>
+
+<pre><code>root@yyyyy:~# certbot delete
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+Which certificate(s) would you like to delete?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: xxxx.com
+2: yyyy.com
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate numbers separated by commas and/or spaces, or leave input
+blank to select all options shown (Enter 'c' to cancel): 2
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Deleted all files relating to certificate yyyy.com.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+</code></pre></li>
 </ol>
 
 <h2 id="nginx中hsts配置">nginx中HSTS配置</h2>
@@ -604,7 +619,7 @@ cp certbot-auto /usr/local/bin
   <span class="copyright-year">
     &copy; 
     2015 - 
-    2020
+    2021
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

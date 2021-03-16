@@ -174,22 +174,40 @@ server {
 1. 下载certbot-auto脚本，并生成证书
 
     ```bash
-    wget https://raw.githubusercontent.com/certbot/certbot/master/certbot-auto
-    chmod +x certbot-auto
-    cp certbot-auto /usr/local/bin
-    /usr/local/bin/certbot-auto certonly -d beyondkmp.com -d www.beyondkmp.com  --standalone
+    apt install certbot
+    certbot certonly -d beyondkmp.com -d www.beyondkmp.com  --standalone
     ```
 
 3. 证书过期前手动运行下面命令更新证书
 
     ```bash
-    /usr/local/bin/certbot-auto renew --force-renewal
+    certbot renew --force-renewal
     ```
 
 4. 加入crontab每月自动更新证书
 
     ```bash
-    0 9 1 * * systemctl stop nginx; /usr/local/bin/certbot-auto renew --force-renewal;systemctl start nginx
+    0 9 1 * * systemctl stop nginx; certbot renew --force-renewal;systemctl start nginx
+    ```
+
+5. 删除证书
+
+    ```
+    root@yyyyy:~# certbot delete
+    Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+    Which certificate(s) would you like to delete?
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    1: xxxx.com
+    2: yyyy.com
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    Select the appropriate numbers separated by commas and/or spaces, or leave input
+    blank to select all options shown (Enter 'c' to cancel): 2
+
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    Deleted all files relating to certificate yyyy.com.
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     ```
 
 
